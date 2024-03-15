@@ -51,13 +51,14 @@ class Table_Schemas {
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
                 "$COLUMN_ID INTEGER PRIMARY KEY," +
-                "FOREIGN KEY($COLUMN_ID) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
                 "$COLUMN_DOMAIN TEXT," +
-                " $COLUMN_PRESTATION TEXT ," +
-                " $COLUMN_DISPONIBLE BOOLEAN DEFAULT 0," +
-                " $COLUMN_DEPLACEMENT BOOLEAN DEFAULT 0," +
-                " $COLUMN_RATING FLOAT," +
-                " $COLUMN_WORKING_AREA TEXT)"
+                "$COLUMN_PRESTATION TEXT," +
+                "$COLUMN_DISPONIBLE BOOLEAN DEFAULT 0," +
+                "$COLUMN_DEPLACEMENT BOOLEAN DEFAULT 0," +
+                "$COLUMN_RATING FLOAT," +
+                "$COLUMN_WORKING_AREA TEXT," +
+                " FOREIGN KEY($COLUMN_ID) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE)"
+
     }
     /*object WorkHours{
         const val TABLE_NAME = "workhours"
@@ -78,15 +79,14 @@ class Table_Schemas {
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ( " +
                 "$COLUMN_ID INTEGER PRIMARY KEY," +
-                " FOREIGN KEY($COLUMN_ID) REFERENCES" +
-                "${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE, " +
                 "$COLUMN_MONDAY BOOLEAN DEFAULT 0," +
                 " $COLUMN_TUESDAY BOOLEAN DEFAULT 0," +
                 "$COLUMN_WEDNESDAY BOOLEAN DEFAULT 0," +
                 "$COLUMN_THURSDAY BOOLEAN DEFAULT 0," +
                 "$COLUMN_FRIDAY BOOLEAN DEFAULT 0," +
                 "$COLUMN_SATURDAY BOOLEAN DEFAULT 0," +
-                "$COLUMN_SUNDAY BOOLEAN DEFAULT 0)"
+                "$COLUMN_SUNDAY BOOLEAN DEFAULT 0," +
+                "FOREIGN KEY($COLUMN_ID) REFERENCES ${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE)"
     }
 
     object Comments{
@@ -97,12 +97,11 @@ class Table_Schemas {
         const val COLUMN_NOTATION = "notation"
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID_ARTISAN INTEGER PRIMARY KEY," +
-                " FOREIGN KEY($COLUMN_ID_ARTISAN) REFERENCES " +
-                "${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE," +
                 " $COLUMN_ID_COMMENTER INTEGER," +
-                "FOREIGN KEY($COLUMN_ID_COMMENTER) REFERENCES ${Membre.TABLE_NAME} (${Membre.COLUMN_ID}) ON DELETE CASCADE," +
                 "$COLUMN_COMMENT TEXT ," +
-                " $COLUMN_NOTATION INTEGER)"
+                " $COLUMN_NOTATION INTEGER," +
+                " FOREIGN KEY($COLUMN_ID_ARTISAN) REFERENCES ${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE," +
+                "FOREIGN KEY($COLUMN_ID_COMMENTER) REFERENCES ${Membre.TABLE_NAME} (${Membre.COLUMN_ID}) ON DELETE CASCADE)"
     }
 
     object Demandes{
@@ -124,7 +123,6 @@ class Table_Schemas {
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
                 "$COLUMN_NUM_DEMANDE INTEGER PRIMARY KEY," +
                 "$COLUMN_ID_CLIENT INTEGER," +
-                "FOREIGN KEY ($COLUMN_ID_CLIENT) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
                 "$COLUMN_TITLE TEXT," +
                 "$COLUMN_DESCRIPTION TEXT," +
                 "$COLUMN_REGION TEXT," +
@@ -135,7 +133,9 @@ class Table_Schemas {
                 "$COLUMN_HOUR TEXT," +
                 "$COLUMN_URGENT BOOLEAN DEFAULT 0," +
                 "$COLUMN_MATERIAL_INCLUDED BOOLEAN DEFAULT 0," +
-                "$COLUMN_CONFIRMED BOOLEAN DEFAULT 0)"
+                "$COLUMN_CONFIRMED BOOLEAN DEFAULT 0,"+
+                "FOREIGN KEY ($COLUMN_ID_CLIENT) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE)"
+
     }
     object Tasks_Rendez{
         const val TABLE_NAME = "tasks_rendez"
@@ -145,10 +145,10 @@ class Table_Schemas {
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
                 "$COLUMN_ID_ARTISAN INTEGER PRIMARY KEY," +
-                "FOREIGN KEY ($COLUMN_ID_ARTISAN) REFERENCES ${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE," +
                 "$COLUMN_NUM_DEMANDE INTEGER," +
-                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE," +
-                "$COLUMN_COMPLETED BOOLEAN DEFAULT 0)"
+                "$COLUMN_COMPLETED BOOLEAN DEFAULT 0," +
+                "FOREIGN KEY ($COLUMN_ID_ARTISAN) REFERENCES ${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE," +
+                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE)"
 
     }
 
@@ -164,12 +164,12 @@ class Table_Schemas {
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
                 "$COLUMN_ID_RECEIVER INTEGER PRIMARY KEY," +
-                "FOREIGN KEY($COLUMN_ID_RECEIVER) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
                 "$COLUMN_ID_SENDER INTEGER," +
-                "FOREIGN KEY($COLUMN_ID_SENDER) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
                 "$COLUMN_NUM_DEMANDE INTEGER," +
-                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE," +
-                "$COLUMN_CONTENT TEXT)"
+                "$COLUMN_CONTENT TEXT,"+
+                "FOREIGN KEY($COLUMN_ID_RECEIVER) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
+                "FOREIGN KEY($COLUMN_ID_SENDER) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
+                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE)"
     }
 
 
