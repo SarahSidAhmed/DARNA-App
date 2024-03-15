@@ -14,9 +14,17 @@ class Table_Schemas {
         const val COLUMN_NOTIFCHECK = "notifcheck"
         const val COLUMN_REPORTS = "reports"
 
-        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_TEL TEXT ," +
-                "$COLUMN_ADDRESS TEXT, $COLUMN_EMAIL TEXT UNIQUE, $COLUMN_PASSWORD TEXT, $COLUMN_USERNAME TEXT," +
-                "$COLUMN_IMAGE BLOB, $COLUMN_BOOLCLIENT BOOLEAN DEFAULT 1, $COLUMN_NOTIFCHECK BOOLEAN DEFAULT 0, $COLUMN_REPORTS INTEGER DEFAULT 0)"
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
+                "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " $COLUMN_TEL TEXT ," +
+                "$COLUMN_ADDRESS TEXT," +
+                " $COLUMN_EMAIL TEXT UNIQUE," +
+                " $COLUMN_PASSWORD TEXT," +
+                " $COLUMN_USERNAME TEXT," +
+                "$COLUMN_IMAGE BLOB," +
+                " $COLUMN_BOOLCLIENT BOOLEAN DEFAULT 1," +
+                " $COLUMN_NOTIFCHECK BOOLEAN DEFAULT 0," +
+                " $COLUMN_REPORTS INTEGER DEFAULT 0)"
     }
 
     object Admin{
@@ -25,7 +33,10 @@ class Table_Schemas {
         const val COLUMN_EMAIL = "email"
         const val COLUMN_PASSWORD = "password"
 
-        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_EMAIL TEXT UNIQUE, $COLUMN_PASSWORD TEXT)"
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
+                "$COLUMN_ID INTEGER PRIMARY KEY," +
+                " $COLUMN_EMAIL TEXT UNIQUE," +
+                " $COLUMN_PASSWORD TEXT)"
     }
 
     object Artisan{
@@ -38,9 +49,15 @@ class Table_Schemas {
         const val COLUMN_RATING = "rating"
         const val COLUMN_WORKING_AREA = "working area"
 
-        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY," +
-                "FOREIGN KEY($COLUMN_ID) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE" +
-                "$COLUMN_DOMAIN TEXT, $COLUMN_PRESTATION TEXT , $COLUMN_DISPONIBLE BOOLEAN DEFAULT 0, $COLUMN_DEPLACEMENT BOOLEAN DEFAULT 0, $COLUMN_RATING FLOAT, $COLUMN_WORKING_AREA TEXT)"
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
+                "$COLUMN_ID INTEGER PRIMARY KEY," +
+                "FOREIGN KEY($COLUMN_ID) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
+                "$COLUMN_DOMAIN TEXT," +
+                " $COLUMN_PRESTATION TEXT ," +
+                " $COLUMN_DISPONIBLE BOOLEAN DEFAULT 0," +
+                " $COLUMN_DEPLACEMENT BOOLEAN DEFAULT 0," +
+                " $COLUMN_RATING FLOAT," +
+                " $COLUMN_WORKING_AREA TEXT)"
     }
     /*object WorkHours{
         const val TABLE_NAME = "workhours"
@@ -59,23 +76,119 @@ class Table_Schemas {
         const val COLUMN_SATURDAY = "saturday"
         const val COLUMN_SUNDAY = "sunday"
 
-        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ( $COLUMN_ID INTEGER PRIMARY KEY, FOREIGN KEY($COLUMN_ID) REFERENCES" +
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ( " +
+                "$COLUMN_ID INTEGER PRIMARY KEY," +
+                " FOREIGN KEY($COLUMN_ID) REFERENCES" +
                 "${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE, " +
-                "$COLUMN_MONDAY BOOLEAN DEFAULT 0, $COLUMN_TUESDAY BOOLEAN DEFAULT 0,$COLUMN_WEDNESDAY BOOLEAN DEFAULT 0,$COLUMN_THURSDAY BOOLEAN DEFAULT 0," +
-                "$COLUMN_FRIDAY BOOLEAN DEFAULT 0,$COLUMN_SATURDAY BOOLEAN DEFAULT 0,$COLUMN_SUNDAY BOOLEAN DEFAULT 0)"
+                "$COLUMN_MONDAY BOOLEAN DEFAULT 0," +
+                " $COLUMN_TUESDAY BOOLEAN DEFAULT 0," +
+                "$COLUMN_WEDNESDAY BOOLEAN DEFAULT 0," +
+                "$COLUMN_THURSDAY BOOLEAN DEFAULT 0," +
+                "$COLUMN_FRIDAY BOOLEAN DEFAULT 0," +
+                "$COLUMN_SATURDAY BOOLEAN DEFAULT 0," +
+                "$COLUMN_SUNDAY BOOLEAN DEFAULT 0)"
     }
 
     object Comments{
         const val TABLE_NAME = "comments"
         const val COLUMN_ID_ARTISAN = "id_artisan"
-        const val COLUMN_ID_COMMENTER = "id+commenter"
+        const val COLUMN_ID_COMMENTER = "id_commenter"
         const val COLUMN_COMMENT = "comment"
         const val COLUMN_NOTATION = "notation"
 
-        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID_ARTISAN INTEGER PRIMARY KEY, FOREIGN KEY($COLUMN_ID_ARTISAN) REFERENCES " +
-                "${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE, $COLUMN_ID_COMMENTER INTEGER," +
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID_ARTISAN INTEGER PRIMARY KEY," +
+                " FOREIGN KEY($COLUMN_ID_ARTISAN) REFERENCES " +
+                "${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE," +
+                " $COLUMN_ID_COMMENTER INTEGER," +
                 "FOREIGN KEY($COLUMN_ID_COMMENTER) REFERENCES ${Membre.TABLE_NAME} (${Membre.COLUMN_ID}) ON DELETE CASCADE," +
-                "$COLUMN_COMMENT TEXT , $COLUMN_NOTATION INTEGER)"
+                "$COLUMN_COMMENT TEXT ," +
+                " $COLUMN_NOTATION INTEGER)"
     }
 
+    object Demandes{
+        const val TABLE_NAME = "demandes"
+        const val COLUMN_NUM_DEMANDE = "num_demande"
+        const val COLUMN_ID_CLIENT = "id_client"
+        const val COLUMN_TITLE = "title"
+        const val COLUMN_DESCRIPTION = "descriptiom"
+        const val COLUMN_REGION = "region"
+        const val COLUMN_ADDRESS = "address"
+        const val COLUMN_CATEGORIE = "categorie"
+        const val COLUMN_SERVICE = "service"
+        const val COLUMN_DATE = "date"
+        const val COLUMN_HOUR = "hour"
+        const val COLUMN_URGENT = "urgent"
+        const val COLUMN_MATERIAL_INCLUDED = "material"
+        const val COLUMN_CONFIRMED = "confirmed"
+
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
+                "$COLUMN_NUM_DEMANDE INTEGER PRIMARY KEY," +
+                "$COLUMN_ID_CLIENT INTEGER," +
+                "FOREIGN KEY ($COLUMN_ID_CLIENT) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
+                "$COLUMN_TITLE TEXT," +
+                "$COLUMN_DESCRIPTION TEXT," +
+                "$COLUMN_REGION TEXT," +
+                "$COLUMN_ADDRESS TEXT," +
+                "$COLUMN_CATEGORIE TEXT," +
+                "$COLUMN_SERVICE TEXT," +
+                "$COLUMN_DATE TEXT," +
+                "$COLUMN_HOUR TEXT," +
+                "$COLUMN_URGENT BOOLEAN DEFAULT 0," +
+                "$COLUMN_MATERIAL_INCLUDED BOOLEAN DEFAULT 0," +
+                "$COLUMN_CONFIRMED BOOLEAN DEFAULT 0)"
+    }
+    object Tasks_Rendez{
+        const val TABLE_NAME = "tasks_rendez"
+        const val COLUMN_ID_ARTISAN = "id_artisan"
+        const val COLUMN_NUM_DEMANDE = "num_demande"
+        const val COLUMN_COMPLETED = "completed"
+
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
+                "$COLUMN_ID_ARTISAN INTEGER PRIMARY KEY," +
+                "FOREIGN KEY ($COLUMN_ID_ARTISAN) REFERENCES ${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE," +
+                "$COLUMN_NUM_DEMANDE INTEGER," +
+                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE," +
+                "$COLUMN_COMPLETED BOOLEAN DEFAULT 0)"
+
+    }
+
+
+
+    object Notification{
+
+        const val TABLE_NAME = "notification"
+        const val COLUMN_ID_RECEIVER = "id_receiver"
+        const val COLUMN_ID_SENDER = "id_sender"
+        const val COLUMN_NUM_DEMANDE = "num_demande"
+        const val COLUMN_CONTENT = "content"
+
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
+                "$COLUMN_ID_RECEIVER INTEGER PRIMARY KEY," +
+                "FOREIGN KEY($COLUMN_ID_RECEIVER) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
+                "$COLUMN_ID_SENDER INTEGER," +
+                "FOREIGN KEY($COLUMN_ID_SENDER) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE," +
+                "$COLUMN_NUM_DEMANDE INTEGER," +
+                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE," +
+                "$COLUMN_CONTENT TEXT)"
+    }
+
+
+    object Prestation{
+        const val TABLE_NAME = "prestation"
+        const val COLUMN_PRESTAT = "prestat"
+        const val COLUMN_DOMAINE = "domaine"
+        const val COLUMN_PRICE = "price"
+        const val COLUMN_DURATION = "duration"
+        const val COLUMN_MATERIALS = "materials"
+
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
+                "$COLUMN_PRESTAT TEXT PRIMARY KEY, " +
+                "$COLUMN_DOMAINE TEXT," +
+                "$COLUMN_PRICE INTEGER," +
+                "$COLUMN_DURATION INTEGER, " +
+                "$COLUMN_MATERIALS TEXT)"
+    }
+
+    //for the domain we can just use the presation and excute the query //
+    //SELECT DISTINCT Prestation.COLUMN_DOMAINE FROM Prestation.TABLE_NAME
 }
