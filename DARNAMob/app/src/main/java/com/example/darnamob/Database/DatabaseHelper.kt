@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.media.MediaDrm.SecurityLevel
 import com.example.darnamob.Database.data.Admin
 import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Prestation
@@ -54,6 +55,44 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         db?.execSQL(dropTableQuery)
         }
         onCreate(db)
+    }
+
+    //=====================================================================================//
+    //SIGN IN // LOG IN = METHODS
+
+    //to check if user exists or not
+    //tested
+    fun checkEmail(email :String): Boolean{
+
+        val db =readableDatabase
+        var query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_EMAIL} = '$email'"
+        var cursor = db.rawQuery(query, null)
+
+
+        if (cursor.count==0){ //IF NOT IN THE MEMBER TABLE GO CHECK IN THE ADMIN TABLE
+            query = "SELECT * FROM ${Table_Schemas.Admin.TABLE_NAME} WHERE ${Table_Schemas.Admin.COLUMN_EMAIL} = '$email'"
+            cursor = db.rawQuery(query, null)
+        }
+        return cursor.count>0
+    }
+
+
+    //to find the user
+    //tested
+    fun checkEmailPassword(email : String, password :String): Boolean{
+        val db = readableDatabase
+        var query= "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_EMAIL} = '$email'" +
+                " AND ${Table_Schemas.Membre.COLUMN_PASSWORD} = '${password.toSHA256()}'"
+        var cursor = db.rawQuery(query, null)
+
+        if (cursor.count == 0){
+            query = "SELECT * FROM ${Table_Schemas.Admin.TABLE_NAME} WHERE ${Table_Schemas.Admin.COLUMN_EMAIL} = '$email' AND " +
+                    "${Table_Schemas.Admin.COLUMN_PASSWORD} = '${password.toSHA256()}'"
+            cursor = db.rawQuery(query, null)
+        }
+
+        return cursor.count>0
+
     }
 
     //method to add an admin account to the database
@@ -129,6 +168,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     }
 
     //to return the prestation according to the domain (for the dropdowns)
+    //tested
     fun getPrestationbyDomain(Domain : String) : List<Prestation>{
         val prestationList = mutableListOf<Prestation>()
         val db = readableDatabase
