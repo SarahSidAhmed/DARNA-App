@@ -4,6 +4,9 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.darnamob.Database.data.Admin
+import com.example.darnamob.Database.data.Membre
+import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.toSHA256
 
 
@@ -53,6 +56,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         onCreate(db)
     }
 
+    //method to add an admin account to the database
+    //tested
     fun insertAdmin(admin : Admin){
 
         val db = writableDatabase
@@ -66,4 +71,82 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     }
 
+    //Method to add prestations to the database
+    //tested
+    fun insertPrestations(presta : Prestation){
+
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(Table_Schemas.Prestation.COLUMN_PRESTAT, presta.prestat)
+            put(Table_Schemas.Prestation.COLUMN_DOMAINE, presta.Domain)
+            put(Table_Schemas.Prestation.COLUMN_PRICE, presta.Price)
+            put(Table_Schemas.Prestation.COLUMN_DURATION, presta.Duration)
+            put(Table_Schemas.Prestation.COLUMN_MATERIALS, presta.Materials)
+        }
+
+        db.insert(Table_Schemas.Prestation.TABLE_NAME, null, values)
+        db.close()
+
+    }
+
+    //to add a new member in the table member
+    //not tested
+    fun insertAMembre(membre : Membre, boolClient : Boolean){ //for boolclient, if we are in admin it turns to 0
+
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(Table_Schemas.Membre.COLUMN_TEL, membre.tel)
+            put(Table_Schemas.Membre.COLUMN_EMAIL, membre.email)
+            put(Table_Schemas.Membre.COLUMN_IMAGE, membre.image)
+            put(Table_Schemas.Membre.COLUMN_USERNAME, membre.userName)
+            put(Table_Schemas.Membre.COLUMN_ADDRESS, membre.address)
+            put(Table_Schemas.Membre.COLUMN_PASSWORD, membre.password.toSHA256())
+            put(Table_Schemas.Membre.COLUMN_BOOLCLIENT, boolClient)
+
+        }
+
+        db.insert(Table_Schemas.Membre.TABLE_NAME, null, values)
+        db.close()
+
+    }
+
+    //tested
+    fun getDomains(): List<String>{
+        val domainList = mutableListOf<String>()
+        val db = readableDatabase
+        val query = "SELECT DISTINCT ${Table_Schemas.Prestation.COLUMN_DOMAINE} FROM ${Table_Schemas.Prestation.TABLE_NAME}"
+
+        val cursor = db.rawQuery(query, null)
+
+
+        while (cursor.moveToNext()){
+            val domain = cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_DOMAINE))
+            domainList.add(domain)
+        }
+        cursor.close()
+        db.close()
+        return domainList
+    }
+
+    //to return the prestation according to the domain (for the dropdowns)
+    fun getPrestationbyDomain(Domain : String) : List<Prestation>{
+        val prestationList = mutableListOf<Prestation>()
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Prestation.TABLE_NAME} WHERE ${Table_Schemas.Prestation.COLUMN_DOMAINE} = $Domain "
+        val cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()){
+            val prestation = Prestation(cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_PRESTAT))
+            , Domain,  cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_PRICE)),
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_DURATION)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_MATERIALS)))
+            prestationList.add(prestation)
+        }
+        cursor.close()
+        db.close()
+        return prestationList
+    }
+
 }
+
+
