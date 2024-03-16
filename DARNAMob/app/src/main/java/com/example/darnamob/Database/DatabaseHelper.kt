@@ -4,8 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.media.MediaDrm.SecurityLevel
 import com.example.darnamob.Database.data.Admin
+import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.toSHA256
@@ -83,6 +83,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         val db = readableDatabase
         var query= "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_EMAIL} = '$email'" +
                 " AND ${Table_Schemas.Membre.COLUMN_PASSWORD} = '${password.toSHA256()}'"
+
         var cursor = db.rawQuery(query, null)
 
         if (cursor.count == 0){
@@ -91,7 +92,10 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             cursor = db.rawQuery(query, null)
         }
 
-        return cursor.count>0
+        val bool = cursor.count>0
+
+        cursor.close()
+        return bool
 
     }
 
@@ -130,24 +134,59 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     //to add a new member in the table member
     //not tested
-    fun insertAMembre(membre : Membre, boolClient : Boolean){ //for boolclient, if we are in admin it turns to 0
+    fun insertMembre(membre : Membre, boolClient : Boolean){ //for boolclient, if we are in admin it turns to 0
 
         val db = writableDatabase
-        val values = ContentValues().apply {
+        var values = ContentValues().apply {
             put(Table_Schemas.Membre.COLUMN_TEL, membre.tel)
             put(Table_Schemas.Membre.COLUMN_EMAIL, membre.email)
             put(Table_Schemas.Membre.COLUMN_IMAGE, membre.image)
             put(Table_Schemas.Membre.COLUMN_USERNAME, membre.userName)
             put(Table_Schemas.Membre.COLUMN_ADDRESS, membre.address)
             put(Table_Schemas.Membre.COLUMN_PASSWORD, membre.password.toSHA256())
-            put(Table_Schemas.Membre.COLUMN_BOOLCLIENT, boolClient)
-
+            put(Table_Schemas.Membre.COLUMN_BOOLCLIENT, boolClient) //depends if we are in the admin side it means we added an artisan
+                                                                  // otherwise it means it's a simple client
         }
 
         db.insert(Table_Schemas.Membre.TABLE_NAME, null, values)
         db.close()
 
     }
+
+    fun insertArtisan(artisan : Artisan){
+        val db = writableDatabase
+        val membre = artisan.membre
+        insertMembre(membre, false)
+
+        val id = getUserID(artisan.membre.email)
+
+        val values = ContentValues().apply {
+            put(Table_Schemas.Artisan.COLUMN_DOMAIN, artisan.domain)
+            put(Table_Schemas.Artisan.COLUMN_PRESTATION, artisan.prestation)
+            put(Table_Schemas.Artisan.COLUMN_RATING, 0.0)
+            put(Table_Schemas.Artisan.COLUMN_WORKING_AREA, "")
+        }
+
+        db.insert(Table_Schemas.Artisan.TABLE_NAME, null, values)
+        db.close()
+
+    }
+
+    fun getUserID(email : String): Int{
+
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME}" +
+                " WHERE ${Table_Schemas.Membre.COLUMN_EMAIL} = '$email'"
+
+        val cursor = db.rawQuery(query, null)
+
+        cursor.moveToFirst()
+        val bool = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID))
+
+        cursor.close()
+        return bool
+    }
+
 
     //tested
     fun getDomains(): List<String>{
@@ -162,6 +201,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             val domain = cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_DOMAINE))
             domainList.add(domain)
         }
+
         cursor.close()
         db.close()
         return domainList
@@ -170,6 +210,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     //to return the prestation according to the domain (for the dropdowns)
     //tested
     fun getPrestationbyDomain(Domain : String) : List<Prestation>{
+
+
         val prestationList = mutableListOf<Prestation>()
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Prestation.TABLE_NAME} WHERE ${Table_Schemas.Prestation.COLUMN_DOMAINE} = '$Domain' "
@@ -182,6 +224,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
                 cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_MATERIALS)))
             prestationList.add(prestation)
         }
+
+
         cursor.close()
         db.close()
         return prestationList
