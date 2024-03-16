@@ -132,7 +132,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     fun getPrestationbyDomain(Domain : String) : List<Prestation>{
         val prestationList = mutableListOf<Prestation>()
         val db = readableDatabase
-        val query = "SELECT * FROM ${Table_Schemas.Prestation.TABLE_NAME} WHERE ${Table_Schemas.Prestation.COLUMN_DOMAINE} = $Domain "
+        val query = "SELECT * FROM ${Table_Schemas.Prestation.TABLE_NAME} WHERE ${Table_Schemas.Prestation.COLUMN_DOMAINE} = '$Domain' "
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()){
