@@ -14,9 +14,12 @@ import com.example.darnamob.toSHA256
 
 class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAME, null, DATABASE_VERSION ) {
 
+    //=========================================================================================//
+    //START OF CONSTANTS//
     companion object{
         private const val DATABASE_NAME = "DARNA.db"
         private const val DATABASE_VERSION = 1
+
 
         //ARRAY CONTAINING ALL THE CREATE QUERIES OF THE DB TABLES
         val TABLES_CREATE_QUERIES = arrayOf(
@@ -43,6 +46,12 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             Table_Schemas.WorkDays.TABLE_NAME)
 
     }
+
+    //END OF CONSTANTS//
+    //=====================================================================================//
+
+    //======================================================================================//
+    //START OF BDD CREATION//
     override fun onCreate(db: SQLiteDatabase?) {
         for(query in TABLES_CREATE_QUERIES){
             db?.execSQL(query)
@@ -58,8 +67,11 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         onCreate(db)
     }
 
+    //END OF BDD CREATION//
     //=====================================================================================//
-    //SIGN IN // LOG IN = METHODS
+
+    //=====================================================================================//
+    // START OF SIGN IN // LOG IN = METHODS
 
     //to check if user exists or not
     //tested
@@ -74,7 +86,10 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             query = "SELECT * FROM ${Table_Schemas.Admin.TABLE_NAME} WHERE ${Table_Schemas.Admin.COLUMN_EMAIL} = '$email'"
             cursor = db.rawQuery(query, null)
         }
-        return cursor.count>0
+        val bool = cursor.count>0
+        cursor.close()
+        db.close()
+        return bool
     }
 
 
@@ -99,6 +114,10 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return bool
 
     }
+    //END OF SIGN IN LOG IN METHODS//
+    //====================================================================================//
+    //====================================================================================//
+    //START OF INSERTION METHODS//
 
     //method to add an admin account to the database
     //tested
@@ -138,7 +157,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     fun insertMembre(membre : Membre, boolClient : Boolean){ //for boolclient, if we are in admin it turns to 0
 
         val db = writableDatabase
-        var values = ContentValues().apply {
+        val values = ContentValues().apply {
             put(Table_Schemas.Membre.COLUMN_TEL, membre.tel)
             put(Table_Schemas.Membre.COLUMN_EMAIL, membre.email)
             put(Table_Schemas.Membre.COLUMN_IMAGE, membre.image)
@@ -162,7 +181,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         val id = getUserID(artisan.membre.email)
 
         val values = ContentValues().apply {
-            put(Table_Schemas.Artisan.COLUMN_ID, artisan.membre.id)
+            put(Table_Schemas.Artisan.COLUMN_ID, id)
             put(Table_Schemas.Artisan.COLUMN_DOMAIN, artisan.domain)
             put(Table_Schemas.Artisan.COLUMN_PRESTATION, artisan.prestation)
             put(Table_Schemas.Artisan.COLUMN_RATING, 0.0)
@@ -174,6 +193,11 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     }
 
+    //END OF INSERTION METHODS//
+    //=======================================================================================//
+
+    //======================================================================================//
+    //START OF GETTERS OF MEMBER DETAILS//
     fun getUserID(email : String): Int{
 
         val db = readableDatabase
@@ -202,7 +226,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_EMAIL)),
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_PASSWORD)),
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_USERNAME)),
-            cursor.getBlob(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_IMAGE)))
+            cursor.getBlob(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_IMAGE)),
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_REPORTS)))
 
         cursor.close()
         db.close()
@@ -210,23 +235,29 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return membre
 
     }
-    /*fun getArtisanByID(id : Int): Artisan{
+    fun getArtisanByID(id : Int): Artisan{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME} WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $id"
 
         val cursor = db.rawQuery(query, null)
         cursor.moveToFirst()
         val membre = getMembreByID(id)
-        /*val artisan = Artisan(membre,
+
+        //getting all the infos
+        val artisan = Artisan(membre,
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_DOMAIN)),
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_PRESTATION)),
-            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_DISPONIBLE)),
-            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_DEPLACEMENT)),
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_DISPONIBLE))==1,
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_DEPLACEMENT))==1,
             cursor.getFloat(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_RATING)),
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_WORKING_AREA)))
-*/
 
-    }*/
+        cursor.close()
+        db.close()
+
+        return artisan
+
+    }
 
 
     //tested
@@ -272,6 +303,37 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return prestationList
     }
 
+
+    fun getAllUsers(): List<Artisan>{
+        val db = readableDatabase
+        val allUsersList = mutableListOf<Artisan>()
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME}"
+        val cursor = db.rawQuery(query, null)
+
+
+        while (cursor.moveToNext()){
+
+            //skimming the ids
+            var id = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID))
+
+            //if it's an artisan getting all the artisan infos
+            if(cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_BOOLCLIENT)) ==0){
+            allUsersList.add(getArtisanByID(id)) //adding to the list of users
+            }else{
+                //if it's a member just getting the client infos
+               var artisan =  Artisan(getMembreByID(id), "", "", false, false, 0.0f, "")
+               allUsersList.add(artisan) // adding to the list of users
+            }
+        }
+
+        cursor.close()
+        db.close()
+
+        return allUsersList
+
+
+    }
+    //retourned tout les clients de base de donnees
     fun getAllClient(): List<Membre>{
         val membersList = mutableListOf<Membre>()
         val db = readableDatabase
@@ -285,7 +347,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
              cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_EMAIL)),
              cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_PASSWORD)),
              cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_USERNAME)),
-             cursor.getBlob(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_IMAGE)))
+             cursor.getBlob(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_IMAGE)),
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_REPORTS)))
 
             membersList.add(membre)
         }
@@ -298,31 +361,35 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
 
     //not finished
-    fun getAllArtisan(): List<Artisan>{
-        val artisansList = mutableListOf<Artisan>()
-        val db = readableDatabase
-        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_BOOLCLIENT} = 0"
-        val cursor = db.rawQuery(query, null)
+//    fun getAllArtisan(): List<Artisan>{
+//        val artisansList = mutableListOf<Artisan>()
+//        val db = readableDatabase
+//        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_BOOLCLIENT} = 0"
+//        val cursor = db.rawQuery(query, null)
+//
+//        while (cursor.moveToNext()){
+//            val membre = Membre(cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID)),
+//                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_TEL)),
+//                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ADDRESS)),
+//                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_EMAIL)),
+//                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_PASSWORD)),
+//                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_USERNAME)),
+//                cursor.getBlob(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_IMAGE)))
+//
+//            val query2 = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME} WHERE "
+//        }
+//
+//        cursor.close()
+//        db.close()
+//
+//        return artisansList
+//        //return membersList
+//    }
 
-        while (cursor.moveToNext()){
-            val membre = Membre(cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_TEL)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ADDRESS)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_EMAIL)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_PASSWORD)),
-                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_USERNAME)),
-                cursor.getBlob(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_IMAGE)))
-
-            val query2 = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME} WHERE "
-        }
-
-        cursor.close()
-        db.close()
-
-        return artisansList
-        //return membersList
-    }
-
+    //END OF GETTERS OF MEMBER DETAILS//
+    //====================================================================================/
+    //=====================================================================================/
+    //START OF NOTIFIATION SYSTEM//
     fun notificationByID(id_reciever: Int): List<Notification>{
 
         val notifList = mutableListOf<Notification>()
@@ -354,8 +421,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
                 "AND ${Table_Schemas.Notification.COLUMN_ID_SENDER} = ${notif.id_sender}" +
                 "AND ${Table_Schemas.Notification.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
 
-        val cursor = db.rawQuery(query, null)
-        cursor.moveToFirst()
+        //SQL INJECTION
+       db.execSQL(query, null)
     }
 
     fun decline(notif: Notification){
@@ -368,10 +435,39 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     fun confirm(notif : Notification){
         val db = writableDatabase
 
+        //updating the request to confirmed
+        val query = "UPDATE ${Table_Schemas.Demandes.TABLE_NAME} SET ${Table_Schemas.Demandes.COLUMN_CONFIRMED} = 1" +
+                " WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
 
+        db.execSQL(query, null)
+
+        //adding the new confirmed requests to the tasks and rendez-vous of the client-Artisan
+        val values = ContentValues().apply {
+            put(Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE, notif.num_demande)
+            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_ARTISAN, notif.id_sender)
+            put(Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED, 0)
+        }
+
+        db.insert(Table_Schemas.Tasks_Rendez.TABLE_NAME, null, values)
+
+
+        //notification d'acceptation pour l'artisan
+        val notifSender = ContentValues().apply {
+            put(Table_Schemas.Notification.COLUMN_ID_RECEIVER, notif.id_sender)
+            put(Table_Schemas.Notification.COLUMN_ID_SENDER, notif.id_receiver)
+            put(Table_Schemas.Notification.COLUMN_TYPE, 2)
+        }
+
+        db.insert(Table_Schemas.Notification.TABLE_NAME, null, notifSender)
+
+        //deleting the notification on the client side
         deleteNotif(notif)
+
+        db.close()
     }
 
+    //END OF NOTIFICATION SYSTEM//
+    //=====================================================================================
 }
 
 
