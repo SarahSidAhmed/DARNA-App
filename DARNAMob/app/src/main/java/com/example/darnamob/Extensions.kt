@@ -2,6 +2,8 @@ package com.example.darnamob
 
 import java.security.MessageDigest
 
+
+//for security of the database and the accounts of the user
 fun String.toSHA256(): String{
     val HEX_CHARS = "0123456789ABCDEF"
     val digest = MessageDigest.getInstance("SHA-256").digest(this.toByteArray())
