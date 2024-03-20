@@ -468,6 +468,17 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     //END OF NOTIFICATION SYSTEM//
     //=====================================================================================
+    //=====================================================================================//
+    //START ADMIN METHODS//
+    fun banishUser(id : Int){
+
+        val db = writableDatabase
+        val query = "DELETE FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_ID} = $id"
+
+        db.execSQL(query, null)
+
+    }
 }
+
 
 
