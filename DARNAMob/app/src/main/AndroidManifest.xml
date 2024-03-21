@@ -22,10 +22,10 @@
             android:name=".Accueil.Accueil2"
             android:exported="false" />
         <activity
-            android:name=".Accueil.Accueil1"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Accueil.Accueil1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

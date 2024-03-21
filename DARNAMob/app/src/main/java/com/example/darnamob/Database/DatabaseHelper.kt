@@ -259,6 +259,18 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     }
 
+    fun getMemberEmailByID(id: Int): String{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_ID} = $id"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+        val email = cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_EMAIL))
+
+        cursor.close()
+        db.close()
+
+        return email
+    }
 
     //tested
     fun getDomains(): List<String>{

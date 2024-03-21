@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">DARNA Mob</string>
+    <string name="subject">Important: Warning Regarding Your Recent Activity in DARNA Mob</string>
+    <string name="Warning_Message">Dear Mme/Mr,\n\n
+
+We\'re writing to bring to your attention some significant concerns raised by multiple reports about your recent activity within DARNA Mob.\n\n
+
+It\'s essential to address these issues promptly to maintain the integrity of our platform and ensure a positive experience for all users. Continued reports of this nature could result in further action, including potential account suspension.\n\n
+
+We\'re here to help and encourage you to reach out to our support team to discuss these matters further and find solutions together.\n\n
+
+Best regards,\n
+Miss Sid Ahmed from DARNA Mob - Community Manager </string>
 </resources>
