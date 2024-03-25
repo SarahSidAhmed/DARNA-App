@@ -69,6 +69,49 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         onCreate(db)
     }
 
+    // RESUMER OF ALL THE METHODS//
+    //===========================================================================================
+    //SIGN IN SIGN UP
+    // -checkEmail(email:String) -> Boolean
+    // -checkEmailPassword(email : String, password :String) -> Boolean
+
+    //INSERTING USERS AND DATA
+    // -insertAdmin(admin : Admin)
+    // -insertPrestations(presta : Prestation)
+    // -insertMembre(membre : Membre, boolClient : Boolean)
+    // -insertArtisan(artisan : Artisan)
+
+    //SEARCHING USERS BY ID & EMAIL
+    // -getUserID(email : String) -> Int
+    // -getMembreByID(id : Int) -> Membre
+    // -getArtisanByID(id : Int) -> Artisan
+    // -getMemberEmailByID(id: Int) -> String
+
+    //DOMAINS AND PRESTATIONS
+    // -getDomains() ->  List<String>
+    // -getPrestationbyDomain(Domain : String) -> List<Prestation>
+
+    //RETRIEVING USERS / CLIENTS
+    // -getAllUsers() -> List<Artisan>
+    // -getAllClient() -> List<Membre>
+
+    //NOTIFICATIONS
+    // -notificationByID(id_reciever: Int) -> List<Notification>
+    // -deleteNotif(notif: Notification)
+    // -decline(notif: Notification)
+    // -confirm(notif : Notification)
+
+    //ADMIN BANISHING
+    // -banishUser(id : Int)
+
+    //ADMIN SIDE METHODS & REPORTS
+    // -searchUserByName(username: String) -> List<Artisan>
+    // -reportedUsers() -> List<Artisan>
+
+    //DEMANDE
+    // -getAllDemandeByRegionDispo(region: String, dispo: Boolean) -> List<Demande>
+    //=======================================================================================
+
     //END OF BDD CREATION//
     //=====================================================================================//
 
@@ -489,7 +532,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         val db = writableDatabase
         val query = "DELETE FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_ID} = $id"
 
-        db.execSQL(query, null)
+        db.execSQL(query)
 
     }
 
@@ -525,7 +568,10 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     fun reportedUsers(): List<Artisan>{
         val db = readableDatabase
         val reportedUsers = mutableListOf<Artisan>()
-        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_REPORTS}>0"
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} " +
+                "WHERE ${Table_Schemas.Membre.COLUMN_REPORTS}>0 " +
+                //to order by the highest number of reports to the lowest
+                "ORDER BY ${Table_Schemas.Membre.COLUMN_REPORTS} DESC"
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()){
@@ -541,7 +587,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         db.close()
 
         return reportedUsers
-    }
+    } //none reported users is the same as getting all the users of the database.
+
 
     //SEARCH METHOD FOR THE
 
@@ -552,6 +599,9 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     fun getAllDemandeByRegionDispo(region: String, dispo: Boolean): List<Demande>{
         val demande = mutableListOf<Demande>()
         val db = readableDatabase
+
+        //IF THE ARTISAN DISPONIBLE THE URGENT REQUESTS ARE SHOWN, OTHERWISE ONLY THE NONE URGENT IN THE SAME REGION AS THE ONE HE HAS IN
+        // HIS PROFILE #WORK_AREA#
 
         //for disponible
         val query1 = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_REGION} = '$region'"
