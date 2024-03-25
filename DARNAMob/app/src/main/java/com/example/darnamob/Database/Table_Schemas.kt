@@ -171,7 +171,7 @@ class Table_Schemas {
                 "$COLUMN_NUM_DEMANDE INTEGER," +
                 "$COLUMN_CONTENT TEXT," +
                 "$COLUMN_TYPE INTEGER," +  //there are 4 types : 0-> warning from admin
-                                        //                      1-> notification of type confirm request or decline (client only)
+                                        //                       1-> notification of type confirm request or decline (client only)
                                         //                       2-> notification d'acception de la part d'un client (artisan)
                                         //                       3-> notification to rate the artisan (client)
 

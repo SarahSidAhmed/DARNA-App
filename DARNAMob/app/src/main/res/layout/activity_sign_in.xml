@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main.SignIn">
+
+    <ImageView
+        android:id="@+id/bublle"
+        android:layout_width="416dp"
+        android:layout_height="165dp"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bobble"
+        tools:ignore="ImageContrastCheck" />
+
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="24dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_1" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="377dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="364dp"
+        android:background="@drawable/border"
+        android:hint="@string/email"
+        android:textColorHint="@color/grey"
+        android:inputType="textEmailAddress"
+        android:padding="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bublle" />
+
+    <TextView
+        android:id="@+id/emailError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="@id/emailEditText"
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="378dp"
+        android:layout_height="62dp"
+        android:background="@drawable/border"
+        android:hint="@string/password"
+        android:textColorHint="@color/grey"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:padding="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <Button
+        android:id="@+id/SubmitButtom"
+        android:layout_width="313dp"
+        android:layout_height="55dp"
+        android:background="@drawable/border_bottom"
+        android:text="Sign In"
+        android:fontFamily="@font/productsans_regular"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+        app:layout_constraintVertical_bias="0.396" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="176dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/productsans_regular"
+        android:text="Sign in to continue"
+        android:padding="2dp"
+        android:textColor="#FF353434"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="173dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="@font/productsans_regular"
+        android:text="Don't have an account ? "
+        android:textColor="#353434"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="62dp"
+        android:fontFamily="@font/productsans_regular"
+        android:text="Sign up here"
+        android:textColor="@color/my_custom_blue"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/productsans_regular"
+        android:text="Forget password ?"
+        android:textColor="@color/my_custom_blue"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/SubmitButtom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/productsans_black"
+        android:text="Welcome Back !"
+        android:textColor="#454444"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bublle"
+        tools:ignore="TextSizeCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

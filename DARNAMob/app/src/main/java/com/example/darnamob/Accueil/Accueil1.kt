@@ -6,9 +6,6 @@ import com.example.darnamob.R
 import android.widget.Button
 import android.widget.TextView
 import android.content.Intent
-import android.widget.ImageView
-
-
 
 
 class Accueil1 : AppCompatActivity() {
@@ -26,7 +23,7 @@ class Accueil1 : AppCompatActivity() {
         val textview: TextView = findViewById(R.id.skip1)
 
         textview.setOnClickListener {
-            val intent = Intent(this,Login_Signup::class.java)
+            val intent = Intent(this,SignInUp::class.java)
             startActivity(intent)
         }
     }

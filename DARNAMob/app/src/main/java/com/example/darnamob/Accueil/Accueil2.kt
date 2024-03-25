@@ -29,7 +29,7 @@ class Accueil2 : AppCompatActivity() {
         val textview: TextView = findViewById(R.id.skip2)
 
         textview.setOnClickListener {
-            val intent = Intent(this,Login_Signup::class.java)
+            val intent = Intent(this,SignInUp::class.java)
             startActivity(intent)
         }
     }

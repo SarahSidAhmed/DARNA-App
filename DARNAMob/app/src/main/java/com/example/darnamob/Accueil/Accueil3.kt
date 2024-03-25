@@ -16,7 +16,7 @@ class Accueil3 : AppCompatActivity() {
         val button: Button = findViewById(R.id.button3)
 
         button.setOnClickListener {
-            val intent = Intent(this, Login_Signup::class.java)
+            val intent = Intent(this, SignInUp::class.java)
             startActivity(intent)
         }
 
@@ -29,7 +29,7 @@ class Accueil3 : AppCompatActivity() {
         val textview: TextView = findViewById(R.id.skip3)
 
         textview.setOnClickListener {
-            val intent = Intent(this,Login_Signup::class.java)
+            val intent = Intent(this,SignInUp::class.java)
             startActivity(intent)
         }
     }

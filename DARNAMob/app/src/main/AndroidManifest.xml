@@ -13,7 +13,22 @@
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
         <activity
-            android:name=".Accueil.Login_Signup"
+            android:name=".Accueil.SplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".Client.MainActivityClient"
+            android:exported="false" />
+        <activity
+            android:name=".Accueil.Accueil1"
+            android:exported="false" />
+        <activity
+            android:name=".Main.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".Main.SignIn"
+            android:exported="false" />
+        <activity
+            android:name=".Accueil.SignInUp"
             android:exported="false" />
         <activity
             android:name=".Accueil.Accueil3"
@@ -25,7 +40,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Accueil.Accueil1"
+            android:name=".Main.Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

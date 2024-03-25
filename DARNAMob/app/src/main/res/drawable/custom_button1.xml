@@ -4,4 +4,5 @@
     <corners android:radius="20dp"/><!-- Change the radius to adjust the roundness -->
     <stroke android:color="#17ABFF"
         android:width="3dp"/>
+   <solid android:color="@color/white"/>
 </shape>

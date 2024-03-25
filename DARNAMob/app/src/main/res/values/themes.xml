@@ -1,9 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.DARNAMob" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.DARNAMob" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/my_custom_blue</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="fontFamily">@font/productsans_regular</item>
     </style>
 
     <style name="Theme.DARNAMob" parent="Base.Theme.DARNAMob" />
+    <style name="Button.Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your button theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="background">@drawable/custom_button1</item>
+        <!-- You can add more button-specific attributes here -->
+    </style>
 </resources>
