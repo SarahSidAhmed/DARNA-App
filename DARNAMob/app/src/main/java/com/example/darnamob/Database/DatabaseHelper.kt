@@ -2,10 +2,12 @@ package com.example.darnamob.Database
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.darnamob.Database.data.Admin
 import com.example.darnamob.Database.data.Artisan
+import com.example.darnamob.Database.data.Demande
 import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.Database.data.Prestation
@@ -489,6 +491,99 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
         db.execSQL(query, null)
 
+    }
+
+
+    //END ADMIN METHODS//
+    //=======================================================================================//
+    //START SEARCHING METHODS//
+
+    //SEARCH METHODS FOR ADMIN TO FIND USERS BY THEIR USERNAME
+    fun searchUserByName(username: String): List<Artisan>{
+        val db = readableDatabase
+        val users = mutableListOf<Artisan>()
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_USERNAME} = '$username'"
+        val cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()){
+            var id = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID))
+            if(cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_BOOLCLIENT))==0){
+            users.add(getArtisanByID(id))}
+            else {
+                var artisan = Artisan(getMembreByID(id), "", "", false, false, 0.0f, "")
+                users.add(artisan)
+            }
+        }
+
+        cursor.close()
+        db.close()
+
+        return users
+    }
+
+    //SEARCH METHOD TO FIND USERS BY THE NUMBER OF THEIR REPORTS//
+    fun reportedUsers(): List<Artisan>{
+        val db = readableDatabase
+        val reportedUsers = mutableListOf<Artisan>()
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_REPORTS}>0"
+        val cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()){
+                var id = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID))
+                if(cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_BOOLCLIENT))==0){
+                    reportedUsers.add(getArtisanByID(id))}
+                else {
+                    var artisan = Artisan(getMembreByID(id), "", "", false, false, 0.0f, "")
+                    reportedUsers.add(artisan)
+                }
+        }
+        cursor.close()
+        db.close()
+
+        return reportedUsers
+    }
+
+    //SEARCH METHOD FOR THE
+
+
+    //END OF ALL SEARCH METHODS
+    //=======================================================================================
+    //START OF DEMANDE GETTERS & SETTERS
+    fun getAllDemandeByRegionDispo(region: String, dispo: Boolean): List<Demande>{
+        val demande = mutableListOf<Demande>()
+        val db = readableDatabase
+
+        //for disponible
+        val query1 = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_REGION} = '$region'"
+        //for not disponible
+        val query2 = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_REGION} = '$region' AND ${Table_Schemas.Demandes.COLUMN_URGENT} = 0"
+
+        val cursor: Cursor
+
+        if(dispo){cursor = db.rawQuery(query1, null)}
+        else cursor= db.rawQuery(query2, null)
+
+        while (cursor.moveToNext()){
+
+            //getting the requests in the list
+            demande.add(Demande(
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_NUM_DEMANDE)),
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_ID_CLIENT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_TITLE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DESCRIPTION)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_REGION)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_ADDRESS)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_CATEGORIE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_SERVICE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DATE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_HOUR)),
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_URGENT))==1,
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_MATERIAL_INCLUDED))==1)
+            )
+        }
+        cursor.close()
+        db.close()
+        return demande
     }
 }
 

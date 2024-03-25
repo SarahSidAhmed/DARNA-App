@@ -12,16 +12,22 @@ class Accueil3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accueil3)
+
         val button: Button = findViewById(R.id.button3)
+
         button.setOnClickListener {
             val intent = Intent(this, Login_Signup::class.java)
             startActivity(intent)
         }
+
         val imageview: ImageView = findViewById(R.id.back3)
+
         imageview.setOnClickListener {
             finish()
         }
+
         val textview: TextView = findViewById(R.id.skip3)
+
         textview.setOnClickListener {
             val intent = Intent(this,Login_Signup::class.java)
             startActivity(intent)

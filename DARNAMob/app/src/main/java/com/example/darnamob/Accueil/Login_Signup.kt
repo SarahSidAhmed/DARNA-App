@@ -9,6 +9,7 @@ class Login_Signup : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_signup)
+
         val imageview: ImageView = findViewById(R.id.back4)
         imageview.setOnClickListener {
             finish()
