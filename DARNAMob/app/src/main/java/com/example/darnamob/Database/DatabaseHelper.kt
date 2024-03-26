@@ -730,7 +730,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return comments
     }
 
-    //END COMMENT & NOTATION METHODS
+    //END COMMENT & NOTATION METHODS//
     //===========================================================================================
 }
 
