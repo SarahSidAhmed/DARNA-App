@@ -638,4 +638,30 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 }
 
 
+//Comments
+fun addComment(artisanId: Int, commenterId: Int, commentText: String): Int {
+    val db = this.writableDatabase
+    val values = ContentValues().apply {
+        put(Comments.COLUMN_ID_ARTISAN, artisanId)
+        put(Comments.COLUMN_ID_COMMENTER, commenterId)
+        put(Comments.COLUMN_COMMENT, commentText)
+    }
+    // Inserting Row
+    val id = db.insert(Comments.TABLE_NAME, null, values)
+    db.close()
+    return id //to check if the comment is added succ
+}
 
+//Rating
+fun addRating(artisanId:Int, commenterId: Int, notation: Int): Int {
+    val db = this.writableDatabase
+    val values = ContentValues().apply {
+        put(Comments.COLUMN_ID_ARTISAN, artisanId)
+        put(Comments.COLUMN_ID_COMMENTER, commenterId)
+        put(Comments.COLUMN_NOTATION, notation)
+    }
+    // Inserting Row
+    val id = db.insert(Comments.TABLE_NAME, null, values)
+    db.close()
+    return id
+}
