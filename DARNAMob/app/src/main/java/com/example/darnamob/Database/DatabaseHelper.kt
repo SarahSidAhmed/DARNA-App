@@ -5,8 +5,10 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.TableLayout
 import com.example.darnamob.Database.data.Admin
 import com.example.darnamob.Database.data.Artisan
+import com.example.darnamob.Database.data.Comment
 import com.example.darnamob.Database.data.Demande
 import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Notification
@@ -635,7 +637,129 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         db.close()
         return demande
     }
+    //END OF DEMANDE GETTERS AND SETTERS
+
+    //============================================================================================
+    //START COMMENT AND NOTATION METHODS
+    //==========================================================================================
+
+
+    //METHODS TO SEE IF THE COMMENTER ALREADY EXISTS IN THE ARTISAN SECTION
+    fun commenterExist(commenterId: Int, artisanId: Int): Boolean{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Comments.TABLE_NAME} WHERE" +
+                " ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId AND " +
+                "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId"
+        val cursor = db.rawQuery(query, null)
+
+        return cursor.count>0
+
+    }
+
+    //METHOD TO ADD A COMMENT
+    fun addComment(artisanId: Int, commenterId: Int, commentText: String){
+        val db = writableDatabase
+
+        if(!commenterExist(commenterId, artisanId)){
+        val values = ContentValues().apply {
+            put(Table_Schemas.Comments.COLUMN_ID_ARTISAN, artisanId)
+            put(Table_Schemas.Comments.COLUMN_ID_COMMENTER, commenterId)
+            put(Table_Schemas.Comments.COLUMN_COMMENT, commentText)
+            put(Table_Schemas.Comments.COLUMN_NOTATION, 0.0)
+        }
+            db.insert(Table_Schemas.Comments.TABLE_NAME, null, values)
+        }else{
+            val query = "UPDATE * FROM ${Table_Schemas.Comments.TABLE_NAME} " +
+                    "SET ${Table_Schemas.Comments.COLUMN_COMMENT} = '$commentText' WHERE " +
+                    "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId" +
+                    "AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
+
+            db.execSQL(query, null)
+        }
+
+        db.close()
+    }
+
+    //METHOD TO ADD A RATING
+    fun addRating(artisanId: Int, commenterId: Int, notation: Float){
+        val db = writableDatabase
+
+        if (!commenterExist(commenterId, artisanId)){
+            //if the comment doesn't exist
+            val values = ContentValues().apply {
+                put(Table_Schemas.Comments.COLUMN_ID_ARTISAN, artisanId)
+                put(Table_Schemas.Comments.COLUMN_ID_COMMENTER, commenterId)
+                put(Table_Schemas.Comments.COLUMN_NOTATION, notation)
+
+         }
+            db.insert(Table_Schemas.Comments.TABLE_NAME, null, values)
+        }else{
+            //if the commenter exists
+            val query = "UPDATE * FROM ${Table_Schemas.Comments.TABLE_NAME} " +
+                    "SET ${Table_Schemas.Comments.COLUMN_NOTATION} = $notation WHERE " +
+                    "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId" +
+                    "AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
+
+            db.execSQL(query, null)
+        }
+        db.close()
+    }
+
+    //METHOD TO REATURN ALL THE COMMENTS OF AN ARTISAN PROFILE
+    fun getAllArtisanComments(artisanId: Int): List<Comment>{
+        val comments = mutableListOf<Comment>()
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Comments.TABLE_NAME} " +
+                "WHERE ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
+        val cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()){
+            comments.add(
+                Comment(
+                    artisanId,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Comments.COLUMN_ID_COMMENTER)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Comments.COLUMN_COMMENT)),
+                    cursor.getFloat(cursor.getColumnIndexOrThrow(Table_Schemas.Comments.COLUMN_NOTATION))
+                )
+            )
+        }
+
+        cursor.close()
+        db.close()
+
+        return comments
+    }
+
+    //END COMMENT & NOTATION METHODS//
+    //===========================================================================================
 }
 
 
 
+//Comments
+//fun addComment(artisanId: Int, commenterId: Int, commentText: String): Int {
+//    val db = this.writableDatabase
+//    val values = ContentValues().apply {
+//        put(Comments.COLUMN_ID_ARTISAN, artisanId)
+//        put(Comments.COLUMN_ID_COMMENTER, commenterId)
+//        put(Comments.COLUMN_COMMENT, commentText)
+//    }
+//    // Inserting Row
+//    val id = db.insert(Comments.TABLE_NAME, null, values)
+//    db.close()
+//    return id //to check if the comment is added succ
+//}
+//
+////Rating
+//fun addRating(artisanId:Int, commenterId: Int, notation: Int): Int {
+//    val db = this.writableDatabase
+//    val values = ContentValues().apply {
+//        put(Comments.COLUMN_ID_ARTISAN, artisanId)
+//        put(Comments.COLUMN_ID_COMMENTER, commenterId)
+//        put(Comments.COLUMN_NOTATION, notation)
+//    }
+//    // Inserting Row
+//    val id = db.insert(Comments.TABLE_NAME, null, values)
+//    db.close()
+//    return id
+//}

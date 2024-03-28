@@ -274,7 +274,7 @@
             app:layout_constraintTop_toBottomOf="@+id/art_mail"
             app:layout_constraintVertical_bias="0.0" />
 
-        <MultiAutoCompleteTextView
+        <EditText
             android:id="@+id/multiAutoCompleteTextView"
             android:layout_width="320sp"
             android:layout_height="40sp"
@@ -282,6 +282,8 @@
             android:background="@drawable/custom_edit_text_background"
             android:fontFamily="@font/productsans_regular"
             android:textSize="14sp"
+            android:hint="  Alger Est, Alger Centre,Blida"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.241"

@@ -6,9 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Artisant.Fragments.SettingFragment">
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+
+    <ImageView
+        android:id="@+id/boblle"
+        android:layout_width="413dp"
+        android:layout_height="140dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bobble"
+        />
+
+    <ImageView
+        android:id="@+id/notif"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_gravity="end|top"
+        android:src="@drawable/notif" />
 
 </FrameLayout>

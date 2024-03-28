@@ -32,10 +32,10 @@
             android:name=".Accueil.SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".Client.MainActivityClient"
+            android:name=".Accueil.Accueil1"
             android:exported="false" />
         <activity
-            android:name=".Accueil.Accueil1"
+            android:name=".Client.MainActivityClient"
             android:exported="false" />
         <activity
             android:name=".Main.SignUp"

@@ -20,15 +20,6 @@ class AccountFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_account, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val multiAutoCompleteTextView: MultiAutoCompleteTextView = view.findViewById(R.id.multiAutoCompleteTextView)
-        val listItems = resources.getStringArray(R.array.list_items)
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, listItems)
-        multiAutoCompleteTextView.setAdapter(adapter)
-        multiAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
-    }
 }
 
 
