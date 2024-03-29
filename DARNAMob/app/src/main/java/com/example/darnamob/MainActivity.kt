@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         if(check) Toast.makeText(this@MainActivity, "YES", Toast.LENGTH_SHORT).show()
         else Toast.makeText(this@MainActivity, "NO", Toast.LENGTH_SHORT).show()
 
-        //gfdgfgd
 
     }
 }

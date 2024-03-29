@@ -14,7 +14,7 @@ import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.Database.data.RendezVousTasks
 import com.example.darnamob.toSHA256
-
+import com.google.android.material.tabs.TabLayout.Tab
 
 
 class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAME, null, DATABASE_VERSION ) {
@@ -112,20 +112,25 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     // -decline(notif: Notification)
     // -confirm(notif : Notification)
     // -insertNotifRating(task: RendezVousTasks)
+    // -insertNotifServiceRequest(idClient: Int, idArtisan: Int, num_demande: Int)
+    // -insertADminWarning(idUser: Int)
 
 
     //ADMIN BANISHING
     // -banishUser(id : Int)
 
-    //ADMIN SIDE METHODS & REPORTS
+    //SEARCHING METHODS
     // -searchUserByName(username: String) -> List<Artisan>
     // -reportedUsers() -> List<Artisan>
+    // -searchDemandeByAddress(address: String) -> List<Demande>
+    //
 
     //DEMANDE
     // -getAllDemandeByRegionDispo(region: String, dispo: Boolean) -> List<Demande>
     // -getTasksArtisan(artisanId: Int) -> List<RendezVousTasks>
     // -getRendezVousClient(clientId: Int) -> List<RendezVousTasks>
     // -addDemande(demande: Demande)
+    // -filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>
 
 
     //COMMENT & RATING
@@ -614,6 +619,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         db.close()
     }
 
+
+    //notification to rate the artisan after the end of the task
     fun insertNotifRating(task: RendezVousTasks){
         val db = writableDatabase
         val values = ContentValues().apply {
@@ -624,7 +631,36 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         }
 
         db.insert(Table_Schemas.Notification.TABLE_NAME, null, values)
+        db.close()
+    }
 
+    //to insert the service suggestion of the artisan to the client
+    fun insertNotifServiceRequest(idClient: Int, idArtisan: Int, num_demande: Int){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(Table_Schemas.Notification.COLUMN_ID_RECEIVER, idClient)
+            put(Table_Schemas.Notification.COLUMN_ID_SENDER, idArtisan)
+            put(Table_Schemas.Notification.COLUMN_NUM_DEMANDE, num_demande)
+            put(Table_Schemas.Notification.COLUMN_TYPE, 1)
+        }
+
+        db.insert(Table_Schemas.Notification.TABLE_NAME, null, values)
+        db.close()
+    }
+
+
+    //to insert the admin warning
+    fun insertADminWarning(idUser: Int){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(Table_Schemas.Notification.COLUMN_ID_SENDER, -1) //-1 to indicate that it's from the admin
+            put(Table_Schemas.Notification.COLUMN_ID_RECEIVER, idUser)
+            put(Table_Schemas.Notification.COLUMN_NUM_DEMANDE, -1) //not of the type demande
+            put(Table_Schemas.Notification.COLUMN_TYPE, 0)
+        }
+
+        db.insert(Table_Schemas.Notification.TABLE_NAME, null, values)
+        db.close()
     }
 
     //END OF NOTIFICATION SYSTEM//
@@ -693,6 +729,35 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return reportedUsers
     } //none reported users is the same as getting all the users of the database.
 
+    fun searchDemandeByAddress(address: String): List<Demande>{
+        val db = readableDatabase
+        val filteredDemandeAdr = mutableListOf<Demande>()
+        val query = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} " +
+                "WHERE ${Table_Schemas.Demandes.COLUMN_ADDRESS} = '$address'"
+        val cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()){
+            filteredDemandeAdr.add(Demande(
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_NUM_DEMANDE)),
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_ID_CLIENT)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_TITLE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DESCRIPTION)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_REGION)),
+                address,
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_CATEGORIE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_SERVICE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DATE)),
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_HOUR)),
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_URGENT))==1,
+                cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_MATERIAL_INCLUDED))==1)
+            )
+        }
+
+        cursor.close()
+        db.close()
+
+        return filteredDemandeAdr
+    }
 
 
     //END OF ALL SEARCH METHODS
@@ -808,6 +873,45 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         db.close()
     }
 
+
+    //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES
+    fun filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>{
+        val db = readableDatabase
+        val rendezvousCategorie = mutableListOf<Demande>()
+        val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} " +
+                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId"
+        val  cursorCategorie= db.rawQuery(query, null)
+
+        while (cursorCategorie.moveToNext()){
+            var num_demande = cursorCategorie.getInt(cursorCategorie.getColumnIndexOrThrow(Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE))
+            var queryDemande = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} " +
+                    "WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = $num_demande "
+            var  cursor= db.rawQuery(queryDemande, null)
+            cursorCategorie.moveToFirst()
+            if (cursorCategorie.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_CATEGORIE))==categorie){
+                rendezvousCategorie.add(Demande(
+                    num_demande,
+                    clientId,
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_TITLE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DESCRIPTION)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_REGION)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_ADDRESS)),
+                    categorie,
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_SERVICE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DATE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_HOUR)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_URGENT))==1,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_MATERIAL_INCLUDED))==1)
+                )
+            }//end if
+            cursor.close()
+        }//end while
+
+        cursorCategorie.close()
+        db.close()
+        return rendezvousCategorie
+
+    }
 
     //END OF DEMANDE GETTERS AND SETTERS
 
