@@ -265,6 +265,19 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         }
 
         db.insert(Table_Schemas.Artisan.TABLE_NAME, null, values)
+
+        val valuesWorkdays = ContentValues().apply {
+            put(Table_Schemas.WorkDays.COLUMN_ID, id)
+            put(Table_Schemas.WorkDays.COLUMN_SATURDAY, 0)
+            put(Table_Schemas.WorkDays.COLUMN_SUNDAY, 0)
+            put(Table_Schemas.WorkDays.COLUMN_MONDAY, 0)
+            put(Table_Schemas.WorkDays.COLUMN_TUESDAY, 0)
+            put(Table_Schemas.WorkDays.COLUMN_WEDNESDAY, 0)
+            put(Table_Schemas.WorkDays.COLUMN_THURSDAY, 0)
+            put(Table_Schemas.WorkDays.COLUMN_FRIDAY, 0)
+        }
+        db.insert(Table_Schemas.WorkDays.TABLE_NAME, null, valuesWorkdays)
+
         db.close()
 
     }
@@ -290,7 +303,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     //METHOD TO EDIT PROFILE ARTISAN (ENABLE TO EDIT THEIR EMAIL AND PHONE NUMBER
     fun editPorfileArtisan(idArtisan: Int, workArea: String, workHours: String, deplacement: Boolean,
-                     disponible: Boolean){
+                     disponible: Boolean, workdays: List<Int>){
         val db = writableDatabase
         val query = "UPDATE * FROM ${Table_Schemas.Artisan.TABLE_NAME}" +
                 "SET ${Table_Schemas.Artisan.COLUMN_WORKING_AREA} = '$workArea'," +
@@ -299,8 +312,22 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
                 "${Table_Schemas.Artisan.COLUMN_DISPONIBLE} = $disponible" +
                 "WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $idArtisan"
 
+        //editting the workdays
+        val query2 = "UPDATE * FROM ${Table_Schemas.WorkDays.TABLE_NAME}" +
+                "SET ${Table_Schemas.WorkDays.COLUMN_SATURDAY} = ${workdays[0]}"+
+                "${Table_Schemas.WorkDays.COLUMN_SUNDAY} = ${workdays[1]}"+
+                "${Table_Schemas.WorkDays.COLUMN_MONDAY} = ${workdays[2]}"+
+                "${Table_Schemas.WorkDays.COLUMN_TUESDAY} = ${workdays[3]}"+
+                "${Table_Schemas.WorkDays.COLUMN_WEDNESDAY} = ${workdays[4]}"+
+                "${Table_Schemas.WorkDays.COLUMN_THURSDAY} = ${workdays[5]}"+
+                "${Table_Schemas.WorkDays.COLUMN_FRIDAY} = ${workdays[6]}" +
+                "WHERE ${Table_Schemas.WorkDays.COLUMN_ID} = $idArtisan"
+
+
+
 
         db.execSQL(query, null)
+        db.execSQL(query2, null)
         db.close()
     }
 
@@ -392,6 +419,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     }
 
+    //returns the email of the user
     fun getMemberEmailByID(id: Int): String{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_ID} = $id"
@@ -405,6 +433,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return email
     }
 
+    //returns the phone of the user with the id
     fun getMemberPhoneByID(id:Int): String{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} " +
@@ -462,6 +491,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return prestationList
     }
 
+
+    //returns the price of the selected prestation
     fun getPrestationPrice(prestation: String): Int{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Prestation.TABLE_NAME}" +
