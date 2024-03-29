@@ -18,12 +18,6 @@
         android:src="@drawable/bobble"
     />
 
-    <ImageView
-        android:id="@+id/notif"
-        android:layout_width="40sp"
-        android:layout_height="40sp"
-        android:layout_gravity="end|top"
-        android:src="@drawable/notif" />
 
     //using constraint cause its hard in framelayout by using gravity to positioner l image ou on
     veut.
@@ -32,6 +26,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/notif"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/notif"
+            app:layout_constraintBottom_toTopOf="@+id/artisant_pic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.956"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView9"
