@@ -14,13 +14,13 @@ import com.example.darnamob.R
 
 class EditSettingFragment : Fragment() {
 
-    @SuppressLint("MissingInflatedId")
+    //@SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_setting, container, false)
+        val view = inflater.inflate(R.layout.edit_settings_art, container, false)
 
         val actv1: MultiAutoCompleteTextView = view.findViewById(R.id.multiAutoCompleteTextView)
         val imageview: ImageView = view.findViewById(R.id.arrow)

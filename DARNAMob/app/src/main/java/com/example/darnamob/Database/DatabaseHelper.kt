@@ -905,12 +905,14 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     }
 
 
-    //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES
+    //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES WITHOUT THE COMPLETED ONES
     fun filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>{
         val db = readableDatabase
         val rendezvousCategorie = mutableListOf<Demande>()
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} " +
-                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId"
+                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId" +
+                "AND ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} =0"
+
         val  cursorCategorie= db.rawQuery(query, null)
 
         while (cursorCategorie.moveToNext()){
@@ -944,6 +946,17 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     }
 
+
+
+    //METHOD TO SET THE DEMANDE TO COMPLETED
+    fun setTaskCompleted(num_demande: Int){
+        val db = writableDatabase
+        val query = "UPDATE * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME}" +
+                "SET ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED}=1" +
+                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE} = $num_demande"
+
+        db.execSQL(query, null)
+    }
     //END OF DEMANDE GETTERS AND SETTERS
 
     //============================================================================================

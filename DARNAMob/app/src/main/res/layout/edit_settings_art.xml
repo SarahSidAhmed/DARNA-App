@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
+    android:layout_gravity="center"
     tools:context=".Artisant.Fragments.SettingFragment">
 
     <ImageView
@@ -33,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
         android:gravity="center|top">
         <ImageView
             android:id="@+id/art_profil_pic"
@@ -68,7 +70,7 @@
         android:gravity="center|top">
         <TextView
             android:id="@+id/artisant_name"
-            android:layout_width="211dp"
+            android:layout_width="wrap_content"
             android:layout_height="33dp"
             android:layout_marginLeft="110dp"
             android:layout_marginTop="170dp"
@@ -106,12 +108,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
     <EditText
         android:id="@+id/art_mail"
         android:layout_width="320sp"
         android:layout_height="40sp"
-        android:layout_marginTop="250dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="250dp"
         android:background="@drawable/custom_edit_text_background"
         android:ems="10"
         android:fontFamily="@font/productsans_regular"
@@ -125,18 +128,20 @@
         app:layout_constraintHorizontal_bias="0.241"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.115"
+        tools:ignore="TouchTargetSizeCheck" />
+
     <EditText
-        android:inputType="phone"
         android:id="@+id/art_phone"
         android:layout_width="320sp"
         android:layout_height="40sp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_edit_text_background"
         android:ems="10"
         android:fontFamily="@font/productsans_regular"
         android:hint="   Phone number"
+        android:inputType="phone"
         android:textColorHint="@color/black"
         android:textSize="12sp"
         android:textStyle="normal"
@@ -145,7 +150,8 @@
         app:layout_constraintHorizontal_bias="0.241"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.115"
+        tools:ignore="TouchTargetSizeCheck" />
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
@@ -165,99 +171,105 @@
         android:gravity="left"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="400dp">
-    <ToggleButton
-        android:id="@+id/sat"
-        android:layout_width="36sp"
-        android:layout_height="36sp"
-        android:background="@drawable/workday_selector"
-        android:button="@android:color/transparent"
-        android:textOff="Sat"
-        android:fontFamily="@font/productsans_regular"
-        android:textOn="Sat"
-        android:textAlignment="center"
-        android:textSize="12sp">
 
-    </ToggleButton>
         <ToggleButton
-            android:id="@+id/sun"
+            android:id="@+id/sat"
             android:layout_width="36sp"
             android:layout_height="36sp"
             android:background="@drawable/workday_selector"
             android:button="@android:color/transparent"
-            android:layout_marginLeft="10dp"
-            android:textOff="Sun"
             android:fontFamily="@font/productsans_regular"
-            android:textOn="Sun"
             android:textAlignment="center"
-            android:textSize="12sp">
+            android:textOff="Sat"
+            android:textOn="Sat"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck">
+
         </ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/sun"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Sun"
+            android:textOn="Sun"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
 
         <ToggleButton
             android:id="@+id/mon"
             android:layout_width="36sp"
             android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/workday_selector"
             android:button="@android:color/transparent"
-            android:layout_marginLeft="10dp"
-            android:textOff="Mon"
             android:fontFamily="@font/productsans_regular"
-            android:textOn="Mon"
             android:textAlignment="center"
-            android:textSize="12sp">
-        </ToggleButton>
+            android:textOff="Mon"
+            android:textOn="Mon"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
         <ToggleButton
             android:id="@+id/Tue"
             android:layout_width="36sp"
             android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/workday_selector"
             android:button="@android:color/transparent"
-            android:layout_marginLeft="10dp"
-            android:textOff="Tue"
             android:fontFamily="@font/productsans_regular"
-            android:textOn="Tue"
             android:textAlignment="center"
-            android:textSize="12sp">
-        </ToggleButton>
+            android:textOff="Tue"
+            android:textOn="Tue"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
 
         <ToggleButton
             android:id="@+id/wed"
             android:layout_width="36sp"
             android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/workday_selector"
             android:button="@android:color/transparent"
-            android:layout_marginLeft="10dp"
-            android:textOff="Wed"
             android:fontFamily="@font/productsans_regular"
-            android:textOn="Wed"
             android:textAlignment="center"
-            android:textSize="12sp">
-        </ToggleButton>
+            android:textOff="Wed"
+            android:textOn="Wed"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
         <ToggleButton
             android:id="@+id/thu"
             android:layout_width="36sp"
             android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/workday_selector"
             android:button="@android:color/transparent"
-            android:layout_marginLeft="10dp"
-            android:textOff="Thu"
             android:fontFamily="@font/productsans_regular"
-            android:textOn="Thu"
             android:textAlignment="center"
-            android:textSize="12sp">
-        </ToggleButton>
+            android:textOff="Thu"
+            android:textOn="Thu"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
         <ToggleButton
             android:id="@+id/fri"
             android:layout_width="36sp"
             android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/workday_selector"
             android:button="@android:color/transparent"
-            android:layout_marginLeft="10dp"
-            android:textOff="Fri"
             android:fontFamily="@font/productsans_regular"
-            android:textOn="Fri"
             android:textAlignment="center"
-            android:textSize="12sp">
-        </ToggleButton>
+            android:textOff="Fri"
+            android:textOn="Fri"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
 </LinearLayout>
 
 
@@ -276,20 +288,20 @@
     </TextView>
 
     <EditText
-        android:inputType="time"
         android:id="@+id/art_workhours"
         android:layout_width="320sp"
         android:layout_height="40sp"
-        android:layout_marginTop="480dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="480dp"
         android:background="@drawable/custom_edit_text_background"
         android:ems="10"
         android:fontFamily="@font/productsans_regular"
         android:hint="   08:00-18:00"
+        android:inputType="time"
         android:textColorHint="@color/black"
         android:textSize="12sp"
         android:textStyle="normal"
-         />
+        tools:ignore="TouchTargetSizeCheck" />
     <TextView
         android:id="@+id/work_area"
         android:layout_width="wrap_content"
@@ -307,13 +319,14 @@
         android:id="@+id/multiAutoCompleteTextView"
         android:layout_width="320sp"
         android:layout_height="40sp"
-        android:layout_marginTop="600dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="600dp"
         android:background="@drawable/custom_edit_text_background"
         android:fontFamily="@font/productsans_regular"
-        android:textSize="14sp"
         android:hint="  Alger"
-        android:textColorHint="@color/black">
+        android:textColorHint="@color/black"
+        android:textSize="14sp"
+        tools:ignore="TouchTargetSizeCheck">
 
     </MultiAutoCompleteTextView>
     <ImageView
@@ -321,7 +334,7 @@
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginTop="620dp"
-        android:layout_marginLeft="300dp"
+        android:layout_marginLeft="315dp"
         app:srcCompat="@drawable/arrow" />
     <TextView
         android:id="@+id/textView14"
@@ -340,7 +353,7 @@
         android:layout_height="30sp"
         android:src="@drawable/active_status"
         android:layout_marginTop="710dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="30dp"/>
 
     <ImageView
         android:id="@+id/imageView12"
@@ -364,7 +377,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="710dp"/>
+        android:layout_marginTop="710dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/dep"
@@ -381,7 +395,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="190dp"
-        android:layout_marginTop="745dp"/>
+        android:layout_marginTop="745dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/art_account"
@@ -392,7 +407,7 @@
         android:textSize="13sp"
         android:textStyle="bold"
         android:layout_marginTop="770dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="250dp"/>
 
 
 
