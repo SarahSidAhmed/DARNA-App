@@ -10,9 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.MultiAutoCompleteTextView
 import com.example.darnamob.R
-import com.example.darnamob.R.id
-import com.example.darnamob.R.id.arrow
-import com.example.darnamob.R.id.multiAutoCompleteTextView
+
 
 class EditSettingFragment : Fragment() {
 
@@ -24,7 +22,7 @@ class EditSettingFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_setting, container, false)
 
-        val actv1: MultiAutoCompleteTextView = view.findViewById(multiAutoCompleteTextView)
+        val actv1: MultiAutoCompleteTextView = view.findViewById(R.id.multiAutoCompleteTextView)
         val imageview: ImageView = view.findViewById(R.id.arrow)
         actv1.threshold = 2
         // Add the remaining wilayas here

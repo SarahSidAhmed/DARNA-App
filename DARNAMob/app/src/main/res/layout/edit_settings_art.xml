@@ -7,16 +7,10 @@
     android:background="@color/white"
     tools:context=".Artisant.Fragments.SettingFragment">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</RelativeLayout>
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
         android:layout_height="140dp"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="-4dp"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/bobble" />
@@ -46,6 +40,7 @@
             android:layout_height="90dp"
             android:layout_marginTop="70dp"
             android:layout_marginRight="0dp"
+            android:layout_marginLeft="60dp"
             app:srcCompat="@drawable/profil_pic_artisant">
 
         </ImageView>
@@ -60,7 +55,7 @@
             android:layout_width="22dp"
             android:layout_height="19.16dp"
             android:layout_marginTop="140dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="130dp"
             app:srcCompat="@drawable/camera">
 
         </ImageView>
@@ -75,7 +70,7 @@
             android:id="@+id/artisant_name"
             android:layout_width="211dp"
             android:layout_height="33dp"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="110dp"
             android:layout_marginTop="170dp"
             android:fontFamily="@font/productsans_bold"
             android:text="Fatima Senouci"
@@ -132,6 +127,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         app:layout_constraintVertical_bias="0.115" />
     <EditText
+        android:inputType="phone"
         android:id="@+id/art_phone"
         android:layout_width="320sp"
         android:layout_height="40sp"
@@ -264,13 +260,7 @@
         </ToggleButton>
 </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:gravity="left">
-    </LinearLayout>
+
     <TextView
         android:id="@+id/workhours"
         android:layout_width="wrap_content"
@@ -286,6 +276,7 @@
     </TextView>
 
     <EditText
+        android:inputType="time"
         android:id="@+id/art_workhours"
         android:layout_width="320sp"
         android:layout_height="40sp"
@@ -317,11 +308,11 @@
         android:layout_width="320sp"
         android:layout_height="40sp"
         android:layout_marginTop="600dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:background="@drawable/custom_edit_text_background"
         android:fontFamily="@font/productsans_regular"
         android:textSize="14sp"
-        android:hint="  Alger Est, Alger Centre,Blida"
+        android:hint="  Alger"
         android:textColorHint="@color/black">
 
     </MultiAutoCompleteTextView>
@@ -332,6 +323,77 @@
         android:layout_marginTop="620dp"
         android:layout_marginLeft="300dp"
         app:srcCompat="@drawable/arrow" />
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/productsans_bold"
+        android:text="Status :"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="660dp"
+        android:layout_marginLeft="10dp"/>
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="28sp"
+        android:layout_height="30sp"
+        android:src="@drawable/active_status"
+        android:layout_marginTop="710dp"
+        android:layout_marginLeft="30dp"
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="28dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="740dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/deplacement"/>
+<TextView
+    android:id="@+id/staus"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Active staus"
+    android:fontFamily="@font/productsans_regular"
+    android:textSize="16sp"
+    android:layout_marginLeft="67dp"
+    android:layout_marginTop="715dp"/>
+
+    <Switch
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="710dp"/>
+
+    <TextView
+        android:id="@+id/dep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deplacement"
+        android:fontFamily="@font/productsans_regular"
+        android:textSize="16sp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="745dp"/>
+
+    <Switch
+        android:id="@+id/deplacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="745dp"/>
+
+    <Button
+        android:id="@+id/art_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/productsans_bold"
+        android:text="save changes"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginTop="770dp"
+        android:layout_marginLeft="250dp"
+
 
 
 
