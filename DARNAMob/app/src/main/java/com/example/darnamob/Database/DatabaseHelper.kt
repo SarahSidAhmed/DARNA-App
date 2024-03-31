@@ -62,7 +62,40 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             db?.execSQL(query)
         }
 
+        val data = PrepopulatedData()
+        //insert prepopulated DATA
+
+        if(!prestationisEmpty(db)){
+            var i = 0
+            while(i<23) {
+                val values = ContentValues().apply {
+                    put(Table_Schemas.Prestation.COLUMN_PRESTAT, data.prestat[i])
+                    put(Table_Schemas.Prestation.COLUMN_DOMAINE, data.domaine[i])
+                    put(Table_Schemas.Prestation.COLUMN_DURATION, data.duration[i])
+                    put(Table_Schemas.Prestation.COLUMN_PRICE, data.price[i])
+                    put(Table_Schemas.Prestation.COLUMN_MATERIALS, data.materials[i])
+                }
+                db?.insert(Table_Schemas.Prestation.TABLE_NAME, null, values)
+
+                i++
+            }
+        }
+
+        if (!adminisEmpty(db)) {
+            var j = 0
+            while (j < 2) {
+                val values = ContentValues().apply {
+                    put(Table_Schemas.Admin.COLUMN_EMAIL, data.emailAdmins[j])
+                    put(Table_Schemas.Admin.COLUMN_PASSWORD, data.password[j])
+                }
+                db?.insert(Table_Schemas.Admin.TABLE_NAME, null, values)
+                j++
+            }
+        }
     }
+
+
+
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         for(Table_name in TABLE_NAMES){
@@ -70,6 +103,28 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         db?.execSQL(dropTableQuery)
         }
         onCreate(db)
+    }
+
+
+    //PREPOPULATED DATABASE DATA
+
+    private fun prestationisEmpty(db: SQLiteDatabase?): Boolean{
+        val query = "SELECT COUNT(*) FROM ${Table_Schemas.Prestation.TABLE_NAME}"
+        val cursor = db?.rawQuery(query, null)
+
+        val count = cursor?.count==0
+        cursor?.close()
+        return count
+    }
+
+
+    private fun adminisEmpty(db: SQLiteDatabase?): Boolean{
+        val query = "SELECT COUNT(*) FROM ${Table_Schemas.Admin.TABLE_NAME}"
+        val cursor = db?.rawQuery(query, null)
+
+        val count = cursor?.count==0
+        cursor?.close()
+        return count
     }
 
     // RESUMER OF ALL THE METHODS//
