@@ -289,11 +289,12 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     //=======================================================================================//
 
     //METHOD TO EDIT THE PROFILE OF A SIMPLE MEMBER
-    fun editProfileMember(id: Int, phoneNumber: String, Address: String){
+    fun editProfileMember(id: Int, phoneNumber: String, Address: String, image: ByteArray){
         val db = writableDatabase
-        val query = "UPDATE * FROM ${Table_Schemas.Membre.TABLE_NAME}" +
+        val query = "UPDATE ${Table_Schemas.Membre.TABLE_NAME}" +
                 "SET ${Table_Schemas.Membre.COLUMN_TEL} = '$phoneNumber'," +
-                "${Table_Schemas.Membre.COLUMN_ADDRESS} = '$Address'" +
+                "${Table_Schemas.Membre.COLUMN_ADDRESS} = '$Address'," +
+                "${Table_Schemas.Membre.COLUMN_IMAGE} = $image" +
                 "WHERE ${Table_Schemas.Membre.COLUMN_ID} = $id"
 
         db.execSQL(query, null)
@@ -305,7 +306,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     fun editPorfileArtisan(idArtisan: Int, workArea: String, workHours: String, deplacement: Boolean,
                      disponible: Boolean, workdays: List<Int>){
         val db = writableDatabase
-        val query = "UPDATE * FROM ${Table_Schemas.Artisan.TABLE_NAME}" +
+        val query = "UPDATE ${Table_Schemas.Artisan.TABLE_NAME}" +
                 "SET ${Table_Schemas.Artisan.COLUMN_WORKING_AREA} = '$workArea'," +
                 "${Table_Schemas.Artisan.COLUMN_WORK_HOURS} = '$workHours'," +
                 "${Table_Schemas.Artisan.COLUMN_DEPLACEMENT} = $deplacement," +
@@ -313,7 +314,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
                 "WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $idArtisan"
 
         //editting the workdays
-        val query2 = "UPDATE * FROM ${Table_Schemas.WorkDays.TABLE_NAME}" +
+        val query2 = "UPDATE ${Table_Schemas.WorkDays.TABLE_NAME}" +
                 "SET ${Table_Schemas.WorkDays.COLUMN_SATURDAY} = ${workdays[0]}"+
                 "${Table_Schemas.WorkDays.COLUMN_SUNDAY} = ${workdays[1]}"+
                 "${Table_Schemas.WorkDays.COLUMN_MONDAY} = ${workdays[2]}"+
@@ -336,7 +337,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     //METHOD TO EDIT PASSWORD AFTER CONFIRMATION OF THE OLD PASSWORD
     fun editPassword(idMembre: Int, confirmationPassword: String, password: String): Boolean{
         val db = writableDatabase
-        val query = "UPDATE * FROM ${Table_Schemas.Membre.TABLE_NAME} " +
+        val query = "UPDATE ${Table_Schemas.Membre.TABLE_NAME} " +
                 "SET ${Table_Schemas.Membre.COLUMN_PASSWORD} = '${password.toSHA256()}'" +
                 "WHERE ${Table_Schemas.Membre.COLUMN_ID} = $idMembre"
 
@@ -905,12 +906,14 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     }
 
 
-    //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES
+    //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES WITHOUT THE COMPLETED ONES
     fun filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>{
         val db = readableDatabase
         val rendezvousCategorie = mutableListOf<Demande>()
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} " +
-                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId"
+                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId" +
+                "AND ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} =0"
+
         val  cursorCategorie= db.rawQuery(query, null)
 
         while (cursorCategorie.moveToNext()){
@@ -944,6 +947,17 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     }
 
+
+
+    //METHOD TO SET THE DEMANDE TO COMPLETED
+    fun setTaskCompleted(num_demande: Int){
+        val db = writableDatabase
+        val query = "UPDATE * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME}" +
+                "SET ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED}=1" +
+                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE} = $num_demande"
+
+        db.execSQL(query, null)
+    }
     //END OF DEMANDE GETTERS AND SETTERS
 
     //============================================================================================
@@ -979,7 +993,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         }
             db.insert(Table_Schemas.Comments.TABLE_NAME, null, values)
         }else{
-            val query = "UPDATE * FROM ${Table_Schemas.Comments.TABLE_NAME} " +
+            val query = "UPDATE ${Table_Schemas.Comments.TABLE_NAME} " +
                     "SET ${Table_Schemas.Comments.COLUMN_COMMENT} = '$commentText' WHERE " +
                     "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId" +
                     "AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
@@ -1005,7 +1019,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             db.insert(Table_Schemas.Comments.TABLE_NAME, null, values)
         }else{
             //if the commenter exists
-            val query = "UPDATE * FROM ${Table_Schemas.Comments.TABLE_NAME} " +
+            val query = "UPDATE ${Table_Schemas.Comments.TABLE_NAME} " +
                     "SET ${Table_Schemas.Comments.COLUMN_NOTATION} = $notation WHERE " +
                     "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId" +
                     "AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
