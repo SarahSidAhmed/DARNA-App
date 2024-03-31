@@ -48,7 +48,7 @@
                 android:fontFamily="@font/productsans_black"
                 android:text="Create your account"
                 android:textColor="#232222"
-                android:layout_marginBottom="85dp"
+                android:layout_marginBottom="50dp"
                 android:textSize="32sp"
                 app:layout_constraintHorizontal_bias="0.126"
                 android:layout_marginLeft="25dp"
