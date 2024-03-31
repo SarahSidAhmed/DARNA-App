@@ -196,6 +196,7 @@
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
+                        app:cardElevation="0dp"
                         app:cardCornerRadius="8dp">
 
                         <ImageView
@@ -210,6 +211,7 @@
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
+                        app:cardElevation="0dp"
                         app:cardCornerRadius="8dp">
 
                         <ImageView
@@ -223,6 +225,7 @@
                         android:layout_height="wrap_content"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
+                        app:cardElevation="0dp"
                         android:layout_margin="8dp"
                         app:cardCornerRadius="8dp">
 
@@ -238,6 +241,7 @@
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
                         android:layout_margin="8dp"
+                        app:cardElevation="0dp"
                         app:cardCornerRadius="8dp">
 
                         <ImageView
@@ -251,6 +255,7 @@
                         android:layout_height="wrap_content"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
+                        app:cardElevation="0dp"
                         android:layout_margin="8dp"
                         app:cardCornerRadius="8dp">
 
@@ -265,6 +270,7 @@
                         android:layout_height="wrap_content"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"
+                        app:cardElevation="0dp"
                         android:layout_margin="8dp"
                         app:cardCornerRadius="8dp">
 

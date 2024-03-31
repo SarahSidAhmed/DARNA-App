@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/my_custom_blue"
+    android:background="@color/white"
     tools:context=".Client.Fragments.HomeFragment">
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -12,5 +12,5 @@
         android:text="Discussions"
         android:gravity="center"
         android:textSize="30sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 </FrameLayout>
