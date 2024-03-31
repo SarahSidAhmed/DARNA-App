@@ -10,7 +10,7 @@ import com.example.darnamob.Client.Fragments.HomeFragment
 import com.example.darnamob.Client.Fragments.SettingFragment
 import com.example.darnamob.databinding.ActivityMainBinding
 import com.example.darnamob.databinding.ActivityMainClientBinding
-//ss
+
 class MainActivityArtisant : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainClientBinding

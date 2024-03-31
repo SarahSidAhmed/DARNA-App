@@ -1,16 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/my_custom_blue"
-    tools:context=".Client.Fragments.HomeFragment">
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/white"/>
+    android:background="@color/white">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Image View -->
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="164dp"
+                android:layout_gravity="center"
+                android:src="@drawable/bobble" />
+
+            <LinearLayout
+                android:layout_width="410dp"
+                android:layout_height="90dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Profile Picture and Welcome Text -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginRight="12dp"
+                        android:src="@drawable/profile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Welcome\n Sarah Sid !"
+                        android:fontFamily="@font/productsans_black"
+                        android:textColor="@color/black"
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+                <!-- Empty Space for Gap -->
+                <Space
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent" />
+
+                <!-- Notification Icon -->
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/notificationsexist" />
+
+            </LinearLayout>
+
+            <!-- First CardView for the map position -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/firstCardView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="8dp"
+                android:background="@android:color/white"
+                android:elevation="4dp"
+                android:padding="16dp"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:foregroundGravity="center"
+                android:layout_gravity="center"
+                android:layout_below="@id/imageView5"> <!-- Set below the ImageView -->
+
+                <!-- Content inside the first card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:padding="30dp"
+                    android:background="@drawable/positioncard">
+
+                    <!-- First Row: Location -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="25dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/position"
+                            android:layout_marginEnd="8dp"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Oued Smar, Algiers, Algeria"
+                            android:textColor="@color/grey"
+                            android:fontFamily="@font/productsans_thin"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <!-- Second Row: Scheduled Orders -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="25dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/sceduled"
+                            android:layout_marginEnd="8dp"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="You have 2 scheduled orders for today"
+                            android:textSize="16sp"
+                            android:textColor="@color/grey"
+                            android:fontFamily="@font/productsans_thin" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All categories"
+                android:layout_below="@id/firstCardView"
+                android:layout_marginTop="5dp"
+                android:textSize="25dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/productsans_black"
+                />
+            <!-- Second CardView with grid layout -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gridLayoutCardView"
+                android:layout_width="403dp"
+                android:layout_height="231dp"
+                android:layout_below="@id/categories"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/white"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:elevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:foregroundGravity="center"
+                android:padding="16dp"> <!-- Set below the first CardView -->
+
+                <!-- Grid layout inside the second card -->
+                <GridLayout
+                    android:id="@+id/gridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="4"
+                    android:padding="8dp"
+                    android:rowCount="2">
+
+                    <!-- Place your items here -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/painting" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/plumbing" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/cleaning" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/masonry" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/electricity" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp">
+
+                        <ImageView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/more" />
+                    </androidx.cardview.widget.CardView>
+
+
+                </GridLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/orders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's orders"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/gridLayoutCardView"
+                android:textSize="25dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/productsans_black"
+                />
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
 </FrameLayout>
