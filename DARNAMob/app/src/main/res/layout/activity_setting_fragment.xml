@@ -62,8 +62,8 @@
 
                     <!-- Image for the First CardView -->
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/editicon"
                         android:layout_marginEnd="8dp"
                         />
@@ -93,8 +93,8 @@
 
                     <!-- Image for the Second CardView -->
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/editicon"
                         android:layout_marginEnd="8dp"/>
 
@@ -126,7 +126,7 @@
 
                     <!-- Image for the Third CardView -->
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/logouticon"
                         android:layout_marginEnd="8dp"/>
