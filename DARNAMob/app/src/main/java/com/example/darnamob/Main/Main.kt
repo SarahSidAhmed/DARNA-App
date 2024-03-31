@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.example.darnamob.Accueil.Accueil1
-import com.example.darnamob.Accueil.SplashScreen
 import com.example.darnamob.R
 
 class Main : AppCompatActivity() {
