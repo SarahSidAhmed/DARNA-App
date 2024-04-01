@@ -34,6 +34,7 @@ class MainActivityArtisant : AppCompatActivity() {
         }
 
         val userId = intent.getIntExtra("id", -1)
+        //tr
     }
 
     private fun replaceFragment(fragment: Fragment) {
