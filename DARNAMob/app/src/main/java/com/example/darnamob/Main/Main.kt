@@ -20,5 +20,7 @@ class Main : AppCompatActivity() {
             finish()
         }, 5000)
 
+        //WHAT
+
     }
 }
