@@ -62,6 +62,7 @@
         android:fontFamily="@font/productsans_bold"
         android:shadowColor="@color/black"
         android:text="Done"
+        android:background="@drawable/custom_button1"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />

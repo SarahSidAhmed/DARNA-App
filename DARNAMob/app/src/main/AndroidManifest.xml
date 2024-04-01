@@ -25,7 +25,7 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Main.SignUp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,16 +46,13 @@
             android:name=".Artisant.Fragments.AccountFragment"
             android:exported="false" />
         <activity
-            android:name=".Accueil.SplashScreen"
-            android:exported="false" />
-        <activity
             android:name=".Accueil.Accueil1"
             android:exported="false" />
         <activity
             android:name=".Client.MainActivityClient"
             android:exported="false" />
         <activity
-            android:name=".Main.SignUp"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Main.SignIn"

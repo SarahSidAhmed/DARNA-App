@@ -43,7 +43,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="621dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="240dp"
                 android:layout_marginEnd="15dp"
@@ -57,7 +57,6 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/search_background"
-                    android:ens="10"
                     android:fontFamily="@font/productsans_regular"
                     android:hint="Full name "
                     android:inputType="textPersonName"
@@ -75,7 +74,6 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/search_background"
-                    android:ens="10"
                     android:fontFamily="@font/productsans_regular"
                     android:hint="Email "
                     android:inputType="text"
@@ -92,7 +90,6 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/search_background"
-                    android:ens="10"
                     android:fontFamily="@font/productsans_regular"
                     android:hint="Phone number"
                     android:inputType="text"
@@ -108,7 +105,6 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/search_background"
-                    android:ens="10"
                     android:fontFamily="@font/productsans_regular"
                     android:hint="password "
                     android:inputType="text"
@@ -126,7 +122,6 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/search_background"
-                    android:ens="10"
                     android:fontFamily="@font/productsans_regular"
                     android:hint="Confirm password "
                     android:inputType="text"
@@ -143,13 +138,33 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/search_background"
-                    android:ens="10"
                     android:fontFamily="@font/productsans_regular"
                     android:hint="Confirm password "
                     android:inputType="text"
                     android:paddingStart="10dp"
                     android:textAlignment="viewStart"
                     android:textSize="18dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="156dp">
+
+                    <TextView
+                        android:layout_width="250dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="28dp"
+                        android:background="@drawable/custom_button1"
+                        android:backgroundTint="@color/my_custom_blue"
+                        android:fontFamily="@font/productsans_bold"
+                        android:gravity="center"
+                        android:text="Create Account"
+                        android:textColor="@color/white"
+                        android:textSize="23sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.496"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

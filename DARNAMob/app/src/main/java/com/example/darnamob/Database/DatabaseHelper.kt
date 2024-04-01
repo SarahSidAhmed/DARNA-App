@@ -86,7 +86,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
             while (j < 2) {
                 val values = ContentValues().apply {
                     put(Table_Schemas.Admin.COLUMN_EMAIL, data.emailAdmins[j])
-                    put(Table_Schemas.Admin.COLUMN_PASSWORD, data.password[j])
+                    put(Table_Schemas.Admin.COLUMN_PASSWORD, data.password[j].toSHA256())
                 }
                 db?.insert(Table_Schemas.Admin.TABLE_NAME, null, values)
                 j++
@@ -132,6 +132,8 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     //SIGN IN SIGN UP
     // -checkEmail(email:String) -> Boolean
     // -checkEmailPassword(email : String, password :String) -> Boolean
+    // -checkIfClient(email: String) -> Boolean
+    // -checkIfAdmin(email: String) ->Boolean
 
     //INSERTING USERS AND DATA
     // -insertAdmin(admin : Admin)
@@ -244,6 +246,25 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         cursor.close()
         return bool
 
+    }
+
+    fun checkIfClient(email: String):Boolean{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_EMAIL} = '$email'"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+        val booClient = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_BOOLCLIENT))==1
+        cursor.close()
+        return booClient
+    }
+
+    fun checkIfAdmin(email: String):Boolean{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Admin.TABLE_NAME} WHERE ${Table_Schemas.Admin.COLUMN_EMAIL} = '$email'"
+        val cursor = db.rawQuery(query, null)
+        val isAdmin = cursor.count>0
+        cursor.close()
+        return isAdmin
     }
     //END OF SIGN IN LOG IN METHODS//
     //====================================================================================//

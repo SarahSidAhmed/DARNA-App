@@ -31,8 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="50dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginstart="32dp">
+                android:layout_marginEnd="32dp">
 
                 <ImageView
                     android:id="@+id/imageView23"
@@ -82,7 +81,6 @@
                 android:background="@drawable/search_background"
                 android:drawableStart="@drawable/search"
                 android:drawablePadding="10dp"
-                android:ens="10"
                 android:fontFamily="@font/productsans_regular"
                 android:hint="search user"
                 android:inputType="textPersonName"
