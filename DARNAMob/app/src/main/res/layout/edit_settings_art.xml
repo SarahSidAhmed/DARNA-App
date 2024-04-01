@@ -36,16 +36,17 @@
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
         android:gravity="center|top">
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/art_profil_pic"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:scaleType="centerCrop"
             android:layout_marginTop="70dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginLeft="60dp"
-            app:srcCompat="@drawable/profil_pic_artisant">
+            android:src="@drawable/profil_pic_artisant"
+            android:layout_marginLeft="60dp">
 
-        </ImageView>
+
+        </de.hdodenhof.circleimageview.CircleImageView>
     </LinearLayout>
 
     <LinearLayout

@@ -59,6 +59,7 @@
         android:layout_marginBottom="22dp"
         android:backgroundTint="#17ABFF"
         android:shadowRadius="@integer/material_motion_duration_short_1"
+        android:background="@drawable/custom_button1"
         android:fontFamily="@font/productsans_bold"
         android:shadowColor="@color/black"
         android:text="Done"

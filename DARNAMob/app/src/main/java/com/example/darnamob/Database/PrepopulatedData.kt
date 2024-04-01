@@ -127,12 +127,12 @@ class PrepopulatedData {
     )
 
     val emailAdmins = arrayOf(
-        "ms_sidahmed@Esi.dz",
+        "ms_sidahmed@esi.dz",
         "ms_kadid@esi.dz"
     )
     val password = arrayOf(
-        "03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4",
-        "03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4"
+        "1234",
+        "1234"
     )
 
 }

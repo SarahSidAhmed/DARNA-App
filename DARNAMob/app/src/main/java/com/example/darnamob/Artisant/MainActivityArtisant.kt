@@ -32,7 +32,10 @@ class MainActivityArtisant : AppCompatActivity() {
             }
             true
         }
+
+        val userId = intent.getIntExtra("id", -1)
     }
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frame_layout, fragment)

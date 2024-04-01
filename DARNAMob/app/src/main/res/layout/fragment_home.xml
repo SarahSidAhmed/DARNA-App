@@ -40,11 +40,11 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginRight="12dp"
-                        android:src="@drawable/profile" />
+                        android:src="@drawable/profile"/>
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -20,12 +20,12 @@ class AddNewOrderActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_new_order)
 
         // Initialize the AutoCompleteTextView
-        autoCompleteTxt = findViewById(R.id.auto_complete_txt)
+        //autoCompleteTxt = findViewById(R.id.auto_complete_txt)
 
         // Create adapter for AutoCompleteTextView
-        val adapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line, items)
+       // val adapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line, items)
 
         // Set adapter to AutoCompleteTextView
-        autoCompleteTxt.setAdapter(adapter)
+       // autoCompleteTxt.setAdapter(adapter)
     }
 }
