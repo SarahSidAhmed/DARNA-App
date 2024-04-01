@@ -31,33 +31,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="50dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginstart="32dp">
+                android:layout_marginEnd="32dp">
+
 
                 <ImageView
-                    android:id="@+id/imageView23"
+                    android:id="@+id/backArrow"
+                    android:layout_width="24dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="312dp"
+                    android:layout_marginEnd="272dp"
+                    android:text="Go back"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@drawable/image_1" />
+                    app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginStart="96dp"
-                    android:fontFamily="@font/productsans_bold"
-                    android:text="Hello admin!"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,7 +80,6 @@
                 android:background="@drawable/search_background"
                 android:drawableStart="@drawable/search"
                 android:drawablePadding="10dp"
-                android:ens="10"
                 android:fontFamily="@font/productsans_regular"
                 android:hint="search user"
                 android:inputType="textPersonName"
@@ -93,6 +90,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="45dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -110,7 +108,6 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-
                         android:fontFamily="@font/productsans_regular"
                         android:text="All"
                         android:textAlignment="center"
@@ -132,7 +129,6 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-
                         android:fontFamily="@font/productsans_regular"
                         android:text="Reported"
                         android:textAlignment="center"

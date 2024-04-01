@@ -35,6 +35,9 @@ class MainActivityClient : AppCompatActivity() {
             }
             true
         }
+
+        val userId = intent.getIntExtra("id", -1) // to get the id
+
     }
 
     private fun replaceFragment(fragment: Fragment) {

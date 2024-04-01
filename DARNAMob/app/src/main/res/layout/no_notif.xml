@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:ignore="ExtraText">
+
+    <ImageView
+        android:id="@+id/back"
+        android:src="@drawable/back"
+        android:layout_width="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        />
+
+    <ImageView
+        android:id="@+id/no_notif"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:src="@drawable/no_notif"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="70dp"
+
+        />
+
+    <TextView
+        android:id="@+id/notif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="40dp"
+        android:fontFamily="@font/productsans_bold"
+        android:textStyle="bold"
+        android:text="Notifications"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+
+        />
+
+
+    <TextView
+        android:id="@+id/nonotif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:layout_marginLeft="60dp"
+        android:fontFamily="@font/productsans_bold"
+        android:textStyle="bold"
+        android:text="No notifications yet"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+
+        />
+
+
+
+
+</FrameLayout>

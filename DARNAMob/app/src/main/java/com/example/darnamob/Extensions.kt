@@ -1,5 +1,9 @@
 package com.example.darnamob
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import java.io.ByteArrayOutputStream
 import java.security.MessageDigest
 
 
@@ -18,4 +22,12 @@ fun String.toSHA256(): String{
             )
         }
     )
+}
+
+fun imageFromDrawableToByteArray(context: Context, drawableId: Int): ByteArray {
+    val drawable = context.resources.getDrawable(drawableId, null) // Get the drawable
+    val bitmap = BitmapFactory.decodeResource(context.resources, drawableId) // Convert drawable to Bitmap
+    val stream = ByteArrayOutputStream()
+    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream) // Compress bitmap to JPEG format
+    return stream.toByteArray() // Convert compressed bitmap to byte array
 }
