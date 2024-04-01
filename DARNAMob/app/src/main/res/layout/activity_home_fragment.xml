@@ -7,10 +7,74 @@
     android:background="@color/white"
     tools:context=".Artisant.Fragments.HomeFragment"
     tools:ignore="ExtraText">
-    <include
-        android:id="@+id/custom_layout"
-        layout="@layout/background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="413dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="-4dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/bobble" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|end">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/notif" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="left|top">
+
+        <ImageView
+            android:id="@+id/art_profil_pic"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="15dp"
+            app:srcCompat="@drawable/profil_pic_artisant">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/hello_art"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome ! \nFatima Senouci"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:fontFamily="@font/productsans_regular"
+            android:layout_marginTop="29dp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="350dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/custom_edit_text_background"
+        android:hint="Search location..."
+
+        />
+
 
 </FrameLayout>
