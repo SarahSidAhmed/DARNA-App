@@ -13,6 +13,24 @@
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
         <activity
+            android:name=".Client.PerfectFeedBack"
+            android:exported="false" />
+        <activity
+            android:name=".Client.VeryGoodFeedBack"
+            android:exported="false" />
+        <activity
+            android:name=".Client.GoodFeedBack"
+            android:exported="false" />
+        <activity
+            android:name=".Client.NahFeedBack"
+            android:exported="false" />
+        <activity
+            android:name=".Client.OrderValidation"
+            android:exported="false" />
+        <activity
+            android:name=".Client.EstimatedPrice"
+            android:exported="false" />
+        <activity
             android:name=".Client.AddNewOrderActivity"
             android:exported="false" />
         <activity
