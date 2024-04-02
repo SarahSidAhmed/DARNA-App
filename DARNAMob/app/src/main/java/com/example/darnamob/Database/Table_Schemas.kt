@@ -48,6 +48,7 @@ class Table_Schemas {
         const val COLUMN_DEPLACEMENT = "deplacement"
         const val COLUMN_RATING = "rating"
         const val COLUMN_WORKING_AREA = "working area"
+        const val COLUMN_WORK_HOURS = "working_hours"
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
                 "$COLUMN_ID INTEGER PRIMARY KEY," +
@@ -57,6 +58,7 @@ class Table_Schemas {
                 "$COLUMN_DEPLACEMENT BOOLEAN DEFAULT 0," +
                 "$COLUMN_RATING FLOAT," +
                 "$COLUMN_WORKING_AREA TEXT," +
+                "$COLUMN_WORK_HOURS TEXT," +
                 " FOREIGN KEY($COLUMN_ID) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE)"
 
     }
@@ -140,15 +142,18 @@ class Table_Schemas {
     object Tasks_Rendez{
         const val TABLE_NAME = "tasks_rendez"
         const val COLUMN_ID_ARTISAN = "id_artisan"
+        const val COLUMN_ID_CLIENT = "id_client"
         const val COLUMN_NUM_DEMANDE = "num_demande"
         const val COLUMN_COMPLETED = "completed"
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
-                "$COLUMN_ID_ARTISAN INTEGER PRIMARY KEY," +
-                "$COLUMN_NUM_DEMANDE INTEGER," +
+                "$COLUMN_ID_ARTISAN INTEGER," +
+                "$COLUMN_ID_CLIENT INTEGER," +
+                "$COLUMN_NUM_DEMANDE INTEGER PRIMARY KEY," +
                 "$COLUMN_COMPLETED BOOLEAN DEFAULT 0," +
                 "FOREIGN KEY ($COLUMN_ID_ARTISAN) REFERENCES ${Artisan.TABLE_NAME}(${Artisan.COLUMN_ID}) ON DELETE CASCADE," +
-                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE)"
+                "FOREIGN KEY($COLUMN_NUM_DEMANDE) REFERENCES ${Demandes.TABLE_NAME}(${Demandes.COLUMN_NUM_DEMANDE}) ON DELETE CASCADE," +
+                "FOREIGN KEY($COLUMN_ID_CLIENT) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE)"
 
     }
 
@@ -160,7 +165,6 @@ class Table_Schemas {
         const val COLUMN_ID_RECEIVER = "id_receiver"
         const val COLUMN_ID_SENDER = "id_sender"
         const val COLUMN_NUM_DEMANDE = "num_demande"
-        const val COLUMN_CONTENT = "content"
         const val COLUMN_TYPE = "type"
         const val COLUMN_CLICKED = "clicked"
         const val COLUMN_CONFIRMED = "confirmed"
@@ -169,7 +173,6 @@ class Table_Schemas {
                 "$COLUMN_ID_RECEIVER INTEGER PRIMARY KEY," +
                 "$COLUMN_ID_SENDER INTEGER," +
                 "$COLUMN_NUM_DEMANDE INTEGER," +
-                "$COLUMN_CONTENT TEXT," +
                 "$COLUMN_TYPE INTEGER," +  //there are 4 types : 0-> warning from admin
                                         //                       1-> notification of type confirm request or decline (client only)
                                         //                       2-> notification d'acception de la part d'un client (artisan)

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_gravity="center"
+    tools:context=".Artisant.Fragments.SettingFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="413dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="-4dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/bobble" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|end">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/notif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center|top">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/art_profil_pic"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:src="@drawable/profil_pic_artisant">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center">
+        <ImageView
+            android:id="@+id/camera"
+            android:layout_width="22dp"
+            android:layout_height="19.16dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="70dp"
+            app:srcCompat="@drawable/camera">
+
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center|top">
+        <TextView
+            android:id="@+id/artisant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="170dp"
+            android:fontFamily="@font/productsans_bold"
+            android:text="Fatima Senouci"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="left|top">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="210dp"
+            android:fontFamily="@font/productsans_bold"
+            android:text="Contact informations:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold">
+
+        </TextView>
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:id="@+id/art_mail"
+        android:layout_width="320sp"
+        android:layout_height="40sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/custom_edit_text_background"
+        android:ems="10"
+        android:fontFamily="@font/productsans_regular"
+        android:hint="   Email...."
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.115"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/art_phone"
+        android:layout_width="320sp"
+        android:layout_height="40sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edit_text_background"
+        android:ems="10"
+        android:fontFamily="@font/productsans_regular"
+        android:hint="   Phone number"
+        android:inputType="phone"
+        android:textColorHint="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.115"
+        tools:ignore="TouchTargetSizeCheck" />
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/productsans_bold"
+        android:text="Work days :"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="400dp">
+
+        <ToggleButton
+            android:id="@+id/sat"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Sat"
+            android:textOn="Sat"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck">
+
+        </ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/sun"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Sun"
+            android:textOn="Sun"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/mon"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Mon"
+            android:textOn="Mon"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/Tue"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Tue"
+            android:textOn="Tue"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/wed"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Wed"
+            android:textOn="Wed"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/thu"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Thu"
+            android:textOn="Thu"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+
+        <ToggleButton
+            android:id="@+id/fri"
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/workday_selector"
+            android:button="@android:color/transparent"
+            android:fontFamily="@font/productsans_regular"
+            android:textAlignment="center"
+            android:textOff="Fri"
+            android:textOn="Fri"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck"></ToggleButton>
+</LinearLayout>
+
+
+    <TextView
+        android:id="@+id/workhours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="450dp"
+        android:fontFamily="@font/productsans_bold"
+        android:text="Work hours:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/art_workhours"
+        android:layout_width="320sp"
+        android:layout_height="40sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/custom_edit_text_background"
+        android:ems="10"
+        android:fontFamily="@font/productsans_regular"
+        android:hint="   08:00-18:00"
+        android:inputType="time"
+        android:textColorHint="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        tools:ignore="TouchTargetSizeCheck" />
+    <TextView
+        android:id="@+id/work_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="550dp"
+        android:fontFamily="@font/productsans_bold"
+        android:text="Working area :"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold">
+    </TextView>
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/multiAutoCompleteTextView"
+        android:layout_width="320sp"
+        android:layout_height="40sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/custom_edit_text_background"
+        android:fontFamily="@font/productsans_regular"
+        android:hint="  Alger"
+        android:textColorHint="@color/black"
+        android:textSize="14sp"
+        tools:ignore="TouchTargetSizeCheck">
+
+    </MultiAutoCompleteTextView>
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginLeft="315dp"
+        app:srcCompat="@drawable/arrow" />
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/productsans_bold"
+        android:text="Status :"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="660dp"
+        android:layout_marginLeft="10dp"/>
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="28sp"
+        android:layout_height="30sp"
+        android:src="@drawable/active_status"
+        android:layout_marginTop="710dp"
+        android:layout_marginLeft="30dp"/>
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="28dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="740dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/deplacement"/>
+<TextView
+    android:id="@+id/staus"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Active staus"
+    android:fontFamily="@font/productsans_regular"
+    android:textSize="16sp"
+    android:layout_marginLeft="67dp"
+    android:layout_marginTop="715dp"/>
+
+    <Switch
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="710dp"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/dep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deplacement"
+        android:fontFamily="@font/productsans_regular"
+        android:textSize="16sp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="745dp"/>
+
+    <Switch
+        android:id="@+id/deplacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="745dp"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/art_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/productsans_bold"
+        android:text="save changes"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginTop="770dp"
+        android:layout_marginLeft="250dp"/>
+
+
+
+
+</FrameLayout>
+
+
+

@@ -26,7 +26,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_1" />
+        app:srcCompat="@drawable/back" />
 
 
     <TextView
@@ -72,6 +72,7 @@
         android:textColor="@color/my_custom_blue"
         android:textSize="26sp"
         android:theme="@style/Button.Theme"
+        android:background="@drawable/custom_button1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

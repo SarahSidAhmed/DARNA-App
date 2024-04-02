@@ -27,7 +27,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_1" />
+        app:srcCompat="@drawable/back" />
 
 
     <ScrollView
@@ -48,7 +48,7 @@
                 android:fontFamily="@font/productsans_black"
                 android:text="Create your account"
                 android:textColor="#232222"
-                android:layout_marginBottom="85dp"
+                android:layout_marginBottom="50dp"
                 android:textSize="32sp"
                 app:layout_constraintHorizontal_bias="0.126"
                 android:layout_marginLeft="25dp"
@@ -68,7 +68,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Full Name"
                 android:inputType="text"
-                android:maxLength="16"
                 android:padding="8sp"/>
 
             <TextView
@@ -92,7 +91,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Email"
                 android:inputType="textEmailAddress"
-                android:maxLength="16"
                 android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
@@ -118,7 +116,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Phone number"
                 android:inputType="phone"
-                android:maxLength="16"
                 android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
@@ -144,7 +141,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Password"
                 android:inputType="textPassword"
-                android:maxLength="16"
                 android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
@@ -170,7 +166,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Confirm password"
                 android:inputType="textPassword"
-                android:maxLength="16"
                 android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
