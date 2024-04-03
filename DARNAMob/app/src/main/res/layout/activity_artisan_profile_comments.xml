@@ -123,7 +123,7 @@
 
                 <ImageView
                     android:id="@+id/imageView8"
-                    android:layout_width="28dp"
+                    android:layout_width="25dp"
                     android:layout_height="28dp"
                     android:layout_marginStart="100dp"
                     android:src="@drawable/blackstar"

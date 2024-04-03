@@ -146,6 +146,7 @@ class EditSettingFragment : Fragment() {
             "Ghardaïa",
             "Relizane"
         )
+
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, wilayas)
         actv1.setAdapter(adapter)

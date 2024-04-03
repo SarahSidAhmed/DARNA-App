@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.darnamob.Accueil.SignInUp
 import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Membre
@@ -34,6 +35,10 @@ class SignUp : AppCompatActivity() {
             finish()
         }
 
+        binding.back.setOnClickListener {
+            startActivity(Intent(this, SignInUp::class.java))
+            finish()
+        }
 
 
     }

@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:gravity="top|end">
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/notif"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="16dp"
@@ -82,6 +82,8 @@
 
             >
             <TextView
+                android:id="@+id/email"
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="9dp"
@@ -99,6 +101,8 @@
             android:background="@drawable/custom_edit_text_background"
             >
             <TextView
+                android:id="@+id/phone"
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="9dp"
@@ -116,6 +120,8 @@
             android:background="@drawable/custom_edit_text_background"
             >
             <TextView
+                android:id="@+id/address"
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="9dp"

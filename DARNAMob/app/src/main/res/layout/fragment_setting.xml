@@ -16,6 +16,7 @@
             android:src="@drawable/bobble" />
 
         <ImageView
+            android:id="@+id/notif"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/notificationsexist"
@@ -54,6 +55,7 @@
                 android:layout_margin="8dp">
 
                 <LinearLayout
+                    android:id="@+id/editProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -62,7 +64,7 @@
 
                     <!-- Image for the First CardView -->
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/editicon"
                         android:layout_marginEnd="8dp"
@@ -84,6 +86,7 @@
                 android:layout_margin="8dp">
 
                 <LinearLayout
+                    android:id="@+id/editPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -93,7 +96,7 @@
 
                     <!-- Image for the Second CardView -->
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/editicon"
                         android:layout_marginEnd="8dp"/>
@@ -117,6 +120,7 @@
                 android:layout_margin="8dp">
 
                 <LinearLayout
+                    android:id="@+id/logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -126,7 +130,7 @@
 
                     <!-- Image for the Third CardView -->
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/logouticon"
                         android:layout_marginEnd="8dp"/>

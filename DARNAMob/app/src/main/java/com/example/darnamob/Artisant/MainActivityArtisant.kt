@@ -8,24 +8,25 @@ import com.example.darnamob.Client.Fragments.AccountFragment
 import com.example.darnamob.Client.Fragments.DiscussionFragment
 import com.example.darnamob.Client.Fragments.HomeFragment
 import com.example.darnamob.Client.Fragments.SettingFragment
+import com.example.darnamob.databinding.ActivityMainArtisantBinding
 import com.example.darnamob.databinding.ActivityMainBinding
 import com.example.darnamob.databinding.ActivityMainClientBinding
 
 class MainActivityArtisant : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainClientBinding
+    private lateinit var binding : ActivityMainArtisantBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainClientBinding.inflate(layoutInflater)
+        binding = ActivityMainArtisantBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(HomeFragment())
+        replaceFragment(com.example.darnamob.Artisant.Fragments.HomeFragment())
 
         binding.bottomNavigationView.background = null
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> replaceFragment(HomeFragment())
+                R.id.home -> replaceFragment(com.example.darnamob.Artisant.Fragments.HomeFragment())
                 R.id.message -> replaceFragment(DiscussionFragment())
                 R.id.settings -> replaceFragment(SettingFragment())
                 R.id.account -> replaceFragment(AccountFragment())

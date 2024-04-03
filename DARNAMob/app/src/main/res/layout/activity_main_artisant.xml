@@ -23,6 +23,7 @@
         android:background="@color/white"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp">
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,10 +47,4 @@
         app:maxImageSize="40dp"
         app:tint="@color/white" />
 
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello world"
-        android:textSize="40sp"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

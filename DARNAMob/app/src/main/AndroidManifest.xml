@@ -40,13 +40,10 @@
             android:name=".Client.AccountClientSettings"
             android:exported="false" />
         <activity
-            android:name=".Client.AccountClient"
-            android:exported="false" />
-        <activity
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Main.SignUp"
+            android:name=".Client.MainActivityClient"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,7 +67,7 @@
             android:name=".Accueil.Accueil1"
             android:exported="false" />
         <activity
-            android:name=".Client.MainActivityClient"
+            android:name=".Main.SignUp"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

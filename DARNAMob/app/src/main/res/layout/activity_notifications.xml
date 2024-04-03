@@ -60,13 +60,13 @@
                     android:background="@drawable/custom_edit_text_background"
                     >
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/client_pic"
                         android:layout_width="60dp"
                         android:layout_height="48dp"
                         android:layout_marginTop="30dp"
                         android:paddingStart="10dp"
-                        app:srcCompat="@drawable/image_1" />
+                        android:src="@drawable/image_1"/>
 
 
                     <TextView
@@ -142,7 +142,7 @@
                     android:id="@+id/art_warn"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:paddingStart="10dp"
+                    android:paddingStart="5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
                     app:srcCompat="@drawable/warn"
@@ -180,13 +180,13 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/custom_edit_text_background"
                     >
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/client_pic2"
                         android:layout_width="60dp"
                         android:layout_height="48dp"
                         android:layout_marginTop="30dp"
                         android:paddingStart="10dp"
-                        app:srcCompat="@drawable/image_1" />
+                        android:src="@drawable/image_1"/>
                     <TextView
                         android:id="@+id/art_client_username2"
                         android:layout_width="wrap_content"

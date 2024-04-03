@@ -31,8 +31,9 @@ class SignIn : AppCompatActivity() {
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
-            Toast.makeText(this, email, Toast.LENGTH_SHORT).show()
-            Signin(email, password)
+            if (email.isNotEmpty() && password.isNotEmpty()){
+            Signin(email, password)}
+            else Toast.makeText(this, "Fields can not be empty, check your infos again", Toast.LENGTH_SHORT).show()
         }
 
         binding.signupText.setOnClickListener {
