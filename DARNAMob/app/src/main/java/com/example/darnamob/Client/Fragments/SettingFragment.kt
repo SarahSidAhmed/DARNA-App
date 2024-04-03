@@ -22,23 +22,16 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val userId = arguments?.getInt("id")?:-1
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_setting, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        arguments?.let { bundle ->
-//            userId = bundle.getInt("id", -1)
-//        }
+        arguments?.let { bundle ->
+            userId = bundle.getInt("id", -1)
+        }
 
-
-
-        //val userId = arguments?.getInt("id", -1)?:-1
-
-        Toast.makeText(requireContext(), "User ID: $userId", Toast.LENGTH_SHORT).show()
 
         // Initialize the database helper
         db = DatabaseHelper(requireContext())

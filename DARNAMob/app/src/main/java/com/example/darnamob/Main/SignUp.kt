@@ -73,9 +73,11 @@ class SignUp : AppCompatActivity() {
                         )
                         val intent = Intent(this, MainActivityClient::class.java)
                         intent.putExtra("id", db.getUserID(email))
+                        Toast.makeText(this, "${db.getUserID(email)}", Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                         finish()
-                    } else Toast.makeText(this, "Check your password", Toast.LENGTH_SHORT).show()
+                    }
+                    else Toast.makeText(this, "Check your password", Toast.LENGTH_SHORT).show()
                 }
             } else Toast.makeText(this, "Something happened. Try again.", Toast.LENGTH_SHORT).show()
         }

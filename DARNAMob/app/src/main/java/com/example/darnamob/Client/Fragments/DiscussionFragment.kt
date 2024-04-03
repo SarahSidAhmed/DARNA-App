@@ -9,7 +9,7 @@ import com.example.darnamob.R
 
 class DiscussionFragment : Fragment() {
 
-
+    private var userId: Int =-1
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,12 +22,10 @@ class DiscussionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var userId: Int =-1
         arguments?.let { bundle ->
-          userId = bundle.getInt("id", -1)
+            userId = bundle.getInt("id", -1)
         }
 
-            Toast.makeText(requireContext(), "$userId", Toast.LENGTH_SHORT).show()
 
 
     }
