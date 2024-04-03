@@ -1,9 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Client.Notifications">
+    android:background="@color/white"
+    tools:context=".Client.Notifications"
+    tools:ignore="ExtraText">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/back"
+        android:src="@drawable/back"
+        android:layout_width="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/notif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/productsans_bold"
+        android:textStyle="bold"
+        android:text="Notifications"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_edit_text_background"
+                    >
+
+                    <ImageView
+                        android:id="@+id/client_pic"
+                        android:layout_width="60dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="30dp"
+                        android:paddingStart="10dp"
+                        app:srcCompat="@drawable/image_1" />
+
+
+                    <TextView
+                        android:id="@+id/art_client_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="59dp"
+                        android:fontFamily="@font/productsans_bold"
+                        android:paddingStart="10dp"
+                        android:text="Sarah"
+                        android:textColor="#000000"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-50dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/productsans_regular"
+                        android:text="accepted your order, confirm it to start messaging"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="100dp"
+    android:layout_marginBottom="15dp"
+    android:orientation="horizontal"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="30dp"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Decline"
+        />
+
+</LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edit_text_background">
+
+                <ImageView
+                    android:id="@+id/art_warn"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    app:srcCompat="@drawable/warn"
+                    android:background="@drawable/custom_warn"
+                    />
+
+
+                <TextView
+                    android:id="@+id/admin_mess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/productsans_bold"
+                    android:text="Admin sent you a warning"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="20dp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edit_text_background">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_edit_text_background"
+                    >
+                    <ImageView
+                        android:id="@+id/client_pic2"
+                        android:layout_width="60dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="30dp"
+                        android:paddingStart="10dp"
+                        app:srcCompat="@drawable/image_1" />
+                    <TextView
+                        android:id="@+id/art_client_username2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="59dp"
+                        android:fontFamily="@font/productsans_bold"
+                        android:paddingStart="10dp"
+                        android:text="Sarah"
+                        android:textColor="#000000"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/details2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-50dp"
+                        android:layout_marginTop="50dp"
+                        android:fontFamily="@font/productsans_regular"
+                        android:text="accepted your order, confirm it to start messaging"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Confirm"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginRight="30dp"
+                        />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Decline"
+                        />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
