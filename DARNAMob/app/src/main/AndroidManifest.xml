@@ -34,7 +34,7 @@
             android:name=".Client.EstimatedPrice"
             android:exported="false" />
         <activity
-            android:name=".Client.AddNewOrderActivity"
+            android:name=".Main.SignUp"
             android:exported="false" />
         <activity
             android:name=".Client.AccountClientSettings"
@@ -43,7 +43,7 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Main.SignUp"
+            android:name=".Client.AddNewOrderActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

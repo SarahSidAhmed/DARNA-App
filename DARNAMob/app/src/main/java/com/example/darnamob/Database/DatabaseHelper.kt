@@ -94,9 +94,6 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         }
     }
 
-
-
-
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         for(Table_name in TABLE_NAMES){
         val dropTableQuery = "DROP TABLE IF EXISTS $Table_name"
@@ -183,9 +180,9 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     //
 
     //DEMANDE
-    // -getAllDemandeByRegionDispo(region: String, dispo: Boolean) -> List<Demande>
+    // -getAllDemandeByRegionDispo(region: String, dispo: Boolean) -> List<Demande> (artisan)
     // -getTasksArtisan(artisanId: Int) -> List<RendezVousTasks>
-    // -getRendezVousClient(clientId: Int) -> List<RendezVousTasks>
+    // -getRendezVousClient(clientId: Int) -> List<RendezVousTasks> (client)
     // -addDemande(demande: Demande)
     // -filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>
 
@@ -985,6 +982,9 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES WITHOUT THE COMPLETED ONES
     fun filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>{
+
+        // quand il clique sur sur une image d'une category
+
         val db = readableDatabase
         val rendezvousCategorie = mutableListOf<Demande>()
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} " +
@@ -1023,8 +1023,6 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         return rendezvousCategorie
 
     }
-
-
 
     //METHOD TO SET THE DEMANDE TO COMPLETED
     fun setTaskCompleted(num_demande: Int){

@@ -9,7 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.MainActivity
@@ -27,8 +28,12 @@ class HomeFragment : Fragment() {
     ): View? {
 
 
+        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val recyclerView: RecyclerView = rootView.findViewById(R.id.my_recycler_view)
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return rootView
 
     }
 
