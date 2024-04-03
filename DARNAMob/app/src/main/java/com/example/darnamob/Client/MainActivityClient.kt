@@ -2,6 +2,7 @@ package com.example.darnamob.Client
 
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.darnamob.Client.Fragments.AccountFragment
@@ -17,6 +18,7 @@ class MainActivityClient : AppCompatActivity() {
 
    private lateinit var binding : ActivityMainClientBinding
    private lateinit var db : DatabaseHelper
+   private lateinit var bundle: Bundle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,57 +26,48 @@ class MainActivityClient : AppCompatActivity() {
         setContentView(binding.root)
 
         db = DatabaseHelper(this)
+        val userId = intent.getIntExtra("id", -1) // to get the id
 
-        replaceFragment(HomeFragment())
+         bundle = Bundle().apply {
+            putInt("id", userId)
+        }
+        val homeFrag = HomeFragment().apply {
+            arguments = bundle
+        }
+        replaceFragment(homeFrag)
+
         binding.bottomNavigationView.background = null
-
-        val userId = 2 //intent.getIntExtra("id", -1) // to get the id
-
 
 
         //new order button
 
-        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+        binding.bottomNavigationView.setOnItemSelectedListener {
+                item ->
             when (item.itemId) {
-
                 R.id.home -> { //done
-
-
-                    val bundle1 = Bundle().apply {
-                        putInt("id", userId)
-                    }
                     val homeFrag = HomeFragment().apply {
-                        arguments = bundle1
+                        arguments = bundle
                     }
                     replaceFragment(homeFrag)
                 }
 
                 R.id.message -> {
-                    val bundle = Bundle().apply {
-                        putInt("id", userId)
-                    }
                     val messageFrag = DiscussionFragment().apply {
                         arguments = bundle
 
                     }
-                    replaceFragment(DiscussionFragment())}
+                    replaceFragment(messageFrag)}
 
                 R.id.settings -> { //started
-                    val bundle = Bundle().apply {
-                        putInt("id", userId)
-                    }
-                    bundle.putInt("id", userId)
                     val settingsFrag = SettingFragment().apply {
                         arguments = bundle
                     }
-                    replaceFragment(SettingFragment())}
+                    replaceFragment(settingsFrag)}
 
                 R.id.account -> {
-                    val bundle = Bundle()
-                    bundle.putInt("id", userId)
                     val accountFrag = AccountFragment()
                     accountFrag.arguments = bundle
-                    replaceFragment(AccountFragment())}
+                    replaceFragment(accountFrag)}
             }
             true
         }

@@ -1,6 +1,7 @@
 package com.example.darnamob.Client.Fragments
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,8 +26,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val data = arguments
-        userId = data?.getInt("id")!!
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -36,12 +35,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        arguments?.let { bundle ->
-//            userId = bundle.getInt("id", -1)
-//        }
-
-        Toast.makeText(requireContext(), "User ID: $userId", Toast.LENGTH_SHORT).show()
-
+        arguments?.let { bundle ->
+            userId = bundle.getInt("id", -1)
+        }
 
         // Initialize the database helper
         db = DatabaseHelper(requireContext())
@@ -55,6 +51,10 @@ class HomeFragment : Fragment() {
 
         // Setting the username welcome
         view?.findViewById<TextView>(R.id.username)?.text = "${membre.userName}!"
+        var image = membre.image
+        val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
+        view?.findViewById<ImageView>(R.id.profile_photo)?.setImageBitmap(bitmap)
+
 
         // Setting the onclick of the notification
         view?.findViewById<ImageView>(R.id.notif)?.setOnClickListener {
