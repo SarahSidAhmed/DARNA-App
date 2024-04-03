@@ -44,13 +44,8 @@
             android:exported="false" />
         <activity
             android:name=".Main.SignUp"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".Artisant.Fragments.SettingFragment"
             android:exported="false" />
@@ -89,7 +84,14 @@
             android:exported="false" />
         <activity
             android:name=".Artisant.MainActivityArtisant"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
