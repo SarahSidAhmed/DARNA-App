@@ -1,13 +1,11 @@
 package com.example.darnamob.Client
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.R
 
 class AddNewOrderActivity : AppCompatActivity() {
@@ -61,6 +59,9 @@ class AddNewOrderActivity : AppCompatActivity() {
               val serviceAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, serviceNames)
               autoCompleteTxtService.setAdapter(serviceAdapter)
           }*/
+
+
+
     }
 
 }
