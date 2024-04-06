@@ -367,13 +367,14 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     //METHOD TO EDIT THE PROFILE OF A SIMPLE MEMBER
     fun editProfileMember(id: Int, phoneNumber: String, Address: String, image: ByteArray){
         val db = writableDatabase
-        val query = "UPDATE ${Table_Schemas.Membre.TABLE_NAME}" +
-                "SET ${Table_Schemas.Membre.COLUMN_TEL} = '$phoneNumber'," +
-                "${Table_Schemas.Membre.COLUMN_ADDRESS} = '$Address'," +
-                "${Table_Schemas.Membre.COLUMN_IMAGE} = $image" +
-                "WHERE ${Table_Schemas.Membre.COLUMN_ID} = $id"
+        val query = "UPDATE ${Table_Schemas.Membre.TABLE_NAME} " +
+                "SET ${Table_Schemas.Membre.COLUMN_TEL} = ?, " +
+                "${Table_Schemas.Membre.COLUMN_ADDRESS} = ?, " +
+                "${Table_Schemas.Membre.COLUMN_IMAGE} = ? " +
+                "WHERE ${Table_Schemas.Membre.COLUMN_ID} = ?"
 
-        db.execSQL(query, null)
+
+        db.execSQL(query, arrayOf(phoneNumber, Address, image, id))
         db.close()
 
     }

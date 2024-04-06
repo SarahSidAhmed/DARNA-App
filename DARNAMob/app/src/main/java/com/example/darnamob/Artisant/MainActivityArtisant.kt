@@ -8,32 +8,80 @@ import com.example.darnamob.Client.Fragments.AccountFragment
 import com.example.darnamob.Client.Fragments.DiscussionFragment
 import com.example.darnamob.Client.Fragments.HomeFragment
 import com.example.darnamob.Client.Fragments.SettingFragment
+import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.databinding.ActivityMainArtisantBinding
 import com.example.darnamob.databinding.ActivityMainBinding
 import com.example.darnamob.databinding.ActivityMainClientBinding
 
+private lateinit var binding : ActivityMainArtisantBinding
+private lateinit var db : DatabaseHelper
+private lateinit var bundle: Bundle
+
 class MainActivityArtisant : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainClientBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainClientBinding.inflate(layoutInflater)
+        binding = ActivityMainArtisantBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(HomeFragment())
+        db = DatabaseHelper(this)
+        val userId = intent.getIntExtra("id", -1) // to get the id
+
+        bundle = Bundle().apply {
+            putInt("id", userId)
+        }
+
+        val homeFrag = com.example.darnamob.Artisant.Fragments.HomeFragment().apply {
+            arguments = bundle
+        }
+        replaceFragment(com.example.darnamob.Artisant.Fragments.HomeFragment())
 
         binding.bottomNavigationView.background = null
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> replaceFragment(HomeFragment())
-                R.id.message -> replaceFragment(DiscussionFragment())
-                R.id.settings -> replaceFragment(SettingFragment())
-                R.id.account -> replaceFragment(AccountFragment())
+                R.id.home -> {
+                    bundle = Bundle().apply {
+                        putInt("id", userId)
+                    }
+
+                    val homeFrag = com.example.darnamob.Artisant.Fragments.HomeFragment().apply {
+                        arguments = bundle
+                    }
+                    replaceFragment(homeFrag)
+                }
+                R.id.message -> {
+                    bundle = Bundle().apply {
+                        putInt("id", userId)
+                    }
+
+                    val messageFrag = com.example.darnamob.Artisant.Fragments.DiscussionFragment().apply {
+                        arguments = bundle
+                    }
+                    replaceFragment(messageFrag)
+                }
+                R.id.settings -> {
+                    bundle = Bundle().apply {
+                        putInt("id", userId)
+                    }
+                    val settingsFrag = com.example.darnamob.Artisant.Fragments.SettingFragment().apply {
+                        arguments = bundle
+                    }
+                    replaceFragment(settingsFrag)
+                }
+                R.id.account -> {
+                    bundle = Bundle().apply {
+                        putInt("id", userId)
+                    }
+                    val accountFrag = com.example.darnamob.Artisant.Fragments.AccountFragment().apply {
+                        arguments = bundle
+                    }
+                    replaceFragment(accountFrag)
+                }
             }
             true
         }
 
-        val userId = intent.getIntExtra("id", -1)
         //tr
     }
 

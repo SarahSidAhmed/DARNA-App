@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="413dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-4dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bobble" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|end">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/notif" />
+    </LinearLayout>
+<androidx.cardview.widget.CardView
+    android:layout_width="354.89dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="180dp"
+    android:layout_marginLeft="30dp">
+    <TextView
+        android:id="@+id/text"
+        android:text="Calendar"
+        android:layout_width="354.89dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_edit_text_background"
+        android:fontFamily="@font/productsans_bold"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingTop="15sp"
+        android:textColor="@color/black"
+        android:paddingLeft="15sp"
+        />
+
+</androidx.cardview.widget.CardView>
+    <CalendarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="30dp">
+
+    </CalendarView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="650dp">
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/orange"
+            android:layout_width="320dp"
+            android:layout_height="60dp">
+           <TextView
+               android:id="@+id/prest"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="wall painting"
+               android:textSize="18sp"
+               android:layout_marginLeft="50sp"/>
+            <ImageView
+                android:id="@+id/prest_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/paint"/>
+            <TextView
+                android:id="@+id/prest_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00am-12:30pm"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="19dp"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    </ScrollView>
+
+
+
+
+
+</FrameLayout>

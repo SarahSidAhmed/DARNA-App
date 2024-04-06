@@ -49,7 +49,6 @@
         android:id="@+id/sign_in"
         android:layout_width="320dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="272dp"
         android:background="@drawable/custom_button"
         android:fontFamily="@font/productsans_bold"
         android:text="sign in"
@@ -61,24 +60,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.385" />
 
     <Button
         android:id="@+id/sign_up"
         android:layout_width="320dp"
         android:layout_height="49dp"
+        android:background="@drawable/custom_button1"
         android:fontFamily="@font/productsans_bold"
         android:text="Sign Up"
         android:textColor="@color/my_custom_blue"
         android:textSize="26sp"
         android:theme="@style/Button.Theme"
-        android:background="@drawable/custom_button1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.182" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

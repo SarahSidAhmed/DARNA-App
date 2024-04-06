@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.darnamob.Accueil.SignInUp
 import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Membre
@@ -34,6 +35,10 @@ class SignUp : AppCompatActivity() {
             finish()
         }
 
+        binding.back.setOnClickListener {
+            startActivity(Intent(this, SignInUp::class.java))
+            finish()
+        }
 
 
     }
@@ -68,9 +73,11 @@ class SignUp : AppCompatActivity() {
                         )
                         val intent = Intent(this, MainActivityClient::class.java)
                         intent.putExtra("id", db.getUserID(email))
+                        Toast.makeText(this, "${db.getUserID(email)}", Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                         finish()
-                    } else Toast.makeText(this, "Check your password", Toast.LENGTH_SHORT).show()
+                    }
+                    else Toast.makeText(this, "Check your password", Toast.LENGTH_SHORT).show()
                 }
             } else Toast.makeText(this, "Something happened. Try again.", Toast.LENGTH_SHORT).show()
         }

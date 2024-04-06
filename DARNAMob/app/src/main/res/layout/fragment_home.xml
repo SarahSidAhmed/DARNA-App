@@ -41,20 +41,35 @@
                     android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_photo"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginRight="12dp"
                         android:src="@drawable/profile"/>
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Welcome\n Sarah Sid !"
+                        android:text="Welcome"
                         android:fontFamily="@font/productsans_black"
                         android:textColor="@color/black"
                         android:textSize="25sp" />
 
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/productsans_black"
+                        android:text="Sarah Sid !"
+                        android:textColor="@color/black"
+                        android:textSize="25sp" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <!-- Empty Space for Gap -->
@@ -64,6 +79,7 @@
 
                 <!-- Notification Icon -->
                 <ImageView
+                    android:id="@+id/notif"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="4dp"
@@ -200,6 +216,7 @@
                         app:cardCornerRadius="8dp">
 
                         <ImageView
+                            android:id="@+id/painting"
                             android:layout_width="90dp"
                             android:layout_height="90dp"
                             android:src="@drawable/painting" />
@@ -215,6 +232,7 @@
                         app:cardCornerRadius="8dp">
 
                         <ImageView
+                            android:id="@+id/plumbing"
                             android:layout_width="90dp"
                             android:layout_height="90dp"
                             android:src="@drawable/plumbing" />
@@ -230,6 +248,7 @@
                         app:cardCornerRadius="8dp">
 
                         <ImageView
+                            android:id="@+id/cleaning"
                             android:layout_width="90dp"
                             android:layout_height="90dp"
                             android:src="@drawable/cleaning" />
@@ -245,6 +264,7 @@
                         app:cardCornerRadius="8dp">
 
                         <ImageView
+                            android:id="@+id/masonry"
                             android:layout_width="90dp"
                             android:layout_height="90dp"
                             android:src="@drawable/masonry" />
@@ -260,6 +280,7 @@
                         app:cardCornerRadius="8dp">
 
                         <ImageView
+                            android:id="@+id/electricity"
                             android:layout_width="90dp"
                             android:layout_height="90dp"
                             android:src="@drawable/electricity" />
