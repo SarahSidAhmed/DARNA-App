@@ -3,15 +3,11 @@ package com.example.darnamob.Main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.Data
 import android.widget.Toast
-import com.example.darnamob.Accueil.SignInUp
 import com.example.darnamob.Artisant.MainActivityArtisant
 import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.Database.Table_Schemas
-import com.example.darnamob.MainActivity
-import com.example.darnamob.R
+import com.example.darnamob.Admin.MainActivityAdmin
 import com.example.darnamob.databinding.ActivitySignInBinding
 
 private lateinit var binding : ActivitySignInBinding
@@ -42,7 +38,7 @@ class SignIn : AppCompatActivity() {
         }
 
         binding.back.setOnClickListener {
-            startActivity(Intent(this, SignInUp::class.java))
+            startActivity(Intent(this, SignIn::class.java))
         }
 
 
@@ -59,7 +55,7 @@ class SignIn : AppCompatActivity() {
 
             if (checkCredential){
                 if(db.checkIfAdmin(email)){ //if the user is an admin go to the main admin
-                    startActivity(Intent(this, MainActivity::class.java)) //have to change it to main admin activity
+                    startActivity(Intent(this, MainActivityAdmin::class.java)) //have to change it to main admin activity
                     finish()
                 }else{
                     Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
