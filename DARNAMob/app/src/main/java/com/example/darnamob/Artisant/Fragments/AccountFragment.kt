@@ -6,9 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import com.example.darnamob.R
-import android.widget.MultiAutoCompleteTextView
 import com.example.darnamob.Database.DatabaseHelper
 
 class AccountFragment : Fragment() {

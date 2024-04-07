@@ -1,17 +1,11 @@
 package com.example.darnamob.Client
 
-import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.Data
 import android.widget.Toast
-import androidx.core.graphics.drawable.toBitmap
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityAccountClientSettingsBinding
-import java.io.ByteArrayOutputStream
 
 private lateinit var binding : ActivityAccountClientSettingsBinding
 private lateinit var db: DatabaseHelper

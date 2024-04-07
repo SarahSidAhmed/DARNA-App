@@ -43,7 +43,7 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Artisant.MainActivityArtisant"
+            android:name=".Main.Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -85,7 +85,7 @@
             android:name=".Accueil.Accueil2"
             android:exported="false" />
         <activity
-            android:name=".Main.Main"
+            android:name=".Artisant.MainActivityArtisant"
             android:exported="false" />
         <activity
             android:name=".Main.SignUp"

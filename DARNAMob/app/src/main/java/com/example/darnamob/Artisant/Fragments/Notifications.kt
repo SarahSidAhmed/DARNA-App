@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.darnamob.Artisant.MainActivityArtisant
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityNotificationsBinding
 
 private lateinit var db: DatabaseHelper

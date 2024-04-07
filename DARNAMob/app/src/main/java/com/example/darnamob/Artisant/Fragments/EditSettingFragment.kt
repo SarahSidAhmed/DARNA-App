@@ -1,6 +1,5 @@
 package com.example.darnamob.Artisant.Fragments
 
-import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment

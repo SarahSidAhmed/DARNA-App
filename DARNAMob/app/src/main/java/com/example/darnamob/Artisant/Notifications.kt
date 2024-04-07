@@ -3,10 +3,8 @@ package com.example.darnamob.Artisant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.Data
 import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityNotificationsBinding
 
 private lateinit var db : DatabaseHelper

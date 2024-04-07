@@ -4,14 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.darnamob.R
 import androidx.fragment.app.Fragment
-import com.example.darnamob.Client.Fragments.AccountFragment
-import com.example.darnamob.Client.Fragments.DiscussionFragment
-import com.example.darnamob.Client.Fragments.HomeFragment
-import com.example.darnamob.Client.Fragments.SettingFragment
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.databinding.ActivityMainArtisantBinding
-import com.example.darnamob.databinding.ActivityMainBinding
-import com.example.darnamob.databinding.ActivityMainClientBinding
 
 private lateinit var binding : ActivityMainArtisantBinding
 private lateinit var db : DatabaseHelper

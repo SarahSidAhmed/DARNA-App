@@ -2,9 +2,7 @@ package com.example.darnamob.Client
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.Data
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityEstimatedPriceBinding
 
 private lateinit var db: DatabaseHelper

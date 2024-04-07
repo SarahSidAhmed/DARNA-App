@@ -1,10 +1,10 @@
 package com.example.darnamob.Database
 
 import android.content.ContentValues
+import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.darnamob.Admin.ViewAllUsers
 import com.example.darnamob.Database.data.Admin
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.Database.data.Comment
@@ -13,10 +13,11 @@ import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.Database.data.RendezVousTasks
+import com.example.darnamob.Main.SignUp
 import com.example.darnamob.toSHA256
 
 
-class DatabaseHelper(Context: ViewAllUsers) : SQLiteOpenHelper(Context, DATABASE_NAME, null, DATABASE_VERSION ) {
+class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME, null, DATABASE_VERSION ) {
 
     //=========================================================================================//
     //START OF CONSTANTS//
