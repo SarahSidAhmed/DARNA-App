@@ -37,13 +37,13 @@
             android:name=".Client.AddNewOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".Main.Main"
+            android:name=".Client.AccountClientSettings"
             android:exported="false" />
         <activity
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Client.AccountClientSettings"
+            android:name=".Main.Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
