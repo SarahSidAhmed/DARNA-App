@@ -1,25 +1,19 @@
-package com.example.darnamob.Artisant.Fragments
-
+package com.example.darnamob.Admin.Fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import androidx.fragment.app.Fragment
 import com.example.darnamob.R
-import android.widget.MultiAutoCompleteTextView
 
-class AccountFragment : Fragment() {
-
+class ViewAllusersFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false)
+        return inflater.inflate(R.layout.activity_viewallusers, container, false)
     }
 
 }
-
-

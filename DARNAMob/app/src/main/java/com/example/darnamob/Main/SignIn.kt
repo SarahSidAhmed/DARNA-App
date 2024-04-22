@@ -3,15 +3,11 @@ package com.example.darnamob.Main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.Data
 import android.widget.Toast
-import com.example.darnamob.Accueil.SignInUp
 import com.example.darnamob.Artisant.MainActivityArtisant
 import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.Database.Table_Schemas
 import com.example.darnamob.MainActivity
-import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivitySignInBinding
 
 private lateinit var binding : ActivitySignInBinding
@@ -21,10 +17,6 @@ class SignIn : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
-
 
 
         binding.SubmitButtom.setOnClickListener {
@@ -42,7 +34,7 @@ class SignIn : AppCompatActivity() {
         }
 
         binding.back.setOnClickListener {
-            startActivity(Intent(this, SignInUp::class.java))
+            startActivity(Intent(this, SignIn::class.java))
         }
 
 
