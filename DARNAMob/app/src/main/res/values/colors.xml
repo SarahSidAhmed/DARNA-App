@@ -5,4 +5,6 @@
     <color name="my_custom_blue">#17ABFF</color>
     <color name="grey">#B1B0B0</color>
     <color name="orange">#D0EACCA1 </color>
+    <color name="redorange">#F2FFB4C4</color>
+
 </resources>

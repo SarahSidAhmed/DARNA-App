@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.databinding.ActivityAccountClientSettingsBinding
-import com.github.dhaval2404.imagepicker.ImagePicker
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
@@ -48,52 +47,49 @@ class AccountClientSettings : AppCompatActivity() {
 
         //you need to add the thing to get the image from their gallery and affect it to the
         //image view so that it changes
-        binding.camera.setOnClickListener {
-            ImagePicker.with(this)
-                .crop()	    			//Crop image(Optional), Check Customization for more option
-                .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                .start()
-        }
-
-
-
-
+//        binding.camera.setOnClickListener {
+//            ImagePicker.with(this)
+//                .crop()	    			//Crop image(Optional), Check Customization for more option
+//                .compress(1024)			//Final image size will be less than 1 MB(Optional)
+//                .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+//                .start()
+//        }
+//
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        binding.artprofilpic.setImageURI(data?.data)
-        binding.save.setOnClickListener {
-            address = binding.artAddress.text.toString().trim()
-            phone = binding.artPhone.text.toString().trim()
-
-            val imageUri = data?.data //getting the image
-            try {
-                // Convert image URI to byte array
-                val inputStream = contentResolver.openInputStream(imageUri!!)
-                val bitmap = BitmapFactory.decodeStream(inputStream)
-                val byteArray = bitmapToByteArray(bitmap)
-
-                //inserting the changes in the DB
-                if (byteArray.isNotEmpty()) {
-                    db.editProfileMember(userID, phone, address, byteArray)
-                    Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show()
-                } else Toast.makeText(
-                    this,
-                    "Infos can not be empty, check again",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-
-                // Use the byte array as needed
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-
-            //updating the data in the database
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        binding.artprofilpic.setImageURI(data?.data)
+//        binding.save.setOnClickListener {
+//            address = binding.artAddress.text.toString().trim()
+//            phone = binding.artPhone.text.toString().trim()
+//
+//            val imageUri = data?.data //getting the image
+//            try {
+//                // Convert image URI to byte array
+//                val inputStream = contentResolver.openInputStream(imageUri!!)
+//                val bitmap = BitmapFactory.decodeStream(inputStream)
+//                val byteArray = bitmapToByteArray(bitmap)
+//
+//                //inserting the changes in the DB
+//                if (byteArray.isNotEmpty()) {
+//                    db.editProfileMember(userID, phone, address, byteArray)
+//                    Toast.makeText(this, "Changes Saved", Toast.LENGTH_SHORT).show()
+//                } else Toast.makeText(
+//                    this,
+//                    "Infos can not be empty, check again",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//
+//
+//                // Use the byte array as needed
+//            } catch (e: IOException) {
+//                e.printStackTrace()
+//            }
+//
+//            //updating the data in the database
+//        }
+//    }
 
 
     private fun bitmapToByteArray(bitmap: Bitmap): ByteArray {

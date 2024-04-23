@@ -24,7 +24,7 @@
        android:layout_height="25dp"
        android:src="@drawable/img_1"
        android:layout_marginTop="50dp"
-       android:layout_marginLef="50dp"/>
+       android:layout_marginLeft="50dp"/>
 
     </LinearLayout>
 
@@ -39,7 +39,7 @@
             android:id="@+id/profile_photo"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginleft="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="99dp"
             android:src="@drawable/profile"/>
         <TextView
@@ -47,12 +47,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/clint_name"
             android:text="Soundous Sid"
-            android:layout_marginLeft="10dp"
             android:paddingTop="9dp"
             android:textSize="19sp"
             android:fontFamily="@font/productsans_bold"
             android:textColor="@color/black"
-            android:layout_marginleft="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="99dp"/>
 
 
@@ -77,18 +76,17 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginTop="-260dp"
-        android:layout_marginLeft="-75dp"
+        android:layout_marginLeft="-59dp"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/prest"
             android:text="Water heater installation"
-            android:layout_marginLeft="29dp"
             android:textSize="20sp"
             android:fontFamily="@font/productsans_bold"
             android:textColor="@color/black"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             />
 
 </LinearLayout>
@@ -446,7 +444,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Material"
+            android:id="@+id/material"
             android:text="Material included : yes"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"

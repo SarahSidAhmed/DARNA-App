@@ -37,13 +37,13 @@
             android:name=".Client.AddNewOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".Client.AccountClientSettings"
+            android:name=".Main.Main"
             android:exported="false" />
         <activity
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Main.SignUp"
+            android:name=".Client.AccountClientSettings"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,6 +62,8 @@
             android:exported="false" />
         <activity
             android:name=".Artisant.Fragments.AccountFragment"
+            android:exported="false" />
+        <activity android:name=".Artisant.Editprofil"
             android:exported="false" />
         <activity
             android:name=".Accueil.Accueil1"
@@ -85,10 +87,10 @@
             android:name=".Accueil.Accueil2"
             android:exported="false" />
         <activity
-            android:name=".Main.Main"
+            android:name=".Artisant.MainActivityArtisant"
             android:exported="false" />
         <activity
-            android:name=".Artisant.MainActivityArtisant"
+            android:name=".Main.SignUp"
             android:exported="false" />
     </application>
 
