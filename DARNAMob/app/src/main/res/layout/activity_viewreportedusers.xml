@@ -9,13 +9,13 @@
         android:id="@+id/bublle"
         android:layout_width="416dp"
         android:layout_height="165dp"
-        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bobble"
         tools:ignore="ImageContrastCheck" />
+
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -85,7 +85,7 @@
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
                 android:textAlignment="viewStart"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -182,7 +182,7 @@
                                 android:fontFamily="@font/productsans_bold"
                                 android:text="Fatima Senouci"
                                 android:textColor="#000000"
-                                android:textSize="18dp"
+                                android:textSize="18sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -205,6 +205,28 @@
                                 app:layout_constraintStart_toEndOf="@+id/textView8"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="1.0" />
+
+                            <TextView
+                                android:id="@+id/reports"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="6dp"
+                                android:background="@drawable/reportbackground"
+                                android:textColor="#FFFFFF"
+                                android:fontFamily="@font/productsans_regular"
+                                android:textSize="14sp"
+                                android:text="5"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/textView11"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.627"
+                                app:layout_constraintStart_toEndOf="@+id/textView9"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.0"
+                                />
 
                             <TextView
                                 android:id="@+id/textView10"
@@ -241,334 +263,6 @@
                                 app:layout_constraintHorizontal_bias="0.0"
                                 app:layout_constraintStart_toEndOf="@+id/textView10"
                                 app:layout_constraintTop_toBottomOf="@+id/textView9"
-                                app:layout_constraintVertical_bias="1.0" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/blockeduser">
-
-                            <ImageView
-                                android:id="@+id/imageView63"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="10dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/image_1" />
-
-                            <TextView
-                                android:id="@+id/textView83"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="11dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="194dp"
-                                android:layout_marginBottom="59dp"
-                                android:fontFamily="@font/productsans_bold"
-                                android:text="Fatima Senouci"
-                                android:textColor="#000000"
-                                android:textSize="18dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView63"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView93"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginBottom="59dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="Artisan"
-                                android:textColor="#EEB930"
-                                android:textSize="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.372"
-                                app:layout_constraintStart_toEndOf="@+id/textView83"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="1.0" />
-
-                            <TextView
-                                android:id="@+id/textView103"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="13dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="236dp"
-                                android:layout_marginBottom="21dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="Electrician"
-                                android:textColor="#757373"
-                                android:textSize="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView63"
-                                app:layout_constraintTop_toBottomOf="@+id/textView83" />
-
-                            <TextView
-                                android:id="@+id/textView113"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="150dp"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="14dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="view more"
-                                android:textColor="#757373"
-                                android:textSize="16dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/textView103"
-                                app:layout_constraintTop_toBottomOf="@+id/textView93"
-                                app:layout_constraintVertical_bias="1.0" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/blockeduser">
-
-                            <ImageView
-                                android:id="@+id/imageView62"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="10dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/image_5" />
-
-                            <TextView
-                                android:id="@+id/textView82"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="11dp"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginEnd="194dp"
-                                android:layout_marginBottom="52dp"
-                                android:fontFamily="@font/productsans_bold"
-                                android:text="Sara Laribi"
-                                android:textColor="#000000"
-                                android:textSize="18dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView62"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView92"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginBottom="52dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="client"
-                                android:textColor="#0DAA1D"
-                                android:textSize="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.372"
-                                app:layout_constraintStart_toEndOf="@+id/textView82"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="1.0" />
-
-                            <TextView
-                                android:id="@+id/textView112"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="14dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="view more"
-                                android:textColor="#757373"
-                                android:textSize="16dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/textView92"
-                                app:layout_constraintVertical_bias="1.0" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/blockeduser">
-
-                            <ImageView
-                                android:id="@+id/imageView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="10dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/image_1" />
-
-                            <TextView
-                                android:id="@+id/textView12"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="11dp"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginEnd="194dp"
-                                android:layout_marginBottom="59dp"
-                                android:fontFamily="@font/productsans_bold"
-                                android:text="Fatima Senouci"
-                                android:textColor="#000000"
-                                android:textSize="18dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView13"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="18dp"
-                                android:layout_marginBottom="59dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="Artisan"
-                                android:textColor="#EEB930"
-                                android:textSize="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.372"
-                                app:layout_constraintStart_toEndOf="@+id/textView12"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="1.0" />
-
-                            <TextView
-                                android:id="@+id/textView14"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="13dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="236dp"
-                                android:layout_marginBottom="21dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="Electrician"
-                                android:textColor="#757373"
-                                android:textSize="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView7"
-                                app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-                            <TextView
-                                android:id="@+id/textView15"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="150dp"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="14dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="view more"
-                                android:textColor="#757373"
-                                android:textSize="16dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/textView14"
-                                app:layout_constraintTop_toBottomOf="@+id/textView13"
-                                app:layout_constraintVertical_bias="1.0" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@drawable/blockeduser">
-
-                            <ImageView
-                                android:id="@+id/imageView61"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingStart="10dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/image_5" />
-
-                            <TextView
-                                android:id="@+id/textView81"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="11dp"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginEnd="194dp"
-                                android:layout_marginBottom="52dp"
-                                android:fontFamily="@font/productsans_bold"
-                                android:text="Sara Laribi"
-                                android:textColor="#000000"
-                                android:textSize="18dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView61"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView91"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginBottom="52dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="client"
-                                android:textColor="#0DAA1D"
-                                android:textSize="18dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.372"
-                                app:layout_constraintStart_toEndOf="@+id/textView81"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="1.0" />
-
-                            <TextView
-                                android:id="@+id/textView101"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="14dp"
-                                android:fontFamily="@font/productsans_regular"
-                                android:text="view more"
-                                android:textColor="#757373"
-                                android:textSize="16dp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/textView91"
                                 app:layout_constraintVertical_bias="1.0" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>

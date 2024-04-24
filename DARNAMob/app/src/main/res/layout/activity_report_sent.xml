@@ -4,7 +4,8 @@
     android:layout_width="317dp"
     android:layout_height="439dp"
     android:layout_gravity="center"
-    android:background="@drawable/popup">
+    android:background="@drawable/popup"
+    >
 
     <ImageView
         android:layout_width="143dp"
@@ -17,13 +18,16 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="167dp"
         android:fontFamily="@font/productsans_regular"
-        android:text="Added account!"
+        android:gravity="center"
+        android:text="Report Sent!"
         android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -41,7 +45,7 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="97dp"
         android:fontFamily="@font/productsans_regular"
-        android:text="You have successfuly created \n new account"
+        android:text="You have successfuly warnned this user"
         android:textAlignment="center"
         android:textColor="#757373"
         android:textSize="20sp" />
@@ -60,10 +64,10 @@
         android:layout_marginBottom="22dp"
         android:backgroundTint="#17ABFF"
         android:shadowRadius="@integer/material_motion_duration_short_1"
-        android:background="@drawable/custom_button1"
         android:fontFamily="@font/productsans_bold"
         android:shadowColor="@color/black"
         android:text="Done"
+        android:background="@drawable/custom_button1"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />

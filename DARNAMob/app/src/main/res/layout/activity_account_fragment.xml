@@ -5,6 +5,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".Artisant.Fragments.AccountFragment"
     tools:ignore="ExtraText">
 
@@ -73,10 +74,12 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
             <TextView
                 android:id="@+id/text"
                 android:layout_width="wrap_content"
@@ -365,14 +368,16 @@
                 android:layout_marginTop="790dp"
                 android:layout_marginLeft="57dp"
                 android:src="@drawable/ligne"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="800dp"
                 android:text="Comments"
                 android:textColor="@color/black"
-                android:textSize="28sp"
-                android:layout_marginTop="800dp"
-                android:layout_marginLeft="50dp"/>
+                android:textSize="28sp" />
+
             <ImageView
                 android:id="@+id/bulle"
                 android:layout_width="30dp"

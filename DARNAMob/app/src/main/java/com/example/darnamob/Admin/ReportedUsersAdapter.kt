@@ -1,32 +1,27 @@
 package com.example.darnamob.Admin
 
-import android.content.Context
 import android.graphics.BitmapFactory
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.darnamob.R
-import com.example.darnamob.Database.DatabaseHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Artisan
-//import com.example.darnamob.databinding.ActivityViewallusersBinding
-import com.google.android.material.imageview.ShapeableImageView
-import java.lang.reflect.Member
+import com.example.darnamob.R
 
-
-
-
-class ViewAllUsers(private val userlist: List<Artisan>, private val db: DatabaseHelper , private val listener: OnItemClickListener) :
-    RecyclerView.Adapter<ViewAllUsers.MyViewHolder>() {
+class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: DatabaseHelper, private val listener: OnItemClickListener) :
+    RecyclerView.Adapter<ReportedUsersAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_view_allusers,
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.activity_view_allusers,
             parent, false)
         return MyViewHolder(itemView)
     }
+
+
 
     override fun getItemCount(): Int {
         return userlist.size
@@ -38,6 +33,7 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
         val username = artisan.membre.userName
         val isClient = db.checkIfClient(email)
         val domaine = artisan.domain
+        val reports = artisan.membre.ndReports
 
         // Set user information to views
         val img = artisan.membre.image
@@ -45,6 +41,7 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
         holder.image.setImageBitmap(bitmap)
 
         holder.username.text = username
+        holder.report.text = reports.toString()
 
         if (isClient) {
             holder.type.text = "client"
@@ -68,6 +65,7 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
         val type: TextView = itemView.findViewById(R.id.textView91)
         val viewmore: TextView = itemView.findViewById(R.id.textView101)
         val domain : TextView = itemView.findViewById(R.id.domain)
+        val report : TextView = itemView.findViewById(R.id.reports)
     }
     interface OnItemClickListener {
         fun onItemClick(artisan: Artisan)

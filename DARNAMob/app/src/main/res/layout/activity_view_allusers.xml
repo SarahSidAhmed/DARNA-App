@@ -9,7 +9,6 @@
         android:id="@+id/bublle"
         android:layout_width="416dp"
         android:layout_height="165dp"
-        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,31 +31,30 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="32dp">
-
                 <ImageView
-                    android:id="@+id/imageView23"
+                    android:id="@+id/backArrow"
+                    android:layout_width="24dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="312dp"
+                    android:layout_marginEnd="272dp"
+                    android:text="Go back"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@drawable/image_1" />
+                    app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
-                    android:layout_marginStart="96dp"
-                    android:fontFamily="@font/productsans_bold"
-                    android:text="Hello admin!"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -67,6 +65,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="80dp"
                 android:fontFamily="@font/productsans_bold"
+                android:textStyle="bold"
                 android:text="View users"
                 android:textColor="#000000"
                 android:textSize="32sp" />
@@ -138,12 +137,10 @@
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
 
-    </ScrollView>
-
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -206,6 +203,21 @@
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
+                android:id="@+id/domain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="52dp"
+                android:fontFamily="@font/productsans_regular"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.372"
+                app:layout_constraintStart_toEndOf="@+id/textView91"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+            <TextView
                 android:id="@+id/textView101"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -224,7 +236,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.recyclerview.widget.RecyclerView>
-
-
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
