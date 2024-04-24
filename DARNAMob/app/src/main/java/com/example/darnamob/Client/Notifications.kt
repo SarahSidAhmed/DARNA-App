@@ -20,6 +20,9 @@ class Notifications : AppCompatActivity() {
 
         val notifications = db.notificationByID(userId) // this is the list of notifications use it in the adapter
 
+
+
+
         binding.back.setOnClickListener {
             val intent = Intent(this, MainActivityClient::class.java)
             intent.putExtra("id", userId)

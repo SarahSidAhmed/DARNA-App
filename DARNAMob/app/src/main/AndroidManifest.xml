@@ -13,24 +13,6 @@
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
         <activity
-            android:name=".Admin.ReportSentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.BannedAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.ActivityProfileClient"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.ProfileArtisanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.ActivityViewReportedusers"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.ActivityViewAllusers"
-            android:exported="false" />
-        <activity
             android:name=".Client.ArtisanProfileComments"
             android:exported="false" />
         <activity
@@ -61,7 +43,7 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Admin.HomeAdmin"
+            android:name=".Client.AccountClientSettings"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -107,15 +89,6 @@
             android:exported="false" />
         <activity
             android:name=".Main.SignUp"
-            android:exported="false" />
-        <activity
-            android:name=".Client.AccountClientSettings"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.CreateAccount"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.AddedAcountActivity"
             android:exported="false" />
     </application>
 
