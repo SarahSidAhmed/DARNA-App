@@ -59,7 +59,7 @@ class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: 
         }
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.imageView61)
         val username: TextView = itemView.findViewById(R.id.textView81)
         val type: TextView = itemView.findViewById(R.id.textView91)

@@ -43,6 +43,8 @@ class ActivityViewAllusers : AppCompatActivity() , ViewAllUsers.OnItemClickListe
         startActivity(intent)}
         else{val intent = Intent(this, ActivityProfileClient::class.java)
             intent.putExtra("email", artisan.membre.email)
+            intent.putExtra("phone", artisan.membre.tel)
+            intent.putExtra("address", artisan.membre.address)
             // Add more data if needed
             startActivity(intent)}
     }

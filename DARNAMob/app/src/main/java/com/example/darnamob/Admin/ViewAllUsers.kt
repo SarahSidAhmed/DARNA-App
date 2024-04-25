@@ -2,17 +2,19 @@ package com.example.darnamob.Admin
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.provider.ContactsContract.CommonDataKinds.Email
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.data.Artisan
-//import com.example.darnamob.databinding.ActivityViewallusersBinding
+import com.example.darnamob.databinding.ActivityViewAllusersBinding
 import com.google.android.material.imageview.ShapeableImageView
 import java.lang.reflect.Member
 
@@ -48,9 +50,11 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
 
         if (isClient) {
             holder.type.text = "client"
+            holder.type.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.orange))
             holder.domain.visibility = View.GONE
         } else {
             holder.type.text = "Artisan"
+            holder.type.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.vert))
             holder.domain.visibility = View.VISIBLE
             holder.domain.text = domaine
         }
@@ -62,7 +66,7 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
         }
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.imageView61)
         val username: TextView = itemView.findViewById(R.id.textView81)
         val type: TextView = itemView.findViewById(R.id.textView91)
