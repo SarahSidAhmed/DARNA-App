@@ -4,8 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
 
+private lateinit var db:DatabaseHelper
 class BannedAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +17,9 @@ class BannedAccountActivity : AppCompatActivity() {
         button.setOnClickListener {
             val intent = Intent(this, HomeAdmin::class.java)
             startActivity(intent)
+
         }
     }
+
+
 }

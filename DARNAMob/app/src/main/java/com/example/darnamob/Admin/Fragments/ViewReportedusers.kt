@@ -16,4 +16,9 @@ class ViewReportedusers : Fragment() {
         return inflater.inflate(R.layout.activity_viewreportedusers, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
 }

@@ -14,7 +14,6 @@
         android:layout_height="140dp"
         android:scaleType="fitXY"
         android:src="@drawable/bobble"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,8 +67,7 @@
                 android:fontFamily="@font/productsans_regular"
                 android:textColorHint="@color/grey"
                 android:hint="  Full Name"
-                android:inputType="text"
-                android:padding="8sp"/>
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/fullNameError"
@@ -92,7 +90,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Email"
                 android:inputType="textEmailAddress"
-                android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />
@@ -117,7 +114,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Phone number"
                 android:inputType="phone"
-                android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />
@@ -142,7 +138,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Password"
                 android:inputType="textPassword"
-                android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />
@@ -167,7 +162,6 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Confirm password"
                 android:inputType="textPassword"
-                android:padding="8sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />

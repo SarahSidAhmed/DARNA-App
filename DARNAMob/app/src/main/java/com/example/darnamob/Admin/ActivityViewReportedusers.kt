@@ -18,8 +18,9 @@ class ActivityViewReportedusers : AppCompatActivity() , ReportedUsersAdapter.OnI
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_allusers)
-        newRecyclerview = findViewById(R.id.recyclerview)
+        setContentView(R.layout.activity_view_reportedusers)
+
+        //newRecyclerview = findViewById(R.id.recyclerview)
         db = DatabaseHelper(this)
         newList = db.reportedUsers()
         newRecyclerview.layoutManager = LinearLayoutManager(this)

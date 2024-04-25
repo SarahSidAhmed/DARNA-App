@@ -23,7 +23,7 @@ class ActivityViewAllusers : AppCompatActivity() , ViewAllUsers.OnItemClickListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_allusers)
-        newRecyclerview = findViewById(R.id.recyclerview)
+        //newRecyclerview = findViewById(R.id.recyclerview)
         db = DatabaseHelper(this)
         newList = db.getAllUsers()
         newRecyclerview.layoutManager = LinearLayoutManager(this)

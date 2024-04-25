@@ -20,10 +20,9 @@ import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.databinding.ActivityAddnewuserBinding
 
 import com.example.darnamob.imageFromDrawableToByteArray
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import java.lang.reflect.Member
+
 
 private lateinit var binding : ActivityAddnewuserBinding
 private lateinit var db : DatabaseHelper
@@ -46,7 +45,7 @@ class CreateAccount : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddnewuserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        auth = Firebase.auth
+        auth = com.google.firebase.Firebase.auth
 
        db = DatabaseHelper(this)
         var category : String = ""

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.darnamob.Admin.HomeAdmin
 import com.example.darnamob.Artisant.MainActivityArtisant
 import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
@@ -51,10 +52,12 @@ class SignIn : AppCompatActivity() {
 
             if (checkCredential){
                 if(db.checkIfAdmin(email)){ //if the user is an admin go to the main admin
-                    startActivity(Intent(this, MainActivity::class.java)) //have to change it to main admin activity
+                    Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, HomeAdmin::class.java)
+                    startActivity(intent) //have to change it to main admin activity
                     finish()
                 }else{
-                    Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
+
 
                     val id = db.getUserID(email)
 

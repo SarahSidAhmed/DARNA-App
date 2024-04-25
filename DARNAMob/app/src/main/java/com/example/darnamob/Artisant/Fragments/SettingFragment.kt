@@ -1,10 +1,15 @@
 package com.example.darnamob.Artisant.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import com.example.darnamob.Client.AccountClientSettings
+import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
 
@@ -34,7 +39,17 @@ class SettingFragment : Fragment() {
     }
 
     private fun logic(userId: Int) {
+        view?.findViewById<ImageView>(R.id.notif)?.setOnClickListener {
+            val intent = Intent(requireActivity(), com.example.darnamob.Artisant.Notifications::class.java)
+            intent.putExtra("id", userId)
+            startActivity(intent)
+        }
 
+        view?.findViewById<LinearLayout>(R.id.editProfile)?.setOnClickListener{
+            val intent = Intent(requireActivity(), EditSettingFragment::class.java)
+            intent.putExtra("id", userId)
+            startActivity(intent)
+        }
     }
 
 

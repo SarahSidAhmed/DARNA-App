@@ -13,21 +13,48 @@
             android:layout_height="wrap_content">
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/boblle"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="-154dp"
+                android:layout_marginEnd="298dp"
+                android:fontFamily="@font/productsans_black"
+                android:text="Go back"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/back" />
+
+
             <ImageView
                 android:id="@+id/boblle"
                 android:layout_width="match_parent"
                 android:layout_height="168dp"
+                android:padding="0dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/bobble" />
 
             <ImageView
+                android:id="@+id/notifIcon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/notificationsexist"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-
-                />
+                android:layout_marginTop="20dp" />
 
             <TextView
                 android:id="@+id/titleneworder"
@@ -269,15 +296,14 @@
 
 
                 <EditText
-                    android:id="@+id/editTextRegion"
+                    android:id="@+id/editTextAdress"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_margin="6dp"
+                    android:layout_margin="8dp"
                     android:background="@drawable/custom_edit_text_background"
                     android:ems="10"
-
                     android:hint="Specific adress"
-                    android:paddingStart="8dp" />
+                    android:paddingStart="10dp" />
 
 
             </LinearLayout>
@@ -300,6 +326,7 @@
                     />
 
                 <CheckBox
+                    android:id="@+id/material"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="include materials"
@@ -309,6 +336,7 @@
                     />
 
                 <CheckBox
+                    android:id="@+id/urgent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="urgent"
@@ -335,14 +363,15 @@
                     android:ems="10"
                     android:hint="More details..."
                     android:paddingStart="8dp" />
+
                 <Button
+                    android:id="@+id/checkPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="check price"
+                    android:layout_marginLeft="140dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="50dp"
-                    android:layout_marginLeft="140dp"
-                    />
+                    android:text="check price" />
             </LinearLayout>
 
 

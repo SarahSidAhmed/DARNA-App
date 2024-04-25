@@ -22,7 +22,7 @@
         android:textStyle="bold" />
 
     <TextView
-
+        android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -34,12 +34,13 @@
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="270dp"
         android:fontFamily="@font/productsans_regular"
-        android:text="££££££"
+        android:text="$$$$$$"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="40sp" />
 
     <Button
+        android:id="@+id/confirmBtn"
         android:layout_width="273dp"
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
@@ -61,6 +62,7 @@
         android:textSize="20dp" />
 
     <Button
+        android:id="@+id/cancelBtn"
         android:layout_width="273dp"
         android:layout_height="55dp"
         android:layout_alignParentStart="true"

@@ -382,7 +382,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
     //METHOD TO EDIT PROFILE ARTISAN (ENABLE TO EDIT THEIR EMAIL AND PHONE NUMBER
     fun editPorfileArtisan(idArtisan: Int, workArea: String, workHours: String, deplacement: Boolean,
-                     disponible: Boolean, workdays: List<Int>){
+                     disponible: Boolean, workdays: List<Int>, image : ByteArray){
         val db = writableDatabase
         val query = "UPDATE ${Table_Schemas.Artisan.TABLE_NAME}" +
                 "SET ${Table_Schemas.Artisan.COLUMN_WORKING_AREA} = '$workArea'," +
@@ -403,10 +403,15 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
                 "WHERE ${Table_Schemas.WorkDays.COLUMN_ID} = $idArtisan"
 
 
+        val query3 = "UPDATE ${Table_Schemas.Membre.TABLE_NAME}" +
+                "SET ${Table_Schemas.Membre.COLUMN_IMAGE} = ?" +
+                "WHERE ${Table_Schemas.Membre.COLUMN_ID} = ?"
+
 
 
         db.execSQL(query, null)
         db.execSQL(query2, null)
+        db.execSQL(query3, arrayOf(image, idArtisan))
         db.close()
     }
 
@@ -608,7 +613,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun getPrestationPrice(prestation: String): Int{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Prestation.TABLE_NAME}" +
-                "WHERE ${Table_Schemas.Prestation.COLUMN_PRESTAT} = '$prestation'"
+                " WHERE ${Table_Schemas.Prestation.COLUMN_PRESTAT} = '$prestation'"
 
         val cursor = db.rawQuery(query, null)
         cursor.moveToFirst()
