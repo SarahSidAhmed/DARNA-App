@@ -62,16 +62,10 @@ class HomeFragment : Fragment() {
         //this is the list of demandes put it in the adapter
         val demandes = db.getAllDemandeByRegionDispo(artisan.work_Area, artisan.disponible)
 
+        //use this to search by the address
+        //db.searchDemandeByAddress()
 
-        view?.findViewById<EditText>(R.id.searchBar)?.setOnKeyListener { v, keyCode, event ->
 
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP){
-                Toast.makeText(requireContext(), "SET!!", Toast.LENGTH_SHORT).show()
-                return@setOnKeyListener true
-            }
-            false
-
-        }
 
 
 
