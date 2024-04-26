@@ -629,6 +629,18 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         return price
     }
 
+    fun getPrestationDuration(prestat: String): Int{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Prestation.TABLE_NAME} WHERE ${Table_Schemas.Prestation.COLUMN_PRESTAT} = '$prestat"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+        val duration = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Prestation.COLUMN_DURATION))
+
+        cursor.close()
+        db.close()
+        return duration
+    }
+
     //END DOMAINS & PRESTATIONS
     //==================================================================================================
     //START RETRIEVING USERS / CLIENTS
