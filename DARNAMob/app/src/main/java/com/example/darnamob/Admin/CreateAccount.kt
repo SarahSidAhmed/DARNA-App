@@ -6,6 +6,7 @@ import com.example.darnamob.R
 import android.widget.Button
 import android.widget.TextView
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -20,6 +21,7 @@ import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.databinding.ActivityAddnewuserBinding
 
 import com.example.darnamob.imageFromDrawableToByteArray
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
@@ -112,8 +114,6 @@ class CreateAccount : AppCompatActivity() {
         val domain = category
         val region = wilaya
 
-
-
         if (email.isNotEmpty() && phone.isNotEmpty() && password.isNotEmpty() && confirm.isNotEmpty() && userName.isNotEmpty()) {
             val drawable_name = "initprofile"
             val resId = resources.getIdentifier(drawable_name, "drawable", "com.example.darnamob")
@@ -146,6 +146,9 @@ class CreateAccount : AppCompatActivity() {
             } else Toast.makeText(this, "Something happened. Try again.", Toast.LENGTH_SHORT).show()
         }
         else Toast.makeText(this, "Fields can not be empty. Check you information again", Toast.LENGTH_SHORT).show()
+
+
+
 
     }
 }

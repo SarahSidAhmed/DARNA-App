@@ -106,9 +106,12 @@
                     android:layout_marginTop="250dp"
                     android:background="@drawable/custom_edit_text_background"
                     android:ems="10"
+                    android:padding="9dp"
+                    android:text="Email..."
                     android:fontFamily="@font/productsans_regular"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
                     android:textColorHint="@color/black"
-                    android:textSize="12sp"
                     android:textStyle="normal" />
 
                 <TextView
@@ -119,9 +122,12 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_edit_text_background"
                     android:ems="10"
+                    android:padding="9dp"
+                    android:text="Phone..."
                     android:fontFamily="@font/productsans_regular"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
                     android:textColorHint="@color/black"
-                    android:textSize="12sp"
                     android:textStyle="normal" />
 
                 <TextView
@@ -268,9 +274,12 @@
                 android:layout_marginTop="480dp"
                 android:background="@drawable/custom_edit_text_background"
                 android:ems="10"
+                android:padding="9dp"
+                android:hint="ex: 11-12"
                 android:fontFamily="@font/productsans_regular"
-                android:textColorHint="@color/black"
-                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textColorHint="@color/grey"
                 android:textStyle="normal"
                 />
             <TextView
@@ -293,9 +302,12 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="600dp"
                 android:background="@drawable/custom_edit_text_background"
+                android:textColorHint="@color/grey"
+                android:padding="9dp"
+                android:hint="ex: Algieria Center"
                 android:fontFamily="@font/productsans_regular"
-                android:textColorHint="@color/black"
-                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
                 >
 
             </TextView>

@@ -28,7 +28,7 @@ class MainActivityArtisant : AppCompatActivity() {
         val homeFrag = com.example.darnamob.Artisant.Fragments.HomeFragment().apply {
             arguments = bundle
         }
-        replaceFragment(com.example.darnamob.Artisant.Fragments.HomeFragment())
+        replaceFragment(homeFrag)
 
         binding.bottomNavigationView.background = null
 

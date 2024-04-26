@@ -483,13 +483,14 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
     }
     fun getArtisanByID(id : Int): Artisan{
-        val db = readableDatabase
+        var db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME} WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $id"
 
         val cursor = db.rawQuery(query, null)
         cursor.moveToFirst()
         val membre = getMembreByID(id)
 
+        db= readableDatabase
         //getting all the infos
         val artisan = Artisan(membre,
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_DOMAIN)),
@@ -538,7 +539,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun getWorkHour(id: Int): String{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME}" +
-                "WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $id"
+                " WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $id"
         val cursor = db.rawQuery(query, null)
         cursor.moveToFirst()
         val workHours = cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_WORK_HOURS))
@@ -551,17 +552,19 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun getWorkDays(id: Int): Array<Boolean>{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.WorkDays.TABLE_NAME}" +
-                "WHERE ${Table_Schemas.WorkDays.COLUMN_ID} = $id"
+                " WHERE ${Table_Schemas.WorkDays.COLUMN_ID} = $id"
         val cursor = db.rawQuery(query, null)
         cursor.moveToFirst()
-        val days = arrayOf<Boolean>()
-        days[0] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_SATURDAY))==1
-        days[1] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_SUNDAY))==1
-        days[2] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_MONDAY))==1
-        days[3] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_TUESDAY))==1
-        days[4] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_WEDNESDAY))==1
-        days[5] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_THURSDAY))==1
-        days[6] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_FRIDAY))==1
+        val days = arrayOf(
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_SATURDAY))==1,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_SUNDAY))==1,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_MONDAY))==1,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_TUESDAY))==1,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_WEDNESDAY))==1,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_THURSDAY))==1,
+                    cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_FRIDAY))==1
+        )
+
 
         cursor.close()
         db.close()
@@ -733,8 +736,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
         val query = "DELETE FROM ${Table_Schemas.Notification.TABLE_NAME} WHERE " +
                 "${Table_Schemas.Notification.COLUMN_ID_RECEIVER} = ${notif.id_receiver}" +
-                "AND ${Table_Schemas.Notification.COLUMN_ID_SENDER} = ${notif.id_sender}" +
-                "AND ${Table_Schemas.Notification.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
+                " AND ${Table_Schemas.Notification.COLUMN_ID_SENDER} = ${notif.id_sender}" +
+                " AND ${Table_Schemas.Notification.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
 
         //SQL INJECTION
        db.execSQL(query, null)
@@ -752,7 +755,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
         //updating the request to confirmed
         val query = "UPDATE ${Table_Schemas.Demandes.TABLE_NAME} SET ${Table_Schemas.Demandes.COLUMN_CONFIRMED} = 1" +
-                " WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
+                 " WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
 
         db.execSQL(query, null)
 
@@ -871,8 +874,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun reportedUsers(): List<Artisan>{
         val db = readableDatabase
         val reportedUsers = mutableListOf<Artisan>()
-        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} " +
-                "WHERE ${Table_Schemas.Membre.COLUMN_REPORTS}>0 " +
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME}" +
+                " WHERE ${Table_Schemas.Membre.COLUMN_REPORTS}>0 " +
                 //to order by the highest number of reports to the lowest
                 "ORDER BY ${Table_Schemas.Membre.COLUMN_REPORTS} DESC"
         val cursor = db.rawQuery(query, null)
@@ -895,8 +898,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun searchDemandeByAddress(address: String): List<Demande>{
         val db = readableDatabase
         val filteredDemandeAdr = mutableListOf<Demande>()
-        val query = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} " +
-                "WHERE ${Table_Schemas.Demandes.COLUMN_ADDRESS} = '$address'"
+        val query = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME}" +
+                " WHERE ${Table_Schemas.Demandes.COLUMN_ADDRESS} = '$address'"
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()){
@@ -999,7 +1002,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val tasks = mutableListOf<RendezVousTasks>()
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} WHERE" +
-                "${Table_Schemas.Tasks_Rendez.COLUMN_ID_ARTISAN} = $artisanId"
+                " ${Table_Schemas.Tasks_Rendez.COLUMN_ID_ARTISAN} = $artisanId"
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()){
@@ -1068,7 +1071,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val rendezvousCategorie = mutableListOf<Demande>()
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} " +
                 "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId" +
-                "AND ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} =0"
+                " AND ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} =0"
 
         val  cursorCategorie= db.rawQuery(query, null)
 
@@ -1109,8 +1112,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun setTaskCompleted(num_demande: Int){
         val db = writableDatabase
         val query = "UPDATE * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME}" +
-                "SET ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED}=1" +
-                "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE} = $num_demande"
+                " SET ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED}=1" +
+                " WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE} = $num_demande"
 
         db.execSQL(query, null)
     }
@@ -1124,8 +1127,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     //METHODS TO SEE IF THE COMMENTER ALREADY EXISTS IN THE ARTISAN SECTION
     fun commenterExist(commenterId: Int, artisanId: Int): Boolean{
         val db = readableDatabase
-        val query = "SELECT * FROM ${Table_Schemas.Comments.TABLE_NAME} WHERE" +
-                " ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId AND " +
+        val query = "SELECT * FROM ${Table_Schemas.Comments.TABLE_NAME} WHERE " +
+                "${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId AND " +
                 "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId"
         val cursor = db.rawQuery(query, null)
 
@@ -1152,7 +1155,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
             val query = "UPDATE ${Table_Schemas.Comments.TABLE_NAME} " +
                     "SET ${Table_Schemas.Comments.COLUMN_COMMENT} = '$commentText' WHERE " +
                     "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId" +
-                    "AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
+                    " AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
 
             db.execSQL(query, null)
         }
@@ -1178,7 +1181,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
             val query = "UPDATE ${Table_Schemas.Comments.TABLE_NAME} " +
                     "SET ${Table_Schemas.Comments.COLUMN_NOTATION} = $notation WHERE " +
                     "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId" +
-                    "AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
+                    " AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
 
             db.execSQL(query, null)
         }

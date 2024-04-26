@@ -55,7 +55,15 @@ class EditSettingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.edit_settings_art, container, false)
+        return inflater.inflate(R.layout.edit_settings_art, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.let { bundle ->
+            userId = bundle.getInt("id", -1)
+        }
 
         //to get the inputed text in the account fragment pfiuu.....
         val multiautoCompletetextview: MultiAutoCompleteTextView = view.findViewById(R.id.multiAutoCompleteTextView)
@@ -188,17 +196,6 @@ class EditSettingFragment : Fragment() {
             val intent2 = Intent(view.context,AccountFragment::class.java)
             intent2.putExtra("workhours",workhours)
             startActivity(intent2)
-        }
-
-
-
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        arguments?.let { bundle ->
-            userId = bundle.getInt("id", -1)
         }
 
         // Initialize the database helper

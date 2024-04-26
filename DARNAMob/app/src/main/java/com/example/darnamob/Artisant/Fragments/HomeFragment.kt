@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
             userId = bundle.getInt("id", -1)
         }
 
-        userId =2
         // Initialize the database helper
         db = DatabaseHelper(requireContext())
 
@@ -44,6 +43,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun logic(userId: Int) {
+
+        Toast.makeText(requireContext(), userId.toString(), Toast.LENGTH_SHORT).show()
+
         val artisan = db.getArtisanByID(userId)
 
         view?.findViewById<ImageView>(R.id.notif)?.setOnClickListener {
@@ -51,13 +53,13 @@ class HomeFragment : Fragment() {
             intent.putExtra("id", userId)
             startActivity(intent)
         }
-        val text = view?.findViewById<TextView>(R.id.hello_art)?.text
-        view?.findViewById<TextView>(R.id.hello_art)?.setText("Welcome\n"+artisan.membre.userName)
+
+        view?.findViewById<TextView>(R.id.welcomeText)?.setText("Welcome\n"+artisan.membre.userName)
 
         val image = artisan.membre.image
 
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
-        view?.findViewById<ImageView>(R.id.artProfilePic)?.setImageBitmap(bitmap)
+        view?.findViewById<ImageView>(R.id.profile_photo)?.setImageBitmap(bitmap)
 
         //this is the list of demandes put it in the adapter
         val demandes = db.getAllDemandeByRegionDispo(artisan.work_Area, artisan.disponible)

@@ -8,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import com.example.darnamob.Client.AccountClientSettings
-import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.MainActivity
 import com.example.darnamob.R
 
 class SettingFragment : Fragment() {
@@ -49,6 +48,13 @@ class SettingFragment : Fragment() {
             val intent = Intent(requireActivity(), EditSettingFragment::class.java)
             intent.putExtra("id", userId)
             startActivity(intent)
+        }
+
+        view?.findViewById<LinearLayout>(R.id.editPass)?.setOnClickListener{
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            intent.putExtra("id", userId)
+            startActivity(intent)
+
         }
     }
 
