@@ -29,7 +29,7 @@ private lateinit var db : DatabaseHelper
 private lateinit var auth: FirebaseAuth
 
 class CreateAccount : AppCompatActivity() {
-    val categories = arrayOf("Painting", "Plumbing", "Cleaning", "Masonry", "Electricity")
+    val categories = arrayOf("Painter", "Plumber", "Cleaner", "Maconier", "Electrician")
     val wilayas = arrayOf(
         "Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar",
         "Blida", "Bouira", "Tamanrasset", "Tébessa", "Tlemcen", "Tiaret", "Tizi Ouzou", "Alger Est","Alger west",

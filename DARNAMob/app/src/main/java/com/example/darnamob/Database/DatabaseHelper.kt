@@ -327,18 +327,21 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     }
 
     fun insertArtisan(artisan : Artisan){
-        val db = writableDatabase
+
         val membre = artisan.membre
         insertMembre(membre, false)
 
         val id = getUserID(artisan.membre.email)
 
+        val db = writableDatabase
         val values = ContentValues().apply {
             put(Table_Schemas.Artisan.COLUMN_ID, id)
             put(Table_Schemas.Artisan.COLUMN_DOMAIN, artisan.domain)
+            put(Table_Schemas.Artisan.COLUMN_WORK_HOURS, "")
+            put(Table_Schemas.Artisan.COLUMN_DOMAIN, artisan.domain)
             put(Table_Schemas.Artisan.COLUMN_PRESTATION, artisan.prestation)
             put(Table_Schemas.Artisan.COLUMN_RATING, 0.0)
-            put(Table_Schemas.Artisan.COLUMN_WORKING_AREA, "")
+            put(Table_Schemas.Artisan.COLUMN_WORKING_AREA, artisan.work_Area)
         }
 
         db.insert(Table_Schemas.Artisan.TABLE_NAME, null, values)
@@ -384,27 +387,27 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun editPorfileArtisan(idArtisan: Int, workArea: String, workHours: String, deplacement: Boolean,
                      disponible: Boolean, workdays: List<Int>, image : ByteArray){
         val db = writableDatabase
-        val query = "UPDATE ${Table_Schemas.Artisan.TABLE_NAME}" +
+        val query = "UPDATE ${Table_Schemas.Artisan.TABLE_NAME} " +
                 "SET ${Table_Schemas.Artisan.COLUMN_WORKING_AREA} = '$workArea'," +
                 "${Table_Schemas.Artisan.COLUMN_WORK_HOURS} = '$workHours'," +
                 "${Table_Schemas.Artisan.COLUMN_DEPLACEMENT} = $deplacement," +
-                "${Table_Schemas.Artisan.COLUMN_DISPONIBLE} = $disponible" +
+                "${Table_Schemas.Artisan.COLUMN_DISPONIBLE} = $disponible " +
                 "WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $idArtisan"
 
         //editting the workdays
-        val query2 = "UPDATE ${Table_Schemas.WorkDays.TABLE_NAME}" +
+        val query2 = "UPDATE ${Table_Schemas.WorkDays.TABLE_NAME} " +
                 "SET ${Table_Schemas.WorkDays.COLUMN_SATURDAY} = ${workdays[0]}"+
                 "${Table_Schemas.WorkDays.COLUMN_SUNDAY} = ${workdays[1]}"+
                 "${Table_Schemas.WorkDays.COLUMN_MONDAY} = ${workdays[2]}"+
                 "${Table_Schemas.WorkDays.COLUMN_TUESDAY} = ${workdays[3]}"+
                 "${Table_Schemas.WorkDays.COLUMN_WEDNESDAY} = ${workdays[4]}"+
                 "${Table_Schemas.WorkDays.COLUMN_THURSDAY} = ${workdays[5]}"+
-                "${Table_Schemas.WorkDays.COLUMN_FRIDAY} = ${workdays[6]}" +
+                "${Table_Schemas.WorkDays.COLUMN_FRIDAY} = ${workdays[6]} " +
                 "WHERE ${Table_Schemas.WorkDays.COLUMN_ID} = $idArtisan"
 
 
         val query3 = "UPDATE ${Table_Schemas.Membre.TABLE_NAME}" +
-                "SET ${Table_Schemas.Membre.COLUMN_IMAGE} = ?" +
+                " SET ${Table_Schemas.Membre.COLUMN_IMAGE} = ?" +
                 "WHERE ${Table_Schemas.Membre.COLUMN_ID} = ?"
 
 

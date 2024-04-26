@@ -19,7 +19,7 @@
             android:name=".Admin.ActivityViewReportedusers"
             android:exported="false" />
         <activity
-            android:name=".Admin.CreateAccount"
+            android:name=".Admin.HomeAdmin"
             android:exported="false" />
         <activity
             android:name=".Admin.ProfileArtisanActivity"
@@ -62,7 +62,7 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Admin.HomeAdmin"
+            android:name=".Admin.CreateAccount"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -108,6 +108,9 @@
             android:exported="false" />
         <activity
             android:name=".Main.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.AddedAcountActivity"
             android:exported="false" />
     </application>
 
