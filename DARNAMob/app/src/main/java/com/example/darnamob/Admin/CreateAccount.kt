@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.PopupWindow
 import android.widget.Spinner
 import android.widget.Toast
 
@@ -93,6 +94,7 @@ class CreateAccount : AppCompatActivity() {
 
         binding.createaccountButtom.setOnClickListener {
             createaccount(category,wilaya)
+
         }
 
 
@@ -135,11 +137,15 @@ class CreateAccount : AppCompatActivity() {
                             Membre(0, phone, "", email, password, userName, image, 0),
                             domain,"",true,true,0f,region)
                         )
-                        val intent = Intent(this, AddedAcountActivity::class.java)
-                        //intent.putExtra("id", db.getUserID(email))
-                        //Toast.makeText(this, "${db.getUserID(email)}", Toast.LENGTH_SHORT).show()
-                        startActivity(intent)
-                        finish()
+//                        val window = PopupWindow(this)
+//                        val view  = layoutInflater.inflate(R.layout.activity_addedaccount,null)
+//                        window.contentView = view
+//                        val button = view.findViewById<Button>(R.id.button)
+//                        button.setOnClickListener {
+//                            startActivity(Intent(this, HomeAdmin::class.java))
+//                            finish()
+//                        }
+                        Toast.makeText(this, "Created Account", Toast.LENGTH_SHORT).show()
                     }
                     else Toast.makeText(this, "Check your password", Toast.LENGTH_SHORT).show()
                 }

@@ -11,12 +11,12 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.R
 
-class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: DatabaseHelper, private val listener: OnItemClickListener) :
+class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: DatabaseHelper) :
     RecyclerView.Adapter<ReportedUsersAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.activity_view_allusers,
+            R.layout.activity_viewreportedusers,
             parent, false)
         return MyViewHolder(itemView)
     }
@@ -52,22 +52,17 @@ class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: 
             holder.domain.text = domaine
         }
 
-        //holder.viewmore.text = "View more"
-        holder.viewmore.setOnClickListener {
-            // Pass the clicked user's data to onItemClick
-            listener.onItemClick(artisan)
-        }
+        holder.viewmore.text = "View more"
+
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image: ImageView = itemView.findViewById(R.id.imageView61)
-        val username: TextView = itemView.findViewById(R.id.textView81)
-        val type: TextView = itemView.findViewById(R.id.textView91)
-        val viewmore: TextView = itemView.findViewById(R.id.textView101)
-        val domain : TextView = itemView.findViewById(R.id.domain)
+        val image: ImageView = itemView.findViewById(R.id.imageView6)
+        val username: TextView = itemView.findViewById(R.id.textView8)
+        val type: TextView = itemView.findViewById(R.id.textView9)
+        val viewmore: TextView = itemView.findViewById(R.id.textView11)
+        val domain : TextView = itemView.findViewById(R.id.textView10)
         val report : TextView = itemView.findViewById(R.id.reports)
     }
-    interface OnItemClickListener {
-        fun onItemClick(artisan: Artisan)
-    }
+
 }
