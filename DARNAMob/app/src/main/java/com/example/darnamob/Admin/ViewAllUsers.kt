@@ -1,30 +1,26 @@
 package com.example.darnamob.Admin
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.data.Artisan
-import com.example.darnamob.databinding.ActivityViewAllusersBinding
-import com.google.android.gms.common.api.Api
-import com.google.android.material.imageview.ShapeableImageView
-import java.lang.reflect.Member
 
 
-class ViewAllUsers(private val userlist: List<Artisan>, private val db: DatabaseHelper) :
+class ViewAllUsers(private val userlist: List<Artisan>, context: Context) :
     RecyclerView.Adapter<ViewAllUsers.MyViewHolder>() {
+    private val db: DatabaseHelper = DatabaseHelper(context)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.viewuser,
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.useritem,
             parent, false)
         return MyViewHolder(itemView)
     }
@@ -47,7 +43,7 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
         holder.username.text = username
 
         if (isClient) {
-            holder.type.text = "client"
+            holder.type.text = "Client"
             holder.type.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.orange))
             holder.domain.visibility = View.GONE
         } else {
@@ -60,15 +56,20 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
         holder.viewmore.text = "View more"
         holder.viewmore.setOnClickListener {
             // Pass the clicked user's data to onItemClick
+            val intent = Intent(holder.itemView.context, ActivityProfileClient::class.java ).apply {
+                putExtra("id", artisan.membre.id)
+            }
+
+            holder.itemView.context.startActivity(intent);
         }
     }
 
     class MyViewHolder(viewuser: View) : RecyclerView.ViewHolder(viewuser) {
-        val image: ImageView = viewuser.findViewById(R.id.profilepic)
+        val image: ImageView = viewuser.findViewById(R.id.profile_pic)
         val username: TextView = viewuser.findViewById(R.id.username)
-        val type: TextView = viewuser.findViewById(R.id.type)
-        val viewmore: TextView = viewuser.findViewById(R.id.viewmore)
-        val domain : TextView = viewuser.findViewById(R.id.domaine)
+        val type: TextView = viewuser.findViewById(R.id.typeMember)
+        val viewmore: TextView = viewuser.findViewById(R.id.viewMore)
+        val domain : TextView = viewuser.findViewById(R.id.domain)
     }
 
 }

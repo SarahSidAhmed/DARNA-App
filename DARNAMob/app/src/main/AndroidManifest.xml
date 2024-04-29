@@ -65,7 +65,7 @@
         <!-- android:name=".Admin.Fragments.ViewReportedusers" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".Main.Main"
+            android:name=".Admin.HomeAdmin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -110,7 +110,7 @@
             android:name=".Artisant.MainActivityArtisant"
             android:exported="false" />
         <activity
-            android:name=".Admin.HomeAdmin"
+            android:name=".Main.Main"
             android:exported="false" />
         <activity
             android:name=".Artisant.Fragments.EditSettingFragment"

@@ -4,9 +4,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="my_custom_blue">#17ABFF</color>
     <color name="grey">#B1B0B0</color>
-    <color name="orange">#D0EACCA1 </color>
+    <color name="orange">#EEB930 </color>
     <color name="workdaysColor">#65CFFF</color>
-    <color name="vert">#63EF62 </color>
+    <color name="vert">#0DAA1D </color>
     <color name="green">#0AE8CD</color>
+    <color name="red">#FF0034</color>
+
+
 
 </resources>

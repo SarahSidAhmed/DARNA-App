@@ -1,6 +1,8 @@
 package com.example.darnamob.Admin
 
+import android.content.Context
 import android.graphics.BitmapFactory
+import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +13,13 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.R
 
-class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: DatabaseHelper) :
+class ReportedUsersAdapter(private val userlist: List<Artisan>, context: Context) :
     RecyclerView.Adapter<ReportedUsersAdapter.MyViewHolder>() {
 
+    private val db: DatabaseHelper = DatabaseHelper(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.activity_viewreportedusers,
+            R.layout.reporteduseritem,
             parent, false)
         return MyViewHolder(itemView)
     }
@@ -57,11 +60,11 @@ class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: 
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image: ImageView = itemView.findViewById(R.id.imageView6)
-        val username: TextView = itemView.findViewById(R.id.textView8)
-        val type: TextView = itemView.findViewById(R.id.textView9)
-        val viewmore: TextView = itemView.findViewById(R.id.textView11)
-        val domain : TextView = itemView.findViewById(R.id.textView10)
+        val image: ImageView = itemView.findViewById(R.id.profile_pic)
+        val username: TextView = itemView.findViewById(R.id.username)
+        val type: TextView = itemView.findViewById(R.id.typeMember)
+        val viewmore: TextView = itemView.findViewById(R.id.viewMore)
+        val domain : TextView = itemView.findViewById(R.id.domain)
         val report : TextView = itemView.findViewById(R.id.reports)
     }
 

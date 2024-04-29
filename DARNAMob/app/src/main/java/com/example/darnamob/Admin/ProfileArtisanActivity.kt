@@ -13,7 +13,9 @@ class ProfileArtisanActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_artisan2)
+
         val popUpBtn = findViewById<ImageView>(R.id.menu)
+
         popUpBtn.setOnClickListener { view->
             val popUpMenu = PopupMenu(this@ProfileArtisanActivity,view)
             popUpMenu.inflate(R.menu.admin_menu)
@@ -24,6 +26,7 @@ class ProfileArtisanActivity : AppCompatActivity() {
                         val window = PopupWindow(this)
                         val view  = layoutInflater.inflate(R.layout.card_confirmreport,null)
                         window.contentView = view
+
                         val button1 =view.findViewById<Button>(R.id.yes)
                         val button2 = view.findViewById<Button>(R.id.no)
                         button1.setOnClickListener {

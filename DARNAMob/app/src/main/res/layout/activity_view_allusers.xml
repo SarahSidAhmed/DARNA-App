@@ -116,6 +116,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnReported"
                     android:layout_width="146dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="20dp"

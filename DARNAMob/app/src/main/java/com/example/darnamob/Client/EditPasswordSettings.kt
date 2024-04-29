@@ -1,5 +1,6 @@
 package com.example.darnamob.Client
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,6 +28,7 @@ class EditPasswordSettings : AppCompatActivity() {
         logic()
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun logic() {
 
         binding.back.setOnClickListener {

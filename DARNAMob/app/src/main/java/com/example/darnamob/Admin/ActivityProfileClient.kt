@@ -19,6 +19,7 @@ class ActivityProfileClient : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileClientBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         db = DatabaseHelper(this)
         val id = intent.getIntExtra("id",-1)
         val member = db.getMembreByID(id)
@@ -28,6 +29,7 @@ class ActivityProfileClient : AppCompatActivity() {
         val name = member.userName
         val image = member.image
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
+
         binding.artisantName.setText(name)
         binding.email.setText(email)
         binding.address.setText(address)
