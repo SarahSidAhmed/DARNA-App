@@ -15,7 +15,11 @@ class pricingSystem {
 
     //to see if the schedule is at night time
     fun isNight(hour : String): Boolean{
-        val time  = hour.toInt()
+
+        var time = 0
+        if (hour.isNotEmpty()){
+         time  = hour.toInt()}
+        else  time = 0
         return time < sunRiseHour || time > sunSetHour
     }
 

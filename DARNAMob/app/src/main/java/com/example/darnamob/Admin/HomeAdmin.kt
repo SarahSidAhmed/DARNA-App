@@ -24,7 +24,7 @@ class HomeAdmin : AppCompatActivity() {
         }
 
         button2.setOnClickListener {
-            val intent = Intent(this, CreateAccountFragment::class.java)
+            val intent = Intent(this, CreateAccount::class.java)
            startActivity(intent)
         }
     }

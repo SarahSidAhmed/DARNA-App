@@ -2,18 +2,23 @@ package com.example.darnamob.Client
 
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.darnamob.Artisant.Fragments.Calendar
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Demande
 import com.example.darnamob.R
@@ -26,11 +31,16 @@ class AddNewOrderActivity : AppCompatActivity() {
     private lateinit var autoCompleteTxtRegion: AutoCompleteTextView
     private lateinit var db: DatabaseHelper
     private  var price =0
+    private lateinit var datePickerDialog: DatePickerDialog
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_new_order)
+
+        initDatePicker()
+        findViewById<EditText>(R.id.editTextDate).setText(getTodaysDate())
 
         // Initialize views
         autoCompleteTxtCategory = findViewById(R.id.auto_complete_txt_category)
@@ -80,9 +90,14 @@ class AddNewOrderActivity : AppCompatActivity() {
             val selectedCategory = categories[position]
             // Retrieve and populate services for the selected category
             populateServiceAutoComplete(selectedCategory)
-            price = db.getPrestationPrice(findViewById<AutoCompleteTextView>(R.id.auto_complete_txt_service).text.toString().trim())
 
         }
+        if(findViewById<AutoCompleteTextView>(R.id.auto_complete_txt_service).text.toString().isNotEmpty()){
+            Toast.makeText(this, findViewById<AutoCompleteTextView>(R.id.auto_complete_txt_service).text.toString(), Toast.LENGTH_SHORT).show()
+        }
+        //price = db.getPrestationPrice(findViewById<AutoCompleteTextView>(R.id.auto_complete_txt_service).text.toString().trim())
+
+
 
         //calculating the price
         val hour = findViewById<EditText>(R.id.editTextTime).text.toString().trim()
@@ -99,10 +114,11 @@ class AddNewOrderActivity : AppCompatActivity() {
         if (findViewById<CheckBox>(R.id.urgent).isChecked) price += pricingSystem().getUrgentPrice()
 
         val dialog = Dialog(this)
-        findViewById<FloatingActionButton>(R.id.checkPrice).setOnClickListener {
-            dialog.setContentView(R.layout.activity_estimated_price)
-            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        }
+//        findViewById<Button>(R.id.checkPrice).setOnClickListener {
+//            dialog.setContentView(R.layout.activity_estimated_price)
+//            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//
+//        }
 
 
         findViewById<Button>(R.id.checkPrice).setOnClickListener {
@@ -121,12 +137,30 @@ class AddNewOrderActivity : AppCompatActivity() {
 
 
             val demande = Demande(0, userId, title, description, region, address, categorie, service, date ,time, urgent, material)
-            db.addDemande(demande)
+//            db.addDemande(demande)
             //to this
-
+            val intent = Intent(this, EstimatedPrice::class.java)
+            intent.putExtra("price", price)
+            startActivity(intent)
             //if canceled just make the pop up disappear
         }
     }
+
+
+
+
+    private fun getTodaysDate(): String {
+
+        val calendar = java.util.Calendar.getInstance()
+        val year = calendar.get(java.util.Calendar.YEAR)
+        var month = calendar.get(java.util.Calendar.MONTH)
+        month +=1
+        val day = calendar.get(java.util.Calendar.DAY_OF_MONTH)
+
+        return makeDateString(day, month, year)
+    }
+
+
     private fun populateServiceAutoComplete(category: String) {
         // Retrieve services for the selected category from the database
         val servicesForCategory = db.getPrestationbyDomain(category)
@@ -136,11 +170,59 @@ class AddNewOrderActivity : AppCompatActivity() {
         autoCompleteTxtService.setAdapter(serviceAdapter)
     }
 
+    fun openDatePicker(view: View) {
 
+        datePickerDialog.show()
+    }
+    private fun initDatePicker() {
+        val datesetListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+            var month = month + 1
+            val date = makeDateString(day, month, year)
+            findViewById<EditText>(R.id.editTextDate).setText(date)
+        }
 
+        val calendar = java.util.Calendar.getInstance()
+         val year = calendar.get(java.util.Calendar.YEAR)
+        val month = calendar.get(java.util.Calendar.MONTH)
+        val day = calendar.get(java.util.Calendar.DAY_OF_MONTH)
 
+        val style = AlertDialog.THEME_HOLO_LIGHT
+        val datePickerDialog = DatePickerDialog(
+            this,
+            style,
+            datesetListener,
+            year,
+            month,
+            day
+        )
 
 
     }
+
+    private fun makeDateString(day: Int, month: Int, year: Int): String {
+        return getMonthFormat(month)+" "+day+" "+year
+    }
+
+    private fun getMonthFormat(month: Int): String {
+
+        val months = arrayOf(
+            "JAN",
+            "FEB",
+            "MAR",
+            "APR",
+            "MAY",
+            "JUN",
+            "JUL",
+            "AUG",
+            "SEP",
+            "OCT",
+            "NOV",
+            "DEC"
+        )
+        return months[month]
+    }
+
+
+}
 
 

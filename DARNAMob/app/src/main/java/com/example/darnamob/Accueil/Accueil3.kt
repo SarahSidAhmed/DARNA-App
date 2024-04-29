@@ -18,11 +18,14 @@ class Accueil3 : AppCompatActivity() {
         button.setOnClickListener {
             val intent = Intent(this, SignInUp::class.java)
             startActivity(intent)
+            finish()
         }
 
         val imageview: ImageView = findViewById(R.id.back3)
 
         imageview.setOnClickListener {
+            val intent = Intent(this, Accueil2::class.java)
+            startActivity(intent)
             finish()
         }
 
@@ -31,6 +34,7 @@ class Accueil3 : AppCompatActivity() {
         textview.setOnClickListener {
             val intent = Intent(this,SignInUp::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

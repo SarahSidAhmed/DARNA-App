@@ -44,8 +44,6 @@ class HomeFragment : Fragment() {
 
     private fun logic(userId: Int) {
 
-        Toast.makeText(requireContext(), userId.toString(), Toast.LENGTH_SHORT).show()
-
         val artisan = db.getArtisanByID(userId)
 
         view?.findViewById<ImageView>(R.id.notif)?.setOnClickListener {

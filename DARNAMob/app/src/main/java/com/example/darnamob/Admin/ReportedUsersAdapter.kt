@@ -65,7 +65,7 @@ class ReportedUsersAdapter(private val userlist: List<Artisan>, private val db: 
         val type: TextView = itemView.findViewById(R.id.textView91)
         val viewmore: TextView = itemView.findViewById(R.id.textView101)
         val domain : TextView = itemView.findViewById(R.id.domain)
-        val report : TextView = itemView.findViewById(R.id.reports)
+        val report : TextView = itemView.findViewById(R.id.report)
     }
     interface OnItemClickListener {
         fun onItemClick(artisan: Artisan)

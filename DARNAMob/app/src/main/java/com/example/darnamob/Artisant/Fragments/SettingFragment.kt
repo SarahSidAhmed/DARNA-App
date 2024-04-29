@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import com.example.darnamob.Client.EditPasswordSettings
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.MainActivity
 import com.example.darnamob.R
@@ -51,7 +52,7 @@ class SettingFragment : Fragment() {
         }
 
         view?.findViewById<LinearLayout>(R.id.editPass)?.setOnClickListener{
-            val intent = Intent(requireContext(), MainActivity::class.java)
+            val intent = Intent(requireContext(), EditPasswordSettings::class.java)
             intent.putExtra("id", userId)
             startActivity(intent)
 

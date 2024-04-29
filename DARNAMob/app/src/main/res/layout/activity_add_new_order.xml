@@ -91,8 +91,8 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="195sp"
-                    android:layout_height="45sp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="2sp"
                     android:layout_marginRight="12dp"
                     android:layout_below="@id/categories"
@@ -104,7 +104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/custom_edit_text_background"
-                        android:hint="select"
+                        android:hint="Select Category"
                         android:inputType="none"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -132,7 +132,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="275sp"
-                    android:layout_height="45sp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="2sp"
                     android:layout_marginRight="12dp"
                     android:layout_below="@id/categories"
@@ -144,7 +144,7 @@
                         android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/custom_edit_text_background"
-                        android:hint="select"
+                        android:hint="Select Service"
                         android:inputType="none"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -203,8 +203,9 @@
                                 android:background="@android:color/transparent"
                                 android:inputType="date"
                                 android:ems="10"
-                                android:hint="dd/mm/yy"
-                                android:paddingStart="8dp" /> <!-- Add paddingStart to create space between hint text and image -->
+                                android:hint="dd/mm/yyyy"
+                                android:paddingStart="8dp"
+                                android:onClick="openDatePicker"/> <!-- Add paddingStart to create space between hint text and image -->
 
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>

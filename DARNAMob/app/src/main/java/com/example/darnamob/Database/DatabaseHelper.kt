@@ -422,19 +422,28 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
     //METHOD TO EDIT PASSWORD AFTER CONFIRMATION OF THE OLD PASSWORD
     fun editPassword(idMembre: Int, confirmationPassword: String, password: String): Boolean{
-        val db = writableDatabase
-        val query = "UPDATE ${Table_Schemas.Membre.TABLE_NAME} " +
-                "SET ${Table_Schemas.Membre.COLUMN_PASSWORD} = '${password.toSHA256()}'" +
-                "WHERE ${Table_Schemas.Membre.COLUMN_ID} = $idMembre"
+        var db = readableDatabase
+        val coded = password.toSHA256()
+        //${password.toSHA256()}'
+//        val query = "UPDATE ${Table_Schemas.Membre.TABLE_NAME} " +
+//                "SET ${Table_Schemas.Membre.COLUMN_PASSWORD} = '$coded' " +
+//                "WHERE ${Table_Schemas.Membre.COLUMN_ID} = $idMembre"
 
-        val passwordCheckquery = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME}" +
+        val q = "UPDATE ${Table_Schemas.Membre.TABLE_NAME} " +
+                "SET ${Table_Schemas.Membre.COLUMN_PASSWORD} = ? " +
+                "WHERE ${Table_Schemas.Membre.COLUMN_ID} = ?"
+
+        val passwordCheckquery = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} " +
                 "WHERE ${Table_Schemas.Membre.COLUMN_ID} = $idMembre"
 
         val cursor = db.rawQuery(passwordCheckquery, null)
 
+        cursor.moveToFirst()
         val bool = cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_PASSWORD)) == confirmationPassword.toSHA256()
         if (bool){
-        db.execSQL(query, null)}
+            db = writableDatabase
+        db.execSQL(q, arrayOf(coded, idMembre))
+        }
 
         cursor.close()
         db.close()

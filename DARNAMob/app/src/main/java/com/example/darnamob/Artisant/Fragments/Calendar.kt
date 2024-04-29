@@ -39,8 +39,8 @@ class Calendar : Fragment() {
     private fun logic(userId: Int) {
 
         val Tasks = db.getTasksArtisan(userId)
-
         val calendar = view?.findViewById<CalendarView>(R.id.calendar)
+
     }
 
 

@@ -41,6 +41,7 @@ class AccountFragment : Fragment() {
         // Initialize the database helper
         db = DatabaseHelper(requireContext())
 
+        userId = 1
         // Perform your logic here
         logic(userId)
     }
@@ -64,6 +65,8 @@ class AccountFragment : Fragment() {
 
         view?.findViewById<ImageView>(R.id.notif)?.setOnClickListener {
             val intent = Intent(requireContext(), Notifications::class.java)
+            intent.putExtra("id", userId)
+            startActivity(intent)
         }
         //you need to do the workdays
         val blueColor = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.workdaysColor ))
@@ -81,6 +84,7 @@ class AccountFragment : Fragment() {
         //setting the state of the toggle buttons
         var i =0
         for (item in toggles){
+            item?.isEnabled = false
             if (days[i]) item?.background = blueColor
             i++
         }

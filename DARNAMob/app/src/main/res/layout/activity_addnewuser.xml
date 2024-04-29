@@ -69,7 +69,7 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Full Name"
                 android:inputType="text"
-                android:padding="8sp"/>
+                android:padding="15sp"/>
 
             <TextView
                 android:id="@+id/fullNameError"
@@ -92,7 +92,7 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Email"
                 android:inputType="textEmailAddress"
-                android:padding="8sp"
+                android:padding="15sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />
@@ -117,7 +117,7 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Phone number"
                 android:inputType="phone"
-                android:padding="8sp"
+                android:padding="15sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />
@@ -142,7 +142,7 @@
                 android:textColorHint="@color/grey"
                 android:hint="  Password"
                 android:inputType="textPassword"
-                android:padding="8sp"
+                android:padding="15sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />
@@ -165,9 +165,9 @@
                 android:background="@drawable/border"
                 android:fontFamily="@font/productsans_regular"
                 android:textColorHint="@color/grey"
-                android:hint="  Confirm password"
+                android:hint="Confirm password"
                 android:inputType="textPassword"
-                android:padding="8sp"
+                android:padding="15sp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="14dp" />
@@ -188,6 +188,7 @@
                 android:layout_height="58dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
+                android:padding="15dp"
                 android:backgroundTint="@color/grey"/>
             <Spinner
                 android:id="@+id/spinner2"
@@ -195,41 +196,13 @@
                 android:layout_height="58dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
+                android:padding="15dp"
                 android:backgroundTint="@color/grey"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:gravity="center_horizontal">
-
-                <ImageView
-                    android:id="@+id/imageArtisan"
-                    android:layout_width="200dp"
-                    android:layout_height="130dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="50dp"
-                    android:src="@drawable/baseline_cloud_upload_24"
-                    android:background="@drawable/custom_edit_text_background"
-                    />
-            <Button
-                android:id="@+id/addImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/green"
-                android:fontFamily="@font/productsans_bold"
-                android:text="Add Image" />
-
-
-            </LinearLayout>
             <Button
                 android:id="@+id/createaccountButtom"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/border_bottom"
                 android:text="Create Account"
                 android:textColor="@color/white"
