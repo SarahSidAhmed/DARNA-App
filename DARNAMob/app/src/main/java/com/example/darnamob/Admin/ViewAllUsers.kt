@@ -9,23 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.databinding.ActivityViewAllusersBinding
+import com.google.android.gms.common.api.Api
 import com.google.android.material.imageview.ShapeableImageView
 import java.lang.reflect.Member
 
 
-
-
-class ViewAllUsers(private val userlist: List<Artisan>, private val db: DatabaseHelper , private val listener: OnItemClickListener) :
+class ViewAllUsers(private val userlist: List<Artisan>, private val db: DatabaseHelper) :
     RecyclerView.Adapter<ViewAllUsers.MyViewHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_view_allusers,
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.viewuser,
             parent, false)
         return MyViewHolder(itemView)
     }
@@ -40,7 +39,6 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
         val username = artisan.membre.userName
         val isClient = db.checkIfClient(email)
         val domaine = artisan.domain
-
         // Set user information to views
         val img = artisan.membre.image
         val bitmap = BitmapFactory.decodeByteArray(img, 0, img.size)
@@ -59,21 +57,18 @@ class ViewAllUsers(private val userlist: List<Artisan>, private val db: Database
             holder.domain.text = domaine
         }
 
-        //holder.viewmore.text = "View more"
+        holder.viewmore.text = "View more"
         holder.viewmore.setOnClickListener {
             // Pass the clicked user's data to onItemClick
-            listener.onItemClick(artisan)
         }
     }
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image: ImageView = itemView.findViewById(R.id.imageView61)
-        val username: TextView = itemView.findViewById(R.id.textView81)
-        val type: TextView = itemView.findViewById(R.id.textView91)
-        val viewmore: TextView = itemView.findViewById(R.id.textView101)
-        val domain : TextView = itemView.findViewById(R.id.domain)
+    class MyViewHolder(viewuser: View) : RecyclerView.ViewHolder(viewuser) {
+        val image: ImageView = viewuser.findViewById(R.id.profilepic)
+        val username: TextView = viewuser.findViewById(R.id.username)
+        val type: TextView = viewuser.findViewById(R.id.type)
+        val viewmore: TextView = viewuser.findViewById(R.id.viewmore)
+        val domain : TextView = viewuser.findViewById(R.id.domaine)
     }
-    interface OnItemClickListener {
-        fun onItemClick(artisan: Artisan)
-    }
+
 }

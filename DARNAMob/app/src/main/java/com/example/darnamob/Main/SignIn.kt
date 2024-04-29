@@ -52,12 +52,10 @@ class SignIn : AppCompatActivity() {
 
             if (checkCredential){
                 if(db.checkIfAdmin(email)){ //if the user is an admin go to the main admin
-                    Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, HomeAdmin::class.java)
-                    startActivity(intent) //have to change it to main admin activity
+                    startActivity(Intent(this, HomeAdmin::class.java)) //have to change it to main admin activity
                     finish()
                 }else{
-
+                    Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
 
                     val id = db.getUserID(email)
 

@@ -10,9 +10,11 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.databinding.ActivitySignUpBinding
 import com.example.darnamob.imageFromDrawableToByteArray
+import com.google.firebase.auth.FirebaseAuth
 
 private lateinit var binding : ActivitySignUpBinding
 private lateinit var db : DatabaseHelper
+private lateinit var auth: FirebaseAuth
 
 class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
