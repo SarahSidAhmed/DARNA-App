@@ -1,5 +1,6 @@
 package com.example.darnamob.Client
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.darnamob.Database.DatabaseHelper
@@ -18,8 +19,13 @@ class EstimatedPrice : AppCompatActivity() {
         db = DatabaseHelper(this)
 
         //make the add new order send the price, calculate it directly in the add new order
-        val userId = intent.getIntExtra("id", -1) // to get the id
+        val price = intent.getIntExtra("price", -1) // to get the id
 
+        binding.price.setText(price)
+        binding.cancelBtn.setOnClickListener {
+            val intent = Intent(this, AddNewOrderActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

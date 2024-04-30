@@ -7,18 +7,10 @@ import android.view.View
 import android.widget.TextView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.Artisant.Fragments.HomeFragment
 import com.example.darnamob.Database.data.Notification
-import java.lang.reflect.Member
-import com.google.android.material.imageview.ShapeableImageView
-import com.example.darnamob.databinding.ActivityHomeFragmentBinding
-
-
 
 
 class Notif_adapter(private val notifs: List<Notification>, private val db: DatabaseHelper, private val listener: OnItemClickListener) :
@@ -44,7 +36,7 @@ class Notif_adapter(private val notifs: List<Notification>, private val db: Data
 
         if(type==0){
             holder.TextView2.text = "Admin sent you a warning"
-            holder.imageImageView.setImageResource(R.drawable.warning)
+            holder.imageImageView.setImageResource(R.drawable.warning0)
             holder.client_nameTextView.visibility=View.GONE
              if(type==2){
                  holder.TextView2.text = "accepted your offer, start messaging to discuss more"

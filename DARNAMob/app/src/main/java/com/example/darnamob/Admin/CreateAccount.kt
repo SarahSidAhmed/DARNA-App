@@ -10,8 +10,4 @@ import android.content.Intent
 class CreateAccount : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_addnewuser)
-
-    }
-
-}
+        setContentView(R.layout.activity_addnewuser)}}

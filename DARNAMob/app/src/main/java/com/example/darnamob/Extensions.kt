@@ -32,29 +32,7 @@ fun imageFromDrawableToByteArray(context: Context, drawableId: Int): ByteArray {
     return stream.toByteArray() // Convert compressed bitmap to byte array
 }
 
-fun checkJourFerie(date: String): Boolean {
-    val jourFeries = arrayOf(
-        "01/01",
-        "12/01",
-        "01/05",
-        "24/05",
-        "05/07",
-        "31/07",
-        "20/08",
-        "29/08",
-        "29/10",
-        "01/11"
-    )
-    var i = 0
-    var notEquel =true
-    while (notEquel && i<jourFeries.size){
-        if (date.equals(jourFeries[i])){
-            notEquel =false
-        }
-        i++
-    }
-    return notEquel
-}
+
 
 fun nightTime(hour: String):Boolean{
     val time = hour.toInt()

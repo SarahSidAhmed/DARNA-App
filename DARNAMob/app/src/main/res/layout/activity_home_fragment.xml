@@ -32,37 +32,6 @@
             app:srcCompat="@drawable/notif" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="top">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/art_profil_pic"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginLeft="40dp"
-            android:src="@drawable/profil_pic_artisant">
-
-        </de.hdodenhof.circleimageview.CircleImageView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/art_name_hello"
-            android:fontFamily="@font/productsans_regular"
-            android:text="Welcome!\nFatima Senouci"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginTop="29dp"
-            android:layout_marginLeft="10dp"/>
-
-
-    </LinearLayout>
-
 
     <EditText
         android:id="@+id/searchBar"
@@ -80,725 +49,599 @@
         android:inputType="textShortMessage"
          android:paddingStart="10dp"
         android:textAlignment="viewStart"
-        android:textSize="18sp" />
+        android:textSize="18dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler"
-        android:layout_marginTop="239dp"
-        android:paddingLeft="30dp"
-        />
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="400dp"-->
-<!--            android:layout_height="150dp"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/custom_edit_text_background">-->
-
-<!--            <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                android:id="@+id/client_pic"-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:paddingStart="10dp"-->
-<!--                android:layout_marginTop="40dp"-->
-<!--                android:src="@drawable/art_demandes" />-->
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/client_name"-->
-<!--                android:layout_width="76.68sp"-->
-<!--                android:layout_height="15.78sp"-->
-<!--                android:paddingStart="10dp"-->
-<!--                android:layout_marginTop="45dp"-->
-<!--                android:fontFamily="@font/productsans_regular"-->
-<!--                android:text="soundous"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="12sp"-->
-<!--                />-->
-<!--            <ImageView-->
-<!--                android:id="@+id/clock_picture"-->
-<!--                android:layout_width="24.98dp"-->
-<!--                android:layout_height="26.49dp"-->
-<!--                android:layout_marginTop="42dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-
-<!--                android:src="@drawable/clock" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/time"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="45dp"-->
-<!--                android:layout_marginBottom="72dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:fontFamily="@font/productsans_regular"-->
-<!--                android:text="2 min ago"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="12sp"-->
-<!--                android:textStyle="bold"-->
-<!--                />-->
-
-<!--            <ImageView-->
-<!--                android:id="@+id/loc_picture"-->
-<!--                android:layout_width="14.56sp"-->
-<!--                android:layout_height="18.57sp"-->
-<!--                android:layout_marginTop="45dp"-->
-<!--                android:layout_marginLeft="50dp"-->
-<!--                android:src="@drawable/location" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/location"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/productsans_regular"-->
-<!--                android:text="Medea"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_marginTop="45dp"-->
-<!--                android:layout_marginLeft="20dp"-->
-
-<!--                />-->
-<!--            <TextView-->
-<!--                android:id="@+id/prestation"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="-300dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:layout_marginBottom="59dp"-->
-<!--                android:fontFamily="@font/productsans_bold"-->
-<!--                android:text="Water heater installation"-->
-<!--                android:textColor="#000000"-->
-<!--                android:textSize="18sp"-->
-<!--                android:textStyle="bold"-->
-<!--                />-->
-
-<!--            <ImageView-->
-<!--                android:id="@+id/urgent"-->
-<!--                android:layout_width="20dp"-->
-<!--                android:layout_height="20dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:src="@drawable/urgent"-->
-<!--                />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/details"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/productsans_regular"-->
-<!--                android:text="I am i need of someone to install a water heater in my appartement"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_marginTop="80dp"-->
-<!--                android:layout_marginStart="-247dp"-->
-<!--                android:textSize="16sp"-->
-<!--                />-->
-
-
-<!--        </LinearLayout>-->
-
-
-
-
-
-
-
-
-    <!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="210dp">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical" >-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="400dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:background="@drawable/custom_edit_text_background">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/client_pic"-->
-<!--                    android:layout_width="40dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                     android:layout_marginTop="40dp"-->
-<!--                    app:srcCompat="@drawable/art_demandes" />-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/art_client_prest"-->
-<!--                    android:layout_width="76.68sp"-->
-<!--                    android:layout_height="15.78sp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="soundous"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    />-->
-<!--                <ImageView-->
-<!--                    android:id="@+id/clock_pic"-->
-<!--                    android:layout_width="24.98dp"-->
-<!--                    android:layout_height="26.49dp"-->
-<!--                    android:layout_marginTop="42dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-
-<!--                    app:srcCompat="@drawable/clock" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/time"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginBottom="72dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="2 min ago"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                     />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/loc_pic"-->
-<!--                    android:layout_width="14.56sp"-->
-<!--                    android:layout_height="18.57sp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    app:srcCompat="@drawable/location" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/location"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="Medea"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="20dp"-->
-
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:id="@+id/art_prest"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="-300dp"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_marginBottom="59dp"-->
-<!--                    android:fontFamily="@font/productsans_bold"-->
-<!--                    android:text="Water heater installation"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/urgent"-->
-<!--                    android:layout_width="20dp"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    app:srcCompat="@drawable/urgent"-->
-<!--                     />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/details"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="I am i need of someone to install a water heater in my appartement"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="80dp"-->
-<!--                    android:layout_marginStart="-247dp"-->
-<!--                    android:textSize="16sp"-->
-<!--                    />-->
-
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="400dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:background="@drawable/custom_edit_text_background">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/client_pic1"-->
-<!--                    android:layout_width="40dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="40dp"-->
-<!--                    app:srcCompat="@drawable/art_demandes" />-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/art_client_prest1"-->
-<!--                    android:layout_width="76.68sp"-->
-<!--                    android:layout_height="15.78sp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="soundous"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    />-->
-<!--                <ImageView-->
-<!--                    android:id="@+id/clock_pic1"-->
-<!--                    android:layout_width="24.98dp"-->
-<!--                    android:layout_height="26.49dp"-->
-<!--                    android:layout_marginTop="42dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-
-<!--                    app:srcCompat="@drawable/clock" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/time1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginBottom="72dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="2 min ago"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/loc_pic1"-->
-<!--                    android:layout_width="14.56sp"-->
-<!--                    android:layout_height="18.57sp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    app:srcCompat="@drawable/location" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/location1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="Medea"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="20dp"-->
-
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:id="@+id/art_prest1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="-300dp"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_marginBottom="59dp"-->
-<!--                    android:fontFamily="@font/productsans_bold"-->
-<!--                    android:text="Water heater installation"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/urgent1"-->
-<!--                    android:layout_width="20dp"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    app:srcCompat="@drawable/urgent"-->
-<!--                    />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/details1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="I am i need of someone to install a water heater in my appartement"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="80dp"-->
-<!--                    android:layout_marginStart="-247dp"-->
-
-<!--                    android:textSize="16sp"-->
-<!--                    />-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_gravity="center_horizontal"-->
-<!--                    android:gravity="left|top"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                        android:id="@+id/artProfilePic"-->
-<!--                        android:layout_width="70dp"-->
-<!--                        android:layout_height="70dp"-->
-<!--                        android:layout_marginLeft="15dp"-->
-<!--                        android:layout_marginTop="20dp"-->
-<!--                        android:layout_marginRight="0dp"-->
-<!--                        android:src="@drawable/profil_pic_artisant" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/hello_art"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:layout_marginTop="29dp"-->
-<!--                        android:fontFamily="@font/productsans_regular"-->
-<!--                        android:text="Welcome\n"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:textSize="18sp"></TextView>-->
-
-<!--                </LinearLayout>-->
-
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="400dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:background="@drawable/custom_edit_text_background">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/client_pic2"-->
-<!--                    android:layout_width="40dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="40dp"-->
-<!--                    app:srcCompat="@drawable/art_demandes" />-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/art_client_prest2"-->
-<!--                    android:layout_width="76.68sp"-->
-<!--                    android:layout_height="15.78sp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="soundous"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    />-->
-<!--                <ImageView-->
-<!--                    android:id="@+id/clock_pic2"-->
-<!--                    android:layout_width="24.98dp"-->
-<!--                    android:layout_height="26.49dp"-->
-<!--                    android:layout_marginTop="42dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-
-<!--                    app:srcCompat="@drawable/clock" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/time2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginBottom="72dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="2 min ago"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/loc_pic2"-->
-<!--                    android:layout_width="14.56sp"-->
-<!--                    android:layout_height="18.57sp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    app:srcCompat="@drawable/location" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/location2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="Medea"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="20dp"-->
-
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:id="@+id/art_prest2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="-300dp"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_marginBottom="59dp"-->
-<!--                    android:fontFamily="@font/productsans_bold"-->
-<!--                    android:text="Water heater installation"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/urgent2"-->
-<!--                    android:layout_width="20dp"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    app:srcCompat="@drawable/urgent"-->
-<!--                    />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/details2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="I am i need of someone to install a water heater in my appartement"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="80dp"-->
-<!--                    android:layout_marginStart="-247dp"-->
-
-<!--                    android:textSize="16sp"-->
-<!--                    />-->
-
-
-<!--            </LinearLayout>-->
-
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="400dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:background="@drawable/custom_edit_text_background">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/client_pic3"-->
-<!--                    android:layout_width="40dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="40dp"-->
-<!--                    app:srcCompat="@drawable/art_demandes" />-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/art_client_prest3"-->
-<!--                    android:layout_width="76.68sp"-->
-<!--                    android:layout_height="15.78sp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="soundous"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    />-->
-<!--                <ImageView-->
-<!--                    android:id="@+id/clock_pic3"-->
-<!--                    android:layout_width="24.98dp"-->
-<!--                    android:layout_height="26.49dp"-->
-<!--                    android:layout_marginTop="42dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-
-<!--                    app:srcCompat="@drawable/clock" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/time3"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginBottom="72dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="2 min ago"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/loc_pic3"-->
-<!--                    android:layout_width="14.56sp"-->
-<!--                    android:layout_height="18.57sp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    app:srcCompat="@drawable/location" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/location3"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="Medea"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="20dp"-->
-
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:id="@+id/art_prest3"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="-300dp"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_marginBottom="59dp"-->
-<!--                    android:fontFamily="@font/productsans_bold"-->
-<!--                    android:text="Water heater installation"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/urgent3"-->
-<!--                    android:layout_width="20dp"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    app:srcCompat="@drawable/urgent"-->
-<!--                    />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/details3"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="I am i need of someone to install a water heater in my appartement"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="80dp"-->
-<!--                    android:layout_marginStart="-247dp"-->
-
-<!--                    android:textSize="16sp"-->
-<!--                    />-->
-
-
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="400dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:background="@drawable/custom_edit_text_background">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/client_pic4"-->
-<!--                    android:layout_width="40dp"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="40dp"-->
-<!--                    app:srcCompat="@drawable/art_demandes" />-->
-
-
-<!--                <TextView-->
-<!--                    android:id="@+id/art_client_prest4"-->
-<!--                    android:layout_width="76.68sp"-->
-<!--                    android:layout_height="15.78sp"-->
-<!--                    android:paddingStart="10dp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="soundous"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    />-->
-<!--                <ImageView-->
-<!--                    android:id="@+id/clock_pic4"-->
-<!--                    android:layout_width="24.98dp"-->
-<!--                    android:layout_height="26.49dp"-->
-<!--                    android:layout_marginTop="42dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-
-<!--                    app:srcCompat="@drawable/clock" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/time4"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginBottom="72dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="2 min ago"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="12sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/loc_pic4"-->
-<!--                    android:layout_width="14.56sp"-->
-<!--                    android:layout_height="18.57sp"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="50dp"-->
-<!--                    app:srcCompat="@drawable/location" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/location4"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="Medea"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="45dp"-->
-<!--                    android:layout_marginLeft="20dp"-->
-
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:id="@+id/art_prest4"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="-300dp"-->
-<!--                    android:layout_marginTop="16dp"-->
-<!--                    android:layout_marginBottom="59dp"-->
-<!--                    android:fontFamily="@font/productsans_bold"-->
-<!--                    android:text="Water heater installation"-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="18dp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    />-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/urgent4"-->
-<!--                    android:layout_width="20dp"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    app:srcCompat="@drawable/urgent"-->
-<!--                    />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/details4"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fontFamily="@font/productsans_regular"-->
-<!--                    android:text="I am i need of someone to install a water heater in my appartement"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:layout_marginTop="80dp"-->
-<!--                    android:layout_marginStart="-247dp"-->
-
-<!--                    android:textSize="16sp"-->
-<!--                    />-->
-
-
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
-<!--    </ScrollView>-->
-<!--    -->
-
-
+        android:layout_marginTop="210dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edit_text_background">
+
+                <ImageView
+                    android:id="@+id/client_pic"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:paddingStart="10dp"
+                     android:layout_marginTop="40dp"
+                    app:srcCompat="@drawable/art_demandes" />
+
+
+                <TextView
+                    android:id="@+id/art_client_prest"
+                    android:layout_width="76.68sp"
+                    android:layout_height="15.78sp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="soundous"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    />
+                <ImageView
+                    android:id="@+id/clock_pic"
+                    android:layout_width="24.98dp"
+                    android:layout_height="26.49dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginLeft="10dp"
+
+                    app:srcCompat="@drawable/clock" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="72dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="2 min ago"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                     />
+
+                <ImageView
+                    android:id="@+id/loc_pic"
+                    android:layout_width="14.56sp"
+                    android:layout_height="18.57sp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="50dp"
+                    app:srcCompat="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="Medea"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+                <TextView
+                    android:id="@+id/art_prest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-300dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="59dp"
+                    android:fontFamily="@font/productsans_bold"
+                    android:text="Water heater installation"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/urgent"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/urgent"
+                     />
+
+                <TextView
+                    android:id="@+id/details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="I am i need of someone to install a water heater in my appartement"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginStart="-247dp"
+                    android:textSize="16sp"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edit_text_background">
+
+                <ImageView
+                    android:id="@+id/client_pic1"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="40dp"
+                    app:srcCompat="@drawable/art_demandes" />
+
+
+                <TextView
+                    android:id="@+id/art_client_prest1"
+                    android:layout_width="76.68sp"
+                    android:layout_height="15.78sp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="soundous"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    />
+                <ImageView
+                    android:id="@+id/clock_pic1"
+                    android:layout_width="24.98dp"
+                    android:layout_height="26.49dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginLeft="10dp"
+
+                    app:srcCompat="@drawable/clock" />
+
+                <TextView
+                    android:id="@+id/time1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="72dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="2 min ago"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/loc_pic1"
+                    android:layout_width="14.56sp"
+                    android:layout_height="18.57sp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="50dp"
+                    app:srcCompat="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/location1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="Medea"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+                <TextView
+                    android:id="@+id/art_prest1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-300dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="59dp"
+                    android:fontFamily="@font/productsans_bold"
+                    android:text="Water heater installation"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/urgent1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/urgent"
+                    />
+
+                <TextView
+                    android:id="@+id/details1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="I am i need of someone to install a water heater in my appartement"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginStart="-247dp"
+
+                    android:textSize="16sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="left|top"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/artProfilePic"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="0dp"
+                        android:src="@drawable/profil_pic_artisant" />
+
+                    <TextView
+                        android:id="@+id/hello_art"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="29dp"
+                        android:fontFamily="@font/productsans_regular"
+                        android:text="Welcome\n"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"></TextView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edit_text_background">
+
+                <ImageView
+                    android:id="@+id/client_pic2"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="40dp"
+                    app:srcCompat="@drawable/art_demandes" />
+
+
+                <TextView
+                    android:id="@+id/art_client_prest2"
+                    android:layout_width="76.68sp"
+                    android:layout_height="15.78sp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="soundous"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    />
+                <ImageView
+                    android:id="@+id/clock_pic2"
+                    android:layout_width="24.98dp"
+                    android:layout_height="26.49dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginLeft="10dp"
+
+                    app:srcCompat="@drawable/clock" />
+
+                <TextView
+                    android:id="@+id/time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="72dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="2 min ago"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/loc_pic2"
+                    android:layout_width="14.56sp"
+                    android:layout_height="18.57sp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="50dp"
+                    app:srcCompat="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/location2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="Medea"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+                <TextView
+                    android:id="@+id/art_prest2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-300dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="59dp"
+                    android:fontFamily="@font/productsans_bold"
+                    android:text="Water heater installation"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/urgent2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/urgent"
+                    />
+
+                <TextView
+                    android:id="@+id/details2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="I am i need of someone to install a water heater in my appartement"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginStart="-247dp"
+
+                    android:textSize="16sp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edit_text_background">
+
+                <ImageView
+                    android:id="@+id/client_pic3"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="40dp"
+                    app:srcCompat="@drawable/art_demandes" />
+
+
+                <TextView
+                    android:id="@+id/art_client_prest3"
+                    android:layout_width="76.68sp"
+                    android:layout_height="15.78sp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="soundous"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    />
+                <ImageView
+                    android:id="@+id/clock_pic3"
+                    android:layout_width="24.98dp"
+                    android:layout_height="26.49dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginLeft="10dp"
+
+                    app:srcCompat="@drawable/clock" />
+
+                <TextView
+                    android:id="@+id/time3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="72dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="2 min ago"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/loc_pic3"
+                    android:layout_width="14.56sp"
+                    android:layout_height="18.57sp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="50dp"
+                    app:srcCompat="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/location3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="Medea"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+                <TextView
+                    android:id="@+id/art_prest3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-300dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="59dp"
+                    android:fontFamily="@font/productsans_bold"
+                    android:text="Water heater installation"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/urgent3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/urgent"
+                    />
+
+                <TextView
+                    android:id="@+id/details3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="I am i need of someone to install a water heater in my appartement"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginStart="-247dp"
+
+                    android:textSize="16sp"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edit_text_background">
+
+                <ImageView
+                    android:id="@+id/client_pic4"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="40dp"
+                    app:srcCompat="@drawable/art_demandes" />
+
+
+                <TextView
+                    android:id="@+id/art_client_prest4"
+                    android:layout_width="76.68sp"
+                    android:layout_height="15.78sp"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="soundous"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    />
+                <ImageView
+                    android:id="@+id/clock_pic4"
+                    android:layout_width="24.98dp"
+                    android:layout_height="26.49dp"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginLeft="10dp"
+
+                    app:srcCompat="@drawable/clock" />
+
+                <TextView
+                    android:id="@+id/time4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginBottom="72dp"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="2 min ago"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/loc_pic4"
+                    android:layout_width="14.56sp"
+                    android:layout_height="18.57sp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="50dp"
+                    app:srcCompat="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/location4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="Medea"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+                <TextView
+                    android:id="@+id/art_prest4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-300dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="59dp"
+                    android:fontFamily="@font/productsans_bold"
+                    android:text="Water heater installation"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:id="@+id/urgent4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/urgent"
+                    />
+
+                <TextView
+                    android:id="@+id/details4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/productsans_regular"
+                    android:text="I am i need of someone to install a water heater in my appartement"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginStart="-247dp"
+
+                    android:textSize="16sp"
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 
 </FrameLayout>

@@ -19,6 +19,8 @@ class SignInUp : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.back4.setOnClickListener {
+
+            startActivity(Intent(this, Accueil3::class.java))
             finish()
         }
 
