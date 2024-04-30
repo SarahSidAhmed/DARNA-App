@@ -2,19 +2,25 @@ package com.example.darnamob.Artisant
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.Database.Table_Schemas
 import com.example.darnamob.R
 
 
 class art_view_order : AppCompatActivity() {
 
-    private lateinit var obj:art_view_order
     private var Img:Int?=null
+    private lateinit var db: DatabaseHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.art_view_order)
+
+
+        db = DatabaseHelper(this)
         val username = intent.getStringExtra("nomClient")
          val location = intent.getStringExtra("location")
         val details = intent.getStringExtra("details")
@@ -63,8 +69,19 @@ class art_view_order : AppCompatActivity() {
 
 
 
+        val idClient = intent.getIntExtra("clientId", -1)
+        val idArtisant = intent.getIntExtra("idArtisant", -1)
+        val numDemande = intent.getIntExtra("num", -1)
+
+
+
 
         usernameTextView.text = username
+
+
+        findViewById<Button>(R.id.confirmButton).setOnClickListener{
+            db.insertNotifServiceRequest(idClient, idArtisant, numDemande)
+        }
 
     }
 
