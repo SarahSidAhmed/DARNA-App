@@ -56,5 +56,7 @@ class ActivityViewReportedusers : AppCompatActivity() {
 //        //newRecyclerview.setHasFixedSize(true)
 
     }
+
+
 }
 

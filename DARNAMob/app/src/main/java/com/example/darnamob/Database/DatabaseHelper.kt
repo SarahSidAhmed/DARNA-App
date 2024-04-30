@@ -94,9 +94,6 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         }
     }
 
-
-
-
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         for(Table_name in TABLE_NAMES){
         val dropTableQuery = "DROP TABLE IF EXISTS $Table_name"
@@ -183,9 +180,9 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     //
 
     //DEMANDE
-    // -getAllDemandeByRegionDispo(region: String, dispo: Boolean) -> List<Demande>
+    // -getAllDemandeByRegionDispo(region: String, dispo: Boolean) -> List<Demande> (artisan)
     // -getTasksArtisan(artisanId: Int) -> List<RendezVousTasks>
-    // -getRendezVousClient(clientId: Int) -> List<RendezVousTasks>
+    // -getRendezVousClient(clientId: Int) -> List<RendezVousTasks> (client)
     // -addDemande(demande: Demande)
     // -filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>
     // -getDemande(num_demande: Int) : Demande
@@ -491,6 +488,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         return membre
 
     }
+
+
     fun getArtisanByID(id : Int): Artisan{
         var db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME} WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $id"
@@ -1076,6 +1075,9 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
     //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES WITHOUT THE COMPLETED ONES
     fun filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>{
+
+        // quand il clique sur sur une image d'une category
+
         val db = readableDatabase
         val rendezvousCategorie = mutableListOf<Demande>()
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} " +
@@ -1114,8 +1116,6 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         return rendezvousCategorie
 
     }
-
-
 
     //METHOD TO SET THE DEMANDE TO COMPLETED
     fun setTaskCompleted(num_demande: Int){

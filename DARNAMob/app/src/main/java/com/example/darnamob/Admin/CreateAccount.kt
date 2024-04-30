@@ -3,8 +3,6 @@ package com.example.darnamob.Admin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.darnamob.R
-import android.widget.Button
-import android.widget.TextView
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.View
@@ -14,7 +12,6 @@ import android.widget.PopupWindow
 import android.widget.Spinner
 import android.widget.Toast
 
-import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.Database.data.Membre
