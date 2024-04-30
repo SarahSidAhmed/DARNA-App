@@ -36,16 +36,13 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:gravity="center|top">
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/art_profil_pic"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginTop="70dp"
                 android:layout_marginRight="0dp"
-
-                android:src="@drawable/profil_pic_artisant">
-
-            </ImageView>
+                android:src="@drawable/profil_pic_artisant"/>
         </LinearLayout>
     </RelativeLayout>
     <LinearLayout
@@ -91,6 +88,7 @@
                 android:fontFamily="@font/productsans_regular"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+
                 />
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView

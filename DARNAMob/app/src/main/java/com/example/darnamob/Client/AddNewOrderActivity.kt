@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Prestation
@@ -29,7 +28,7 @@ class AddNewOrderActivity : AppCompatActivity() {
         db = DatabaseHelper(this)
 
         // Populate category AutoCompleteTextView
-        val categories = arrayOf("Painter", "Plumber", "Cleaner", "Maconier", "Electrician")
+        val categories = arrayOf("Painting", "Plumbing", "Cleaning", "Masonry", "Electricity")
         val wilayas = arrayOf(
             "Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar",
             "Blida", "Bouira", "Tamanrasset", "Tébessa", "Tlemcen", "Tiaret", "Tizi Ouzou", "Alger Est","Alger west",
@@ -44,27 +43,24 @@ class AddNewOrderActivity : AppCompatActivity() {
         val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, categories)
         val regionAdapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,wilayas)
         autoCompleteTxtCategory.setAdapter(categoryAdapter)
-
         autoCompleteTxtRegion.setAdapter(regionAdapter)
 
-
         // Set listener for category selection
-        autoCompleteTxtCategory.setOnItemClickListener { _, _, position, _ ->
+        /*autoCompleteTxtCategory.setOnItemClickListener { _, _, position, _ ->
             val selectedCategory = categories[position]
-            Toast.makeText(this, selectedCategory, Toast.LENGTH_SHORT).show()
             // Retrieve and populate services for the selected category
             populateServiceAutoComplete(selectedCategory)
         }
-    }
+    }*/
 
-          private fun populateServiceAutoComplete(category: String) {
-             // Retrieve services for the selected category from the database
-             val servicesForCategory = db.getPrestationbyDomain(category)
-
+        /*  private fun populateServiceAutoComplete(category: String) {
+              // Retrieve services for the selected category from the database
+              val servicesForCategory = db.getPrestationbyDomain(category)
               // Populate service AutoCompleteTextView with retrieved services
               val serviceNames = servicesForCategory.map { it.prestat }.toTypedArray()
               val serviceAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, serviceNames)
               autoCompleteTxtService.setAdapter(serviceAdapter)
-          }
+          }*/
     }
 
+}

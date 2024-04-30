@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.example.darnamob.Client.AccountClientSettings
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper

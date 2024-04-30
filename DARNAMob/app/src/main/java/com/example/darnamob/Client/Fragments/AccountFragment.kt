@@ -35,15 +35,10 @@ class AccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        arguments?.let { bundle ->
-//            userId = bundle.getInt("id", -1)
-//        }
 
         val userId = arguments?.getInt("id", -1) ?: -1
 
 
-
-        Toast.makeText(requireContext(), "$userId", Toast.LENGTH_SHORT).show()
         db = DatabaseHelper(requireContext())
 
         logic(userId)
@@ -56,11 +51,12 @@ class AccountFragment : Fragment() {
         view?.findViewById<TextView>(R.id.email)?.setText(member.email)
         view?.findViewById<TextView>(R.id.address)?.setText(member.address)
         view?.findViewById<TextView>(R.id.phone)?.setText(member.tel)
+        view?.findViewById<TextView>(R.id.artisant_name)?.setText(member.userName)
 
         var image = member.image
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
 
-        view?.findViewById<ImageView>(R.id.image)?.setImageBitmap(bitmap)
+        view?.findViewById<ImageView>(R.id.art_profil_pic)?.setImageBitmap(bitmap)
 
 
 

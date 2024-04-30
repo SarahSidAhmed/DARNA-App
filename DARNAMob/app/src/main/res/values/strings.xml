@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">DARNA Mob</string>
+    <string name="client">Client</string>
+    <string name="artisan">Artisan</string>
+    <string name="viewmore">View More</string>
     <string name="subject">Important: Warning Regarding Your Recent Activity in DARNA Mob</string>
     <string name="Warning_Message">Dear Mme/Mr,\n\n
 

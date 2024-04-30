@@ -181,6 +181,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 />
+
             <Button
                 android:id="@+id/signUpButtom"
                 android:layout_width="match_parent"

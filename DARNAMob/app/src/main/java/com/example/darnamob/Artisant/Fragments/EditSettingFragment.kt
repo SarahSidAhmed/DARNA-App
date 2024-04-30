@@ -1,6 +1,5 @@
 package com.example.darnamob.Artisant.Fragments
 
-import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,6 +15,7 @@ import android.widget.Switch
 import android.content.Intent
 import android.widget.Button
 import android.widget.EditText
+import com.example.darnamob.Database.DatabaseHelper
 
 
 class EditSettingFragment : Fragment() {
@@ -31,6 +31,9 @@ class EditSettingFragment : Fragment() {
 
     private val state1 = "switch1"
     private val state2 = "switch2"
+
+    private var userId: Int =-1
+    private lateinit var db : DatabaseHelper
 
 
     //@SuppressLint("MissingInflatedId")
@@ -177,5 +180,22 @@ class EditSettingFragment : Fragment() {
 
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.let { bundle ->
+            userId = bundle.getInt("id", -1)
+        }
+
+        // Initialize the database helper
+        db = DatabaseHelper(requireContext())
+
+        // Perform your logic here
+        logic(userId)
+    }
+
+    private fun logic(userId: Int) {
+
     }
 }

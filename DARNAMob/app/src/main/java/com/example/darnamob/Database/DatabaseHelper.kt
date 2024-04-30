@@ -13,11 +13,11 @@ import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.Database.data.RendezVousTasks
+import com.example.darnamob.Main.SignUp
 import com.example.darnamob.toSHA256
-import com.google.android.material.tabs.TabLayout.Tab
 
 
-class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAME, null, DATABASE_VERSION ) {
+class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME, null, DATABASE_VERSION ) {
 
     //=========================================================================================//
     //START OF CONSTANTS//
@@ -141,7 +141,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     //EDITING PROFILE METHODS
     // -editProfileMember(id: Int, phoneNumber: String, Address: String)
-    // -editPorfileArtisan(idArtisan: Int, workArea: String, workHours: String, deplacement: Boolean, disponible: Boolean)
+    //editPorfileArtisan(idArtisan: Int, workArea: String, workHours: String, deplacement: Boolean, disponible: Boolean, workdays: List<Int>)
     // -editPassword(idMembre: Int, confirmationPassword: String, password: String): Boolean
 
     //SEARCHING USERS BY ID & EMAIL
@@ -185,6 +185,7 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
     // -getRendezVousClient(clientId: Int) -> List<RendezVousTasks> (client)
     // -addDemande(demande: Demande)
     // -filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>
+    // -getDemande(num_demande: Int) : Demande
 
 
     //COMMENT & RATING
@@ -521,6 +522,39 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
         db.close()
 
         return phone
+    }
+
+    fun getWorkHour(id: Int): String{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME}" +
+                "WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $id"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+        val workHours = cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_WORK_HOURS))
+
+        cursor.close()
+        db.close()
+        return workHours
+    }
+
+    fun getWorkDays(id: Int): Array<Boolean>{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.WorkDays.TABLE_NAME}" +
+                "WHERE ${Table_Schemas.WorkDays.COLUMN_ID} = $id"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+        val days = arrayOf<Boolean>()
+        days[0] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_SATURDAY))==1
+        days[1] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_SUNDAY))==1
+        days[2] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_MONDAY))==1
+        days[3] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_TUESDAY))==1
+        days[4] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_WEDNESDAY))==1
+        days[5] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_THURSDAY))==1
+        days[6] = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.WorkDays.COLUMN_FRIDAY))==1
+
+        cursor.close()
+        db.close()
+        return days
     }
 
     //tested
@@ -872,6 +906,31 @@ class DatabaseHelper(Context : Context) : SQLiteOpenHelper(Context, DATABASE_NAM
 
     //METHOD TO RETURN ALL THE EXISTING REQUESTS TAKING IN CONSIDERATION
     //WITHER THE ARTISAN IS DISPONIBLE OR NOT
+    fun getDemande(num_demande : Int): Demande{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = $num_demande"
+        val cursor = db.rawQuery(query, null)
+
+        cursor.moveToFirst()
+
+        val demande = Demande(num_demande,
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_ID_CLIENT)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_TITLE)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DESCRIPTION)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_REGION)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_ADDRESS)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_CATEGORIE)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_SERVICE)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DATE)),
+            cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_HOUR)),
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_URGENT))==1,
+            cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_MATERIAL_INCLUDED))==1
+            )
+
+        cursor.close()
+        db.close()
+        return demande
+    }
     fun getAllDemandeByRegionDispo(region: String, dispo: Boolean): List<Demande>{
         val demande = mutableListOf<Demande>()
         val db = readableDatabase

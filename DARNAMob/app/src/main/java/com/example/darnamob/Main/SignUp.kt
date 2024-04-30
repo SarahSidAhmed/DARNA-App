@@ -1,9 +1,6 @@
 package com.example.darnamob.Main
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -13,7 +10,6 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.databinding.ActivitySignUpBinding
 import com.example.darnamob.imageFromDrawableToByteArray
-import java.io.ByteArrayOutputStream
 
 private lateinit var binding : ActivitySignUpBinding
 private lateinit var db : DatabaseHelper
