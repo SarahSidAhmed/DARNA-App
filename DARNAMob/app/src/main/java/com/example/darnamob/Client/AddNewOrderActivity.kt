@@ -167,15 +167,14 @@ class AddNewOrderActivity : AppCompatActivity() {
 
             price += pricingSystem().isNight(hour) + pricingSystem().isFerie(date)+ pricingSystem().getUrgentPrice(urgent)
 
-            Toast.makeText(this, price.toString(), Toast.LENGTH_SHORT).show()
             val demande = Demande(0, userId, title, description, region, address, categorie, service, date ,time, urgent, material)
 
-            db.addDemande(demande)
 
-//            val intent = Intent(this, EstimatedPrice::class.java)
-//            intent.putExtra("price", price)
-//            startActivity(intent)
-            //if canceled just make the pop up disappear
+            var dialog = EstimatedPriceDialog()
+            dialog.show(supportFragmentManager, "customDialog")
+
+        //db.addDemande(demande)
+
         }
     }
 
