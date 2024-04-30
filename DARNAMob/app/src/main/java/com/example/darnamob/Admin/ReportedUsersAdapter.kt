@@ -2,7 +2,6 @@ package com.example.darnamob.Admin
 
 import android.content.Context
 import android.graphics.BitmapFactory
-import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

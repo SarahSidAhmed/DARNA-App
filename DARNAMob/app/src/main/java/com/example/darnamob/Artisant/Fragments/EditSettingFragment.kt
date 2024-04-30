@@ -22,6 +22,7 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.core.content.ContextCompat
+import com.example.darnamob.Artisant.Notifications
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Artisan
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -207,7 +208,7 @@ class EditSettingFragment : Fragment() {
 
     private fun logic(userId: Int) {
 
-        val blueColor = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.workdaysColor ))
+        val blueColor = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.my_custom_blue ))
 
         val white = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.white ))
         artisan = db.getArtisanByID(userId)

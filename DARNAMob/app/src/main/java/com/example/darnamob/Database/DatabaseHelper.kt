@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.darnamob.Admin.ActivityViewAllusers
 import com.example.darnamob.Database.data.Admin
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.Database.data.Comment
@@ -13,7 +14,6 @@ import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.Database.data.RendezVousTasks
-import com.example.darnamob.Main.SignUp
 import com.example.darnamob.toSHA256
 
 
@@ -1034,7 +1034,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val rendezVousTasks = mutableListOf<RendezVousTasks>()
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} =$clientId AND " +
-                "${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} == 0 "
+                "${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} = 0 "
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()){

@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R

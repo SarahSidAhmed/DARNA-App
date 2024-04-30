@@ -28,7 +28,7 @@
 
 
         <TextView
-            android:id="@+id/art_client_prest"
+            android:id="@+id/art_client_name"
             android:layout_width="76.68sp"
             android:layout_height="15.78sp"
             android:paddingStart="10dp"

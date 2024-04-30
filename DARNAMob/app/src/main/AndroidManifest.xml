@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
+
         <activity
             android:name=".Client.ArtisanProfileComments"
             android:exported="false" />
@@ -34,7 +35,7 @@
             android:name=".Client.EstimatedPrice"
             android:exported="false" />
         <activity
-            android:name=".Main.Main"
+            android:name=".Admin.HomeAdmin"
             android:exported="false" />
         <activity
             android:name=".Client.AccountClientSettings"
@@ -43,7 +44,13 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
+            android:name=".Admin.CreateAccount"
+            android:exported="false" />
+        <activity
             android:name=".Client.AddNewOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Main.Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,6 +58,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Admin.ActivityViewAllusers"
+            android:exported="false" />
         <activity
             android:name=".Artisant.Fragments.SettingFragment"
             android:exported="false" />
@@ -86,6 +96,9 @@
             android:exported="false" />
         <activity
             android:name=".Artisant.MainActivityArtisant"
+            android:exported="false" />
+        <activity
+            android:name=".Artisant.Notifications"
             android:exported="false" />
         <activity
             android:name=".Main.SignUp"

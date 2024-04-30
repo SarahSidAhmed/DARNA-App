@@ -16,10 +16,10 @@ class ReportDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         var rootView: View = inflater.inflate(R.layout.card_confirmreport, container,  false)
-         rootView.findViewById<Button>(R.id.noButton).setOnClickListener {
+         rootView.findViewById<Button>(R.id.no).setOnClickListener {
              dismiss()
          }
-        rootView.findViewById<Button>(R.id.yesButton).setOnClickListener {
+        rootView.findViewById<Button>(R.id.yes).setOnClickListener {
 
         }
         return rootView
@@ -28,6 +28,6 @@ class ReportDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view?.findViewById<Button>(R.id.noButton)
+        view?.findViewById<Button>(R.id.no)
     }
 }

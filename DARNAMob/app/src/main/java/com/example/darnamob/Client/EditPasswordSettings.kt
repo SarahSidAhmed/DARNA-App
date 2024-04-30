@@ -5,10 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.darnamob.Artisant.Fragments.EditSettingFragment
 import com.example.darnamob.Artisant.Fragments.SettingFragment
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityEditPasswordSettingsBinding
 
 private lateinit var binding: ActivityEditPasswordSettingsBinding

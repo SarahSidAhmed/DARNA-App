@@ -1,7 +1,6 @@
 package com.example.darnamob.Admin.Fragments
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.example.darnamob.Admin.HomeAdmin
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
-import com.example.darnamob.databinding.ActivityViewAllusersBinding
 
 private lateinit var db:DatabaseHelper
 
