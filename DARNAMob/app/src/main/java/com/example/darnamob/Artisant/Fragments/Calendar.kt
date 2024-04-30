@@ -9,12 +9,12 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
 import com.example.darnamob.R.layout.calendar
 
-private lateinit var db: DatabaseHelper
+
 private var userId : Int = -1
 
 
 class Calendar : Fragment() {
-
+    private lateinit var db: DatabaseHelper
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
