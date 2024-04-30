@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.darnamob.R
 import android.widget.Button
-import android.widget.TextView
 import android.content.Intent
-//import com.example.darnamob.Admin.ViewAllUsers
-import com.example.darnamob.Admin.CreateAccount
+
 
 class HomeAdmin : AppCompatActivity() {
 

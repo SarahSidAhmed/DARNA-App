@@ -471,6 +471,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         return membre
 
     }
+
+
     fun getArtisanByID(id : Int): Artisan{
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Artisan.TABLE_NAME} WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $id"

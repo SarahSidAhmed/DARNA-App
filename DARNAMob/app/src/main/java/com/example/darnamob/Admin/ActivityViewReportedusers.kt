@@ -41,5 +41,7 @@ class ActivityViewReportedusers : AppCompatActivity() , ReportedUsersAdapter.OnI
             // Add more data if needed
             startActivity(intent)}
     }
+
+
 }
 
