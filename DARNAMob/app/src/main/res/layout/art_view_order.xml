@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:ignore="ExtraText">
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="29dp">
+   <ImageView
+       android:id="@+id/close"
+       android:layout_width="25dp"
+       android:layout_height="25dp"
+       android:src="@drawable/img_1"
+       android:layout_marginTop="50dp"
+       android:layout_marginLeft="50dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center|top"
+        android:layout_marginLeft="-70dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_photo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="99dp"
+            android:src="@drawable/profile"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clint_name"
+            android:text="Soundous Sid"
+            android:paddingTop="9dp"
+            android:textSize="19sp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="99dp"/>
+
+
+</LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/client"
+        android:text="Client"
+        android:layout_marginLeft="120dp"
+        android:paddingTop="30dp"
+        android:textSize="19sp"
+        android:fontFamily="@font/productsans_bold"
+        android:textColor="@color/grey"
+        android:layout_marginTop="99dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="-260dp"
+        android:layout_marginLeft="-59dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/prest"
+            android:text="Water heater installation"
+            android:textSize="20sp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="25dp"
+            />
+
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="483.66dp"
+        android:layout_height="10dp"
+        android:src="@drawable/img_8"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="220dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="-260dp"
+        android:layout_marginLeft="-70dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/price"
+            android:text="$ Price: 5000DA "
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="40dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="150dp"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="483.66dp"
+        android:layout_height="10dp"
+        android:src="@drawable/img_8"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="290dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="-200dp"
+        android:layout_marginLeft="-115dp"
+        >
+
+        <ImageView
+            android:layout_width="13.3dp"
+            android:layout_height="18dp"
+            android:src="@drawable/location"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="39dp"
+            android:layout_marginLeft="0dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/location"
+            android:text="Location"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:textSize="20sp"
+            android:layout_marginStart="-30dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="145dp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="-265dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="-70dp"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cite"
+        android:text="cite XXXXXX ,BXX,Medea"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/productsans_bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="345dp"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/view_map"
+            android:text="View on map"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/grey"
+            android:layout_marginTop="345dp"
+            />
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="483.66dp"
+        android:layout_height="10dp"
+        android:src="@drawable/img_8"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="370dp"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="-130dp"
+        android:layout_marginLeft="-115dp"
+        >
+
+        <ImageView
+            android:layout_width="15.3dp"
+            android:layout_height="18dp"
+            android:src="@drawable/calendrie"
+            android:layout_marginTop="152dp"
+            android:layout_marginRight="76dp"
+            android:layout_marginLeft="0dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Date"
+            android:text="Date"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:textSize="20sp"
+            android:layout_marginStart="-70dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="148dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="-240dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="-70dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date"
+            android:text="29/02/2024"
+            android:textSize="20sp"
+            android:layout_marginStart="60dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="430dp"
+            android:layout_marginEnd="242dp"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="-49dp"
+        android:layout_marginLeft="-115dp"
+        >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/time0"
+            android:layout_marginTop="152dp"
+            android:layout_marginRight="76dp"
+            android:layout_marginLeft="0dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/time"
+            android:text="time"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:textSize="20sp"
+            android:layout_marginStart="-70dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="148dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="-70dp">
+
+        <TextView
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/timee"
+            android:text="10:30 am to 01:00pm"
+            android:textSize="20sp"
+            android:layout_marginStart="60dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="242dp"
+            />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="-115dp"
+        >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/details"
+            android:layout_marginTop="152dp"
+            android:layout_marginRight="76dp"
+            android:layout_marginLeft="0dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/details"
+            android:text="Details"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:textSize="20sp"
+            android:layout_marginStart="-70dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="151dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="127dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="-70dp">
+
+        <TextView
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_text"
+            android:text="I am in need of someone to fix my tv because it refuses to start "
+            android:textSize="17sp"
+            android:layout_marginStart="60dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="242dp"
+            />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="-115dp"
+        >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/urgent"
+            android:layout_marginTop="152dp"
+            android:layout_marginRight="76dp"
+            android:layout_marginLeft="0dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/urgent"
+            android:text="Urgent: Yes"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:textSize="17sp"
+            android:layout_marginStart="-70dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="151dp"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="-115dp"
+        >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/material"
+            android:layout_marginTop="152dp"
+            android:layout_marginRight="76dp"
+            android:layout_marginLeft="80dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/material"
+            android:text="Material included : yes"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:textSize="17sp"
+            android:layout_marginStart="-70dp"
+            android:fontFamily="@font/productsans_bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="151dp"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="770dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="22dp"
+        android:backgroundTint="#17ABFF"
+        android:shadowRadius="@integer/material_motion_duration_short_1"
+        android:background="@drawable/custom_button1"
+        android:fontFamily="@font/productsans_regular"
+        android:shadowColor="@color/black"
+        android:text="Confirm"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ImageView
+        android:layout_width="483.66dp"
+        android:layout_height="10dp"
+        android:src="@drawable/img_8"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="440dp"/>
+
+    <ImageView
+        android:layout_width="483.66dp"
+        android:layout_height="10dp"
+        android:src="@drawable/img_8"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="509dp"/>
+    <ImageView
+        android:layout_width="483.66dp"
+        android:layout_height="10dp"
+        android:src="@drawable/img_8"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="660dp"/>
+
+
+
+
+</FrameLayout>
