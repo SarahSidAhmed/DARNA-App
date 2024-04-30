@@ -11,7 +11,7 @@
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/warning" />
+        app:srcCompat="@drawable/warning0" />
 
 
     <TextView

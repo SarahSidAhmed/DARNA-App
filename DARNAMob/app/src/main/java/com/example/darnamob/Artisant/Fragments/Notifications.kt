@@ -7,7 +7,7 @@ import com.example.darnamob.Artisant.MainActivityArtisant
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.databinding.ActivityNotificationsBinding
 
-private lateinit var db: DatabaseHelper
+lateinit var db: DatabaseHelper
 private lateinit var binding : ActivityNotificationsBinding
 class Notifications : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

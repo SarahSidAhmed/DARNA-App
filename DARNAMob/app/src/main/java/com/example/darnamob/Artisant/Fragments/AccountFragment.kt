@@ -1,9 +1,7 @@
 package com.example.darnamob.Artisant.Fragments
 
 
-import android.content.Intent
 import android.graphics.BitmapFactory
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,11 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.ToggleButton
-import androidx.core.content.ContextCompat
-import com.example.darnamob.Artisant.Notifications
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
+import org.w3c.dom.Text
 
 class AccountFragment : Fragment() {
 
@@ -41,7 +37,6 @@ class AccountFragment : Fragment() {
         // Initialize the database helper
         db = DatabaseHelper(requireContext())
 
-        userId = 1
         // Perform your logic here
         logic(userId)
     }
@@ -57,37 +52,18 @@ class AccountFragment : Fragment() {
         view?.findViewById<ImageView>(R.id.artprofilpic)?.setImageBitmap(bitmap)
 
         //setting the other infos
-        view?.findViewById<TextView>(R.id.artisant_name)?.setText(artisan.membre.userName)
         view?.findViewById<TextView>(R.id.art_mail1)?.setText(artisan.membre.email)
         view?.findViewById<TextView>(R.id.art_address)?.setText(artisan.membre.address)
         view?.findViewById<TextView>(R.id.art_phone1)?.setText(artisan.membre.tel)
         view?.findViewById<TextView>(R.id.art_workhours1)?.setText(db.getWorkHour(userId))
 
-        view?.findViewById<ImageView>(R.id.notif)?.setOnClickListener {
-            val intent = Intent(requireContext(), Notifications::class.java)
-            intent.putExtra("id", userId)
-            startActivity(intent)
-        }
         //you need to do the workdays
-        val blueColor = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.workdaysColor ))
-
         val days = db.getWorkDays(userId)  //this is the array do the necessary logic
-        val toggles = arrayOf(
-            view?.findViewById<ToggleButton>(R.id.sat1),
-            view?.findViewById<ToggleButton>(R.id.sun1),
-            view?.findViewById<ToggleButton>(R.id.mon1),
-            view?.findViewById<ToggleButton>(R.id.Tue1),
-            view?.findViewById<ToggleButton>(R.id.wed1),
-            view?.findViewById<ToggleButton>(R.id.thu1),
-            view?.findViewById<ToggleButton>(R.id.fri1)
-        )
-        //setting the state of the toggle buttons
-        var i =0
-        for (item in toggles){
-            item?.isEnabled = false
-            if (days[i]) item?.background = blueColor
-            i++
-        }
+
+
+
+
+
 
 
     }
