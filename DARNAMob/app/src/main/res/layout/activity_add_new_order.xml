@@ -73,6 +73,7 @@
 
             <LinearLayout
                 android:id="@+id/categorygrid"
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/titleneworder"
@@ -91,7 +92,7 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="250dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="2sp"
                     android:layout_marginRight="12dp"
@@ -100,7 +101,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/auto_complete_txt_category"
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/custom_edit_text_background"
@@ -112,6 +113,7 @@
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/servicegrid"
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/categorygrid"
@@ -131,7 +133,7 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="275sp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="2sp"
                     android:layout_marginRight="12dp"
@@ -140,8 +142,8 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/auto_complete_txt_service"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_width="350dp"
+                        android:layout_height="60dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/custom_edit_text_background"
                         android:hint="Select Service"
@@ -153,6 +155,7 @@
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/dategrid"
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/servicegrid"
@@ -252,12 +255,10 @@
 
 
 
-
-
-
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/locationgrid"
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/dategrid"
@@ -276,8 +277,8 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="195sp"
-                    android:layout_height="45sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="2sp"
                     android:layout_marginRight="12dp"
                     android:layout_below="@id/categories"
@@ -285,7 +286,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/auto_complete_txt_region"
-                        android:layout_width="match_parent"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/custom_edit_text_background"
@@ -303,12 +304,13 @@
                     android:layout_margin="8dp"
                     android:background="@drawable/custom_edit_text_background"
                     android:ems="10"
-                    android:hint="Specific adress"
+                    android:hint="Specific adress..."
                     android:paddingStart="10dp" />
 
 
             </LinearLayout>
             <LinearLayout
+                android:paddingStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -369,8 +371,10 @@
                     android:id="@+id/checkPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="140dp"
+                    android:layout_marginLeft="120dp"
                     android:layout_marginTop="15dp"
+                    android:padding="20dp"
+                    android:paddingHorizontal="10dp"
                     android:layout_marginBottom="50dp"
                     android:text="check price" />
             </LinearLayout>

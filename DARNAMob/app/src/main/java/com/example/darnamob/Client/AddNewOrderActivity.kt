@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -13,9 +14,12 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.CalendarView
 import android.widget.CheckBox
+import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.darnamob.Artisant.Fragments.Calendar
@@ -24,6 +28,8 @@ import com.example.darnamob.Database.data.Demande
 import com.example.darnamob.R
 import com.example.darnamob.systems.pricingSystem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class AddNewOrderActivity : AppCompatActivity() {
     private lateinit var autoCompleteTxtCategory: AutoCompleteTextView
@@ -31,7 +37,10 @@ class AddNewOrderActivity : AppCompatActivity() {
     private lateinit var autoCompleteTxtRegion: AutoCompleteTextView
     private lateinit var db: DatabaseHelper
     private  var price =0
-    private lateinit var datePickerDialog: DatePickerDialog
+    private val calendar = java.util.Calendar.getInstance()
+    private lateinit var dateSelector: EditText
+    private lateinit var timeSelector: EditText
+    private var hour= 0
 
 
 
@@ -39,8 +48,20 @@ class AddNewOrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_new_order)
 
-        initDatePicker()
-        findViewById<EditText>(R.id.editTextDate).setText(getTodaysDate())
+
+        //date selector
+        dateSelector = findViewById<EditText>(R.id.editTextDate)
+
+        dateSelector.setOnClickListener {
+            showDatePicker()
+        }
+
+        //time selector
+        timeSelector = findViewById(R.id.editTextTime)
+        timeSelector.setOnClickListener {
+            showTimePicker()
+        }
+
 
         // Initialize views
         autoCompleteTxtCategory = findViewById(R.id.auto_complete_txt_category)
@@ -92,26 +113,14 @@ class AddNewOrderActivity : AppCompatActivity() {
             populateServiceAutoComplete(selectedCategory)
 
         }
-        if(findViewById<AutoCompleteTextView>(R.id.auto_complete_txt_service).text.toString().isNotEmpty()){
-            Toast.makeText(this, findViewById<AutoCompleteTextView>(R.id.auto_complete_txt_service).text.toString(), Toast.LENGTH_SHORT).show()
-        }
-        //price = db.getPrestationPrice(findViewById<AutoCompleteTextView>(R.id.auto_complete_txt_service).text.toString().trim())
 
 
 
-        //calculating the price
-        val hour = findViewById<EditText>(R.id.editTextTime).text.toString().trim()
+
+
         val day = findViewById<EditText>(R.id.editTextDate).text.toString().trim()
 
-        //getting only the day and the month of the date to check if it is a vacation day
-        val jjmm = day.substring(0, minOf(day.length, 5)) //day.substring(0, minOf(day.length, 5)
-
-        //adding the night price
-        if (pricingSystem().isNight(hour)  ) price += pricingSystem().getnightPrice()
-        //adding the vacation day price
-        if (pricingSystem().isFerie(jjmm)) price += pricingSystem().getjourFeriePrice()
-        //adding urgency fees
-        if (findViewById<CheckBox>(R.id.urgent).isChecked) price += pricingSystem().getUrgentPrice()
+//
 
         val dialog = Dialog(this)
 //        findViewById<Button>(R.id.checkPrice).setOnClickListener {
@@ -124,6 +133,25 @@ class AddNewOrderActivity : AppCompatActivity() {
         findViewById<Button>(R.id.checkPrice).setOnClickListener {
             //the pop up here
             // if confirm put this
+
+            price = 0
+
+            autoCompleteTxtCategory.setAdapter(categoryAdapter)
+            autoCompleteTxtRegion.setAdapter(regionAdapter)
+
+            var selectedCategory: String
+            // Set listener for c ategory selection
+            autoCompleteTxtCategory.setOnItemClickListener { _, _, position, _ ->
+                selectedCategory = categories[position]
+                // Retrieve and populate services for the selected category
+                populateServiceAutoComplete(selectedCategory)
+
+            }
+
+            selectedCategory = autoCompleteTxtCategory.text.toString().trim()
+            autoCompleteTxtService.setOnClickListener {
+                populateServiceAutoComplete(selectedCategory)
+            }
             val title = findViewById<EditText>(R.id.editTextTitle).text.toString().trim()
             val description = findViewById<EditText>(R.id.editTextMoreDetails).text.toString().trim()
             val address = findViewById<EditText>(R.id.editTextAdress).text.toString().trim()
@@ -135,31 +163,48 @@ class AddNewOrderActivity : AppCompatActivity() {
             val material = findViewById<CheckBox>(R.id.urgent).isChecked
             val urgent = findViewById<CheckBox>(R.id.material).isChecked
 
+            price = db.getPrestationPrice(service)
 
+            price += pricingSystem().isNight(hour) + pricingSystem().isFerie(date)+ pricingSystem().getUrgentPrice(urgent)
+
+            Toast.makeText(this, price.toString(), Toast.LENGTH_SHORT).show()
             val demande = Demande(0, userId, title, description, region, address, categorie, service, date ,time, urgent, material)
 //            db.addDemande(demande)
             //to this
-            val intent = Intent(this, EstimatedPrice::class.java)
-            intent.putExtra("price", price)
-            startActivity(intent)
+//            val intent = Intent(this, EstimatedPrice::class.java)
+//            intent.putExtra("price", price)
+//            startActivity(intent)
             //if canceled just make the pop up disappear
         }
     }
 
 
-
-
-    private fun getTodaysDate(): String {
-
-        val calendar = java.util.Calendar.getInstance()
-        val year = calendar.get(java.util.Calendar.YEAR)
-        var month = calendar.get(java.util.Calendar.MONTH)
-        month +=1
-        val day = calendar.get(java.util.Calendar.DAY_OF_MONTH)
-
-        return makeDateString(day, month, year)
+    //METHODS==============================================
+    private fun showTimePicker() {
+        val timePickerDialog = TimePickerDialog.OnTimeSetListener{TimePicker, hour, minute ->
+            calendar.set(java.util.Calendar.HOUR_OF_DAY, hour)
+            calendar.set(java.util.Calendar.MINUTE, minute)
+            val formattedTime = SimpleDateFormat("HH:mm").format(calendar.time)
+            timeSelector.setText(formattedTime)
+        }
+        hour = calendar.get(java.util.Calendar.HOUR_OF_DAY)
+        TimePickerDialog(this, timePickerDialog, calendar.get(java.util.Calendar.HOUR_OF_DAY), calendar.get(java.util.Calendar.MINUTE), true).show()
     }
 
+    private fun showDatePicker() {
+        val datePickerDialog = DatePickerDialog(this, {DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+
+            val selectedDate = java.util.Calendar.getInstance()
+            selectedDate.set(year, monthOfYear, dayOfMonth)
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val formattedDate = dateFormat.format(selectedDate.time)
+            dateSelector.setText(formattedDate)
+        },
+        calendar.get(java.util.Calendar.YEAR),
+        calendar.get(java.util.Calendar.MONTH),
+        calendar.get(java.util.Calendar.DAY_OF_MONTH))
+        datePickerDialog.show()
+    }
 
     private fun populateServiceAutoComplete(category: String) {
         // Retrieve services for the selected category from the database
@@ -170,57 +215,6 @@ class AddNewOrderActivity : AppCompatActivity() {
         autoCompleteTxtService.setAdapter(serviceAdapter)
     }
 
-    fun openDatePicker(view: View) {
-
-        datePickerDialog.show()
-    }
-    private fun initDatePicker() {
-        val datesetListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
-            var month = month + 1
-            val date = makeDateString(day, month, year)
-            findViewById<EditText>(R.id.editTextDate).setText(date)
-        }
-
-        val calendar = java.util.Calendar.getInstance()
-         val year = calendar.get(java.util.Calendar.YEAR)
-        val month = calendar.get(java.util.Calendar.MONTH)
-        val day = calendar.get(java.util.Calendar.DAY_OF_MONTH)
-
-        val style = AlertDialog.THEME_HOLO_LIGHT
-        val datePickerDialog = DatePickerDialog(
-            this,
-            style,
-            datesetListener,
-            year,
-            month,
-            day
-        )
-
-
-    }
-
-    private fun makeDateString(day: Int, month: Int, year: Int): String {
-        return getMonthFormat(month)+" "+day+" "+year
-    }
-
-    private fun getMonthFormat(month: Int): String {
-
-        val months = arrayOf(
-            "JAN",
-            "FEB",
-            "MAR",
-            "APR",
-            "MAY",
-            "JUN",
-            "JUL",
-            "AUG",
-            "SEP",
-            "OCT",
-            "NOV",
-            "DEC"
-        )
-        return months[month]
-    }
 
 
 }

@@ -31,10 +31,3 @@ fun imageFromDrawableToByteArray(context: Context, drawableId: Int): ByteArray {
     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream) // Compress bitmap to JPEG format
     return stream.toByteArray() // Convert compressed bitmap to byte array
 }
-
-
-
-fun nightTime(hour: String):Boolean{
-    val time = hour.toInt()
-    return time>16 || time<0
-}

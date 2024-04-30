@@ -14,17 +14,16 @@ class pricingSystem {
     fun getjourFeriePrice():Int{return this.jourFerie}
 
     //to see if the schedule is at night time
-    fun isNight(hour : String): Boolean{
+    fun isNight(hour : Int): Int {
+        val time = -1
 
-        var time = 0
-        if (hour.isNotEmpty()){
-         time  = hour.toInt()}
-        else  time = 0
-        return time < sunRiseHour || time > sunSetHour
+        if((time in 0..sunRiseHour) || (time in sunSetHour..22))
+        return getnightPrice()
+        else return 0
     }
 
     //to see if the schedule is a vacation day
-    fun isFerie(date: String): Boolean {
+    fun isFerie(date: String): Int {
         val jourFeriesAlgeria = arrayOf(
             "01/01",
             "12/01",
@@ -38,18 +37,21 @@ class pricingSystem {
             "01/11"
         )
         var i = 0
-        var notEquel =true
-        while (notEquel && i<jourFeriesAlgeria.size){
+        var notEquel =false
+        while (!notEquel && i<jourFeriesAlgeria.size){
             if (date.equals(jourFeriesAlgeria[i])){
-                notEquel =false
+                notEquel =true
             }
             i++
         }
-        return notEquel
+
+        if(notEquel) return getjourFeriePrice()
+        else return  0
     }
 
-    fun getUrgentPrice():Int{
-        return this.urgentPrice
+    fun getUrgentPrice(urgent: Boolean):Int{
+        if (urgent) return this.urgentPrice
+        else return 0
     }
 
 }

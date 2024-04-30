@@ -21,7 +21,7 @@ class EstimatedPrice : AppCompatActivity() {
         //make the add new order send the price, calculate it directly in the add new order
         val price = intent.getIntExtra("price", -1) // to get the id
 
-        binding.price.setText(price)
+        binding.price.setText(price.toString())
         binding.cancelBtn.setOnClickListener {
             val intent = Intent(this, AddNewOrderActivity::class.java)
             startActivity(intent)
