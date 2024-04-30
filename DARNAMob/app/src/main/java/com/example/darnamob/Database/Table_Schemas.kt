@@ -47,7 +47,7 @@ class Table_Schemas {
         const val COLUMN_DISPONIBLE = "disponible"
         const val COLUMN_DEPLACEMENT = "deplacement"
         const val COLUMN_RATING = "rating"
-        const val COLUMN_WORKING_AREA = "working area"
+        const val COLUMN_WORKING_AREA = "working_area"
         const val COLUMN_WORK_HOURS = "working_hours"
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +

@@ -19,8 +19,9 @@ class MainActivityArtisant : AppCompatActivity() {
         setContentView(binding.root)
 
         db = DatabaseHelper(this)
-        val userId = intent.getIntExtra("id", -1) // to get the id
+        var userId = intent.getIntExtra("id", -1) // to get the id
 
+        userId = 2
         bundle = Bundle().apply {
             putInt("id", userId)
         }
@@ -28,7 +29,7 @@ class MainActivityArtisant : AppCompatActivity() {
         val homeFrag = com.example.darnamob.Artisant.Fragments.HomeFragment().apply {
             arguments = bundle
         }
-        replaceFragment(com.example.darnamob.Artisant.Fragments.HomeFragment())
+        replaceFragment(homeFrag)
 
         binding.bottomNavigationView.background = null
 

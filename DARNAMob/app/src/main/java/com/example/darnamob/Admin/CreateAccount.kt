@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.darnamob.R
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.PopupWindow
 import android.widget.Spinner
 import android.widget.Toast
 
@@ -17,17 +19,17 @@ import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.databinding.ActivityAddnewuserBinding
 
 import com.example.darnamob.imageFromDrawableToByteArray
-import com.google.firebase.Firebase
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import java.lang.reflect.Member
+
 
 private lateinit var binding : ActivityAddnewuserBinding
 private lateinit var db : DatabaseHelper
 private lateinit var auth: FirebaseAuth
 
 class CreateAccount : AppCompatActivity() {
-    val categories = arrayOf("Painting", "Plumbing", "Cleaning", "Masonry", "Electricity")
+    val categories = arrayOf("Painter", "Plumber", "Cleaner", "Maconier", "Electrician")
     val wilayas = arrayOf(
         "Adrar", "Chlef", "Laghouat", "Oum El Bouaghi", "Batna", "Béjaïa", "Biskra", "Béchar",
         "Blida", "Bouira", "Tamanrasset", "Tébessa", "Tlemcen", "Tiaret", "Tizi Ouzou", "Alger Est","Alger west",
@@ -43,7 +45,7 @@ class CreateAccount : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddnewuserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        auth = Firebase.auth
+        auth = com.google.firebase.Firebase.auth
 
        db = DatabaseHelper(this)
         var category : String = ""
@@ -89,6 +91,7 @@ class CreateAccount : AppCompatActivity() {
 
         binding.createaccountButtom.setOnClickListener {
             createaccount(category,wilaya)
+
         }
 
 
@@ -109,8 +112,6 @@ class CreateAccount : AppCompatActivity() {
         val confirm = binding.passwordConfirmEditText.text.toString()
         val domain = category
         val region = wilaya
-
-
 
         if (email.isNotEmpty() && phone.isNotEmpty() && password.isNotEmpty() && confirm.isNotEmpty() && userName.isNotEmpty()) {
             val drawable_name = "initprofile"
@@ -133,17 +134,24 @@ class CreateAccount : AppCompatActivity() {
                             Membre(0, phone, "", email, password, userName, image, 0),
                             domain,"",true,true,0f,region)
                         )
-                        val intent = Intent(this, AddedAcountActivity::class.java)
-                        //intent.putExtra("id", db.getUserID(email))
-                        //Toast.makeText(this, "${db.getUserID(email)}", Toast.LENGTH_SHORT).show()
-                        startActivity(intent)
-                        finish()
+//                        val window = PopupWindow(this)
+//                        val view  = layoutInflater.inflate(R.layout.activity_addedaccount,null)
+//                        window.contentView = view
+//                        val button = view.findViewById<Button>(R.id.button)
+//                        button.setOnClickListener {
+//                            startActivity(Intent(this, HomeAdmin::class.java))
+//                            finish()
+//                        }
+                        Toast.makeText(this, "Created Account", Toast.LENGTH_SHORT).show()
                     }
                     else Toast.makeText(this, "Check your password", Toast.LENGTH_SHORT).show()
                 }
             } else Toast.makeText(this, "Something happened. Try again.", Toast.LENGTH_SHORT).show()
         }
         else Toast.makeText(this, "Fields can not be empty. Check you information again", Toast.LENGTH_SHORT).show()
+
+
+
 
     }
 }

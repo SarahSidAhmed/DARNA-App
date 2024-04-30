@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.Toast
+
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.MainActivity
@@ -26,14 +26,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
-
-        val recyclerView: RecyclerView = rootView.findViewById(R.id.my_recycler_view)
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         // Inflate the layout for this fragment
-        return rootView
+        return inflater.inflate(R.layout.fragment_home, container, false)
 
     }
 
@@ -117,6 +111,15 @@ class HomeFragment : Fragment() {
             intent.putExtra("filter", filter)
             startActivity(intent)
         }
+
+        val num_orders = rendezvous.size
+
+        view?.findViewById<ImageView>(R.id.more)?.setOnClickListener {
+            Toast.makeText(requireContext(), "This will be updated soon.", Toast.LENGTH_SHORT).show()
+        }
+        view?.findViewById<TextView>(R.id.address)?.text = membre.address
+        view?.findViewById<TextView>(R.id.num_orders)?.text = "You have $num_orders scheduled orders for today"
+
     }
 
 

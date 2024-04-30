@@ -13,6 +13,25 @@
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
         <activity
+            android:name=".Admin.ActivityViewReportedusers"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.ActivityViewAllusers"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.CreateAccount"
+            android:exported="false"
+            tools:ignore="DuplicateActivity" />
+        <activity
+            android:name=".Accueil.Accueil1"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.ProfileArtisanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.ActivityProfileClient"
+            android:exported="false" />
+        <activity
             android:name=".Client.ArtisanProfileComments"
             android:exported="false" />
         <activity
@@ -33,17 +52,20 @@
         <activity
             android:name=".Client.EstimatedPrice"
             android:exported="false" />
-        <activity
-            android:name=".Client.AddNewOrderActivity"
-            android:exported="false" />
+
         <activity
             android:name=".Client.AccountClientSettings"
             android:exported="false" />
         <activity
-            android:name=".Client.Notifications"
+            android:name=".Client.AddNewOrderActivity"
             android:exported="false" />
         <activity
-            android:name=".Main.SignUp"
+            android:name=".Client.Notifications"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".Admin.Fragments.ViewReportedusers" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".Admin.HomeAdmin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +86,7 @@
             android:name=".Artisant.Fragments.AccountFragment"
             android:exported="false" />
         <activity
-            android:name=".Accueil.Accueil1"
+            android:name=".Accueil.SignInUp"
             android:exported="false" />
         <activity
             android:name=".Client.MainActivityClient"
@@ -76,7 +98,7 @@
             android:name=".Main.SignIn"
             android:exported="false" />
         <activity
-            android:name=".Accueil.SignInUp"
+            android:name=".Main.SignUp"
             android:exported="false" />
         <activity
             android:name=".Accueil.Accueil3"
@@ -85,11 +107,16 @@
             android:name=".Accueil.Accueil2"
             android:exported="false" />
         <activity
+            android:name=".Artisant.MainActivityArtisant"
+            android:exported="false" />
+        <activity
             android:name=".Main.Main"
             android:exported="false" />
         <activity
-            android:name=".Artisant.MainActivityArtisant"
+            android:name=".Artisant.Fragments.EditSettingFragment"
             android:exported="false" />
+
     </application>
+
 
 </manifest>

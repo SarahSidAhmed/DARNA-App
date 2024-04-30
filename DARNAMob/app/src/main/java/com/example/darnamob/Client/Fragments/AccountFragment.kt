@@ -63,6 +63,7 @@ class AccountFragment : Fragment() {
         var image = member.image
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
 
+
         view?.findViewById<ImageView>(R.id.art_profil_pic)?.setImageBitmap(bitmap)
 
 

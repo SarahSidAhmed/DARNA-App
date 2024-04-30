@@ -11,6 +11,8 @@ import android.widget.LinearLayout
 import com.example.darnamob.Client.AccountClientSettings
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.Main.SignIn
+import com.example.darnamob.MainActivity
 import com.example.darnamob.R
 
 class SettingFragment : Fragment() {
@@ -49,6 +51,18 @@ class SettingFragment : Fragment() {
 
         view?.findViewById<LinearLayout>(R.id.editProfile)?.setOnClickListener{
             val intent = Intent(requireActivity(), AccountClientSettings::class.java)
+            intent.putExtra("id", userId)
+            startActivity(intent)
+        }
+
+        view?.findViewById<LinearLayout>(R.id.editPass)?.setOnClickListener{
+            val intent = Intent(requireActivity(), MainActivity::class.java) //need to chage it to the right fragment
+            intent.putExtra("id", userId)
+            startActivity(intent)
+        }
+
+        view?.findViewById<LinearLayout>(R.id.logout)?.setOnClickListener{
+            val intent = Intent(requireActivity(), SignIn::class.java)
             intent.putExtra("id", userId)
             startActivity(intent)
         }
