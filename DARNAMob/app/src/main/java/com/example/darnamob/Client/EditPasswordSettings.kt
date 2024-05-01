@@ -22,7 +22,6 @@ class EditPasswordSettings : AppCompatActivity() {
         userId = intent.getIntExtra("id", -1)
 
         db = DatabaseHelper(this)
-        userId = 1
         logic()
     }
 
