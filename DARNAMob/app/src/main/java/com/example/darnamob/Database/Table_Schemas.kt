@@ -170,7 +170,7 @@ class Table_Schemas {
         const val COLUMN_CONFIRMED = "confirmed"
 
         const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME (" +
-                "$COLUMN_ID_RECEIVER INTEGER PRIMARY KEY," +
+                "$COLUMN_ID_RECEIVER INTEGER," +
                 "$COLUMN_ID_SENDER INTEGER," +
                 "$COLUMN_NUM_DEMANDE INTEGER," +
                 "$COLUMN_TYPE INTEGER," +  //there are 4 types : 0-> warning from admin

@@ -746,18 +746,17 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val db = writableDatabase
 
         val query = "DELETE FROM ${Table_Schemas.Notification.TABLE_NAME} WHERE " +
-                "${Table_Schemas.Notification.COLUMN_ID_RECEIVER} = ${notif.id_receiver}" +
-                " AND ${Table_Schemas.Notification.COLUMN_ID_SENDER} = ${notif.id_sender}" +
-                " AND ${Table_Schemas.Notification.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
+                "${Table_Schemas.Notification.COLUMN_ID_RECEIVER} = ?" +
+                " AND ${Table_Schemas.Notification.COLUMN_ID_SENDER} = ?" +
+                " AND ${Table_Schemas.Notification.COLUMN_NUM_DEMANDE} = ?"
 
         //SQL INJECTION
-       db.execSQL(query, null)
+       db.execSQL(query, arrayOf(notif.id_receiver, notif.id_sender, notif.num_demande))
     }
 
     fun decline(notif: Notification){
         val db = writableDatabase
         deleteNotif(notif)
-
         db.close()
     }
 
@@ -765,10 +764,10 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val db = writableDatabase
 
         //updating the request to confirmed
-        val query = "UPDATE ${Table_Schemas.Demandes.TABLE_NAME} SET ${Table_Schemas.Demandes.COLUMN_CONFIRMED} = 1" +
-                 " WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = ${notif.num_demande}"
+        val query = "UPDATE ${Table_Schemas.Demandes.TABLE_NAME} SET ${Table_Schemas.Demandes.COLUMN_CONFIRMED} = ?" +
+                 " WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = ?"
 
-        db.execSQL(query, null)
+        db.execSQL(query, arrayOf( 1, notif.num_demande))
 
         //adding the new confirmed requests to the tasks and rendez-vous of the client-Artisan
         val values = ContentValues().apply {
@@ -783,15 +782,15 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
         //notification d'acceptation pour l'artisan
         val notifSender = ContentValues().apply {
-            put(Table_Schemas.Notification.COLUMN_ID_RECEIVER, notif.id_sender)
-            put(Table_Schemas.Notification.COLUMN_ID_SENDER, notif.id_receiver)
+            put(Table_Schemas.Notification.COLUMN_ID_RECEIVER, notif.id_receiver)
+            put(Table_Schemas.Notification.COLUMN_ID_SENDER, notif.id_sender)
             put(Table_Schemas.Notification.COLUMN_TYPE, 2)
         }
 
         db.insert(Table_Schemas.Notification.TABLE_NAME, null, notifSender)
 
         //deleting the notification on the client side
-        deleteNotif(notif)
+
 
         db.close()
     }
@@ -976,9 +975,9 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         // HIS PROFILE #WORK_AREA#
 
         //for disponible
-        val query1 = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_REGION} = '$region'"
+        val query1 = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_REGION} = '$region' AND ${Table_Schemas.Demandes.COLUMN_CONFIRMED} = 0"
         //for not disponible
-        val query2 = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_REGION} = '$region' AND ${Table_Schemas.Demandes.COLUMN_URGENT} = 0"
+        val query2 = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} WHERE ${Table_Schemas.Demandes.COLUMN_REGION} = '$region' AND ${Table_Schemas.Demandes.COLUMN_URGENT} = 0 AND ${Table_Schemas.Demandes.COLUMN_CONFIRMED} = 0"
 
         val cursor: Cursor
 

@@ -56,7 +56,7 @@ class Notif_adapter(private val notifs: List<Notification>, context: Context) :
         }
 
         else if(type==2){
-                 holder.detail.text = "accepted your offer, start messaging to discuss more"
+                 holder.detail.text = "Accepted your offer, start messaging to discuss more"
                  val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
                  holder.image.setImageBitmap(bitmap)
                  holder.clientName.text=name
@@ -71,7 +71,6 @@ class Notif_adapter(private val notifs: List<Notification>, context: Context) :
             }
              }
         else{
-
             holder.detail.text = "added a review on your profile"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)

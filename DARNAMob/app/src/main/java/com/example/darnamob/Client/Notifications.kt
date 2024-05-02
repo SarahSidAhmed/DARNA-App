@@ -3,7 +3,11 @@ package com.example.darnamob.Client
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
@@ -34,6 +38,15 @@ class Notifications : AppCompatActivity() {
         val my_recycler = findViewById<RecyclerView>(R.id.notif_recycler)
         my_recycler.adapter=NotificationAdapter(notifs,this)
         my_recycler.layoutManager =LinearLayoutManager(this)
+
+        if(notifs.size == 0 ){
+            findViewById<ImageView>(R.id.noNotifications).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.noNotifText).visibility = View.VISIBLE
+        }
+        else{
+            findViewById<ImageView>(R.id.noNotifications).visibility = View.GONE
+            findViewById<TextView>(R.id.noNotifText).visibility = View.GONE
+        }
 
         binding.back.setOnClickListener {
             val intent = Intent(this, MainActivityClient::class.java)

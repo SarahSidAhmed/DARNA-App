@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Artisant.Fragments.DiscussionFragment
 import com.example.darnamob.Artisant.Fragments.HomeFragment
 import com.example.darnamob.Artisant.Notif_adapter
+import com.example.darnamob.Artisant.Notifications
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Notification
@@ -54,7 +55,9 @@ class NotificationAdapter(private val notifs: List<Notification>, context: Conte
         val notif = notifs[position]
         val type = notif.type
         val id = notif.id_receiver
-        members = db.getMembreByID(id)
+        val num = notif.num_demande
+        val idSender = notif.id_sender
+        members = db.getMembreByID(idSender)
         val name =members.userName
         val image = members.image
 
@@ -64,34 +67,41 @@ class NotificationAdapter(private val notifs: List<Notification>, context: Conte
             holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
             holder.image.setImageResource(R.drawable.warning0)
             holder.clientName.visibility=View.GONE
-            holder.card.setOnClickListener{
-                val intent = Intent(adapterContext, DiscussionFragment::class.java)
-                holder.itemView.context.startActivity(intent)
-            }
 
         }
 
-        else if(type==2){
-            holder.detail.text = "accepted your order, confirm it to start messaging to discuss more"
+        else if(type==1){
+            holder.detail.text = "Accepted your order, confirm it to start messaging to discuss more"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)
             holder.clientName.text=name
             holder.confirm.setOnClickListener{
-                val intent = Intent(adapterContext, HomeFragment::class.java)
+                db.confirm(Notification(idSender, id, num, 2))
+                db.deleteNotif(Notification(id, idSender, num, 2))
+                val intent = Intent(adapterContext, MainActivityClient::class.java)
+                intent.putExtra("id", id)
                 holder.itemView.context.startActivity(intent)
             }
             holder.delete.setOnClickListener{
-                val intent = Intent(adapterContext, HomeFragment::class.java)
+                db.deleteNotif(Notification(id, idSender, num, 2))
+                val intent = Intent(adapterContext, MainActivityClient::class.java)
+                intent.putExtra("id", id)
                 holder.itemView.context.startActivity(intent)
             }
 
         }
-        else{
-            holder.detail.text = "How was your latest order , Rate it now"
+        else if (type == 2){
+            holder.detail.text = "How was your latest order, Rate it now"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)
             holder.clientName.text=name
             holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
+            holder.card.setOnClickListener {
+                val intent = Intent(adapterContext, ArtisanProfileComments::class.java)
+                intent.putExtra("idArtisan", idSender)
+                intent.putExtra("id", id)
+                holder.itemView.context.startActivity(intent)
+            }
 
         }
 

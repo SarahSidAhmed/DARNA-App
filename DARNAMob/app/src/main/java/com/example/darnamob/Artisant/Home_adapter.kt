@@ -16,9 +16,10 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Artisant.Fragments.HomeFragment
 
 
-class Home_adapter(private val demandes: List<Demande>, context: Context) : RecyclerView.Adapter<Home_adapter.MyViewHolder>(){
+class Home_adapter(private val demandes: List<Demande>, context: Context, userId: Int) : RecyclerView.Adapter<Home_adapter.MyViewHolder>(){
 
     private val db: DatabaseHelper = DatabaseHelper(context)
+    private val userId =userId
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -46,6 +47,7 @@ class Home_adapter(private val demandes: List<Demande>, context: Context) : Recy
         val addres = demande.address
         val material =demande.material
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
+
         holder.imageImageView.setImageBitmap(bitmap)
         holder.client_nameTextView.text = name
         holder.prestationTextView.text = titre
@@ -57,6 +59,8 @@ class Home_adapter(private val demandes: List<Demande>, context: Context) : Recy
 
             val intent = Intent(holder.itemView.context,art_view_order::class.java).apply {
 
+                putExtra("idClient", id)
+                putExtra("idArtisan", userId)
                 putExtra( "nomClient",name)
                 putExtra( "location",location)
                 putExtra( "details",details)

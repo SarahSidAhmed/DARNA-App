@@ -3,6 +3,7 @@ package com.example.darnamob.Artisant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
@@ -44,6 +45,17 @@ class Notifications : AppCompatActivity() {
             intent.putExtra("id", userId)
             startActivity(intent)
             finish()
+        }
+
+        if (notifications.size == 0){
+            binding.noNotifications.visibility = View.VISIBLE
+            binding.noNotifText.visibility = View.VISIBLE
+
+        }
+        else
+        {
+            binding.noNotifications.visibility = View.GONE
+            binding.noNotifText.visibility = View.GONE
         }
     }
 }

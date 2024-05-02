@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import com.example.darnamob.Accueil.SignInUp
 import com.example.darnamob.Client.EditPasswordSettings
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
@@ -55,6 +56,11 @@ class SettingFragment : Fragment() {
             intent.putExtra("id", userId)
             startActivity(intent)
 
+        }
+
+        view?.findViewById<LinearLayout>(R.id.logout)?.setOnClickListener {
+            val intent = Intent(requireContext(), SignInUp::class.java)
+            startActivity(intent)
         }
     }
 

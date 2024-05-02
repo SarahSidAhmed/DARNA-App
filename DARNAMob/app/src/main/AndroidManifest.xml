@@ -43,6 +43,15 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
+            android:name=".Artisant.Fragments.EditSettingFragment"
+            android:exported="false" />
+        <activity
+            android:name=".Artisant.Notifications"
+            android:exported="false" />
+        <activity
+            android:name=".Client.FilteredActivity"
+            android:exported="false" />
+        <activity
             android:name=".Main.Main"
             android:exported="true">
             <intent-filter>

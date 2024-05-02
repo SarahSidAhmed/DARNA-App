@@ -1,14 +1,17 @@
 package com.example.darnamob.Artisant
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.Database.Table_Schemas
 import com.example.darnamob.R
+import com.example.darnamob.systems.pricingSystem
+import org.w3c.dom.Text
 
 
 class art_view_order : AppCompatActivity() {
@@ -18,6 +21,8 @@ class art_view_order : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.art_view_order)
+
+
 
 
         db = DatabaseHelper(this)
@@ -31,7 +36,9 @@ class art_view_order : AppCompatActivity() {
         val time = intent.getStringExtra("time")
         val urgent = intent.getBooleanExtra("urgent",false)
         val date = intent.getStringExtra("date")
-        val num = intent.getStringExtra("num")
+        val num = intent.getIntExtra("num", -1)
+
+        val demande = db.getDemande(num)
 
 
 
@@ -65,12 +72,26 @@ class art_view_order : AppCompatActivity() {
         imageView.setImageBitmap(bitmap)
 
 
+        Toast.makeText(this, demande.service, Toast.LENGTH_SHORT).show()
+        var price = db.getPrestationPrice(demande.service)
+
+        var hour = time.toString()
+        val h1 = hour.get(0)
+        val h2 = hour.get(1)
+
+        if (!h2.equals(':')) hour = h1.toString()+h2.toString()
+        else  hour = h1.toString()
+
+        val intHour = hour.toInt()
+        price = price!! + (pricingSystem().isNight(intHour) + pricingSystem().isFerie(date.toString())+ pricingSystem().getUrgentPrice(urgent))
+
+
+        findViewById<TextView>(R.id.price).setText("\$ Price: "+ price.toString()+ "DA")
 
 
 
-
-        val idClient = intent.getIntExtra("clientId", -1)
-        val idArtisant = intent.getIntExtra("idArtisant", -1)
+        val idClient = intent.getIntExtra("idClient", -1)
+        val idArtisant = intent.getIntExtra("idArtisan", -1)
         val numDemande = intent.getIntExtra("num", -1)
 
 
@@ -81,6 +102,18 @@ class art_view_order : AppCompatActivity() {
 
         findViewById<Button>(R.id.confirmButton).setOnClickListener{
             db.insertNotifServiceRequest(idClient, idArtisant, numDemande)
+            Toast.makeText(this, "Request for this demand has been sent!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivityArtisant::class.java)
+            intent.putExtra("id", idArtisant)
+            startActivity(intent)
+            finish()
+        }
+
+        findViewById<ImageView>(R.id.close).setOnClickListener {
+            val intent= Intent(this, MainActivityArtisant::class.java)
+            intent.putExtra("id", idArtisant)
+            startActivity(intent)
+            finish()
         }
 
     }

@@ -22,6 +22,7 @@ class MainActivityArtisant : AppCompatActivity() {
         setContentView(binding.root)
 
         db = DatabaseHelper(this)
+
         var userId = intent.getIntExtra("id", -1) // to get the id
         bundle = Bundle().apply {
             putInt("id", userId)
@@ -75,26 +76,26 @@ class MainActivityArtisant : AppCompatActivity() {
                     replaceFragment(accountFrag)
                 }
 
-//                R.id.calendar ->{
-//                    bundle = Bundle().apply {
-//                        putInt("id", userId)
-//                    }
-//
-//                    val calendarFrag = Calendar().apply {
-//                        arguments = bundle
-//                    }
-//                    replaceFragment(calendarFrag)
-//                }
+                R.id.calendatButton ->{
+                    bundle = Bundle().apply {
+                        putInt("id", userId)
+                    }
+
+                    val calendarFrag = Calendar().apply {
+                        arguments = bundle
+                    }
+                    replaceFragment(calendarFrag)
+                }
             }
             true
         }
 
-        findViewById<FloatingActionButton>(R.id.calendar).setOnClickListener {
-            val intent = Intent(this, Calendar::class.java)
-            intent.putExtra("id", userId)
-            startActivity(intent)
-            finish()
-        }
+//        findViewById<FloatingActionButton>(R.id.calendar).setOnClickListener {
+//            val intent = Intent(this, Calendar::class.java)
+//            intent.putExtra("id", userId)
+//            startActivity(intent)
+//            finish()
+//        }
     }
 
     private fun replaceFragment(fragment: Fragment) {

@@ -2,6 +2,7 @@ package com.example.darnamob.Artisant.Fragments
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.media.Image
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.fragment.app.Fragment
@@ -12,6 +13,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Artisant.Home_adapter
@@ -65,9 +68,20 @@ class HomeFragment : Fragment() {
 
         //this is the list of demandes put it in the adapter
         val demandes = db.getAllDemandeByRegionDispo(artisan.work_Area, artisan.disponible)
+        if (demandes.size == 0) {
+            view?.findViewById<ImageView>(R.id.noDemande)?.visibility = View.VISIBLE
+            view?.findViewById<TextView>(R.id.textNoDemande)?.visibility = View.VISIBLE
+        }
+        else {
+            view?.findViewById<ImageView>(R.id.noDemande)?.visibility = View.GONE
+            view?.findViewById<TextView>(R.id.textNoDemande)?.visibility = View.GONE
+
+        }
+
+
         val recyclerView= view?.findViewById<RecyclerView>(R.id.recycler)
 
-        recyclerView?.adapter = Home_adapter(demandes, requireContext())
+        recyclerView?.adapter = Home_adapter(demandes, requireContext(), userId)
         recyclerView?.layoutManager = LinearLayoutManager(requireContext())
 
 
