@@ -28,6 +28,7 @@ class ArtisanProfileComments : AppCompatActivity() {
 
         val commentsList = db.getAllArtisanComments(userId)
         val myRecyclerView = findViewById<RecyclerView>(R.id.my_recycler_view)
+        myRecyclerView.adapter = CommentAdapter(commentsList,this)
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         myRecyclerView.layoutManager = layoutManager
     }

@@ -23,7 +23,7 @@ import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.R
 
 
-class NotificationAdapter(private val notifs: List<Notification>, context: Context) : RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
+class NotificationAdapter(private val notifs: List<Notification>,context: Context) : RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
 
     private val db: DatabaseHelper = DatabaseHelper(context)
     private val adapterContext = context
