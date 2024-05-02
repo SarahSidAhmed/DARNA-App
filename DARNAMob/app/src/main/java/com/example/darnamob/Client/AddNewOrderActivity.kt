@@ -169,7 +169,8 @@ class AddNewOrderActivity : AppCompatActivity() {
 
             Toast.makeText(this, price.toString(), Toast.LENGTH_SHORT).show()
             val demande = Demande(0, userId, title, description, region, address, categorie, service, date ,time, urgent, material)
-//            db.addDemande(demande)
+
+        db.addDemande(demande)
             //to this
 //            val intent = Intent(this, EstimatedPrice::class.java)
 //            intent.putExtra("price", price)

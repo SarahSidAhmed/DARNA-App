@@ -246,7 +246,7 @@
 
             </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!--<androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="401dp"
                 android:layout_height="136dp"
                 android:layout_below="@id/comments"
@@ -315,9 +315,20 @@
                     app:layout_constraintStart_toEndOf="@+id/imageView13"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>  -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/comments" >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
         </RelativeLayout>
 
     </ScrollView>
+
+
 
 </LinearLayout>

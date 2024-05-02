@@ -3,6 +3,8 @@ package com.example.darnamob.Client
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityArtisanProfileCommentsBinding
@@ -24,5 +26,9 @@ class ArtisanProfileComments : AppCompatActivity() {
             intent.putExtra("id", userId)
         }
 
+        val commentsList = db.getAllArtisanComments(userId)
+        val myRecyclerView = findViewById<RecyclerView>(R.id.my_recycler_view)
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        myRecyclerView.layoutManager = layoutManager
     }
 }

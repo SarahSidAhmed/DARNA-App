@@ -26,7 +26,7 @@ class MainActivityClient : AppCompatActivity() {
         setContentView(binding.root)
 
         db = DatabaseHelper(this)
-        val userId = intent.getIntExtra("id", -1) // to get the id
+        val userId = 1 //intent.getIntExtra("id", -1) // to get the id
 
          bundle = Bundle().apply {
             putInt("id", userId)

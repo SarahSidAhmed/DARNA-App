@@ -3,7 +3,9 @@ package com.example.darnamob.Client
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.cardview.widget.CardView
 import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityNotificationsBinding
 
 private  lateinit var db : DatabaseHelper
@@ -20,6 +22,7 @@ class Notifications : AppCompatActivity() {
 
         val notifications = db.notificationByID(userId) // this is the list of notifications use it in the adapter
 
+        val artisanProfile = findViewById<CardView>(R.id.notif_item_artisan)
 
 
 

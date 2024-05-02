@@ -9,7 +9,9 @@
     <color name="vert">#0DAA1D </color>
     <color name="green">#0AE8CD</color>
     <color name="red">#FF0034</color>
-
-
-
+    <color name="paintingOrange">#FFCC99</color>
+    <color name="plumbingBlue">#99DAFF</color>
+    <color name="masoneryGreen">#63EF62</color>
+    <color name="cleaningRed">#C87F79</color>
+    <color name="electricityOrange">#FFCC99</color>
 </resources>
