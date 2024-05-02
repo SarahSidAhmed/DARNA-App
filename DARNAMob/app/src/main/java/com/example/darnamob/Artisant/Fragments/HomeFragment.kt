@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
             userId = bundle.getInt("id", -1)
         }
 
-        userId =2
+
         // Initialize the database helper
         db = DatabaseHelper(requireContext())
 

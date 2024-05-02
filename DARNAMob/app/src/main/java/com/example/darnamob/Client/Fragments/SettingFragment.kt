@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.darnamob.Client.AccountClientSettings
+import com.example.darnamob.Client.EditPasswordSettings
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Main.SignIn
@@ -56,7 +57,7 @@ class SettingFragment : Fragment() {
         }
 
         view?.findViewById<LinearLayout>(R.id.editPass)?.setOnClickListener{
-            val intent = Intent(requireActivity(), MainActivity::class.java) //need to chage it to the right fragment
+            val intent = Intent(requireActivity(), EditPasswordSettings::class.java) //need to chage it to the right fragment
             intent.putExtra("id", userId)
             startActivity(intent)
         }

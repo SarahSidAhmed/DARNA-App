@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Artisant.Fragments.EditSettingFragment"
+            android:exported="false" />
         <activity
             android:name=".Admin.HomeAdmin"
             android:exported="false" />
@@ -68,6 +70,9 @@
             android:name=".Client.AddNewOrderActivity"
             android:exported="false" />
         <activity
+            android:name=".Client.EditPasswordSettings"
+            android:exported="false" />
+        <activity
             android:name=".Main.Main"
             android:exported="true">
             <intent-filter>
@@ -80,6 +85,9 @@
             android:name=".Admin.ActivityViewAllusers"
             android:exported="false" />
         <activity
+            android:name=".Artisant.art_view_order"
+            android:exported="false" />
+        <activity
             android:name=".Artisant.Fragments.SettingFragment"
             android:exported="false" />
         <activity
@@ -87,9 +95,6 @@
             android:exported="false" />
         <activity
             android:name=".Artisant.Fragments.DiscussionFragment"
-            android:exported="false" />
-        <activity
-            android:name=".Artisant.Fragments.AccountFragment"
             android:exported="false" />
         <activity
             android:name=".Accueil.Accueil1"

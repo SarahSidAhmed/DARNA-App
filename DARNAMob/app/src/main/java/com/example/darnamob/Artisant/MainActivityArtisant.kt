@@ -20,8 +20,6 @@ class MainActivityArtisant : AppCompatActivity() {
 
         db = DatabaseHelper(this)
         var userId = intent.getIntExtra("id", -1) // to get the id
-
-        userId = 2
         bundle = Bundle().apply {
             putInt("id", userId)
         }
