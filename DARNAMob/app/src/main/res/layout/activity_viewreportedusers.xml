@@ -1,63 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.ActivityViewReportedusers">
-    <ImageView
-        android:id="@+id/bublle"
-        android:layout_width="416dp"
-        android:layout_height="165dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bobble"
-        tools:ignore="ImageContrastCheck" />
-
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="281dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:orientation="vertical">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="32dp">
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp">
 
+            <ImageView
+                android:id="@+id/bublle"
+                android:layout_width="416dp"
+                android:layout_height="165dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/bobble"
+                tools:ignore="ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/backArrow"
                 android:layout_width="24dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.041"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.4"
                 app:srcCompat="@drawable/back" />
 
             <TextView
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginEnd="272dp"
                 android:text="Go back"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/backArrow"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.378" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -67,42 +63,50 @@
             android:layout_width="367dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/productsans_bold"
             android:text="View users"
             android:textColor="#000000"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
+<!--        <EditText-->
+<!--            android:id="@+id/editTextsearch"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:background="@drawable/search_background"-->
+<!--            android:drawableStart="@drawable/search"-->
+<!--            android:drawablePadding="10dp"-->
+<!--            android:fontFamily="@font/productsans_regular"-->
+<!--            android:hint="search user"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:paddingStart="10dp"-->
+<!--            android:textAlignment="viewStart"-->
+<!--            android:textSize="18sp" />-->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="380dp"
             android:layout_height="55dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="10dp"
+            android:layout_gravity="center"
+            app:queryHint="search here..."
             android:background="@drawable/search_background"
-            android:drawableStart="@drawable/search"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/productsans_regular"
-            android:hint="search user"
-            android:inputType="textPersonName"
-            android:paddingStart="10dp"
-            android:textAlignment="viewStart"
-            android:textSize="18sp" />
+            app:iconifiedByDefault="false"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="45dp"
-            android:layout_marginStart="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/btnA"
+                android:id="@+id/btnAll"
                 android:layout_width="146dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/buttom_background"
                 android:orientation="vertical">
 
@@ -112,6 +116,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
+
                     android:fontFamily="@font/productsans_regular"
                     android:text="All"
                     android:textAlignment="center"
@@ -120,7 +125,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/report"
+                android:id="@+id/btnReported"
                 android:layout_width="146dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="20dp"
@@ -134,6 +139,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
+
                     android:fontFamily="@font/productsans_regular"
                     android:text="Reported"
                     android:textAlignment="center"
@@ -141,20 +147,23 @@
                     android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/reportedRecyclerView"
-            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-
-        </LinearLayout>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>
 

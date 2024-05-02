@@ -1,18 +1,22 @@
 package com.example.darnamob.Admin
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityProfileClientBinding
+import com.example.darnamob.systems.emailSystem
 
 private lateinit var binding : ActivityProfileClientBinding
 class ActivityProfileClient : AppCompatActivity() {
     private lateinit var db : DatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileClientBinding.inflate(layoutInflater)
@@ -27,6 +31,8 @@ class ActivityProfileClient : AppCompatActivity() {
         val name = member.userName
         val image = member.image
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
+        //val bundle = Bundle()
+        //bundle.putInt("Int",id)
 
         binding.artisantName.setText(name)
         binding.email.setText(email)
@@ -41,13 +47,25 @@ class ActivityProfileClient : AppCompatActivity() {
             popUpMenu.setOnMenuItemClickListener { menuItem->
                 when(menuItem.itemId){
                     R.id.report ->{
-                        db.insertADminWarning(id)
-                        Toast.makeText(this@ActivityProfileClient,"Report",Toast.LENGTH_SHORT).show()
+                        //db.insertADminWarning(id)
+                        emailSystem().emailSend(email)
+                        try {
+                                 startActivity(Intent.createChooser(intent, "Send Email"))
+                        }
+                        catch (e: Exception){
+                                 Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+                        }
+                        var dialog = SucReportDialogFragmnet()
+                        //dialog.arguments = bundle
+                        dialog.show(supportFragmentManager,"customDialog")
+
                         true
                     }
                     R.id.Ban ->{
                         db.banishUser(id)
-                        Toast.makeText(this@ActivityProfileClient,"Banned",Toast.LENGTH_SHORT).show()
+                        var dialog = SucDeleteDialogFragment()
+                        //dialog.arguments = bundle
+                        dialog.show(supportFragmentManager,"customDialog")
                         true
                     }
                     else ->{
