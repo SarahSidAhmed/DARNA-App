@@ -13,10 +13,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import com.example.darnamob.Artisant.Fragments.DiscussionFragment
+import com.example.darnamob.Artisant.Fragments.HomeFragment
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.MainActivity
+import com.example.darnamob.databinding.ActivityAccountFragmentBinding
 
 
 class Notif_adapter(private val notifs: List<Notification>, context: Context) :
@@ -75,6 +77,19 @@ class Notif_adapter(private val notifs: List<Notification>, context: Context) :
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)
             holder.clientName.text=name
+
+            holder.card.setOnClickListener {
+                val intent = Intent(adapterContext, HomeFragment::class.java) //change to the profile of the client
+                intent.putExtra("clientId", id)
+                intent.putExtra("idArtisant", id2)
+                intent.putExtra("num", num)
+
+                holder.itemView.context.startActivity(intent)
+            }
+
+
+
+
         }
 
 

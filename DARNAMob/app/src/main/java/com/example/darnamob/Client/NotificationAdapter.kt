@@ -70,6 +70,7 @@ class NotificationAdapter(private val notifs: List<Notification>, context: Conte
 
         }
 
+
         else if(type==1){
             holder.detail.text = "Accepted your order, confirm it to start messaging to discuss more"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)

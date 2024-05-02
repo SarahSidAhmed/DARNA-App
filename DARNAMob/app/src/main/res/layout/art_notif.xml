@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Artisant.Notifications"
-    tools:ignore="ExtraText">
+    tools:ignore="ExtraText"
+    >
 
 
     <ImageView

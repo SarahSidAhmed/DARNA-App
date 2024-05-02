@@ -198,14 +198,12 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/commentBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add a comment"
                     android:layout_marginEnd="8dp" />
 
                 <Button
-                    android:id="@+id/rateBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rate"
@@ -248,39 +246,78 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/my_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/comments" >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="401dp"
+                android:layout_height="136dp"
+                android:layout_below="@id/comments"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/user_background">
 
-            </androidx.recyclerview.widget.RecyclerView>
-            <ImageView
-                android:id="@+id/noComments"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/illustations"
-                android:layout_marginTop="500dp"
-                android:layout_marginLeft="60dp"/>
-            <TextView
-                android:id="@+id/noCommentsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="740dp"
-                android:layout_marginLeft="70dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:text="No Comments.\nBe the first to comment!"
-                android:fontFamily="@font/productsans_black"
-                android:textSize="25dp"
-                />
 
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/commentprofilepic" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Soundous Chan"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView10"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="263dp"
+                    android:layout_height="wrap_content"
+                    android:text="She does good work and gives good services. I recommend!"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.578"
+                    app:layout_constraintStart_toEndOf="@+id/imageView10"
+                    app:layout_constraintTop_toBottomOf="@+id/textView17"
+                    app:layout_constraintVertical_bias="0.285" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="36dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                    app:layout_constraintStart_toEndOf="@+id/textView17"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.727"
+                    app:srcCompat="@drawable/yellowstar" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="4"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.384"
+                    app:layout_constraintStart_toEndOf="@+id/imageView13"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </RelativeLayout>
 
-
     </ScrollView>
-
-
-
 
 </LinearLayout>
