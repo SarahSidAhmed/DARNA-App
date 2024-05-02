@@ -1,5 +1,6 @@
 package com.example.darnamob.Client
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,11 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.Database.data.Demande
 import com.example.darnamob.Database.data.RendezVousTasks
 import com.example.darnamob.R
 
-class FilteredAdapter (private val listTasks: List<RendezVousTasks>): RecyclerView.Adapter<FilteredAdapter.ViewHolder>(){
+class FilteredAdapter (private val listTasks: List<Demande>,context:Context): RecyclerView.Adapter<FilteredAdapter.ViewHolder>(){
  lateinit var db:DatabaseHelper
 
 
@@ -28,7 +30,9 @@ class FilteredAdapter (private val listTasks: List<RendezVousTasks>): RecyclerVi
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_row,parent,false)
         return FilteredAdapter.ViewHolder(v)
+
     }
+
 
     override fun getItemCount(): Int {
        return listTasks.size
@@ -52,7 +56,6 @@ class FilteredAdapter (private val listTasks: List<RendezVousTasks>): RecyclerVi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentOrderNumber = listTasks[position].num_demande
         val currentDemande = db.getDemande(currentOrderNumber)
-        // Set the appropriate image resource based on the category
         val imageResource = categoryToImageMap[currentDemande.categorie]
         val backgroundColor = categoryToBackgroundColorMap[currentDemande.categorie]
         holder.cardView.setCardBackgroundColor(ContextCompat.getColor(holder.cardView.context, backgroundColor ?: R.color.paintingOrange))

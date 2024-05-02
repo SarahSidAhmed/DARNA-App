@@ -57,8 +57,6 @@ class NotificationAdapter(private val notifs: List<Notification>,context: Contex
         members = db.getMembreByID(id)
         val name =members.userName
         val image = members.image
-
-
         if(type==0){
             holder.detail.text = "Admin sent you a warning"
             holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
@@ -68,10 +66,7 @@ class NotificationAdapter(private val notifs: List<Notification>,context: Contex
                 val intent = Intent(adapterContext, DiscussionFragment::class.java)
                 holder.itemView.context.startActivity(intent)
             }
-
-        }
-
-        else if(type==2){
+        } else if(type==2){
             holder.detail.text = "accepted your order, confirm it to start messaging to discuss more"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)
@@ -84,18 +79,12 @@ class NotificationAdapter(private val notifs: List<Notification>,context: Contex
                 val intent = Intent(adapterContext, HomeFragment::class.java)
                 holder.itemView.context.startActivity(intent)
             }
-
-        }
-        else{
+        } else{
             holder.detail.text = "How was your latest order , Rate it now"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)
             holder.clientName.text=name
             holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
-
         }
-
     }
-
-
 }
