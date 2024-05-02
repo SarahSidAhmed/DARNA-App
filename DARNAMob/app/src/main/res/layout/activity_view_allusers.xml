@@ -63,30 +63,38 @@
                 android:layout_width="367dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:fontFamily="@font/productsans_bold"
                 android:text="View users"
                 android:textColor="#000000"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextsearch"
-                android:layout_width="match_parent"
+<!--            <EditText-->
+<!--                android:id="@+id/editTextsearch"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:background="@drawable/search_background"-->
+<!--                android:drawableStart="@drawable/search"-->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:fontFamily="@font/productsans_regular"-->
+<!--                android:hint="search user"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:paddingStart="10dp"-->
+<!--                android:textAlignment="viewStart"-->
+<!--                android:textSize="18sp" />-->
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="380dp"
                 android:layout_height="55dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                app:queryHint="search here..."
                 android:background="@drawable/search_background"
-                android:drawableStart="@drawable/search"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/productsans_regular"
-                android:hint="search user"
-                android:inputType="textPersonName"
-                android:paddingStart="10dp"
-                android:textAlignment="viewStart"
-                android:textSize="18sp" />
-
+                app:iconifiedByDefault="false"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -4,11 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.darnamob.Accueil.Accueil3
 import com.example.darnamob.Admin.HomeAdmin
 import com.example.darnamob.Artisant.MainActivityArtisant
 import com.example.darnamob.Client.MainActivityClient
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.MainActivity
 import com.example.darnamob.databinding.ActivitySignInBinding
 
 private lateinit var binding : ActivitySignInBinding
@@ -35,7 +35,7 @@ class SignIn : AppCompatActivity() {
         }
 
         binding.back.setOnClickListener {
-            startActivity(Intent(this, SignIn::class.java))
+            startActivity(Intent(this, Accueil3::class.java))
         }
 
 

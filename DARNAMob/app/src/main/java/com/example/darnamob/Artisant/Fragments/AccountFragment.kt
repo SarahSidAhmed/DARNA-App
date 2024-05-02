@@ -10,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.MultiAutoCompleteTextView
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.core.content.ContextCompat
@@ -41,7 +43,6 @@ class AccountFragment : Fragment() {
         // Initialize the database helper
         db = DatabaseHelper(requireContext())
 
-        userId = 1
         // Perform your logic here
         logic(userId)
     }
@@ -54,7 +55,7 @@ class AccountFragment : Fragment() {
         //setting the profile pic
         val profile = artisan.membre.image
         val bitmap = BitmapFactory.decodeByteArray(profile, 0, profile.size)
-        view?.findViewById<ImageView>(R.id.artprofilpic)?.setImageBitmap(bitmap)
+        view?.findViewById<ImageView>(R.id.art_profil_pic)?.setImageBitmap(bitmap)
 
         //setting the other infos
         view?.findViewById<TextView>(R.id.artisant_name)?.setText(artisan.membre.userName)
@@ -62,6 +63,7 @@ class AccountFragment : Fragment() {
         view?.findViewById<TextView>(R.id.art_address)?.setText(artisan.membre.address)
         view?.findViewById<TextView>(R.id.art_phone1)?.setText(artisan.membre.tel)
         view?.findViewById<TextView>(R.id.art_workhours1)?.setText(db.getWorkHour(userId))
+        view?.findViewById<TextView>(R.id.multiAutoCompleteTextView1)?.setText(artisan.work_Area)
 
         view?.findViewById<ImageView>(R.id.notif)?.setOnClickListener {
             val intent = Intent(requireContext(), Notifications::class.java)
@@ -81,13 +83,19 @@ class AccountFragment : Fragment() {
             view?.findViewById<ToggleButton>(R.id.thu1),
             view?.findViewById<ToggleButton>(R.id.fri1)
         )
+
+        val colorStateList = ContextCompat.getColorStateList(requireContext(), R.color.my_custom_blue)
         //setting the state of the toggle buttons
         var i =0
         for (item in toggles){
             item?.isEnabled = false
-            if (days[i]) item?.background = blueColor
+            if (days[i]) item?.backgroundTintList = colorStateList
             i++
         }
+
+        view?.findViewById<Switch>(R.id.status1)?.isChecked = artisan.disponible
+        view?.findViewById<Switch>(R.id.deplacement1)?.isChecked = artisan.deplacement
+
 
 
     }

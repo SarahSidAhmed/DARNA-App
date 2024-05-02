@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.darnamob.Admin.ActivityViewAllusers
 import com.example.darnamob.Database.data.Admin
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.Database.data.Comment
@@ -13,7 +14,6 @@ import com.example.darnamob.Database.data.Membre
 import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.Database.data.RendezVousTasks
-import com.example.darnamob.Main.SignUp
 import com.example.darnamob.toSHA256
 
 
@@ -385,21 +385,21 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
                      disponible: Boolean, workdays: List<Int>, image : ByteArray){
         val db = writableDatabase
         val query = "UPDATE ${Table_Schemas.Artisan.TABLE_NAME} " +
-                "SET ${Table_Schemas.Artisan.COLUMN_WORKING_AREA} = '$workArea'," +
-                "${Table_Schemas.Artisan.COLUMN_WORK_HOURS} = '$workHours'," +
-                "${Table_Schemas.Artisan.COLUMN_DEPLACEMENT} = $deplacement," +
-                "${Table_Schemas.Artisan.COLUMN_DISPONIBLE} = $disponible " +
-                "WHERE ${Table_Schemas.Artisan.COLUMN_ID} = $idArtisan"
+                "SET ${Table_Schemas.Artisan.COLUMN_WORKING_AREA} = ?," +
+                "${Table_Schemas.Artisan.COLUMN_WORK_HOURS} = ?," +
+                "${Table_Schemas.Artisan.COLUMN_DEPLACEMENT} = ?," +
+                "${Table_Schemas.Artisan.COLUMN_DISPONIBLE} = ? " +
+                "WHERE ${Table_Schemas.Artisan.COLUMN_ID} = ?"
 
         //editting the workdays
         val query2 = "UPDATE ${Table_Schemas.WorkDays.TABLE_NAME} " +
-                "SET ${Table_Schemas.WorkDays.COLUMN_SATURDAY} = ${workdays[0]}"+
-                "${Table_Schemas.WorkDays.COLUMN_SUNDAY} = ${workdays[1]}"+
-                "${Table_Schemas.WorkDays.COLUMN_MONDAY} = ${workdays[2]}"+
-                "${Table_Schemas.WorkDays.COLUMN_TUESDAY} = ${workdays[3]}"+
-                "${Table_Schemas.WorkDays.COLUMN_WEDNESDAY} = ${workdays[4]}"+
-                "${Table_Schemas.WorkDays.COLUMN_THURSDAY} = ${workdays[5]}"+
-                "${Table_Schemas.WorkDays.COLUMN_FRIDAY} = ${workdays[6]} " +
+                "SET ${Table_Schemas.WorkDays.COLUMN_SATURDAY} = ?, "+
+                "${Table_Schemas.WorkDays.COLUMN_SUNDAY} = ?, "+
+                "${Table_Schemas.WorkDays.COLUMN_MONDAY} = ?, "+
+                "${Table_Schemas.WorkDays.COLUMN_TUESDAY} = ?, "+
+                "${Table_Schemas.WorkDays.COLUMN_WEDNESDAY} = ?, "+
+                "${Table_Schemas.WorkDays.COLUMN_THURSDAY} = ?, "+
+                "${Table_Schemas.WorkDays.COLUMN_FRIDAY} = ? " +
                 "WHERE ${Table_Schemas.WorkDays.COLUMN_ID} = $idArtisan"
 
 
@@ -409,8 +409,15 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
 
 
-        db.execSQL(query, null)
-        db.execSQL(query2, null)
+        db.execSQL(query, arrayOf(workArea, workHours, deplacement, disponible, idArtisan))
+        db.execSQL(query2,
+            arrayOf(workdays[0],
+                    workdays[1],
+                    workdays[2],
+                    workdays[3],
+                    workdays[4],
+                    workdays[5],
+                    workdays[6]))
         db.execSQL(query3, arrayOf(image, idArtisan))
         db.close()
     }
@@ -1030,7 +1037,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val rendezVousTasks = mutableListOf<RendezVousTasks>()
         val db = readableDatabase
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} =$clientId AND " +
-                "${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} == 0 "
+                "${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} = 0 "
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()){

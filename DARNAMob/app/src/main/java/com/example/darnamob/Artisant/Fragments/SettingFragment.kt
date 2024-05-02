@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.darnamob.Client.EditPasswordSettings
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.MainActivity
 import com.example.darnamob.R
 
 class SettingFragment : Fragment() {

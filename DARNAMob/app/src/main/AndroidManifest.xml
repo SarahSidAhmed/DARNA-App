@@ -13,9 +13,6 @@
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
         <activity
-            android:name=".Client.FilteredActivity"
-            android:exported="false" />
-        <activity
             android:name=".Client.ArtisanProfileComments"
             android:exported="false" />
         <activity
@@ -46,7 +43,7 @@
             android:name=".Client.Notifications"
             android:exported="false" />
         <activity
-            android:name=".Client.MainActivityClient"
+            android:name=".Main.Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,7 +55,7 @@
             android:name=".Artisant.Fragments.SettingFragment"
             android:exported="false" />
         <activity
-            android:name=".Main.Main"
+            android:name=".Artisant.Fragments.HomeFragment"
             android:exported="false" />
         <activity
             android:name=".Artisant.Fragments.DiscussionFragment"
@@ -68,6 +65,9 @@
             android:exported="false" />
         <activity
             android:name=".Accueil.Accueil1"
+            android:exported="false" />
+        <activity
+            android:name=".Client.MainActivityClient"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
