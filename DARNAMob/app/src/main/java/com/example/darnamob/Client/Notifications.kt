@@ -4,14 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityNotificationsBinding
 
-private  lateinit var db : DatabaseHelper
 private lateinit var binding : ActivityNotificationsBinding
 
 class Notifications : AppCompatActivity() {
+
+    private lateinit var db : DatabaseHelper
+    private lateinit var notifs : List<Notification>
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
@@ -20,11 +27,13 @@ class Notifications : AppCompatActivity() {
         db = DatabaseHelper(this)
         val userId = intent.getIntExtra("id", -1)
 
-        val notifications = db.notificationByID(userId) // this is the list of notifications use it in the adapter
+         notifs = db.notificationByID(userId) // this is the list of notifications use it in the adapter
 
         val artisanProfile = findViewById<CardView>(R.id.notif_item_artisan)
 
-
+        val my_recycler = findViewById<RecyclerView>(R.id.notif_recycler)
+        my_recycler.adapter=NotificationAdapter(notifs,this)
+        my_recycler.layoutManager =LinearLayoutManager(this)
 
         binding.back.setOnClickListener {
             val intent = Intent(this, MainActivityClient::class.java)

@@ -14,9 +14,11 @@ import com.example.darnamob.R
 
 class OrdersHomeAdapter(private val rendezvous: List<RendezVousTasks>):RecyclerView.Adapter<OrdersHomeAdapter.ViewHolder>() {
     private lateinit var db : DatabaseHelper
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_row,parent,false)
-        return ViewHolder(v)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_row,
+            parent, false)
+        return OrdersHomeAdapter.ViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
@@ -54,13 +56,12 @@ class OrdersHomeAdapter(private val rendezvous: List<RendezVousTasks>):RecyclerV
 
     }
 
-    class ViewHolder(recycler_row:View):RecyclerView.ViewHolder(recycler_row){
-        val cardView : CardView = recycler_row.findViewById(R.id.cardViewDemandes)
-        val image: ImageView = recycler_row.findViewById(R.id.prest_img)
-        val prestText: TextView = recycler_row.findViewById(R.id.prest)
-        val prestTime: TextView = recycler_row.findViewById(R.id.prest_time)
+    class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
+        val cardView : CardView = itemView.findViewById(R.id.cardViewDemandes)
+        val image: ImageView = itemView.findViewById(R.id.prest_img)
+        val prestText: TextView = itemView.findViewById(R.id.prest)
+        val prestTime: TextView = itemView.findViewById(R.id.prest_time)
 
     }
-
 
 }
