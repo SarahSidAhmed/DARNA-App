@@ -13,8 +13,8 @@ class emailSystem {
 
 
     @SuppressLint("IntentReset")
-    fun emailSend(id :Int, db: DatabaseHelper){
-        val email = db.getMemberEmailByID(id) //getting the email of the user from the database
+    fun emailSend(email : String){
+//        val email = db.getMemberEmailByID(id) //getting the email of the user from the database
         val subject =  Resources.getSystem().getString(R.string.subject)
         val warningMessage = Resources.getSystem().getString(R.string.Warning_Message)
 

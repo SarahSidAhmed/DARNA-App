@@ -28,13 +28,6 @@ class AccountFragment : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_account, container, false)
 
-
-
-
-
-
-
-
         // Inflate the layout for this fragment
         return rootView
     }

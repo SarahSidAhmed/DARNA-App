@@ -33,12 +33,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="140sp">
+        android:layout_marginTop="120sp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="60dp"
             android:paddingBottom="100dp">
 
 
@@ -48,7 +49,7 @@
                 android:layout_height="76dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/productsans_bold"
                 android:text="Add new Account"
                 android:textColor="#232222"
@@ -61,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="14dp"
                 android:background="@drawable/border"

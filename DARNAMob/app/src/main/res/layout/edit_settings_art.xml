@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:layout_gravity="center"
-
+    tools:context=".Artisant.Fragments.EditSettingFragment"
     android:orientation="vertical">
 
     <ImageView
@@ -119,7 +119,7 @@
         android:gravity="center_vertical"
         android:layout_marginTop="250dp"
         android:paddingStart="18dp"
-        android:fontFamily="@font/productsans_regular"
+        android:fontFamily="@font/productsans_bold"
         android:hint="Email...."
         android:inputType="textEmailAddress"
         android:textColorHint="@color/black"
@@ -134,7 +134,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/art_phone"
+        android:id="@+id/phoneNumber"
         android:layout_width="320sp"
         android:layout_height="40sp"
         android:layout_marginLeft="20dp"
@@ -145,7 +145,7 @@
         android:fontFamily="@font/productsans_regular"
         android:hint="Phone number"
         android:inputType="phone"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/grey"
         android:textSize="12sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
@@ -291,7 +291,7 @@
     </TextView>
 
     <EditText
-        android:id="@+id/art_workhours"
+        android:id="@+id/art_workhoursArtisan"
         android:layout_width="320sp"
         android:layout_height="40sp"
         android:layout_marginLeft="20dp"
@@ -302,7 +302,7 @@
         android:fontFamily="@font/productsans_regular"
         android:hint="08:00-18:00"
         android:inputType="time"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/grey"
         android:textSize="12sp"
         android:textStyle="normal"
         tools:ignore="TouchTargetSizeCheck" />
@@ -320,7 +320,7 @@
     </TextView>
 
     <MultiAutoCompleteTextView
-        android:id="@+id/multiAutoCompleteTextView"
+        android:id="@+id/wilaya"
         android:layout_width="320sp"
         android:layout_height="40sp"
         android:layout_marginLeft="20dp"
@@ -329,7 +329,7 @@
         android:fontFamily="@font/productsans_regular"
         android:hint="Alger"
         android:paddingStart="10dp"
-        android:textColorHint="@color/black"
+        android:textColorHint="@color/grey"
         android:textSize="14sp"
         tools:ignore="TouchTargetSizeCheck">
 

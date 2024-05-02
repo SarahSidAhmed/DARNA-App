@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
@@ -16,15 +17,38 @@ class ActivityViewReportedusers : AppCompatActivity() {
     private lateinit var newRecyclerview : RecyclerView
     private lateinit var db : DatabaseHelper
     private lateinit var newList : List<Artisan>
+    private lateinit var searchList : List<Artisan>
+    private lateinit var searchview : androidx.appcompat.widget.SearchView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewreportedusers)
 
+        val my_recyclerView = findViewById<RecyclerView>(R.id.reportedRecyclerView)
+
         db = DatabaseHelper(this)
         newList = db.reportedUsers()
+        searchview = findViewById<androidx.appcompat.widget.SearchView>(R.id.search_bar)
+        searchview.clearFocus()
+        searchview.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // handle query submit
+                return false
+            }
 
-        val my_recyclerView = findViewById<RecyclerView>(R.id.reportedRecyclerView)
-        my_recyclerView.adapter = ViewAllUsers(newList, this)
+            override fun onQueryTextChange(newText: String): Boolean {
+
+                searchList = db.searchUserByName(newText)
+                if (searchList.isEmpty()) {
+                    Toast.makeText(this@ActivityViewReportedusers,  "No data found", Toast.LENGTH_SHORT).show()
+                } else {
+                    my_recyclerView.adapter = ReportedUsersAdapter(searchList, this@ActivityViewReportedusers)
+                }
+
+                return true
+            }
+        })
+
+        my_recyclerView.adapter = ReportedUsersAdapter(newList, this)
         my_recyclerView.layoutManager = LinearLayoutManager(this)
 
         findViewById<ImageView>(R.id.backArrow).setOnClickListener {
@@ -34,17 +58,17 @@ class ActivityViewReportedusers : AppCompatActivity() {
         }
 
         //bug here, it seems like he can't find the btnA, I dunno why
-        findViewById<LinearLayout>(R.id.btnA).setOnClickListener {
+        findViewById<LinearLayout>(R.id.btnAll).setOnClickListener {
             val intent = Intent(this, ActivityViewAllusers::class.java)
             startActivity(intent)
             finish()
         }
 
-//        findViewById<LinearLayout>(R.id.btnAll).setOnClickListener {
-//            val intent = Intent(this, ActivityViewAllusers::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        findViewById<LinearLayout>(R.id.btnReported).setOnClickListener {
+            val intent = Intent(this, ActivityViewAllusers::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 
 

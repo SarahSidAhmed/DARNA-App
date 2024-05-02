@@ -1,6 +1,5 @@
 package com.example.darnamob.Admin
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.data.Artisan
 
 
-class ViewAllUsers(private val userlist: List<Artisan>, context: Context) :
+class ViewAllUsers(var userlist: List<Artisan>, context: ActivityViewAllusers) :
     RecyclerView.Adapter<ViewAllUsers.MyViewHolder>() {
     private val db: DatabaseHelper = DatabaseHelper(context)
 
@@ -54,6 +53,7 @@ class ViewAllUsers(private val userlist: List<Artisan>, context: Context) :
         }
 
         holder.viewmore.text = "View more"
+        holder.viewmore.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.my_custom_blue))
         holder.viewmore.setOnClickListener {
             // Pass the clicked user's data to onItemClick
             val intent = Intent(holder.itemView.context, ActivityProfileClient::class.java ).apply {
@@ -71,5 +71,6 @@ class ViewAllUsers(private val userlist: List<Artisan>, context: Context) :
         val viewmore: TextView = viewuser.findViewById(R.id.viewMore)
         val domain : TextView = viewuser.findViewById(R.id.domain)
     }
+
 
 }

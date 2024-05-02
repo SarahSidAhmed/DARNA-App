@@ -1,12 +1,14 @@
 package com.example.darnamob.Admin
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Artisan
@@ -47,14 +49,25 @@ class ReportedUsersAdapter(private val userlist: List<Artisan>, context: Context
 
         if (isClient) {
             holder.type.text = "client"
+            holder.type.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.orange))
             holder.domain.visibility = View.GONE
         } else {
             holder.type.text = "Artisan"
+            holder.type.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.vert))
             holder.domain.visibility = View.VISIBLE
             holder.domain.text = domaine
         }
 
         holder.viewmore.text = "View more"
+        holder.viewmore.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.my_custom_blue))
+        holder.viewmore.setOnClickListener {
+            // Pass the clicked user's data to onItemClick
+            val intent = Intent(holder.itemView.context, ActivityProfileClient::class.java ).apply {
+                putExtra("id", artisan.membre.id)
+            }
+
+            holder.itemView.context.startActivity(intent)
+        }
 
     }
 

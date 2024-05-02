@@ -21,6 +21,19 @@
         tools:ignore="ImageContrastCheck" />
 
     <ImageView
+        android:id="@+id/logout"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bublle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoutadmin" />
+
+    <ImageView
         android:id="@+id/dashboard"
         android:layout_width="316dp"
         android:layout_height="340dp"
