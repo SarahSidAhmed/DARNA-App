@@ -16,17 +16,17 @@ class FilteredActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filtered)
 
-
         userId = intent.getIntExtra("id", -1)
         filter = intent.getStringExtra("filter").toString()
         db = DatabaseHelper(this)
 
-
         val listTasks = db.filterRendezVousByCategorie(userId, filter)
         val myRecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        myRecyclerView.adapter = FilteredAdapter(listTasks,this)
+        val layoutManager = LinearLayoutManager(this)
         myRecyclerView.layoutManager = layoutManager
 
-
     }
+
+
 }

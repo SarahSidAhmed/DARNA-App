@@ -96,6 +96,7 @@
             android:src="@drawable/commentprofilepic"
             android:layout_marginStart="24dp" />
 
+
         <TextView
             android:id="@+id/art_username"
             android:layout_width="wrap_content"
