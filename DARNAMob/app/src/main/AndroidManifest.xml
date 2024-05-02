@@ -67,6 +67,9 @@
             android:name=".Accueil.Accueil1"
             android:exported="false" />
         <activity
+            android:name=".Artisant.art_view_order"
+            android:exported="false" />
+        <activity
             android:name=".Client.MainActivityClient"
             android:exported="false" />
         <activity
