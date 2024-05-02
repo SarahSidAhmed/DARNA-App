@@ -1,11 +1,14 @@
 package com.example.darnamob.Artisant
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.darnamob.R
 import androidx.fragment.app.Fragment
+import com.example.darnamob.Artisant.Fragments.Calendar
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.databinding.ActivityMainArtisantBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 private lateinit var binding : ActivityMainArtisantBinding
 private lateinit var db : DatabaseHelper
@@ -71,11 +74,27 @@ class MainActivityArtisant : AppCompatActivity() {
                     }
                     replaceFragment(accountFrag)
                 }
+
+//                R.id.calendar ->{
+//                    bundle = Bundle().apply {
+//                        putInt("id", userId)
+//                    }
+//
+//                    val calendarFrag = Calendar().apply {
+//                        arguments = bundle
+//                    }
+//                    replaceFragment(calendarFrag)
+//                }
             }
             true
         }
 
-        //tr
+        findViewById<FloatingActionButton>(R.id.calendar).setOnClickListener {
+            val intent = Intent(this, Calendar::class.java)
+            intent.putExtra("id", userId)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
