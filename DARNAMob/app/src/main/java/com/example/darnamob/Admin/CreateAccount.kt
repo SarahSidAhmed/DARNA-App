@@ -142,7 +142,9 @@ class CreateAccount : AppCompatActivity() {
 //                            startActivity(Intent(this, HomeAdmin::class.java))
 //                            finish()
 //                        }
-                        Toast.makeText(this, "Created Account", Toast.LENGTH_SHORT).show()
+                        var dialog = AddedAccountDialogFragment()
+                        dialog.show(supportFragmentManager,"customDialog")
+                        //Toast.makeText(this, "Created Account", Toast.LENGTH_SHORT).show()
                     }
                     else Toast.makeText(this, "Check your password", Toast.LENGTH_SHORT).show()
                 }

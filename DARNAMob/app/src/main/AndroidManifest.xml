@@ -13,9 +13,6 @@
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
         <activity
-            android:name=".Artisant.Fragments.EditSettingFragment"
-            android:exported="false" />
-        <activity
             android:name=".Client.ArtisanProfileComments"
             android:exported="false" />
         <activity
@@ -37,22 +34,13 @@
             android:name=".Client.EstimatedPrice"
             android:exported="false" />
         <activity
-            android:name=".Admin.HomeAdmin"
+            android:name=".Client.AddNewOrderActivity"
             android:exported="false" />
         <activity
             android:name=".Client.AccountClientSettings"
             android:exported="false" />
         <activity
             android:name=".Client.Notifications"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.CreateAccount"
-            android:exported="false" />
-        <activity
-            android:name=".Client.AddNewOrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Client.EditPasswordSettings"
             android:exported="false" />
         <activity
             android:name=".Main.Main"
@@ -64,12 +52,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Admin.ActivityViewAllusers"
-            android:exported="false" />
-        <activity
-            android:name=".Artisant.art_view_order"
-            android:exported="false" />
-        <activity
             android:name=".Artisant.Fragments.SettingFragment"
             android:exported="false" />
         <activity
@@ -79,7 +61,13 @@
             android:name=".Artisant.Fragments.DiscussionFragment"
             android:exported="false" />
         <activity
+            android:name=".Artisant.Fragments.AccountFragment"
+            android:exported="false" />
+        <activity
             android:name=".Accueil.Accueil1"
+            android:exported="false" />
+        <activity
+            android:name=".Artisant.art_view_order"
             android:exported="false" />
         <activity
             android:name=".Client.MainActivityClient"
@@ -101,9 +89,6 @@
             android:exported="false" />
         <activity
             android:name=".Artisant.MainActivityArtisant"
-            android:exported="false" />
-        <activity
-            android:name=".Artisant.Notifications"
             android:exported="false" />
         <activity
             android:name=".Main.SignUp"

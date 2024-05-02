@@ -43,11 +43,20 @@
             android:orientation="vertical"
             android:gravity="center"
             >
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/notif_recycler"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
+
+
+
+</androidx.recyclerview.widget.RecyclerView>
             <androidx.cardview.widget.CardView
+                android:id="@+id/notif_item_artisan"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginLeft="10dp"
@@ -57,8 +66,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/custom_edit_text_background"
-                    >
+                    android:background="@drawable/custom_edit_text_background">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/client_pic"
@@ -66,7 +74,7 @@
                         android:layout_height="48dp"
                         android:layout_marginTop="30dp"
                         android:paddingStart="10dp"
-                        android:src="@drawable/image_1"/>
+                        android:src="@drawable/image_1" />
 
 
                     <TextView
@@ -132,7 +140,7 @@
             <LinearLayout
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"

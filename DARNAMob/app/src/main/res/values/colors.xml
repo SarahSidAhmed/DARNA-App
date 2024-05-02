@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
     <color name="my_custom_blue">#17ABFF</color>
     <color name="grey">#B1B0B0</color>
-    <color name="workdaysColor">#65CFFF </color>
-    <color name="orange">#D0EACCA1 </color>
-    <color name="vert">#0DAA1D </color>
+    <color name="orange">#EEB930</color>
+    <color name="workdaysColor">#65CFFF</color>
+    <color name="vert">#0DAA1D</color>
+    <color name="green">#0AE8CD</color>
     <color name="red">#FF0034</color>
-
-
+    <color name="paintingOrange">#FFCC99</color>
+    <color name="plumbingBlue">#99DAFF</color>
+    <color name="masoneryGreen">#63EF62</color>
+    <color name="cleaningRed">#C87F79</color>
+    <color name="electricityOrange">#FFCC99</color>
 </resources>

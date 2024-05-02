@@ -684,13 +684,9 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
                allUsersList.add(artisan) // adding to the list of users
             }
         }
-
         cursor.close()
         db.close()
-
         return allUsersList
-
-
     }
     //retourned tout les clients de base de donnees
     fun getAllClient(): List<Membre>{
