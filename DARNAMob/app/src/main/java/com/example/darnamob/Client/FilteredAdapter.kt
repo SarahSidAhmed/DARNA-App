@@ -33,7 +33,6 @@ class FilteredAdapter (private val listTasks: List<Demande>,context:Context): Re
 
     }
 
-
     override fun getItemCount(): Int {
        return listTasks.size
     }
