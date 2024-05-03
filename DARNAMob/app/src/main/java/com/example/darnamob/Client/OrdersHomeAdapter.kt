@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Database.DatabaseHelper
+import com.example.darnamob.Database.Table_Schemas
 import com.example.darnamob.Database.data.RendezVousTasks
 import com.example.darnamob.R
 
@@ -54,6 +55,10 @@ class OrdersHomeAdapter(private val rendezvous: List<RendezVousTasks>):RecyclerV
          holder.prestText.text = currentDemande.title // Update with appropriate field
          holder.prestTime.text = "$formattedDuration hours" // Display the hour
 
+//        holder.checkDone.setOnClickListener {
+//            db.setTaskCompleted(currentOrderNumber)
+//            db.insertNotifRating(RendezVousTasks(currentDemande.id_client, ))
+//        }
     }
 
     class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
@@ -61,6 +66,7 @@ class OrdersHomeAdapter(private val rendezvous: List<RendezVousTasks>):RecyclerV
         val image: ImageView = itemView.findViewById(R.id.prest_img)
         val prestText: TextView = itemView.findViewById(R.id.prest)
         val prestTime: TextView = itemView.findViewById(R.id.prest_time)
+        val checkDone = itemView.findViewById<ImageView>(R.id.done)
 
     }
 

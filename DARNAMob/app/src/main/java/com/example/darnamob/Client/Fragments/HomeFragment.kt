@@ -13,10 +13,10 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Client.FilteredActivity
+import com.example.darnamob.Client.FilteredAdapter
 
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.MainActivity
 import com.example.darnamob.R
 
 
@@ -61,6 +61,7 @@ class HomeFragment : Fragment() {
 
         // Get all the rendez-vous of the client
         val rendezvous = db.getRendezVousClient(userId)
+        Toast.makeText(requireContext(), rendezvous.size.toString(), Toast.LENGTH_SHORT).show()
         // Setting the filtration buttons
         val painting = view?.findViewById<ImageView>(R.id.painting)
         val plumbing = view?.findViewById<ImageView>(R.id.plumbing)
@@ -69,6 +70,12 @@ class HomeFragment : Fragment() {
         val masonry = view?.findViewById<ImageView>(R.id.masonry)
 
         val num_orders = rendezvous.size
+
+
+//        val myRecyclerView = view?.findViewById<RecyclerView>(R.id.my_recycler_view)
+//        myRecyclerView?.adapter = FilteredAdapter(rendezvous,this)
+//        val layoutManager = LinearLayoutManager(this)
+//        myRecyclerView?.layoutManager = layoutManager
 
 
         painting?.setOnClickListener {

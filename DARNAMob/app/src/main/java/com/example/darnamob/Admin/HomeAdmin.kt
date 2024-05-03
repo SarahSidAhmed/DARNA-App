@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.content.Intent
 import android.widget.ImageView
 import com.example.darnamob.Accueil.Accueil1
+import com.example.darnamob.Accueil.SignInUp
 import com.example.darnamob.Admin.ActivityViewAllusers
 import com.example.darnamob.Admin.CreateAccount
 
@@ -30,7 +31,7 @@ class HomeAdmin : AppCompatActivity() {
         }
         val image : ImageView = findViewById(R.id.logout)
         image.setOnClickListener {
-            val intent = Intent(this, Accueil1::class.java)
+            val intent = Intent(this, SignInUp::class.java)
             startActivity(intent)
         }
     }

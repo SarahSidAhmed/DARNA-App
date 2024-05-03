@@ -81,7 +81,7 @@ class MainActivityArtisant : AppCompatActivity() {
                         putInt("id", userId)
                     }
 
-                    val calendarFrag = Calendar().apply {
+                    val calendarFrag = com.example.darnamob.Artisant.Fragments.Calendar().apply {
                         arguments = bundle
                     }
                     replaceFragment(calendarFrag)

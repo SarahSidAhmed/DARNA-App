@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
 
         <LinearLayout
             android:layout_width="400dp"
@@ -88,6 +86,7 @@
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:maxLines="1"
                 />
 
             <ImageView
@@ -107,7 +106,7 @@
                 android:text="I am i need of someone to install a water heater in my appartement"
                 android:textColor="@color/black"
                 android:layout_marginTop="80dp"
-                android:layout_marginStart="-247dp"
+                android:layout_marginStart="-250dp"
                 android:textSize="16sp"
                 />
 
@@ -117,4 +116,4 @@
 
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>
