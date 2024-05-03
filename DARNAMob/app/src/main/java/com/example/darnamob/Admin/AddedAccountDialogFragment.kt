@@ -16,7 +16,7 @@ class AddedAccountDialogFragment: DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         var rootView: View = inflater.inflate(R.layout.activity_addedaccount, container,  false)
-        rootView.findViewById<Button>(R.id.button).setOnClickListener {
+        rootView.findViewById<Button>(R.id.done).setOnClickListener {
             dismiss()
         }
 

@@ -31,23 +31,32 @@
                 app:srcCompat="@drawable/verticalmenu" />
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:gravity="center|top">
-            <ImageView
+
+            <TextView
+                android:layout_marginTop="140dp"
+                android:layout_marginLeft="75dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/reportcircle"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="20sp"/>
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/art_profil_pic"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginTop="70dp"
                 android:layout_marginRight="0dp"
-
                 android:src="@drawable/profil_pic_artisant">
 
-            </ImageView>
-        </LinearLayout>
+            </de.hdodenhof.circleimageview.CircleImageView>
+        </RelativeLayout>
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"

@@ -10,63 +10,82 @@
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_width="400dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="370dp"
         android:layout_height="150dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp">
 
+
         <ImageView
             android:id="@+id/client_pic"
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:paddingStart="10dp"
-            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/clock_pic"
+            app:layout_constraintHorizontal_bias="0.237"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.408"
             app:srcCompat="@drawable/art_demandes" />
-
 
         <TextView
             android:id="@+id/art_client_name"
             android:layout_width="76.68sp"
             android:layout_height="15.78sp"
-            android:paddingStart="10dp"
-            android:layout_marginTop="45dp"
             android:fontFamily="@font/productsans_regular"
+            android:paddingStart="10dp"
             android:text="soundous"
             android:textColor="@color/black"
             android:textSize="12sp"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/clock_pic"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/client_pic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.425" />
+
         <ImageView
             android:id="@+id/clock_pic"
             android:layout_width="24.98dp"
             android:layout_height="26.49dp"
-            android:layout_marginTop="42dp"
-            android:layout_marginLeft="10dp"
 
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.431"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.406"
             app:srcCompat="@drawable/clock" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="72dp"
-            android:layout_marginLeft="10dp"
             android:fontFamily="@font/productsans_regular"
             android:text="2 min ago"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold"
-            />
+            app:layout_constraintBottom_toTopOf="@+id/details"
+            app:layout_constraintEnd_toStartOf="@+id/location"
+            app:layout_constraintHorizontal_bias="0.192"
+            app:layout_constraintStart_toEndOf="@+id/clock_pic"
+            app:layout_constraintTop_toBottomOf="@+id/art_prest"
+            app:layout_constraintVertical_bias="0.488" />
 
         <ImageView
             android:id="@+id/loc_pic"
-            android:layout_width="14.56sp"
-            android:layout_height="18.57sp"
-            android:layout_marginTop="45dp"
-            android:layout_marginLeft="50dp"
+            android:layout_width="13dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/details"
+            app:layout_constraintEnd_toStartOf="@+id/location"
+            app:layout_constraintHorizontal_bias="0.744"
+            app:layout_constraintStart_toEndOf="@+id/time"
             app:srcCompat="@drawable/location" />
 
         <TextView
@@ -76,47 +95,60 @@
             android:fontFamily="@font/productsans_regular"
             android:text="Medea"
             android:textColor="@color/black"
-            android:layout_marginTop="45dp"
-            android:layout_marginLeft="20dp"
 
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.862"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/urgent"
+            app:layout_constraintVertical_bias="0.206" />
+
         <TextView
             android:id="@+id/art_prest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-300dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="59dp"
+            android:maxWidth="350dp"
+            android:textAlignment="center"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/productsans_bold"
+            android:maxLines="2"
             android:text="Water heater installation"
             android:textColor="#000000"
             android:textSize="18dp"
             android:textStyle="bold"
-            />
+            app:layout_constraintBottom_toTopOf="@+id/details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.177"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.215" />
 
         <ImageView
             android:id="@+id/urgent"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/urgent"
-            />
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.211"
+            app:srcCompat="@drawable/urgent" />
 
         <TextView
             android:id="@+id/details"
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:fontFamily="@font/productsans_regular"
             android:text="I am i need of someone to install a water heater in my appartement"
             android:textColor="@color/black"
-            android:layout_marginTop="80dp"
-            android:layout_marginStart="-247dp"
             android:textSize="16sp"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 
 

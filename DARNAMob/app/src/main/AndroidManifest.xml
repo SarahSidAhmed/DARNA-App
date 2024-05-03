@@ -67,6 +67,23 @@
             android:name=".Artisant.Fragments.HomeFragment"
             android:exported="false" />
         <activity
+            android:name=".Admin.HomeAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.ActivityViewAllusers"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.ActivityViewReportedusers"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.CreateAccount"
+            android:exported="false" />
+
+        <activity
+            android:name=".Client.EditPasswordSettings"
+            android:exported="false" />
+
+        <activity
             android:name=".Artisant.Fragments.DiscussionFragment"
             android:exported="false" />
         <activity
@@ -77,6 +94,9 @@
             android:exported="false" />
         <activity
             android:name=".Artisant.art_view_order"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.ActivityProfileClient"
             android:exported="false" />
         <activity
             android:name=".Client.MainActivityClient"

@@ -13,7 +13,7 @@ class emailSystem {
 
 
     @SuppressLint("IntentReset")
-    fun emailSend(email : String){
+    fun emailSend(email : String):Intent{
 //        val email = db.getMemberEmailByID(id) //getting the email of the user from the database
         val subject =  Resources.getSystem().getString(R.string.subject)
         val warningMessage = Resources.getSystem().getString(R.string.Warning_Message)
@@ -27,6 +27,8 @@ class emailSystem {
         intent.putExtra(Intent.EXTRA_SUBJECT, subject)
         intent.putExtra(Intent.EXTRA_TEXT, warningMessage)
 
+
+        return intent
 
         //YOU NEED TO ADD THIS IN THE SEND WARNING ACTIVITY!!!!!!!!
 
