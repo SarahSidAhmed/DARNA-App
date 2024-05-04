@@ -66,11 +66,10 @@ class Notif_adapter(private val notifs: List<Notification>, context: Context) :
                  holder.clientName.text=name
 
             holder.card.setOnClickListener {
-                val intent = Intent(adapterContext, MainActivity::class.java) //change to the profile of the client
+                val intent = Intent(adapterContext, ClientProfile::class.java) //change to the profile of the client
                 intent.putExtra("clientId", id)
                 intent.putExtra("idArtisant", id2)
                 intent.putExtra("num", num)
-
                 holder.itemView.context.startActivity(intent)
             }
              }
