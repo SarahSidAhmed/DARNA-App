@@ -31,5 +31,4 @@ d'accepter ou non les demandes des clients.”
 
 ![Screenshot 2024-04-19 113908 - Copy](https://github.com/SarahSidAhmed/DARNA-App/assets/109920075/a48bbd66-7771-4e0d-8afa-a58531530cc4)
 ![Screenshot 2024-04-19 113812 - Copy](https://github.com/SarahSidAhmed/DARNA-App/assets/109920075/8666d69f-5a08-4385-bd4e-581938c4e420)
-![Screenshot 2024-04-19 113654 - Copy](https://github.com/SarahSidAhmed/DARNA-App/assets/109920075/1872fbf2-98ab-4b11-b13a-8b0636d668ef)
 ![Screenshot 2024-04-19 114033](https://github.com/SarahSidAhmed/DARNA-App/assets/109920075/9aa5a8af-a744-42cc-b19b-11041c79187a)
