@@ -11,10 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.MultiAutoCompleteTextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.core.content.ContextCompat
+import com.example.darnamob.Artisant.CommentAdapter
+import com.example.darnamob.Artisant.Home_adapter
 import com.example.darnamob.Artisant.Notifications
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
@@ -96,6 +100,15 @@ class AccountFragment : Fragment() {
         view?.findViewById<Switch>(R.id.status1)?.isChecked = artisan.disponible
         view?.findViewById<Switch>(R.id.deplacement1)?.isChecked = artisan.deplacement
 
+        val comments = db.getAllArtisanComments(userId)
+
+        val recyclerView= view?.findViewById<RecyclerView>(R.id.recycler)
+
+        recyclerView?.adapter = CommentAdapter(comments, requireContext())
+        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+
+
+        recyclerView?.layoutManager = LinearLayoutManager(context)
 
 
     }

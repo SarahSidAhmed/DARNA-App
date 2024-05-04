@@ -35,7 +35,7 @@ class ArtisanProfileComments : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         myRecyclerView.layoutManager = layoutManager
 
-        if (commentsList.size == 0){
+       /* if (commentsList.size == 0){
             binding.noComments.visibility = View.VISIBLE
             binding.noCommentsText.visibility = View.VISIBLE
         }
@@ -51,5 +51,7 @@ class ArtisanProfileComments : AppCompatActivity() {
         binding.rateBtn.setOnClickListener {
 
         }
+
+        */
     }
 }

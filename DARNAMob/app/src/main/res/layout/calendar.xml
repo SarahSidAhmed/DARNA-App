@@ -20,7 +20,7 @@
         android:gravity="top|end">
 
         <ImageView
-            android:id="@+id/notif"
+            android:id="@+id/imageView2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
@@ -31,15 +31,14 @@
 <androidx.cardview.widget.CardView
     android:layout_width="354.89dp"
     android:layout_height="50dp"
-    android:elevation="5dp"
     android:layout_marginTop="180dp"
-    android:layout_marginLeft="30dp"
-    app:cardCornerRadius="10dp">
+    android:layout_marginLeft="30dp">
     <TextView
         android:id="@+id/text"
         android:text="Calendar"
         android:layout_width="354.89dp"
         android:layout_height="50dp"
+        android:background="@drawable/custom_edit_text_background"
         android:fontFamily="@font/productsans_bold"
         android:textStyle="bold"
         android:textSize="18sp"
@@ -50,7 +49,7 @@
 
 </androidx.cardview.widget.CardView>
     <CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
@@ -58,27 +57,47 @@
 
     </CalendarView>
 
-    <ImageView
-        android:id="@+id/noImage"
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/illustations"
-        android:layout_marginTop="600dp"
-        android:layout_marginLeft="65dp"/>
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="650dp">
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/orange"
+            android:layout_width="320dp"
+            android:layout_height="100dp">
+           <TextView
+               android:id="@+id/prest"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="wall painting"
+               android:textSize="18sp"
+               android:layout_marginLeft="50sp"/>
+            <ImageView
+                android:id="@+id/prest_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/paint"/>
+            <TextView
+                android:id="@+id/prest_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00am-12:30pm"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="19dp"/>
 
-    <TextView
-        android:id="@+id/noText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No Tasks for Today"
-        android:textSize="25dp"
-        android:layout_marginTop="830dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginBottom="30dp"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/calendarRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="650dp"
-            />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    </ScrollView>
+
+
+
+
+
 </FrameLayout>

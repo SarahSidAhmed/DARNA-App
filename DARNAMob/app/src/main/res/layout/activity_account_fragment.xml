@@ -371,8 +371,56 @@
                 android:layout_marginBottom="100dp"/>
 
 
+            <ImageView
+                android:id="@+id/ligne"
+                android:layout_width="279dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="790dp"
+                android:layout_marginLeft="57dp"
+                android:src="@drawable/ligne"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="800dp"
+                android:text="Comments"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <ImageView
+                android:id="@+id/bulle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="805dp"
+                android:layout_marginLeft="220dp"
+                android:src="@drawable/comments"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="849dp"
+                android:paddingStart="12dp"
+                android:id="@+id/recycler"/>
 
 
         </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </ScrollView>
 </FrameLayout>
