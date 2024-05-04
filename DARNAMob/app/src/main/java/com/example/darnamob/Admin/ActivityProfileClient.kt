@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityProfileClientBinding
 import com.example.darnamob.systems.emailSystem
+import de.hdodenhof.circleimageview.CircleImageView
 
 private lateinit var binding : ActivityProfileClientBinding
 class ActivityProfileClient : AppCompatActivity() {
@@ -38,7 +40,8 @@ class ActivityProfileClient : AppCompatActivity() {
         binding.email.setText(email)
         binding.address.setText(address)
         binding.phone.setText(phone)
-        binding.artProfilPic.setImageBitmap(bitmap)
+        findViewById<CircleImageView>(R.id.art_profil_pic).setImageBitmap(bitmap)
+        //binding.artProfilPic.setImageBitmap(bitmap)
 
         val popUpBtn = findViewById<ImageView>(R.id.menu)
         popUpBtn.setOnClickListener { view->
@@ -48,18 +51,25 @@ class ActivityProfileClient : AppCompatActivity() {
                 when(menuItem.itemId){
                     R.id.report ->{
                         //db.insertADminWarning(id)
-                        emailSystem().emailSend(email)
-                        try {
-                                 startActivity(Intent.createChooser(intent, "Send Email"))
-                        }
-                        catch (e: Exception){
-                                 Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
-                        }
-                        var dialog = SucReportDialogFragmnet()
-                        //dialog.arguments = bundle
-                        dialog.show(supportFragmentManager,"customDialog")
+                        val intent = emailSystem().emailSend(email)
 
-                        true
+                        try {
+                            startActivity(Intent.createChooser(intent, "Send Email"))
+                        }catch (e: Exception){
+                            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+                        }
+
+                        db.insertADminWarning(id)
+
+                        val handler = Handler()
+                        handler.postDelayed({
+                            var dialog = SucReportDialogFragmnet()
+                            //dialog.arguments = bundle
+                            dialog.show(supportFragmentManager,"customDialog")
+                            true
+                        }, 2500)
+
+
                     }
                     R.id.Ban ->{
                         db.banishUser(id)

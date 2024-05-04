@@ -1,5 +1,6 @@
 package com.example.darnamob.Admin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,8 @@ class SucDeleteDialogFragment : DialogFragment() {
         var rootView: View = inflater.inflate(R.layout.activity_deletedaccount, container,  false)
         rootView.findViewById<Button>(R.id.done).setOnClickListener {
             dismiss()
+            val intent = Intent(requireContext(), ActivityViewAllusers::class.java)
+            startActivity(intent)
         }
 
         return rootView

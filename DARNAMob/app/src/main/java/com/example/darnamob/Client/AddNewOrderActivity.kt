@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.darnamob.Database.DatabaseHelper
@@ -31,6 +32,7 @@ class AddNewOrderActivity : AppCompatActivity() {
     private lateinit var dateSelector: EditText
     private lateinit var timeSelector: EditText
     private var hour= 0
+    private lateinit var demande: Demande
 
 
 
@@ -158,13 +160,18 @@ class AddNewOrderActivity : AppCompatActivity() {
             price += pricingSystem().isNight(hour) + pricingSystem().isFerie(date)+ pricingSystem().getUrgentPrice(urgent)
 
             Toast.makeText(this, price.toString(), Toast.LENGTH_SHORT).show()
-            val demande = Demande(0, userId, title, description, region, address, categorie, service, date ,time, urgent, material)
-//            db.addDemande(demande)
+            demande = Demande(0, userId, title, description, region, address, categorie, service, date ,time, urgent, material)
             //to this
 //            val intent = Intent(this, EstimatedPrice::class.java)
 //            intent.putExtra("price", price)
 //            startActivity(intent)
             //if canceled just make the pop up disappear
+
+            findViewById<TextView>(R.id.priceText).setText("Approximate Price: "+ price.toString()+ " DA")
+
+        }
+        findViewById<Button>(R.id.confirmBtn).setOnClickListener {
+            db.addDemande(demande)
         }
     }
 

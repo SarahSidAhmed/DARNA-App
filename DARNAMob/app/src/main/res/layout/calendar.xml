@@ -57,14 +57,46 @@
 
     </CalendarView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="650dp">
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/orange"
+            android:layout_width="320dp"
+            android:layout_height="100dp">
+           <TextView
+               android:id="@+id/prest"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="wall painting"
+               android:textSize="18sp"
+               android:layout_marginLeft="50sp"/>
+            <ImageView
+                android:id="@+id/prest_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/paint"/>
+            <TextView
+                android:id="@+id/prest_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00am-12:30pm"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="19dp"/>
 
 
-    </androidx.recyclerview.widget.RecyclerView>
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    </ScrollView>
+
+
 
 
 

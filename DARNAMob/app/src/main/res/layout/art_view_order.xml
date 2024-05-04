@@ -297,27 +297,6 @@
             android:textSize="16sp" />
     </ScrollView>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <ImageView
         android:layout_width="483.66dp"
         android:layout_height="10dp"

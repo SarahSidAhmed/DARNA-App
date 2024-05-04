@@ -76,34 +76,29 @@ class MainActivityArtisant : AppCompatActivity() {
                     replaceFragment(accountFrag)
                 }
 
-                R.id.calendatButton ->{
-                    bundle = Bundle().apply {
-                        putInt("id", userId)
-                    }
+            }
+            true
+        }
+
+        findViewById<FloatingActionButton>(R.id.calendatButton).setOnClickListener {
+
+            bundle = Bundle().apply {
+                putInt("id", userId)
+            }
 
                     val calendarFrag = Calendar().apply {
                         arguments = bundle
                     }
                     replaceFragment(calendarFrag)
                 }
-            }
-            true
         }
 
-//        findViewById<FloatingActionButton>(R.id.calendar).setOnClickListener {
-//            val intent = Intent(this, Calendar::class.java)
-//            intent.putExtra("id", userId)
-//            startActivity(intent)
-//            finish()
-//        }
-    }
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frame_layout, fragment)
             .commit()
     }
-
 }
 
 

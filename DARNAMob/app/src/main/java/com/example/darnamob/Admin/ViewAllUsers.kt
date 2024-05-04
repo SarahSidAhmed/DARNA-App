@@ -16,7 +16,7 @@ import com.example.darnamob.Database.data.Artisan
 
 class ViewAllUsers(var userlist: List<Artisan>, context: ActivityViewAllusers) :
     RecyclerView.Adapter<ViewAllUsers.MyViewHolder>() {
-    private val db: DatabaseHelper = DatabaseHelper(context)
+    private val db = DatabaseHelper(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.useritem,
@@ -32,6 +32,7 @@ class ViewAllUsers(var userlist: List<Artisan>, context: ActivityViewAllusers) :
         val artisan = userlist[position]
         val email = artisan.membre.email
         val username = artisan.membre.userName
+
         val isClient = db.checkIfClient(email)
         val domaine = artisan.domain
         // Set user information to views

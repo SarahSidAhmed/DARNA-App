@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.darnamob.Admin.ActivityViewAllusers
+import android.widget.Toast
 import com.example.darnamob.Database.data.Admin
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.Database.data.Comment
@@ -470,6 +470,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val id = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID))
 
         cursor.close()
+        db.close()
         return id
     }
 
@@ -490,7 +491,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
             cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_REPORTS)))
 
         cursor.close()
-        db.close()
+        //db.close()
 
         return membre
 
@@ -505,7 +506,6 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         cursor.moveToFirst()
         val membre = getMembreByID(id)
 
-        db= readableDatabase
         //getting all the infos
         val artisan = Artisan(membre,
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_DOMAIN)),
@@ -516,7 +516,7 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
             cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Artisan.COLUMN_WORKING_AREA)))
 
         cursor.close()
-        db.close()
+//        db.close()
 
         return artisan
 
@@ -664,14 +664,13 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     //START RETRIEVING USERS / CLIENTS
 
     fun getAllUsers(): List<Artisan>{
-        val db = readableDatabase
+        var db = readableDatabase
+
         val allUsersList = mutableListOf<Artisan>()
         val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME}"
         val cursor = db.rawQuery(query, null)
 
-
         while (cursor.moveToNext()){
-
             //skimming the ids
             var id = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_ID))
 
@@ -684,8 +683,10 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
                allUsersList.add(artisan) // adding to the list of users
             }
         }
+
         cursor.close()
         db.close()
+
         return allUsersList
     }
     //retourned tout les clients de base de donnees
@@ -772,8 +773,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         //adding the new confirmed requests to the tasks and rendez-vous of the client-Artisan
         val values = ContentValues().apply {
             put(Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE, notif.num_demande)
-            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_ARTISAN, notif.id_sender)
-            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT, notif.id_receiver)
+            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_ARTISAN, notif.id_receiver)
+            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT, notif.id_sender)
             put(Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED, 0)
         }
 
@@ -1035,8 +1036,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     fun getRendezVousClient(clientId: Int): List<RendezVousTasks>{ //no history if the rendezvous is done, it won't be returned here
         val rendezVousTasks = mutableListOf<RendezVousTasks>()
         val db = readableDatabase
-        val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} =$clientId AND " +
-                "${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} = 0 "
+        val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId AND " +
+                "${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} = 0"
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()){
@@ -1076,12 +1077,13 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
 
 
     //METHOD TO RETURN THE RENDEZ-VOUS OF THE CLIENT BY THE CHOSEN CATEGORIES WITHOUT THE COMPLETED ONES
-    fun filterRendezVousByCategorie(clientId: Int,categorie: String): List<Demande>{
+    fun filterRendezVousByCategorie(clientId: Int, categorie: String): List<Demande>{
 
         // quand il clique sur sur une image d'une category
 
         val db = readableDatabase
         val rendezvousCategorie = mutableListOf<Demande>()
+
         val query = "SELECT * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME} " +
                 "WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT} = $clientId" +
                 " AND ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED} =0"
@@ -1089,12 +1091,16 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         val  cursorCategorie= db.rawQuery(query, null)
 
         while (cursorCategorie.moveToNext()){
+
             var num_demande = cursorCategorie.getInt(cursorCategorie.getColumnIndexOrThrow(Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE))
+
             var queryDemande = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME} " +
                     "WHERE ${Table_Schemas.Demandes.COLUMN_NUM_DEMANDE} = $num_demande "
+
             var  cursor= db.rawQuery(queryDemande, null)
-            cursorCategorie.moveToFirst()
-            if (cursorCategorie.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_CATEGORIE))==categorie){
+
+            cursor.moveToFirst()
+            if (cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_CATEGORIE)).toString()==categorie){
                 rendezvousCategorie.add(Demande(
                     num_demande,
                     clientId,
@@ -1117,6 +1123,24 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         db.close()
         return rendezvousCategorie
 
+    }
+
+    fun getAllDemande(): List<String>{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Demandes.TABLE_NAME}"
+        val cursor = db.rawQuery(query, null)
+
+        val list = mutableListOf<String>()
+
+        while (cursor.moveToNext()){
+            list.add(
+                cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Demandes.COLUMN_DATE))
+            )
+        }
+
+        cursor.close()
+        db.close()
+        return list
     }
 
     //METHOD TO SET THE DEMANDE TO COMPLETED

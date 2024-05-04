@@ -15,7 +15,7 @@ import com.example.darnamob.Database.data.RendezVousTasks
 import com.example.darnamob.R
 
 class FilteredAdapter (private val listTasks: List<Demande>,context:Context): RecyclerView.Adapter<FilteredAdapter.ViewHolder>(){
- lateinit var db:DatabaseHelper
+ private var db = DatabaseHelper(context)
 
 
 

@@ -15,9 +15,10 @@ import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.R
 
+private lateinit var db : DatabaseHelper
 class ActivityViewAllusers : AppCompatActivity() {
 
-    private lateinit var db : DatabaseHelper
+
     private lateinit var newList : List<Artisan>
     private lateinit var searchList : List<Artisan>
     private lateinit var searchview : androidx.appcompat.widget.SearchView
@@ -27,7 +28,11 @@ class ActivityViewAllusers : AppCompatActivity() {
         setContentView(R.layout.activity_view_allusers)
 
         db = DatabaseHelper(this)
+
         newList = db.getAllUsers()
+        db.close()
+
+
         val my_recycler = findViewById<RecyclerView>(R.id.my_recyclerview)
         searchview = findViewById<androidx.appcompat.widget.SearchView>(R.id.search_bar)
         searchview.clearFocus()

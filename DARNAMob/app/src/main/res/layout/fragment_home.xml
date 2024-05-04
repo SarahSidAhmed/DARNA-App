@@ -96,8 +96,9 @@
                 android:layout_height="150dp"
                 android:layout_margin="8dp"
                 android:background="@android:color/white"
-                android:elevation="4dp"
+                android:elevation="0dp"
                 android:padding="16dp"
+                app:cardCornerRadius="10dp"
                 android:clipToPadding="false"
                 android:clipChildren="false"
                 android:foreground="?android:attr/selectableItemBackground"
@@ -135,8 +136,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Oued Smar, Algiers, Algeria"
-                            android:textColor="@color/grey"
+                            android:hint="ex : Oued Smar, Algiers, Algeria"
+                            android:textColorHint="@color/grey"
                             android:fontFamily="@font/productsans_thin"
                             android:textSize="18sp" />
                     </LinearLayout>
@@ -195,7 +196,7 @@
                 android:background="@android:color/white"
                 android:clipChildren="false"
                 android:clipToPadding="false"
-                android:elevation="4dp"
+                app:cardCornerRadius="10dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:foregroundGravity="center"
                 android:padding="16dp"> <!-- Set below the first CardView -->
@@ -324,33 +325,32 @@
 
 
 
+            <ImageView
+                android:id="@+id/noImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/illustations"
+                android:layout_marginTop="650dp"
+                android:layout_marginLeft="70dp"/>
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/orders"
-    >
-
+            <TextView
+                android:id="@+id/noText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No scheduled demands."
+                android:textStyle="bold"
+                android:fontFamily="@font/productsans_bold"
+                android:textSize="30dp"
+                android:layout_marginTop="878dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginBottom="100dp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
+        android:layout_height="match_parent"
+        android:layout_marginTop="670dp">
 
     </androidx.recyclerview.widget.RecyclerView>
-
-
-</ScrollView>
-
-
         </RelativeLayout>
-
-
-
     </ScrollView>
-
-
-
-
 </FrameLayout>
