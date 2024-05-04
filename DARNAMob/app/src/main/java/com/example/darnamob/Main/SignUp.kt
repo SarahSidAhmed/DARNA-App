@@ -71,7 +71,6 @@ class SignUp : AppCompatActivity() {
                         )
                         val intent = Intent(this, MainActivityClient::class.java)
                         intent.putExtra("id", db.getUserID(email))
-                        Toast.makeText(this, "${db.getUserID(email)}", Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                         finish()
                     }

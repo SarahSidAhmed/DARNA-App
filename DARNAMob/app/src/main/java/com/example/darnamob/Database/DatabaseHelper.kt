@@ -773,8 +773,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         //adding the new confirmed requests to the tasks and rendez-vous of the client-Artisan
         val values = ContentValues().apply {
             put(Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE, notif.num_demande)
-            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_ARTISAN, notif.id_sender)
-            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT, notif.id_receiver)
+            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_ARTISAN, notif.id_receiver)
+            put(Table_Schemas.Tasks_Rendez.COLUMN_ID_CLIENT, notif.id_sender)
             put(Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED, 0)
         }
 

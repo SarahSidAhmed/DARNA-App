@@ -59,6 +59,8 @@ class ActivityProfileClient : AppCompatActivity() {
                             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
                         }
 
+                        db.insertADminWarning(id)
+
                         val handler = Handler()
                         handler.postDelayed({
                             var dialog = SucReportDialogFragmnet()
@@ -66,6 +68,7 @@ class ActivityProfileClient : AppCompatActivity() {
                             dialog.show(supportFragmentManager,"customDialog")
                             true
                         }, 2500)
+
 
                     }
                     R.id.Ban ->{

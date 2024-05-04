@@ -54,7 +54,7 @@ class OrdersHomeAdapter(private val rendezvous: List<RendezVousTasks>):RecyclerV
         val formattedDuration = currentDemande.hour
          holder.prestText.text = currentDemande.title // Update with appropriate field
          holder.prestTime.text = "$formattedDuration hours" // Display the hour
-
+//
 //        holder.checkDone.setOnClickListener {
 //            db.setTaskCompleted(currentOrderNumber)
 //            db.insertNotifRating(RendezVousTasks(currentDemande.id_client, ))

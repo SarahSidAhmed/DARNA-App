@@ -2,6 +2,7 @@ package com.example.darnamob.Client.Fragments
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -61,7 +62,7 @@ class HomeFragment : Fragment() {
 
         // Get all the rendez-vous of the client
         val rendezvous = db.getRendezVousClient(userId)
-        Toast.makeText(requireContext(), rendezvous.size.toString(), Toast.LENGTH_SHORT).show()
+
         // Setting the filtration buttons
         val painting = view?.findViewById<ImageView>(R.id.painting)
         val plumbing = view?.findViewById<ImageView>(R.id.plumbing)
@@ -72,8 +73,17 @@ class HomeFragment : Fragment() {
         val num_orders = rendezvous.size
 
 
+        if (num_orders==0){
+            view?.findViewById<ImageView>(R.id.noImage)?.visibility = View.VISIBLE
+            view?.findViewById<TextView>(R.id.noText)?.visibility = View.VISIBLE
+        }else{
+            view?.findViewById<ImageView>(R.id.noImage)?.visibility = View.GONE
+            view?.findViewById<TextView>(R.id.noText)?.visibility = View.GONE
+        }
+
+//        val rv = db.getRendezVousClient()
 //        val myRecyclerView = view?.findViewById<RecyclerView>(R.id.my_recycler_view)
-//        myRecyclerView?.adapter = FilteredAdapter(rendezvous,this)
+//        myRecyclerView?.adapter = FilteredAdapter(rv,this)
 //        val layoutManager = LinearLayoutManager(this)
 //        myRecyclerView?.layoutManager = layoutManager
 

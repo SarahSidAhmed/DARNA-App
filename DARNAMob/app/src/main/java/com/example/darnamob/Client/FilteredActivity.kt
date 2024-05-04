@@ -1,9 +1,12 @@
 package com.example.darnamob.Client
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,11 +37,22 @@ class FilteredActivity : AppCompatActivity() {
         var listTasks = db.filterRendezVousByCategorie(userId, filter)
 
 
-        Toast.makeText(this, userId.toString(), Toast.LENGTH_SHORT).show()
         val myRecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         myRecyclerView.adapter = FilteredAdapter(listTasks,this)
         val layoutManager = LinearLayoutManager(this)
         myRecyclerView.layoutManager = layoutManager
+
+        val num = listTasks.size
+
+        if (num == 0){
+            findViewById<ImageView>(R.id.noImage).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.noText).visibility = View.VISIBLE
+        }
+        else
+        {
+            findViewById<ImageView>(R.id.noImage).visibility = View.GONE
+            findViewById<TextView>(R.id.noText).visibility = View.GONE
+        }
 
     }
 

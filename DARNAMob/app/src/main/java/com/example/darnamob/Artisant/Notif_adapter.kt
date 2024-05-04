@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
+import androidx.core.view.marginBottom
 import com.example.darnamob.Artisant.Fragments.DiscussionFragment
 import com.example.darnamob.R
 import com.example.darnamob.Database.DatabaseHelper
@@ -24,7 +25,8 @@ class Notif_adapter(private val notifs: List<Notification>, context: Context) :
 
     private val db: DatabaseHelper = DatabaseHelper(context)
     private val adapterContext = context
-
+    private lateinit var name: String
+    private lateinit var image: ByteArray
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.notification_recycler,
@@ -41,9 +43,13 @@ class Notif_adapter(private val notifs: List<Notification>, context: Context) :
         val id = notif.id_sender
         val id2 = notif.id_receiver
         val num = notif.num_demande
+
+        if (type != 0){
         members = db.getMembreByID(id)
-        val name =members.userName
-        val image = members.image
+            name =members.userName
+            image = members.image
+        }
+
 
 
         if(type==0){
@@ -51,8 +57,6 @@ class Notif_adapter(private val notifs: List<Notification>, context: Context) :
             holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
             holder.image.setImageResource(R.drawable.warning0)
             holder.clientName.visibility=View.GONE
-
-
         }
 
         else if(type==2){

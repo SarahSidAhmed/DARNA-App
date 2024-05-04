@@ -29,6 +29,24 @@
             android:src="@drawable/goback" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/noImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/illustations"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="60dp"/>
+    <TextView
+        android:id="@+id/noText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Orders Scheduled of this Categorie"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/productsans_bold"
+        android:layout_marginTop="550dp"
+        android:textAlignment="center"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
