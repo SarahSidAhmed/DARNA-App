@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.marginLeft
 import androidx.recyclerview.widget.RecyclerView
 import com.example.darnamob.Artisant.Fragments.DiscussionFragment
 import com.example.darnamob.Artisant.Fragments.HomeFragment
@@ -28,6 +29,9 @@ class NotificationAdapter(private val notifs: List<Notification>, context: Conte
 
     private val db: DatabaseHelper = DatabaseHelper(context)
     private val adapterContext = context
+    private lateinit var name: String
+    private lateinit var image: ByteArray
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -43,7 +47,7 @@ class NotificationAdapter(private val notifs: List<Notification>, context: Conte
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.notification_recycler_client,
             parent, false)
-        return NotificationAdapter.ViewHolder(itemView)
+        return ViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
@@ -57,21 +61,27 @@ class NotificationAdapter(private val notifs: List<Notification>, context: Conte
         val id = notif.id_receiver
         val num = notif.num_demande
         val idSender = notif.id_sender
-        members = db.getMembreByID(idSender)
-        val name =members.userName
-        val image = members.image
+
 
 
         if(type==0){
             holder.detail.text = "Admin sent you a warning"
-            holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
+            //holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
             holder.image.setImageResource(R.drawable.warning0)
             holder.clientName.visibility=View.GONE
+            holder.confirm.visibility = View.GONE
+            holder.delete.visibility = View.GONE
 
         }
 
 
         else if(type==1){
+            members = db.getMembreByID(idSender)
+             name =members.userName
+             image = members.image
+
+            holder.confirm.visibility = View.VISIBLE
+            holder.delete.visibility = View.VISIBLE
             holder.detail.text = "Accepted your order, confirm it to start messaging to discuss more"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)
@@ -91,12 +101,20 @@ class NotificationAdapter(private val notifs: List<Notification>, context: Conte
             }
 
         }
-        else if (type == 2){
+        else if (type == 3){
+
+            members = db.getMembreByID(idSender)
+            name =members.userName
+            image = members.image
             holder.detail.text = "How was your latest order, Rate it now"
             val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
             holder.image.setImageBitmap(bitmap)
             holder.clientName.text=name
-            holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
+
+            holder.confirm.visibility = View.GONE
+            holder.delete.visibility = View.GONE
+
+            //holder.detail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f )
             holder.card.setOnClickListener {
                 val intent = Intent(adapterContext, ArtisanProfileComments::class.java)
                 intent.putExtra("idArtisan", idSender)

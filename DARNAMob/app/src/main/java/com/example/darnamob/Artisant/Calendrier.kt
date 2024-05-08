@@ -46,14 +46,14 @@ class Calendrier : AppCompatActivity() {
         db = DatabaseHelper(this)
         val my_recycler = findViewById<RecyclerView>(R.id.my_recycler_view)
         val tasks = db.getTasksArtisan(userId)
-        val calendar = findViewById<CalendarView>(R.id.calendar)
+        val calendar = findViewById<CalendarView>(R.id.calendarView)
 
 
         my_recycler.adapter = CalendrierAdapter(tasks, this)
         my_recycler.layoutManager = LinearLayoutManager(this)
 
 
-        findViewById<ImageView>(R.id.notif)?.setOnClickListener {
+        findViewById<ImageView>(R.id.notifImage)?.setOnClickListener {
             val intent = Intent(this, Notifications::class.java)
             intent.putExtra("id", userId)
             startActivity(intent)

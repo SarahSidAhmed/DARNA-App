@@ -70,6 +70,11 @@ class ClientProfile : AppCompatActivity() {
             }
 
         }
+
+        findViewById<ImageView>(R.id.report).setOnClickListener {
+            db.reportUser(userId)
+            Toast.makeText(this, "User reported!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     fun checkPermission(){

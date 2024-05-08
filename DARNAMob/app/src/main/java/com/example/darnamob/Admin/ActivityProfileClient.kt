@@ -43,6 +43,8 @@ class ActivityProfileClient : AppCompatActivity() {
         findViewById<CircleImageView>(R.id.art_profil_pic).setImageBitmap(bitmap)
         //binding.artProfilPic.setImageBitmap(bitmap)
 
+        binding.nombreReports.setText(member.ndReports.toString())
+
         val popUpBtn = findViewById<ImageView>(R.id.menu)
         popUpBtn.setOnClickListener { view->
             val popUpMenu = PopupMenu(this@ActivityProfileClient,view)

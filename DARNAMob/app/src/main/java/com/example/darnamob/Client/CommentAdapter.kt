@@ -27,7 +27,7 @@ class CommentAdapter(private val commentsList: List<Comment>, context: Context):
         val image: ImageView = itemView.findViewById(R.id.art_pic)
         //val card: CardView = itemView.findViewById(R.id.notif_item_artisan)
         val star : ImageView = itemView.findViewById(R.id.star)
-        val rating : Button = itemView.findViewById(R.id.rating)
+        val rating : TextView = itemView.findViewById(R.id.rating)
 
     }
 
@@ -50,9 +50,10 @@ class CommentAdapter(private val commentsList: List<Comment>, context: Context):
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
         holder.image.setImageBitmap(bitmap)
         val text = comment.commentText
+        val rate = comment.rating
         holder.clientName.text=name
         holder.description.text=text
-        holder.rating.text=text
+        holder.rating.text=rate.toString()
         holder.star.setImageResource(R.drawable.yellowstar)
     }
 

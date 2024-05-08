@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,7 +49,7 @@ class Notifications : AppCompatActivity() {
             findViewById<TextView>(R.id.noNotifText).visibility = View.GONE
         }
 
-        binding.back.setOnClickListener {
+        binding.backNotif.setOnClickListener {
             val intent = Intent(this, MainActivityClient::class.java)
             intent.putExtra("id", userId)
             startActivity(intent)

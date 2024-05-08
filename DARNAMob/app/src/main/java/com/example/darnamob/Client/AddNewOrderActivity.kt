@@ -172,6 +172,11 @@ class AddNewOrderActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.confirmBtn).setOnClickListener {
             db.addDemande(demande)
+            val intent = Intent(this, MainActivityClient::class.java)
+            Toast.makeText(this, "Order sent!", Toast.LENGTH_SHORT).show()
+            intent.putExtra("id", userId)
+            startActivity(intent)
+            finish()
         }
     }
 

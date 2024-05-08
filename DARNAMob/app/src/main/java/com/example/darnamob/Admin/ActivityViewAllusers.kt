@@ -45,9 +45,7 @@ class ActivityViewAllusers : AppCompatActivity() {
             override fun onQueryTextChange(newText: String): Boolean {
 
                 searchList = db.searchUserByName(newText)
-                if (searchList.isEmpty()) {
-                    Toast.makeText(this@ActivityViewAllusers,  "No data found", Toast.LENGTH_SHORT).show()
-                } else {
+                if (searchList.isNotEmpty()) {
                     my_recycler.adapter = ReportedUsersAdapter(searchList, this@ActivityViewAllusers)
                 }
 

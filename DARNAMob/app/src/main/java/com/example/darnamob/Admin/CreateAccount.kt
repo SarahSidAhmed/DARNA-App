@@ -20,13 +20,12 @@ import com.example.darnamob.databinding.ActivityAddnewuserBinding
 
 import com.example.darnamob.imageFromDrawableToByteArray
 import com.github.dhaval2404.imagepicker.ImagePicker
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
+
 
 
 private lateinit var binding : ActivityAddnewuserBinding
 private lateinit var db : DatabaseHelper
-private lateinit var auth: FirebaseAuth
+
 
 class CreateAccount : AppCompatActivity() {
     val categories = arrayOf("Painter", "Plumber", "Cleaner", "Maconier", "Electrician")
@@ -45,7 +44,6 @@ class CreateAccount : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddnewuserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        auth = com.google.firebase.Firebase.auth
 
        db = DatabaseHelper(this)
         var category : String = ""

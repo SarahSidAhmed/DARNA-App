@@ -20,7 +20,7 @@
         android:gravity="top|end">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/notifImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
@@ -49,7 +49,7 @@
 
 </androidx.cardview.widget.CardView>
     <CalendarView
-        android:id="@+id/calendar"
+        android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
@@ -57,47 +57,9 @@
 
     </CalendarView>
 
-    <ScrollView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="650dp">
-        <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@color/orange"
-            android:layout_width="320dp"
-            android:layout_height="100dp">
-           <TextView
-               android:id="@+id/prest"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="wall painting"
-               android:textSize="18sp"
-               android:layout_marginLeft="50sp"/>
-            <ImageView
-                android:id="@+id/prest_img"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/paint"/>
-            <TextView
-                android:id="@+id/prest_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10:00am-12:30pm"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="19dp"/>
-
-
-        </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-    </ScrollView>
-
-
-
-
-
+        android:layout_marginTop="630dp"/>
 </FrameLayout>

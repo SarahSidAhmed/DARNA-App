@@ -1,85 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 <androidx.cardview.widget.CardView
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
     android:layout_marginRight="8dp"
     android:layout_marginLeft="8dp">
 
-<!--
-<androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="401dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/user_background">
-
-        <ImageView
-            android:id="@+id/imageView10"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/commentprofilepic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp" />
-
-        <TextView
-            android:id="@+id/textView17"
-            app:layout_constraintStart_toEndOf="@+id/imageView10"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="28dp"
-            android:text="Soundous Chan"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView18"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.578"
-            app:layout_constraintStart_toEndOf="@+id/imageView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView17"
-            app:layout_constraintVertical_bias="0.285"
-            android:layout_width="263dp"
-            android:layout_height="wrap_content"
-            android:text="She does good work and gives good services. I recommend!"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/imageView13"
-            app:layout_constraintBottom_toBottomOf="@+id/textView17"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.727"
-            app:srcCompat="@drawable/yellowstar"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="36dp" />
-
-        <TextView
-            android:id="@+id/textView19"
-            app:layout_constraintBottom_toBottomOf="@+id/textView17"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.384"
-            app:layout_constraintStart_toEndOf="@+id/imageView13"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="4"
-            android:textSize="30sp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
--->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -87,10 +16,10 @@
         android:padding="16dp"
         android:background="@drawable/user_background">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/art_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:src="@drawable/commentprofilepic"
@@ -113,16 +42,17 @@
             android:layout_below="@id/art_username"
             android:layout_toEndOf="@id/art_pic"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
             android:text="She does good work and gives good services. I recommend!"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/star"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_below="@id/art_username"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="-29dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="-24dp"
             android:layout_toEndOf="@id/art_username"
             android:src="@drawable/yellowstar" />
 
@@ -131,11 +61,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/art_username"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="-34dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="-24dp"
             android:layout_toEndOf="@id/star"
             android:text="4"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

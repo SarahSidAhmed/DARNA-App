@@ -39,6 +39,7 @@
             android:gravity="center|top">
 
             <TextView
+                android:id="@+id/nombreReports"
                 android:layout_marginTop="140dp"
                 android:layout_marginLeft="75dp"
                 android:layout_width="30dp"

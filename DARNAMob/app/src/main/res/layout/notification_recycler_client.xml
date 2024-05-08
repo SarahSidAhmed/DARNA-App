@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -19,7 +19,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/artisan_pic"
@@ -27,6 +28,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="30dp"
                 android:paddingStart="10dp"
+
                 android:src="@drawable/image_1" />
 
 
@@ -48,12 +50,12 @@
                 android:id="@+id/details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-50dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/productsans_regular"
                 android:text="accepted your order, confirm it to start messaging"
                 android:textColor="@color/black"
+                android:maxLines="2"
                 android:textSize="18sp" />
 
 

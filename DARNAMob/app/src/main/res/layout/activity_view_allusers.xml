@@ -70,22 +70,6 @@
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/editTextsearch"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="55dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="12dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:background="@drawable/search_background"-->
-<!--                android:drawableStart="@drawable/search"-->
-<!--                android:drawablePadding="10dp"-->
-<!--                android:fontFamily="@font/productsans_regular"-->
-<!--                android:hint="search user"-->
-<!--                android:inputType="textPersonName"-->
-<!--                android:paddingStart="10dp"-->
-<!--                android:textAlignment="viewStart"-->
-<!--                android:textSize="18sp" />-->
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search_bar"
                 android:layout_width="380dp"
@@ -148,6 +132,7 @@
             </LinearLayout>
         </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -158,10 +143,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
+
+
 
     </LinearLayout>
 </LinearLayout>

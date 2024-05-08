@@ -1146,11 +1146,11 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     //METHOD TO SET THE DEMANDE TO COMPLETED
     fun setTaskCompleted(num_demande: Int){
         val db = writableDatabase
-        val query = "UPDATE * FROM ${Table_Schemas.Tasks_Rendez.TABLE_NAME}" +
-                " SET ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED}=1" +
-                " WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE} = $num_demande"
+        val query = "UPDATE ${Table_Schemas.Tasks_Rendez.TABLE_NAME}" +
+                " SET ${Table_Schemas.Tasks_Rendez.COLUMN_COMPLETED}=?" +
+                " WHERE ${Table_Schemas.Tasks_Rendez.COLUMN_NUM_DEMANDE} = ?"
 
-        db.execSQL(query, null)
+        db.execSQL(query, arrayOf(1, num_demande))
     }
     //END OF DEMANDE GETTERS AND SETTERS
 
@@ -1234,8 +1234,8 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         while (cursor.moveToNext()){
             comments.add(
                 Comment(
-                    artisanId,
                     cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Comments.COLUMN_ID_COMMENTER)),
+                    artisanId,
                     cursor.getString(cursor.getColumnIndexOrThrow(Table_Schemas.Comments.COLUMN_COMMENT)),
                     cursor.getFloat(cursor.getColumnIndexOrThrow(Table_Schemas.Comments.COLUMN_NOTATION))
                 )
@@ -1246,6 +1246,23 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
         db.close()
 
         return comments
+    }
+
+    fun reportUser(id: Int){
+        var db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Membre.TABLE_NAME} WHERE ${Table_Schemas.Membre.COLUMN_ID} = $id"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+        var rp = cursor.getInt(cursor.getColumnIndexOrThrow(Table_Schemas.Membre.COLUMN_REPORTS))
+        rp++
+        db = writableDatabase
+        val query2 = "UPDATE ${Table_Schemas.Membre.TABLE_NAME} SET ${Table_Schemas.Membre.COLUMN_REPORTS} = ?" +
+                " WHERE ${Table_Schemas.Membre.COLUMN_ID} = ?"
+        db.execSQL(query2, arrayOf(rp, id))
+
+        cursor.close()
+        db.close()
+
     }
 
     //END COMMENT & NOTATION METHODS//

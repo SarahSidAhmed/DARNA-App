@@ -62,11 +62,6 @@ class Table_Schemas {
                 " FOREIGN KEY($COLUMN_ID) REFERENCES ${Membre.TABLE_NAME}(${Membre.COLUMN_ID}) ON DELETE CASCADE)"
 
     }
-    /*object WorkHours{
-        const val TABLE_NAME = "workhours"
-        const val COLUMN_ID = "id"
-        const val COLUMN_HOUR = "hour"
-    }*/
 
     object WorkDays{
         const val TABLE_NAME = "workdays"
@@ -98,7 +93,7 @@ class Table_Schemas {
         const val COLUMN_COMMENT = "comment"
         const val COLUMN_NOTATION = "notation"
 
-        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID_ARTISAN INTEGER PRIMARY KEY," +
+        const val CREATE_QUERY = "CREATE TABLE $TABLE_NAME ($COLUMN_ID_ARTISAN INTEGER," +
                 " $COLUMN_ID_COMMENTER INTEGER," +
                 "$COLUMN_COMMENT TEXT ," +
                 " $COLUMN_NOTATION INTEGER," +

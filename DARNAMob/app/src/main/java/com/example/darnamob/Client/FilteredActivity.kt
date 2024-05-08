@@ -54,6 +54,8 @@ class FilteredActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.noText).visibility = View.GONE
         }
 
+
+
     }
 
 

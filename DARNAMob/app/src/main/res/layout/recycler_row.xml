@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewDemandes"
@@ -41,15 +41,23 @@
             android:layout_marginLeft="55dp"
             android:layout_marginTop="35dp"
             android:text="10:00am-12:30pm" />
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="35dp"
+            android:textSize="15dp"
+            android:text="10/11/2024" />
 
         <ImageView
-            android:id="@+id/done"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/done"
+            android:id="@+id/taskCheckImage"
+            android:layout_width="28dp"
+            android:layout_height="23dp"
             android:layout_marginLeft="330dp"
             android:layout_marginTop="20dp"
-            android:background="@color/black"/>
+            android:background="@color/black"
+            android:src="@drawable/done" />
 
 
 

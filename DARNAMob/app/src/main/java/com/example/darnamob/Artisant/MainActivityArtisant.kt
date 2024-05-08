@@ -80,17 +80,23 @@ class MainActivityArtisant : AppCompatActivity() {
             true
         }
 
+//        findViewById<FloatingActionButton>(R.id.calendatButton).setOnClickListener {
+//
+//            bundle = Bundle().apply {
+//                putInt("id", userId)
+//            }
+//
+//                    val calendarFrag = Calendar().apply {
+//                        arguments = bundle
+//                    }
+//                    replaceFragment(calendarFrag)
+//                }
+
         findViewById<FloatingActionButton>(R.id.calendatButton).setOnClickListener {
-
-            bundle = Bundle().apply {
-                putInt("id", userId)
-            }
-
-                    val calendarFrag = Calendar().apply {
-                        arguments = bundle
-                    }
-                    replaceFragment(calendarFrag)
-                }
+            val intent = Intent(this, Calendrier::class.java)
+            intent.putExtra("id", userId)
+            startActivity(intent)
+        }
         }
 
 

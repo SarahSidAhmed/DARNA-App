@@ -28,7 +28,7 @@ import com.example.darnamob.databinding.ActivityAccountFragmentBinding
 class CalendrierAdapter(private val rendezvousList: List<RendezVousTasks>,context:Context):
     RecyclerView.Adapter<CalendrierAdapter.ViewHolder>() {
 
-    private lateinit var db : DatabaseHelper
+    private var db = DatabaseHelper(context)
     private val adapterContext = context
 
 
@@ -72,6 +72,10 @@ class CalendrierAdapter(private val rendezvousList: List<RendezVousTasks>,contex
         val formattedDuration = currentDemande.hour
         holder.prestText.text = currentDemande.title // Update with appropriate field
         holder.prestTime.text = "$formattedDuration hours" // Display the hour
+
+        holder.done.visibility = View.GONE
+
+
     }
 
 
@@ -81,6 +85,8 @@ class CalendrierAdapter(private val rendezvousList: List<RendezVousTasks>,contex
         val prestText: TextView = itemView.findViewById(R.id.prest)
         val prestTime: TextView = itemView.findViewById(R.id.prest_time)
         val cardView : CardView = itemView.findViewById(R.id.cardViewDemandes)
+        val prestDate = itemView.findViewById<TextView>(R.id.day)
+        val done = itemView.findViewById<ImageView>(R.id.taskCheckImage)
 
 
     }

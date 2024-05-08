@@ -23,6 +23,9 @@
             android:name=".Artisant.ClientProfile"
             android:exported="false" />
         <activity
+            android:name=".Artisant.Calendrier"
+            android:exported="false" />
+        <activity
             android:name=".Client.ArtisanProfileComments"
             android:exported="false" />
         <activity
