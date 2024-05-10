@@ -15,6 +15,7 @@ import com.example.darnamob.Database.data.Notification
 import com.example.darnamob.Database.data.Prestation
 import com.example.darnamob.Database.data.RendezVousTasks
 import com.example.darnamob.toSHA256
+import com.google.android.material.tabs.TabLayout.Tab
 
 
 class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME, null, DATABASE_VERSION ) {
@@ -1175,24 +1176,26 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
     }
 
     //METHOD TO ADD A COMMENT
-    fun addComment(artisanId: Int, commenterId: Int, commentText: String){
+    fun addComment(artisanId: Int, commenterId: Int, commentText: String, rate: Float){
         val db = writableDatabase
+
 
         if(!commenterExist(commenterId, artisanId)){
         val values = ContentValues().apply {
             put(Table_Schemas.Comments.COLUMN_ID_ARTISAN, artisanId)
             put(Table_Schemas.Comments.COLUMN_ID_COMMENTER, commenterId)
             put(Table_Schemas.Comments.COLUMN_COMMENT, commentText)
-            put(Table_Schemas.Comments.COLUMN_NOTATION, 0.0)
+            put(Table_Schemas.Comments.COLUMN_NOTATION, rate)
         }
             db.insert(Table_Schemas.Comments.TABLE_NAME, null, values)
         }else{
             val query = "UPDATE ${Table_Schemas.Comments.TABLE_NAME} " +
-                    "SET ${Table_Schemas.Comments.COLUMN_COMMENT} = '$commentText' WHERE " +
-                    "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = $commenterId" +
-                    " AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
+                    "SET ${Table_Schemas.Comments.COLUMN_COMMENT} = ?, ${Table_Schemas.Comments.COLUMN_NOTATION} = ?" +
+                    " WHERE " +
+                    "${Table_Schemas.Comments.COLUMN_ID_COMMENTER} = ?" +
+                    " AND ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = ?"
 
-            db.execSQL(query, null)
+            db.execSQL(query, arrayOf(commentText, rate, commenterId, artisanId))
         }
 
         db.close()
@@ -1221,6 +1224,24 @@ class DatabaseHelper(Context: Context) : SQLiteOpenHelper(Context, DATABASE_NAME
             db.execSQL(query, null)
         }
         db.close()
+    }
+
+    fun calculateRating(artisanId: Int):Float{
+        val db = readableDatabase
+        val query = "SELECT * FROM ${Table_Schemas.Comments.TABLE_NAME} WHERE ${Table_Schemas.Comments.COLUMN_ID_ARTISAN} = $artisanId"
+
+        val cursor = db.rawQuery(query, null)
+
+        var rate = 0.0
+        while (cursor.moveToNext()){
+             rate += cursor.getFloat(cursor.getColumnIndexOrThrow(Table_Schemas.Comments.COLUMN_NOTATION))
+        }
+        val count = cursor.count
+
+        cursor.close()
+        db.close()
+
+        return (rate/count).toFloat()
     }
 
     //METHOD TO REATURN ALL THE COMMENTS OF AN ARTISAN PROFILE

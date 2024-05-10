@@ -14,20 +14,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/bobble" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top|end">
-
-        <ImageView
-            android:id="@+id/notifImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="20dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/notif" />
-    </LinearLayout>
 <androidx.cardview.widget.CardView
     android:layout_width="354.89dp"
     android:layout_height="50dp"

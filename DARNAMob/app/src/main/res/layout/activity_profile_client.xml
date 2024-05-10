@@ -46,6 +46,7 @@
                 android:layout_height="30dp"
                 android:background="@drawable/reportcircle"
                 android:text="0"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="20sp"/>
             <de.hdodenhof.circleimageview.CircleImageView

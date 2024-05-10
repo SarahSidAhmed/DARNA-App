@@ -27,6 +27,7 @@
             android:layout_marginBottom="25dp"
             android:background="@drawable/reportcircle"
             android:text="3"
+            android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/viewMore"

@@ -28,11 +28,6 @@ class EditPasswordSettings : AppCompatActivity() {
     @SuppressLint("SuspiciousIndentation")
     private fun logic() {
 
-        binding.back.setOnClickListener {
-            val intent = Intent(this, SettingFragment::class.java)
-            intent.putExtra("id", userId)
-            startActivity(intent)
-        }
         binding.save.setOnClickListener {
             val oldPassword = binding.oldPassword.text.toString()
             val newPassword = binding.newPassword.text.toString()

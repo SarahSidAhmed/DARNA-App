@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="950dp">
 
 
     <ImageView
@@ -50,31 +49,31 @@
 
 
     <EditText
+        android:id="@+id/prest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/prest"
-        android:text="Water heater installation"
-        android:textSize="20sp"
-        android:fontFamily="@font/productsans_bold"
-        android:editable="false"
         android:layout_marginStart="28dp"
-        android:textColor="@color/black"
         android:layout_marginTop="180dp"
-        />
+        android:editable="false"
+        android:fontFamily="@font/productsans_bold"
+        android:text="Water heater installation"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
+        android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/price"
-        android:text="$ Price: 5000DA "
         android:layout_marginStart="25dp"
-        android:textSize="20sp"
-        android:fontFamily="@font/productsans_bold"
-        android:textColor="@color/black"
-        android:editable="false"
         android:layout_marginTop="230dp"
+        android:editable="false"
+        android:fontFamily="@font/productsans_bold"
+        android:text="$ Price: 5000DA "
+        android:textColor="@color/black"
+        android:textSize="20sp"
 
-        />
+        tools:ignore="TouchTargetSizeCheck" />
 
 
     <ImageView
@@ -107,18 +106,6 @@
             android:layout_marginStart="30dp"
             android:fontFamily="@font/productsans_bold"
             android:textColor="@color/black"
-            android:layout_marginTop="329dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/view_map"
-            android:text="View on map"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="300dp"
-            android:fontFamily="@font/productsans_bold"
-            android:textColor="@color/grey"
             android:layout_marginTop="329dp"
             />
 
@@ -235,7 +222,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/urgent"
-            android:layout_marginTop="690dp"
+            android:layout_marginTop="670dp"
             android:layout_marginStart="30dp"
             />
 
@@ -248,7 +235,7 @@
             android:layout_marginStart="60dp"
             android:fontFamily="@font/productsans_bold"
             android:textColor="@color/black"
-            android:layout_marginTop="691dp"
+            android:layout_marginTop="670dp"
             />
 
 
@@ -257,7 +244,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/material"
-            android:layout_marginTop="730dp"
+            android:layout_marginTop="700dp"
             android:layout_marginStart="30dp"
             />
 
@@ -270,32 +257,26 @@
             android:layout_marginStart="60dp"
             android:fontFamily="@font/productsans_bold"
             android:textColor="@color/black"
-            android:layout_marginTop="731dp"
+            android:layout_marginTop="700dp"
             />
 
-
-
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <Button
             android:id="@+id/confirmButton"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
-            android:layout_marginTop="800dp"
+            android:layout_marginTop="750dp"
             android:layout_marginEnd="22dp"
-            android:layout_marginBottom="22dp"
-            android:backgroundTint="#17ABFF"
-            android:shadowRadius="@integer/material_motion_duration_short_1"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/custom_button1"
+            android:backgroundTint="#17ABFF"
             android:fontFamily="@font/productsans_regular"
             android:shadowColor="@color/black"
+            android:shadowRadius="@integer/material_motion_duration_short_1"
             android:text="Confirm"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
-    </ScrollView>
 
     <ImageView
         android:layout_width="483.66dp"
@@ -318,5 +299,4 @@
         android:layout_marginTop="660dp"/>
 
 
-
-</RelativeLayout>
+</FrameLayout>

@@ -89,16 +89,6 @@ class HomeFragment : Fragment() {
 
 
 
-        view?.findViewById<EditText>(R.id.searchBar)?.setOnKeyListener { v, keyCode, event ->
-
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP){
-                Toast.makeText(requireContext(), "SET!!", Toast.LENGTH_SHORT).show()
-                return@setOnKeyListener true
-            }
-            false
-
-        }
-
 
 
     }

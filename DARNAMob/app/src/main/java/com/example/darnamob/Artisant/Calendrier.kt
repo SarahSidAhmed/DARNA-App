@@ -2,26 +2,16 @@ package com.example.darnamob.Artisant
 
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.CalendarView
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.darnamob.Artisant.Fragments.Calendar
 import com.example.darnamob.Client.Notifications
 import com.example.darnamob.Database.DatabaseHelper
-import com.example.darnamob.Database.data.Artisan
 import com.example.darnamob.Database.data.RendezVousTasks
 import com.example.darnamob.R
-import com.example.darnamob.databinding.ArtNotifBinding
 import com.example.darnamob.databinding.CalendarBinding
 
 private lateinit var binding: CalendarBinding
@@ -53,11 +43,6 @@ class Calendrier : AppCompatActivity() {
         my_recycler.layoutManager = LinearLayoutManager(this)
 
 
-        findViewById<ImageView>(R.id.notifImage)?.setOnClickListener {
-            val intent = Intent(this, Notifications::class.java)
-            intent.putExtra("id", userId)
-            startActivity(intent)
-        }
 
 
         // Perform your logic here

@@ -71,8 +71,6 @@ class art_view_order : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.profile_photo)
         imageView.setImageBitmap(bitmap)
 
-
-        Toast.makeText(this, demande.service, Toast.LENGTH_SHORT).show()
         var price = db.getPrestationPrice(demande.service)
 
         var hour = time.toString()

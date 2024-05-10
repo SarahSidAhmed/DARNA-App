@@ -2,14 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -19,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DARNAMob"
         tools:targetApi="31">
+        <activity
+            android:name=".Client.Fragments.RateArtisan"
+            android:exported="false" />
         <activity
             android:name=".Artisant.ClientProfile"
             android:exported="false" />
@@ -73,9 +75,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Artisant.Fragments.SettingFragment"
-            android:exported="false" />
         <activity
             android:name=".Artisant.Fragments.HomeFragment"
             android:exported="false" />

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.darnamob.Client.Fragments.RateArtisan
 import com.example.darnamob.Database.DatabaseHelper
 import com.example.darnamob.R
 import com.example.darnamob.databinding.ActivityArtisanProfileCommentsBinding
@@ -41,8 +42,9 @@ class ArtisanProfileComments : AppCompatActivity() {
 
         val artisan = db.getArtisanByID(idArtisan)
 
+        val rate = db.calculateRating(idArtisan)
         binding.userName.setText(artisan.membre.userName)
-        binding.rateNum.setText(artisan.Rating.toString())
+        binding.rateNum.setText(rate.toString())
         val image = artisan.membre.image
         val bitmap = BitmapFactory.decodeByteArray(image, 0, image.size)
         binding.ProfileImage.setImageBitmap(bitmap)
@@ -70,13 +72,14 @@ class ArtisanProfileComments : AppCompatActivity() {
             db.reportUser(idArtisan)
             Toast.makeText(this, "User reported!", Toast.LENGTH_SHORT).show()
         }
-        binding.addComment.setOnClickListener {
-
-
-        }
 
         binding.rateBtn.setOnClickListener {
 
+            val intent = Intent(this, RateArtisan::class.java)
+            intent.putExtra("id", userId)
+            intent.putExtra("artisanId", idArtisan)
+            startActivity(intent)
         }
+
     }
 }
