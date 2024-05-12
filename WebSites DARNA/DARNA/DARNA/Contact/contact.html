@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="contact.css">
+    <title>DARNA | Join Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="contact.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "drHCwTlUr0B2FgGaY",
+      });
+   })();
+</script>
+
+</head>
+<body>
+ <div class="wrapper">
+  
+
+<!----------------------------- Form box ----------------------------------->    
+<!--form method="post" action="send_email.php"-->
+<div class="form-box">
+        
+        <!------------------- Join US form -------------------------->
+
+        <div class="join-container" id="Join">
+            <div class="top">
+                <header>Join Us</header>
+                <span>By submitting this form, you're applying to join our artisans at Darna Company. If accepted, please ensure you deposit your documents within 15 days.</span>
+                
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" id="name" placeholder="Full name">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" id="email" placeholder="Email">
+                    <i class="bx bx-envelope"></i>
+                </div>
+            </div>
+            
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Your phone number">
+                    <i class='bx bx-phone'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Your domaine">
+                    <i class='bx bx-label'></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" id="message" placeholder="Add something ...">
+                <i class='bx bx-edit-alt'></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" onclick="sendMail()" value="Register">
+                <BR>
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check">I have read and accept <BR> the Terms of Service & Privacy Policy *</label>
+                </div>
+                
+                    <div class="input-box">
+                        <a type="submit" class="submit"    href="mailto: darnamob@gmail.com">Send us a message</a>
+                       
+                        
+                    </div>
+                
+            </div>
+        </div>
+        </div>
+
+        
+       
+
+</body>
+</html>

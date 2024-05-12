@@ -1,0 +1,263 @@
+<!doctype html >
+<html lang="en">
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content=width=device-width>
+        <!---Boxicons-->
+		
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       <!--my css-->
+        <link rel="stylesheet" href="dashboard.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <title>DARNA | Dashboard </title>
+
+    </head>
+    <body>
+        <!--sidebar-->
+        <section id="sidebar">
+            <a href="#"   class="brand">
+                <img class='Vector1' src="../Dashboard/Vector 1.png">
+           
+            </a>
+           <ul class="side-menu top">
+            <li>
+                <a href='#'>
+                    <i class='bx bxs-dashboard' ></i>
+                    <span class="text">Dashboard</span>
+                </a>
+           </li><li>
+            <a href='#'>
+                <i class='bx bxs-group'></i>     
+                            <span class="text">Employees</span>
+            </a>
+       </li>
+       <li>
+        <a href='#'>
+            <i class='bx bx-user-circle'></i>
+            <span class="text">Condidats</span>
+        </a>
+   </li>
+   <li>
+    <a href='#'>
+        <i class='bx bx-calendar'></i>
+        <span class="text">Calendar</span>
+    </a>
+</li>
+            </ul>
+            <ul class="side-menu">
+                <li>
+                    <a href='#'  class="profil">
+                        <i class='bx bx-user'></i>
+                         <span class="text"> Profile</span>
+                    </a>
+               </li>
+                <li>
+                    <a href='#'>
+                        <i class='bx bxs-cog'></i>
+                        <span class="text">Settings</span>
+                    </a>
+               </li>
+                </ul>
+        </section>
+         <!--sidebar-->
+         <!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link"></a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bx-bell'></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="../Dashboard/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Download PDF</span>
+				</a>
+			</div>
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bx-group'></i>
+					<span class="text">
+						<h3>856</h3>
+						<p>Total Employees</p>
+					</span>
+					
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAABaUlEQVRYR+3WwU4CMRAG4J1FSTZePHjXN/AhuBBXxHfg7sW7B97IkE248AgcfAN9A48otCNDaFK6bWe3XQgm5UZaZr/925kA2Zl94Mw8WQJxJ5ISSgmZCVSr2QuiuPYl81g8T9X60e9QhdUtrDZLzDInqizGFycD0YM41MlBHKoT0Px3dk8PGvZHH1zn0Drtl0IubEcXDVLF6UF5Lx9wKB+GakSBzOLbrvj2oWz7EfIpoHxTaQWDXG/qQlkxEibl1dO7ftGDQNbiWiubKB9G3TmFeijGN63a3lW8dwmfQsilVmx3fPRdv8CExX0ytcG5nVMllF+NQdyb0rqJouLqfvgwtu70TmoOowqaKD0xVzKuUeEENcW4UG2T8R5ZW4yJCsVQnVpCoZgD1BrvqLWbTHBzzwEoFhMC8IL0YRUTewysdmQ71M9mgQJeQ2PvFBRTrIvfHv0fY1tkAnGJpYRSQlwC3Hq6Q/8uoT//Uzo07MdmEgAAAABJRU5ErkJggg=="/>
+				</li>
+				<li>
+					<i class='bx bxs-user-account'></i>
+					<span class="text">
+						<h3>3342</h3>
+						<p>Clients</p>
+					</span>
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAABaUlEQVRYR+3WwU4CMRAG4J1FSTZePHjXN/AhuBBXxHfg7sW7B97IkE248AgcfAN9A48otCNDaFK6bWe3XQgm5UZaZr/925kA2Zl94Mw8WQJxJ5ISSgmZCVSr2QuiuPYl81g8T9X60e9QhdUtrDZLzDInqizGFycD0YM41MlBHKoT0Px3dk8PGvZHH1zn0Drtl0IubEcXDVLF6UF5Lx9wKB+GakSBzOLbrvj2oWz7EfIpoHxTaQWDXG/qQlkxEibl1dO7ftGDQNbiWiubKB9G3TmFeijGN63a3lW8dwmfQsilVmx3fPRdv8CExX0ytcG5nVMllF+NQdyb0rqJouLqfvgwtu70TmoOowqaKD0xVzKuUeEENcW4UG2T8R5ZW4yJCsVQnVpCoZgD1BrvqLWbTHBzzwEoFhMC8IL0YRUTewysdmQ71M9mgQJeQ2PvFBRTrIvfHv0fY1tkAnGJpYRSQlwC3Hq6Q/8uoT//Uzo07MdmEgAAAABJRU5ErkJggg=="/>
+				</li>
+				<li>
+					<i class='bx bxs-user-detail'></i>
+					<span class="text">
+						<h3>77</h3>
+						<p>Job Applied</p>
+					</span>
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAABaUlEQVRYR+3WwU4CMRAG4J1FSTZePHjXN/AhuBBXxHfg7sW7B97IkE248AgcfAN9A48otCNDaFK6bWe3XQgm5UZaZr/925kA2Zl94Mw8WQJxJ5ISSgmZCVSr2QuiuPYl81g8T9X60e9QhdUtrDZLzDInqizGFycD0YM41MlBHKoT0Px3dk8PGvZHH1zn0Drtl0IubEcXDVLF6UF5Lx9wKB+GakSBzOLbrvj2oWz7EfIpoHxTaQWDXG/qQlkxEibl1dO7ftGDQNbiWiubKB9G3TmFeijGN63a3lW8dwmfQsilVmx3fPRdv8CExX0ytcG5nVMllF+NQdyb0rqJouLqfvgwtu70TmoOowqaKD0xVzKuUeEENcW4UG2T8R5ZW4yJCsVQnVpCoZgD1BrvqLWbTHBzzwEoFhMC8IL0YRUTewysdmQ71M9mgQJeQ2PvFBRTrIvfHv0fY1tkAnGJpYRSQlwC3Hq6Q/8uoT//Uzo07MdmEgAAAABJRU5ErkJggg=="/>
+				</li>
+				<li>
+					<i class='bx bxs-user-rectangle'></i>
+					<span class="text">
+						<h3>17</h3>
+						<p>Resigned Employees</p>
+					</span>
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAABSUlEQVRYR+2W4RHCIAyF6QaOUDdwBTexm7iBo+gGjmBHcAQ30Lwe9EJbCKFcr97BHT80UD7eS9I2Zmej2RmPqUCSI1WhqpCkgBSvOfT/Cn2NaekWd5od+dlLNyod93LIwjzpEEB9aJ63hpoCnQjixW69OdSsykilVVB2P16SWXYvln0ulN0HyzGy7A72IS0UgzlYoCy7o40xFWoBxqWhGkrs1BJUQBmnEsBUUCIQnhiCsjIgZ7hNHf1+p1YrWg1BYP0wkoAiUAh5MPTAR+wSvPpc36P/jmqgwCE8V9DZBxg3YnbzJkz7RmGSFRIOmcFI6yl+o9lam/KBJkohYYMwESguJORZB8SgkJCeTd5JcfvGaBGg0MERINjjXtzlFdIATb4iZls3VUiCKZLUSnUurppC+0ihq4upy14Dk7O2AkmqVYWqQpICUvwHcXNrJfTN6JEAAAAASUVORK5CYII="/>
+				</li>
+			</ul>
+<div class="charts">
+	
+	<div class="chart-card">
+		<h3 class="chart-title">Service Statics</h3>
+		<div id="area-chart"></div>
+	</div>
+</div>
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Employee Status</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Employee Name</th>
+								<th> Category </th>
+								<th> Services  </th>
+								<th> Rating  </th>
+								<th>  Status </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="../Dashboard/Ellipse 33.png">
+									<p>Justin Lipshutz</p>
+								</td>
+								<td>Plumbing </td>
+								<td>22 </td>
+								<td>4.4 </td>
+								<td><span class="status completed">GOOD</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../Dashboard/Group 239.png">
+									<p>Marcus Culhane</p>
+								</td>
+								<td>  Electricity</td>
+								<td>24 </td>
+								<td>2.8 </td>
+								<td><span class="status pending">MEDIUM</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../Dashboard/Group 239 (1).png">
+									<p>Leo Stanton</p>
+								</td>
+								<td>Painting</td>
+								<td>28 </td>
+								<td>1.2 </td>
+								<td><span class="status process">BAD</span></td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="composition">
+					<div class="head">
+					  <h4 > Employee Composition </h4>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAABcElEQVRYR+2WMU7DUAyGn5+4REsZuEFZmBlartFkoTeAkTLCxghLwi0qEonOLPQIlYBwCRTjB6RKUUITv4eUJ5wxeY6//PZvB5QnF3jCqf4n6Dh6GQLow5zKBJg/JuFg6apizhQdx2+nSuHlJhicJUHvygWsE1CjpAL9VAmE+YELZZ2AHsfZCSp1UwVKCab3Qf/WVtU/B6UPmKZdAfWm9KasXpip6D+jLNJ40nQDuzqebM2yLZ5tpu/hPiGzDLclMc8p0VIjXM/D3qrJ+Z9n+KBx9kAvO2qZdJUE/f2WMZ/HbUBJzPYXgbJysoK+XJ4JaM2Ga18+UfQXzaRH68QR19cpI+OpRhkxU2fMNIqe1z8kADsT+gMNquEgRny/K56l4d6Cs2LYpS8nG0WvMwA4rwJAxIs03J1x4MoxAlqoIYpyekl6tKSamEnMxDFRESNmcm8ms/f1evdvVidfcPe78xVq0zZNY52Mp6bJbM55A/oBWk3dK433FJ8AAAAASUVORK5CYII="/>					
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAB+klEQVRYR+2XsVLCQBCGb3WYscQ3gDfQxlZqEZU30EYJjdhoKZZaUQFayRPASLAVWxt5A3kDaR3HnBsiN4CE3O1m0Ay5goHJ3t3H/9/ubUBEZEBEOMVygspiZ0NIuTV0CeAFqtleWI6FpqgsPp4L6VxPgMHKBVR3bsKADQX0R8nXmUAAm2EoGw6oZR8j5K2PcidQ273jqrpkoF4S/X/rXVsjkUyj8xeJ8sRNlqD57GSSVvsAq/up/0YwEMJpQC3XCoKZ95wFKgvNlICEm0TJQAj5mYZ6vh8Y5xPABG2X8aq81Npcyiuo58pasTOCeKCW/YRrZjQ3H2DhX9eM/RVGBp17bfrRMOyngxYMbFf1i24/HdTM9hEq2X4SKMl2pSot+2mgFNuZ9tNAabaz7DcGZdnOsN8clGM7w35j0GFLV3g4FLC6j9/wntceeOeLHr5XNcTaVwsqefe39iCBKmGsTlMfFlpQy+a1yaYCmaD2G66X0tycXEPd9cmgstRMio/EuyakF/YnV6jXh6L1BkM6R1DfuzeYoULpitKyv4Id1NliQY0SSaH1ETS9YFC7hK/IXmcPsI2fGR+ALsY9j55Rm2ey9eNQct4xYHb26g9SbJieE4OOKRJbr8SIzyghuzCZ3NLkW56wJHUJy05MCeWMciF05segOiqZxHwD4rPyKyveyTcAAAAASUVORK5CYII="/></div>
+					
+					<canvas id="pie-chart" width="200" height="200"></canvas>
+					<script>
+					  const ctx = document.getElementById('pie-chart').getContext('2d');
+					  const pieChart = new Chart(ctx, {
+						type: 'pie',
+						data: {
+						  labels: ['Female ', 'Male'],
+						  
+						  datasets: [{
+							data: [35, 65],
+							backgroundColor: [
+							  'rgba(255, 105, 180, 0.5)', // pink color for female
+							  'rgba(69, 160, 230, 0.5)' // blue color for male
+							],
+							borderColor: [
+							  'rgba(255, 105, 180, 1)', // pink color for female
+							  'rgba(69, 160, 230, 1)' // blue color for male
+							],
+							borderWidth: 1
+						  }]
+						},
+						options: {
+						  responsive: true,
+						  plugins: {
+							legend: {
+							  position: 'top',
+							},
+							title: {
+							  display: true,
+							  text: '856 Employee total'
+							}
+						  }
+						}
+					  });
+					</script>
+					
+				  </div>
+				  
+				 
+				
+				
+					
+				  </div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.49.0/apexcharts.min.js" ></script>
+        <script src="script.js"></script>
+    </body>
+</html>
